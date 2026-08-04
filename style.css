@@ -88,29 +88,132 @@ h4{ font-size: 1.05rem; font-weight: 600; }
 .site-nav ul li a:hover, .site-nav ul li a.active{ border-color: var(--flame); }
 
 /* ---------- HERO (homepage only) ---------- */
-/* Purpose intro band — sets what the site is about, above the featured content */
-.hero-intro{
-  max-width: 1160px;
-  margin: 44px auto 0;
-  padding: 0 32px;
+/* Purpose intro band — bold dark section so the homepage has visual rhythm, not flat cream-on-cream */
+.hero-banner{
+  background: var(--ink);
+  color: var(--bg);
+  padding: 64px 32px 56px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
-.hero-intro h1{
-  font-size: 2.6rem;
+.hero-banner::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(251,246,238,0.06) 1px, transparent 1px);
+  background-size: 22px 22px;
+  pointer-events: none;
+}
+.hero-banner .eyebrow{
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--flame);
+  margin-bottom: 14px;
+  position: relative;
+}
+.hero-banner h1{
+  color: var(--bg);
+  font-size: 2.7rem;
   max-width: 780px;
   margin: 0 auto 16px;
+  position: relative;
 }
-.hero-intro .lede{
+.hero-banner h1 em{ font-style: normal; color: var(--flame); }
+.hero-banner .lede{
   font-family: var(--font-ui);
   font-size: 1.05rem;
-  color: var(--ink-soft);
-  max-width: 620px;
-  margin: 0 auto;
+  color: #C9C1B5;
+  max-width: 600px;
+  margin: 0 auto 30px;
   line-height: 1.7;
+  position: relative;
 }
-.hero-intro .lede strong{ color: var(--ink); font-weight: 600; }
+.hero-banner .lede strong{ color: var(--bg); font-weight: 600; }
 
 .hero{ max-width: 1160px; margin: 40px auto 0; padding: 0 32px; }
+
+/* Overlay-style featured card — headline sits directly on the image, magazine-cover treatment */
+.hero-overlay-card{
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  display: flex;
+  align-items: flex-end;
+  box-shadow: 0 12px 30px rgba(34,28,22,0.18);
+}
+.hero-overlay-card img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.hero-overlay-card::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15,12,9,0.92) 0%, rgba(15,12,9,0.55) 42%, rgba(15,12,9,0) 75%);
+  z-index: 1;
+}
+.hero-overlay-card .overlay-body{
+  position: relative;
+  z-index: 2;
+  padding: 32px;
+  color: #fff;
+}
+.hero-overlay-card h2{ color: #fff; font-size: 2.1rem; margin: 0 0 10px; max-width: 640px; }
+.hero-overlay-card p{ color: #E8E2D6; max-width: 520px; margin: 0 0 14px; font-size: 0.98rem; }
+.hero-overlay-card .meta{ color: #C9C1B5; }
+.hero-overlay-card .meta a{ color: var(--bg); font-weight: 600; transition: color .15s; }
+.hero-overlay-card .meta a:hover{ color: var(--flame); }
+
+/* Newsletter CTA band, before the footer */
+.newsletter-cta{
+  background: var(--tag-bg);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin-top: 60px;
+  padding: 48px 32px;
+  text-align: center;
+}
+.newsletter-cta h2{ border: none; padding: 0; display: block; margin: 0 0 8px; }
+.newsletter-cta p{ font-family: var(--font-ui); color: var(--ink-soft); margin: 0 0 22px; }
+.newsletter-form{ display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; max-width: 440px; margin: 0 auto; }
+.newsletter-form input{
+  flex: 1;
+  min-width: 200px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  background: var(--surface);
+}
+.newsletter-form button{
+  padding: 12px 22px;
+  border-radius: 8px;
+  border: none;
+  background: var(--flame);
+  color: #fff;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background .15s;
+}
+.newsletter-form button:hover{ background: var(--flame-dark); }
+
+@media (max-width: 560px){
+  .hero-banner h1{ font-size: 2rem; }
+  .hero-overlay-card h2{ font-size: 1.5rem; }
+}
+
 .hero-grid{ display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; }
 .hero-card{ position: relative; border-radius: 10px; overflow: hidden; background: var(--surface); box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
 .hero-card img{ display:block; width: 100%; aspect-ratio: 16/10; object-fit: cover; }
