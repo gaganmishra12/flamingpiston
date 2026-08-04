@@ -53,6 +53,21 @@ header {
   z-index: 10;
 }
 .logo { height: 44px; width: auto; vertical-align: middle; }
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+.brand span {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--accent-dark);
+}
+.brand:hover span { color: var(--accent); }
+header nav { margin-top: 4px; }
 nav a {
   color: var(--muted);
   margin: 0 16px;
@@ -76,6 +91,71 @@ nav a:hover { color: var(--accent); text-decoration: none; }
 
 /* ---- Content ---- */
 .content { max-width: 720px; margin: 40px auto; padding: 0 20px; }
+
+/* ---- Card grid (for reviews/guides listing pages) ---- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+.card-grid .article-card { margin-bottom: 0; }
+
+/* ---- Review meta row (byline, date, rating) ---- */
+.review-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 6px 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.review-meta .dot::before { content: "•"; margin-right: 14px; color: var(--border); }
+
+.rating-badge {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  background: var(--accent);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 5px 12px;
+  border-radius: 8px;
+  line-height: 1;
+}
+.rating-badge .out-of { font-weight: 500; opacity: 0.85; font-size: 0.75rem; }
+
+/* ---- Quick verdict box (shown near the top of a review) ---- */
+.quick-verdict {
+  background: #FBF6EE;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 0 0 32px;
+}
+.quick-verdict h3 { margin: 0 0 10px; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent-dark); }
+.quick-verdict p { margin: 0; font-size: 0.98rem; }
+
+/* ---- Rating row inside listing cards ---- */
+.card-rating-row {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
 
 /* ---- Article cards ---- */
 .article-card {
