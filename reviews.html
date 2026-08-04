@@ -2,40 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Car Reviews - FlamingPiston</title>
   <meta name="description" content="Honest, in-depth car reviews to help you choose your next vehicle.">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <header>
-    <a href="/" class="brand">
-      <img src="/images/logo.png" alt="FlamingPiston logo" class="logo">
-      <span>FlamingPiston</span>
-    </a>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/reviews.html">Reviews</a>
-      <a href="/guides.html">Guides</a>
-      <a href="/about.html">About</a>
-    </nav>
-  </header>
 
-  <div class="content">
+  <nav class="site-nav">
+    <a href="/" class="logo">Flaming<span>Piston</span></a>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/reviews.html" class="active">Reviews</a></li>
+      <li><a href="/guides.html">Guides</a></li>
+      <li><a href="/about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <div class="section-heading">
     <h2>Car Reviews</h2>
+  </div>
 
-    <div class="card-grid">
-      <div class="article-card">
-        <img class="card-image" src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=1000&q=80" alt="Toyota Hilux pickup truck on a dirt road — temporary stock photo, replace with a press-kit image">
+  <div class="card-grid">
+    <div class="article-card">
+      <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&q=80" alt="Toyota Hilux pickup truck">
+      <div class="card-body">
+        <span class="tag">Review</span>
         <h3><a href="/reviews-toyota-hilux.html">Toyota Hilux Review: Price, Specs & Features (2026)</a></h3>
         <p>A full breakdown of the Hilux's engine, off-road hardware, interior features, safety kit, and whether it's worth buying over an SUV.</p>
-        <p><a href="/reviews-toyota-hilux.html">Read full review →</a></p>
-        <div class="card-rating-row">
-          <span>By Gagan Mishra</span>
-          <span class="rating-badge">8.5 <span class="out-of">/ 10</span></span>
+        <div class="meta"><span>By Gagan Mishra</span></div>
+        <div class="verdict">
+          <span>Verdict</span>
+          <span class="rating-badge">8.5 <span class="out-of">/10</span></span>
         </div>
       </div>
+    </div>
 
-      <div class="article-card">
+    <div class="article-card">
+      <div class="card-body">
+        <span class="tag">Review</span>
         <h3>2026 Toyota Camry Review</h3>
         <p>Coming soon.</p>
       </div>
@@ -43,7 +48,8 @@
   </div>
 
   <footer>
-    <p>&copy; 2026 FlamingPiston. All rights reserved. | <a href="/privacy-policy.html" style="color:#ccc;">Privacy Policy</a></p>
+    &copy; 2026 FlamingPiston. All rights reserved. | <a href="/privacy-policy.html">Privacy Policy</a>
   </footer>
+
 </body>
 </html>

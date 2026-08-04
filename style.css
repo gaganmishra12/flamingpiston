@@ -1,235 +1,274 @@
-/* ===== FlamingPiston Design System — Editorial Light ===== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500;700&display=swap');
+/* ===============================================
+   FLAMINGPISTON — DESIGN SYSTEM
+   One stylesheet, used identically on every page.
+   =============================================== */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
 
-:root {
-  --bg: #FBFAF8;
-  --surface: #FFFFFF;
-  --text: #2B2B2E;
-  --muted: #6B6F76;
-  --accent: #E8491D;
-  --accent-dark: #1F2937;
-  --border: #E7E3DC;
+:root{
+  --bg:            #FBF6EE;   /* warm background */
+  --surface:       #FFFFFF;   /* card background */
+  --ink:           #221C16;   /* primary text */
+  --ink-soft:      #6B6259;   /* secondary text / meta */
+  --line:          #E7DFD1;   /* hairline borders */
+  --flame:         #C1440E;   /* signature accent */
+  --flame-dark:    #9A350A;   /* hover state */
+  --tag-bg:        #FBEBE0;   /* soft tint of the accent, used for tags + verdict box */
+  --pros-bg:       #F1F8F2;   /* pros box tint */
+
+  --font-display:  'Fraunces', Georgia, serif;
+  --font-body:     'Source Serif 4', Georgia, serif;
+  --font-ui:       'Inter', system-ui, sans-serif;
+  --font-mono:     'JetBrains Mono', monospace;
 }
 
-* { box-sizing: border-box; }
+*{ box-sizing: border-box; }
 
-body {
+body{
   margin: 0;
   background: var(--bg);
-  color: var(--text);
-  font-family: 'Lora', Georgia, serif;
+  color: var(--ink);
+  font-family: var(--font-body);
   font-size: 1.05rem;
-  line-height: 1.75;
+  line-height: 1.65;
 }
 
-h1, h2, h3, h4 {
-  font-family: 'Inter', sans-serif;
-  font-weight: 800;
-  color: var(--accent-dark);
-  line-height: 1.25;
-}
+a{ color: inherit; text-decoration: none; }
 
-h1 { font-size: 2.4rem; }
-h2 {
-  font-size: 1.6rem;
-  margin-top: 2.5rem;
+h1, h2, h3, h4{
+  font-family: var(--font-display);
+  color: var(--ink);
+  line-height: 1.2;
+  margin: 0 0 12px;
+}
+h1{ font-size: 2.2rem; font-weight: 700; }
+h2{
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2.4rem;
   padding-bottom: 8px;
-  border-bottom: 3px solid var(--accent);
+  border-bottom: 3px solid var(--flame);
   display: inline-block;
 }
-h3 { font-size: 1.2rem; font-weight: 700; }
+h3{ font-size: 1.15rem; font-weight: 600; }
+h4{ font-size: 1.05rem; font-weight: 600; }
 
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
-
-/* ---- Header / Nav ---- */
-header {
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  padding: 16px 20px;
-  text-align: center;
+/* ---------- NAV (identical on every page) ---------- */
+.site-nav{
   position: sticky;
   top: 0;
-  z-index: 10;
-}
-.logo { height: 44px; width: auto; vertical-align: middle; }
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  margin-bottom: 10px;
-}
-.brand span {
-  font-family: 'Inter', sans-serif;
-  font-weight: 800;
-  font-size: 1.3rem;
-  color: var(--accent-dark);
-}
-.brand:hover span { color: var(--accent); }
-header nav { margin-top: 4px; }
-nav a {
-  color: var(--muted);
-  margin: 0 16px;
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-nav a:hover { color: var(--accent); text-decoration: none; }
-
-/* ---- Hero ---- */
-.hero {
-  padding: 64px 20px;
-  text-align: center;
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-}
-.hero h2 { border: none; padding: 0; font-size: 2.2rem; margin: 0 0 10px 0; }
-.hero p { color: var(--muted); font-size: 1.1rem; font-family: 'Inter', sans-serif; }
-
-/* ---- Content ---- */
-.content { max-width: 720px; margin: 40px auto; padding: 0 20px; }
-
-/* ---- Card grid (for reviews/guides listing pages) ---- */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 20px;
-}
-.card-grid .article-card { margin-bottom: 0; }
-
-/* ---- Review meta row (byline, date, rating) ---- */
-.review-meta {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 14px;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
-  color: var(--muted);
-  margin: 6px 0 24px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--border);
-}
-.review-meta .dot::before { content: "•"; margin-right: 14px; color: var(--border); }
-
-.rating-badge {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 4px;
-  background: var(--accent);
-  color: #fff;
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 0.95rem;
-  padding: 5px 12px;
-  border-radius: 8px;
-  line-height: 1;
-}
-.rating-badge .out-of { font-weight: 500; opacity: 0.85; font-size: 0.75rem; }
-
-/* ---- Quick verdict box (shown near the top of a review) ---- */
-.quick-verdict {
-  background: #FBF6EE;
-  border: 1px solid var(--border);
-  border-left: 4px solid var(--accent);
-  border-radius: 8px;
-  padding: 20px 24px;
-  margin: 0 0 32px;
-}
-.quick-verdict h3 { margin: 0 0 10px; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent-dark); }
-.quick-verdict p { margin: 0; font-size: 0.98rem; }
-
-/* ---- Rating row inside listing cards ---- */
-.card-rating-row {
-  margin-top: 14px;
-  padding-top: 14px;
-  border-top: 1px dashed var(--border);
+  z-index: 50;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.82rem;
-  color: var(--muted);
+  padding: 16px 32px;
+  background: rgba(251,246,238,0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+.site-nav .logo{
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.site-nav .logo span{ color: var(--flame); }
+.site-nav ul{
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  margin: 0; padding: 0;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
-  letter-spacing: 0.4px;
+}
+.site-nav ul li a{ padding-bottom: 4px; border-bottom: 2px solid transparent; transition: border-color .15s; color: var(--ink); }
+.site-nav ul li a:hover, .site-nav ul li a.active{ border-color: var(--flame); }
+
+/* ---------- HERO (homepage only) ---------- */
+.hero{ max-width: 1160px; margin: 40px auto 0; padding: 0 32px; }
+.hero-grid{ display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; }
+.hero-card{ position: relative; border-radius: 10px; overflow: hidden; background: var(--surface); box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+.hero-card img{ display:block; width: 100%; aspect-ratio: 16/10; object-fit: cover; }
+.hero-card .card-body{ padding: 20px; }
+.hero-card h1{ font-size: 1.9rem; line-height: 1.15; margin: 10px 0 8px; }
+
+.hero-side{ display: flex; flex-direction: column; gap: 18px; }
+.hero-side .mini-card{ display: flex; gap: 14px; }
+.hero-side .mini-card img{ width: 110px; height: 78px; object-fit: cover; border-radius: 6px; flex-shrink: 0; }
+.hero-side h3{ margin: 0 0 6px; line-height: 1.25; }
+
+/* ---------- TAG / CATEGORY PILL ---------- */
+.tag{
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--flame-dark);
+  background: var(--tag-bg);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.tag::before{ content: "●"; font-size: 0.5rem; }
+
+/* ---------- META ROW (byline / date) ---------- */
+.meta{
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-/* ---- Card images (photo bleeds to card edges, ignoring card padding) ---- */
-.article-card .card-image {
-  display: block;
-  width: calc(100% + 44px);
-  margin: -22px -22px 16px -22px;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  border-radius: 10px 10px 0 0;
+/* ---------- SECTION HEADING ---------- */
+.section-heading{
+  max-width: 1160px;
+  margin: 56px auto 20px;
+  padding: 0 32px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 10px;
 }
+.section-heading h2{ font-size: 1.3rem; margin: 0; border: none; padding: 0; display: block; }
+.section-heading a{ font-family: var(--font-ui); font-size: 0.8rem; font-weight: 600; color: var(--flame); }
 
-/* ---- Hero image at top of a full article ---- */
-.hero-image {
+/* ---------- CARD GRID (core reusable pattern, used on home/reviews/guides) ---------- */
+.card-grid{
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 32px 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.article-card{ background: var(--surface); border-radius: 10px; overflow: hidden; border: 1px solid var(--line); transition: transform .15s, box-shadow .15s; }
+.article-card:hover{ transform: translateY(-3px); box-shadow: 0 8px 20px rgba(34,28,22,0.08); }
+.article-card img{ display:block; width: 100%; aspect-ratio: 16/10; object-fit: cover; }
+.article-card .card-body{ padding: 16px 18px 20px; }
+.article-card h3{ margin: 10px 0 8px; }
+.article-card h3 a:hover{ color: var(--flame); }
+.article-card p{ margin: 0 0 10px; font-size: 0.95rem; color: var(--ink-soft); }
+.article-card .verdict{
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+.rating-badge{
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  background: var(--flame);
+  color: #fff;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 3px 9px;
+  border-radius: 6px;
+  line-height: 1;
+}
+.rating-badge .out-of{ font-weight: 500; opacity: .85; font-size: 0.72rem; }
+.rating-badge.lg{ font-size: 1rem; padding: 6px 14px; }
+
+/* ---------- Plain content pages (about, privacy, full articles) ---------- */
+.content{ max-width: 760px; margin: 40px auto; padding: 0 32px; }
+.content > p, .content > ul{ margin: 0 0 16px; }
+.content a{ color: var(--flame); }
+.content a:hover{ text-decoration: underline; }
+
+/* ---------- Article hero image ---------- */
+.hero-image{
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16/9;
   object-fit: cover;
   border-radius: 10px;
   margin: 16px 0 24px;
 }
 
-/* ---- Article cards ---- */
-.article-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 22px;
-  margin-bottom: 20px;
-  transition: box-shadow 0.2s, transform 0.2s;
+/* ---------- Review meta row (byline, date, rating) atop an article ---------- */
+.review-meta{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin: 0 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
 }
-.article-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); transform: translateY(-2px); }
-.article-card h3 a, .article-card h4 a { color: var(--accent-dark); text-decoration: none; }
-.article-card h3 a:hover, .article-card h4 a:hover { color: var(--accent); }
 
-/* ---- Spec tables ---- */
-table {
+/* ---------- Quick verdict box ---------- */
+.quick-verdict{
+  background: var(--tag-bg);
+  border-left: 4px solid var(--flame);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 0 0 32px;
+}
+.quick-verdict h3{ margin: 0 0 10px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--flame-dark); }
+.quick-verdict p{ margin: 0; font-family: var(--font-body); font-size: 1rem; color: var(--ink); }
+
+/* ---------- Spec tables ---------- */
+table{
   width: 100%;
   border-collapse: collapse;
   margin: 20px 0;
   background: var(--surface);
-  border: 1px solid var(--border);
+  border: 1px solid var(--line);
   border-radius: 8px;
   overflow: hidden;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.85rem;
 }
-th, td { padding: 12px 14px; border-bottom: 1px solid var(--border); text-align: left; }
-th {
-  background: #F5F3EF;
-  color: var(--accent-dark);
-  text-transform: uppercase;
-  font-size: 0.72rem;
-  letter-spacing: 1px;
-}
-tr:last-child td { border-bottom: none; }
+th, td{ padding: 12px 14px; border-bottom: 1px solid var(--line); text-align: left; }
+th{ background: var(--tag-bg); color: var(--flame-dark); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; }
+tr:last-child td{ border-bottom: none; }
 
-/* ---- Pros / Cons ---- */
-.pros-cons { display: flex; gap: 20px; flex-wrap: wrap; font-family: 'Inter', sans-serif; font-size: 0.95rem; }
-.pros, .cons { flex: 1; min-width: 250px; padding: 18px; border-radius: 10px; border: 1px solid var(--border); }
-.pros { background: #F1F8F2; }
-.cons { background: #FDF1EC; }
-.pros h3 { color: #2E7D46; }
-.cons h3 { color: var(--accent); }
+/* ---------- Pros / Cons ---------- */
+.pros-cons{ display: flex; gap: 20px; flex-wrap: wrap; font-family: var(--font-ui); font-size: 0.95rem; margin: 20px 0; }
+.pros, .cons{ flex: 1; min-width: 250px; padding: 18px; border-radius: 10px; border: 1px solid var(--line); }
+.pros{ background: var(--pros-bg); }
+.cons{ background: var(--tag-bg); }
+.pros h3{ color: #2E7D46; }
+.cons h3{ color: var(--flame-dark); }
 
-/* ---- Footer ---- */
-footer {
+/* ---------- Footer (identical on every page) ---------- */
+footer{
+  margin-top: 70px;
+  border-top: 1px solid var(--line);
+  padding: 32px;
   text-align: center;
-  padding: 30px 20px;
-  background: var(--surface);
-  border-top: 1px solid var(--border);
-  color: var(--muted);
-  margin-top: 60px;
-  font-size: 0.85rem;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--ink-soft);
 }
-footer a { color: var(--muted); }
-footer a:hover { color: var(--accent); }
+footer a{ color: var(--ink-soft); }
+footer a:hover{ color: var(--flame); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px){
+  .hero-grid{ grid-template-columns: 1fr; }
+  .card-grid{ grid-template-columns: repeat(2, 1fr); }
+  .site-nav ul{ display: none; }
+}
+@media (max-width: 560px){
+  .card-grid{ grid-template-columns: 1fr; }
+}
