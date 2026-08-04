@@ -157,6 +157,26 @@ nav a:hover { color: var(--accent); text-decoration: none; }
   letter-spacing: 0.4px;
 }
 
+/* ---- Card images (photo bleeds to card edges, ignoring card padding) ---- */
+.article-card .card-image {
+  display: block;
+  width: calc(100% + 44px);
+  margin: -22px -22px 16px -22px;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+/* ---- Hero image at top of a full article ---- */
+.hero-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 16px 0 24px;
+}
+
 /* ---- Article cards ---- */
 .article-card {
   background: var(--surface);
