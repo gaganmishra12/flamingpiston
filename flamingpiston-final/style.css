@@ -60,7 +60,7 @@ h4{ font-size: 1.05rem; font-weight: 600; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 32px;
+  padding: 10px 32px;
   background: rgba(251,246,238,0.92);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--line);
@@ -69,7 +69,7 @@ h4{ font-size: 1.05rem; font-weight: 600; }
   display: inline-flex;
   align-items: center;
 }
-.site-nav .logo img{ height: 54px; width: auto; display: block; }
+.site-nav .logo img{ height: 80px; width: auto; display: block; }
 .site-nav ul{
   display: flex;
   gap: 28px;
@@ -396,7 +396,7 @@ footer{
   gap: 32px;
 }
 .footer-brand .logo{ margin-bottom: 10px; }
-.footer-brand .logo img{ height: 44px; width: auto; }
+.footer-brand .logo img{ height: 60px; width: auto; }
 .footer-brand p{ font-size: 0.85rem; color: var(--ink-soft); line-height: 1.6; max-width: 280px; margin: 0 0 16px; }
 .footer-social{ display: flex; gap: 10px; }
 .footer-social a{
