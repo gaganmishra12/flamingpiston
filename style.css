@@ -86,6 +86,18 @@ h4{ font-size: 1.05rem; font-weight: 600; }
 
 .hero{ max-width: 1160px; margin: 40px auto 0; padding: 0 32px; }
 
+/* Simple (non-overlay) hero card — used when there's no photo yet for the featured overlay treatment */
+.hero-card-simple{
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(34,28,22,0.10);
+}
+.hero-card-simple .card-body{ padding: 28px 32px; }
+.hero-card-simple h2{ font-size: 2rem; margin: 6px 0 10px; border: none; padding: 0; display: block; }
+.hero-card-simple p{ color: var(--ink-soft); max-width: 640px; margin: 0 0 14px; }
+
 /* Overlay-style featured card — headline sits directly on the image, magazine-cover treatment */
 .hero-overlay-card{
   position: relative;
@@ -274,6 +286,22 @@ h4{ font-size: 1.05rem; font-weight: 600; }
   border-radius: 10px;
   margin: 16px 0 24px;
 }
+.hero-image-placeholder{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 10px;
+  margin: 16px 0 24px;
+  background: linear-gradient(135deg, var(--tag-bg), var(--bg));
+  border: 1px dashed var(--flame);
+  color: var(--flame-dark);
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  padding: 20px;
+}
 
 /* ---------- Review meta row (byline, date, rating) atop an article ---------- */
 .review-meta{
@@ -341,8 +369,76 @@ h4{ font-size: 1.05rem; font-weight: 600; }
   font-size: 0.8rem;
   color: var(--ink-soft);
   transition: background .15s, color .15s, border-color .15s;
+  position: relative;
+  cursor: pointer;
+  background: none;
+  font-family: var(--font-ui);
 }
 .share-btn:hover{ background: var(--flame); border-color: var(--flame); color: #fff; }
+.share-btn svg{ width: 15px; height: 15px; fill: currentColor; }
+.share-btn .copied-tip{
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: var(--bg);
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  border-radius: 5px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .15s;
+}
+.share-btn.copied .copied-tip{ opacity: 1; }
+
+/* ---------- Numbered section headers for article body ("in a new manner") ---------- */
+.section-block{ margin: 44px 0; }
+.section-num-heading{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 16px;
+  border: none;
+  padding: 0;
+}
+.section-num-heading .num{
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: var(--flame);
+  color: #fff;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.section-num-heading h2{
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+/* ---------- Who should buy / avoid ---------- */
+.buyer-fit{ display: flex; gap: 20px; flex-wrap: wrap; margin: 20px 0; }
+.buyer-fit .fit-card{
+  flex: 1;
+  min-width: 260px;
+  padding: 20px 22px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+}
+.buyer-fit .fit-yes{ background: var(--pros-bg); border-left: 4px solid #2E7D46; }
+.buyer-fit .fit-no{ background: var(--tag-bg); border-left: 4px solid var(--flame); }
+.buyer-fit h3{ font-family: var(--font-ui); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 12px; }
+.buyer-fit .fit-yes h3{ color: #2E7D46; }
+.buyer-fit .fit-no h3{ color: var(--flame-dark); }
+.buyer-fit ul{ margin: 0; padding-left: 18px; font-family: var(--font-body); }
+.buyer-fit li{ margin-bottom: 6px; }
 
 
 /* ---------- Quick verdict box ---------- */
