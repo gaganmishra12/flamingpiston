@@ -1,35 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FlamingPiston — Honest Car Reviews, Guides & News</title>
-<meta name="description" content="FlamingPiston is a car knowledge hub with honest reviews, buying guides, and maintenance breakdowns — no jargon, no fluff.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlamingPiston — Honest Car Reviews, Guides & News</title>
+  <meta name="description" content="FlamingPiston is a car knowledge hub with honest reviews, buying guides, and maintenance breakdowns — no jargon, no fluff.">
+
+  <link rel="stylesheet" href="/style.css?v=8">
+  <link rel="alternate" type="application/rss+xml" title="FlamingPiston RSS Feed" href="/feed.xml">
+  <link rel="canonical" href="https://flamingpiston.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="FlamingPiston — Honest Car Reviews, Guides & News">
+  <meta property="og:description" content="FlamingPiston is a car knowledge hub with honest reviews, buying guides, and maintenance breakdowns — no jargon, no fluff.">
+  <meta property="og:url" content="https://flamingpiston.com/">
+  <meta property="og:image" content="https://flamingpiston.com/images/syros-front.jpg">
+  <meta property="og:site_name" content="FlamingPiston">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FlamingPiston — Honest Car Reviews, Guides & News">
+  <meta name="twitter:description" content="FlamingPiston is a car knowledge hub with honest reviews, buying guides, and maintenance breakdowns — no jargon, no fluff.">
+  <meta name="twitter:image" content="https://flamingpiston.com/images/syros-front.jpg">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://flamingpiston.com/"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "FlamingPiston",
+  "url": "https://flamingpiston.com",
+  "logo": "https://flamingpiston.com/images/logo.png"
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "FlamingPiston",
+  "url": "https://flamingpiston.com",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://flamingpiston.com/reviews.html?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+  </script>
 </head>
 <body>
 
 <header>
   <div class="wrap navbar">
-    <a href="index.html" class="logo">
+    <a href="/" class="logo">
       <span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2c1.8 2.4 3 4.6 3 6.8A3 3 0 1 1 9 8.8C9 6.6 10.2 4.4 12 2Z" fill="#FBF7F0"/><rect x="9" y="14" width="6" height="7" rx="1.2" fill="#FBF7F0"/></svg></span>
       FlamingPiston
     </a>
     <nav>
       <ul>
-        <li><a href="index.html" aria-current="page">Home</a></li>
-        <li><a href="reviews.html">Reviews</a></li>
-        <li><a href="news.html">News</a></li>
-        <li><a href="guides.html">Guides</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="/" aria-current="page">Home</a></li>
+        <li><a href="/reviews.html">Reviews</a></li>
+        <li><a href="/news.html">News</a></li>
+        <li><a href="/guides.html">Guides</a></li>
+        <li><a href="/about.html">About</a></li>
       </ul>
     </nav>
     <div class="nav-cta">
-      <a href="reviews.html" class="btn ghost">Latest Review</a>
-      <a href="guides.html" class="btn flame">Browse Guides</a>
+      <a href="/reviews.html" class="btn ghost">Latest Review</a>
+      <a href="/guides.html" class="btn flame">Browse Guides</a>
     </div>
     <button class="menu-btn" aria-label="Open menu">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -46,8 +92,8 @@
       <h1>KNOW YOUR<br><span class="hl">MACHINE.</span></h1>
       <p class="lede">Real reviews, plain-English guides, and specs that actually mean something — built for people who want to understand what they're driving, not sit through a dealership pitch.</p>
       <div class="hero-actions">
-        <a href="reviews.html" class="btn flame">Read the latest test →</a>
-        <a href="guides.html" class="btn" style="background:transparent;border-color:var(--cream);color:var(--cream);">Explore guides</a>
+        <a href="/reviews.html" class="btn flame">Read the latest test →</a>
+        <a href="/guides.html" class="btn" style="background:transparent;border-color:var(--cream);color:var(--cream);">Explore guides</a>
       </div>
       <div class="hero-stats">
         <div><b>100%</b><span>Independent</span></div>
@@ -85,31 +131,31 @@
         <p class="eyebrow">Fresh off the lift</p>
         <h2>Latest Reviews</h2>
       </div>
-      <a href="reviews.html" class="view-all">View all reviews →</a>
+      <a href="/reviews.html" class="view-all">View all reviews →</a>
     </div>
     <div class="review-row">
       <article class="card">
-        <div class="card-media"><img src="images/hilux-front.jpg" alt="New Toyota Hilux driving through a city at night"><span class="tag">Pickup</span></div>
+        <div class="card-media"><img src="/images/hilux-front.jpg" alt="New Toyota Hilux driving through a city at night"><span class="tag">Pickup</span></div>
         <div class="card-body">
           <p class="eyebrow">Full review</p>
           <h3>New Toyota Hilux: what's changed, price &amp; specs</h3>
           <p>Design refresh, 500Nm auto torque, and a genuinely capable 4x4 — here's who it's actually for.</p>
           <div class="card-foot">
             <div class="mini-gauge"><span class="dot"></span> 8.5 / 10</div>
-            <a class="read-link" href="reviews-toyota-hilux.html">Read →</a>
+            <a class="read-link" href="/reviews-toyota-hilux.html">Read →</a>
           </div>
         </div>
       </article>
 
       <article class="card">
-        <div class="card-media"><img src="images/syros-front.jpg" alt="Kia Syros EV parked in a city plaza"><span class="tag">Electric SUV</span></div>
+        <div class="card-media"><img src="/images/syros-front.jpg" alt="Kia Syros EV parked in a city plaza"><span class="tag">Electric SUV</span></div>
         <div class="card-body">
           <p class="eyebrow">Full review</p>
           <h3>Kia Syros EV: range, price &amp; should you buy it</h3>
           <p>526km certified range, 39-minute fast charging, and a lifetime battery warranty — the spec sheet to beat.</p>
           <div class="card-foot">
             <div class="mini-gauge"><span class="dot"></span> 8.4 / 10</div>
-            <a class="read-link" href="reviews-kia-syros-ev.html">Read →</a>
+            <a class="read-link" href="/reviews-kia-syros-ev.html">Read →</a>
           </div>
         </div>
       </article>
@@ -125,7 +171,7 @@
           <p>New launches, price updates, and industry news — check the News page for the latest.</p>
           <div class="card-foot">
             <div class="mini-gauge"><span class="dot" style="background:var(--ink-soft)"></span> This week</div>
-            <a class="read-link" href="news.html">Read →</a>
+            <a class="read-link" href="/news.html">Read →</a>
           </div>
         </div>
       </article>
@@ -140,25 +186,25 @@
         <p class="eyebrow">No jargon, promise</p>
         <h2 style="color:var(--cream)">Garage Guides</h2>
       </div>
-      <a href="guides.html" class="view-all" style="border-color:var(--ember);color:var(--cream)">View all guides →</a>
+      <a href="/guides.html" class="view-all" style="border-color:var(--ember);color:var(--cream)">View all guides →</a>
     </div>
     <div class="guide-grid">
-      <a class="guide-card" href="guides.html">
+      <a class="guide-card" href="/guides.html">
         <span class="num">01</span>
         <h3>Buying your first car: the no-BS checklist</h3>
         <span class="arrow">Read guide →</span>
       </a>
-      <a class="guide-card" href="guides.html">
+      <a class="guide-card" href="/guides.html">
         <span class="num">02</span>
         <h3>EV vs. gas: what actually saves you money</h3>
         <span class="arrow">Read guide →</span>
       </a>
-      <a class="guide-card" href="guides.html">
+      <a class="guide-card" href="/guides.html">
         <span class="num">03</span>
         <h3>Dashboard warning lights, decoded</h3>
         <span class="arrow">Read guide →</span>
       </a>
-      <a class="guide-card" href="guides.html">
+      <a class="guide-card" href="/guides.html">
         <span class="num">04</span>
         <h3>Maintenance 101: what your car actually needs</h3>
         <span class="arrow">Read guide →</span>
@@ -176,14 +222,14 @@
       </div>
     </div>
     <div class="chip-row">
-      <a class="chip" href="#">Hatchback</a>
-      <a class="chip" href="#">Sedan</a>
-      <a class="chip" href="#">SUV</a>
-      <a class="chip" href="#">Pickup</a>
-      <a class="chip" href="#">Electric</a>
-      <a class="chip" href="#">Hybrid</a>
-      <a class="chip" href="#">Off-road</a>
-      <a class="chip" href="#">Performance</a>
+      <a class="chip" href="/reviews.html">Hatchback</a>
+      <a class="chip" href="/reviews.html">Sedan</a>
+      <a class="chip" href="/reviews.html">SUV</a>
+      <a class="chip" href="/reviews.html">Pickup</a>
+      <a class="chip" href="/reviews.html">Electric</a>
+      <a class="chip" href="/reviews.html">Hybrid</a>
+      <a class="chip" href="/reviews.html">Off-road</a>
+      <a class="chip" href="/reviews.html">Performance</a>
     </div>
   </div>
 </section>
@@ -204,54 +250,57 @@
 </section>
 
 <footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <a href="index.html" class="logo" style="color:var(--cream)">
-          <span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2c1.8 2.4 3 4.6 3 6.8A3 3 0 1 1 9 8.8C9 6.6 10.2 4.4 12 2Z" fill="#FBF7F0"/><rect x="9" y="14" width="6" height="7" rx="1.2" fill="#FBF7F0"/></svg></span>
-          FlamingPiston
-        </a>
-        <p style="font-size:14px;line-height:1.6;margin-top:14px;max-width:32ch;">Honest automotive reviews, practical buying advice, and maintenance guides — everything you need before buying your next vehicle.</p>
-        <div class="foot-social">
-          <a href="#" aria-label="X">𝕏</a>
-          <a href="#" aria-label="Instagram">IG</a>
-          <a href="#" aria-label="YouTube">YT</a>
-        </div>
-      </div>
-      <div>
-        <h4>Company</h4>
-        <ul>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="sitemap.html">Sitemap</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Editorial</h4>
-        <ul>
-          <li><a href="editorial-policy.html">Editorial Policy</a></li>
-          <li><a href="review-methodology.html">Review Methodology</a></li>
-          <li><a href="fact-checking-policy.html">Fact-Checking Policy</a></li>
-          <li><a href="corrections-policy.html">Corrections Policy</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="cookie-policy.html">Cookie Policy</a></li>
-          <li><a href="terms.html">Terms of Use</a></li>
-          <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
-          <li><a href="disclaimer.html">Disclaimer</a></li>
-        </ul>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a href="/" class="logo">
+        <span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2c1.8 2.4 3 4.6 3 6.8A3 3 0 1 1 9 8.8C9 6.6 10.2 4.4 12 2Z" fill="#FBF7F0"/><rect x="9" y="14" width="6" height="7" rx="1.2" fill="#FBF7F0"/></svg></span>
+        FlamingPiston
+      </a>
+      <p>Honest automotive reviews, practical buying advice, and maintenance guides — everything you need before buying your next vehicle.</p>
+      <div class="foot-social">
+        <a href="#" aria-label="X">𝕏</a>
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="YouTube">YT</a>
       </div>
     </div>
-    <div class="foot-bottom">
-      <span>© 2026 FlamingPiston. All rights reserved.</span>
-      <span><a href="sitemap.html">Sitemap</a></span>
+
+    <div class="foot-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/sitemap.html">Sitemap</a></li>
+      </ul>
     </div>
+
+    <div class="foot-col">
+      <h4>Editorial</h4>
+      <ul>
+        <li><a href="/editorial-policy.html">Editorial Policy</a></li>
+        <li><a href="/review-methodology.html">Review Methodology</a></li>
+        <li><a href="/fact-checking-policy.html">Fact-Checking Policy</a></li>
+        <li><a href="/corrections-policy.html">Corrections Policy</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="/cookie-policy.html">Cookie Policy</a></li>
+        <li><a href="/terms.html">Terms of Use</a></li>
+        <li><a href="/affiliate-disclosure.html">Affiliate Disclosure</a></li>
+        <li><a href="/disclaimer.html">Disclaimer</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap foot-bottom">
+    <span>&copy; 2026 FlamingPiston. All rights reserved.</span>
+    <span><a href="/sitemap.html">Sitemap</a></span>
   </div>
 </footer>
 
+<script src="/js/nav.js" defer></script>
 </body>
 </html>

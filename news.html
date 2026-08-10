@@ -1,35 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Car News - FlamingPiston</title>
-<meta name="description" content="The latest automotive news, launches, and industry updates.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car News - FlamingPiston</title>
+  <meta name="description" content="The latest automotive news, launches, and industry updates.">
+
+  <link rel="stylesheet" href="/style.css?v=8">
+  <link rel="canonical" href="https://flamingpiston.com/news.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Car News - FlamingPiston">
+  <meta property="og:description" content="The latest automotive news, launches, and industry updates.">
+  <meta property="og:url" content="https://flamingpiston.com/news.html">
+  <meta property="og:image" content="https://flamingpiston.com/images/logo.png">
+  <meta property="og:site_name" content="FlamingPiston">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Car News - FlamingPiston">
+  <meta name="twitter:description" content="The latest automotive news, launches, and industry updates.">
+  <meta name="twitter:image" content="https://flamingpiston.com/images/logo.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://flamingpiston.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "News",
+      "item": "https://flamingpiston.com/news.html"
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
-<header>
+  <header>
   <div class="wrap navbar">
-    <a href="index.html" class="logo">
+    <a href="/" class="logo">
       <span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2c1.8 2.4 3 4.6 3 6.8A3 3 0 1 1 9 8.8C9 6.6 10.2 4.4 12 2Z" fill="#FBF7F0"/><rect x="9" y="14" width="6" height="7" rx="1.2" fill="#FBF7F0"/></svg></span>
       FlamingPiston
     </a>
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="reviews.html">Reviews</a></li>
-        <li><a href="news.html" aria-current="page">News</a></li>
-        <li><a href="guides.html">Guides</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/reviews.html">Reviews</a></li>
+        <li><a href="/news.html" aria-current="page">News</a></li>
+        <li><a href="/guides.html">Guides</a></li>
+        <li><a href="/about.html">About</a></li>
       </ul>
     </nav>
     <div class="nav-cta">
-      <a href="reviews.html" class="btn ghost">Latest Review</a>
-      <a href="guides.html" class="btn flame">Browse Guides</a>
+      <a href="/reviews.html" class="btn ghost">Latest Review</a>
+      <a href="/guides.html" class="btn flame">Browse Guides</a>
     </div>
     <button class="menu-btn" aria-label="Open menu">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -37,75 +66,86 @@
   </div>
 </header>
 
-<section style="padding-top:56px;">
-  <div class="wrap-narrow">
-    <p class="eyebrow">Straight from the pit lane</p>
-    <h1 style="font-size:clamp(34px,5vw,54px);margin-bottom:10px;">Car News</h1>
-    <p style="color:var(--ink-soft);font-size:16px;max-width:60ch;">New launches, price updates, and industry news — no press-release copy-paste, just what actually matters.</p>
+<div class="section-heading">
+    <h2>Car News</h2>
   </div>
-</section>
 
-<section style="padding-top:20px;">
-  <div class="wrap-narrow">
-    <div class="news-list">
-      <div class="news-item">
-        <div class="news-tag">News</div>
-        <div>
-          <h3>Mahindra Scorpio N Facelift Reaches Dealerships</h3>
-          <p>The updated Scorpio N has begun arriving at dealerships across the country, with cosmetic changes led by new two-tone alloy wheels and revised cabin trim, while the mechanical package carries over unchanged. A full reveal is expected around Mahindra's Independence Day event.</p>
-        </div>
+  <div class="card-grid">
+    <div class="article-card">
+      <div class="card-body">
+        <span class="tag">News</span>
+        <h3>Mahindra Scorpio N Facelift Reaches Dealerships</h3>
+        <p>The updated Scorpio N has begun arriving at dealerships across the country, with cosmetic changes led by new two-tone alloy wheels and revised cabin trim, while the mechanical package carries over unchanged. A full reveal is expected around Mahindra's Independence Day event.</p>
       </div>
-      <div class="news-item">
-        <div class="news-tag">News</div>
-        <div>
-          <h3>Volvo EX90 Set to Land as Brand's New India Flagship</h3>
-          <p>Volvo's fully-electric EX90 arrives this month as the brand's third EV in India after the XC40 and EX30. Built on the same platform as the outgoing XC90, it's expected in dual-motor and single-motor configurations with a claimed range beyond 550km on the larger battery.</p>
-        </div>
+    </div>
+    <div class="article-card">
+      <div class="card-body">
+        <span class="tag">News</span>
+        <h3>Volvo EX90 Set to Land as Brand's New India Flagship</h3>
+        <p>Volvo's fully-electric EX90 arrives this month as the brand's third EV in India after the XC40 and EX30. Built on the same platform as the outgoing XC90, it's expected in dual-motor and single-motor configurations with a claimed range beyond 550km on the larger battery.</p>
       </div>
-      <div class="news-item">
-        <div class="news-tag">News</div>
-        <div>
-          <h3>Skoda Slavia Facelift Confirmed for August 18 Launch</h3>
-          <p>Skoda is refreshing the Slavia for the first time since its 2022 debut, with an updated illuminated grille, revised LED lighting, and a larger digital driver's display. The existing 1.0-litre and 1.5-litre TSI petrol engines are expected to continue, alongside a new automatic gearbox option.</p>
-        </div>
+    </div>
+    <div class="article-card">
+      <div class="card-body">
+        <span class="tag">News</span>
+        <h3>Skoda Slavia Facelift Confirmed for August 18 Launch</h3>
+        <p>Skoda is refreshing the Slavia for the first time since its 2022 debut, with an updated illuminated grille, revised LED lighting, and a larger digital driver's display. The existing 1.0-litre and 1.5-litre TSI petrol engines are expected to continue, alongside a new automatic gearbox option.</p>
       </div>
     </div>
   </div>
-</section>
 
-<section>
-  <div class="wrap">
-    <div class="cta-band">
-      <div>
-        <h2>Don't miss the next one.</h2>
-        <p>One email a week. No spam, no dealership nonsense.</p>
+  <footer>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a href="/" class="logo">
+        <span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2c1.8 2.4 3 4.6 3 6.8A3 3 0 1 1 9 8.8C9 6.6 10.2 4.4 12 2Z" fill="#FBF7F0"/><rect x="9" y="14" width="6" height="7" rx="1.2" fill="#FBF7F0"/></svg></span>
+        FlamingPiston
+      </a>
+      <p>Honest automotive reviews, practical buying advice, and maintenance guides — everything you need before buying your next vehicle.</p>
+      <div class="foot-social">
+        <a href="#" aria-label="X">𝕏</a>
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="YouTube">YT</a>
       </div>
-      <form class="cta-form" onsubmit="return false;">
-        <input type="email" placeholder="you@email.com" required>
-        <button class="btn" style="background:var(--ink);border-color:var(--ink);color:var(--cream);" type="submit">Subscribe</button>
-      </form>
+    </div>
+
+    <div class="foot-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/sitemap.html">Sitemap</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h4>Editorial</h4>
+      <ul>
+        <li><a href="/editorial-policy.html">Editorial Policy</a></li>
+        <li><a href="/review-methodology.html">Review Methodology</a></li>
+        <li><a href="/fact-checking-policy.html">Fact-Checking Policy</a></li>
+        <li><a href="/corrections-policy.html">Corrections Policy</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="/cookie-policy.html">Cookie Policy</a></li>
+        <li><a href="/terms.html">Terms of Use</a></li>
+        <li><a href="/affiliate-disclosure.html">Affiliate Disclosure</a></li>
+        <li><a href="/disclaimer.html">Disclaimer</a></li>
+      </ul>
     </div>
   </div>
-</section>
 
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <a href="index.html" class="logo" style="color:var(--cream)">
-          <span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2c1.8 2.4 3 4.6 3 6.8A3 3 0 1 1 9 8.8C9 6.6 10.2 4.4 12 2Z" fill="#FBF7F0"/><rect x="9" y="14" width="6" height="7" rx="1.2" fill="#FBF7F0"/></svg></span>
-          FlamingPiston
-        </a>
-        <p style="font-size:14px;line-height:1.6;margin-top:14px;max-width:32ch;">Honest automotive reviews, practical buying advice, and maintenance guides — everything you need before buying your next vehicle.</p>
-        <div class="foot-social"><a href="#" aria-label="X">𝕏</a><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="YouTube">YT</a></div>
-      </div>
-      <div><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="sitemap.html">Sitemap</a></li></ul></div>
-      <div><h4>Editorial</h4><ul><li><a href="editorial-policy.html">Editorial Policy</a></li><li><a href="review-methodology.html">Review Methodology</a></li><li><a href="fact-checking-policy.html">Fact-Checking Policy</a></li><li><a href="corrections-policy.html">Corrections Policy</a></li></ul></div>
-      <div><h4>Legal</h4><ul><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="cookie-policy.html">Cookie Policy</a></li><li><a href="terms.html">Terms of Use</a></li><li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li><li><a href="disclaimer.html">Disclaimer</a></li></ul></div>
-    </div>
-    <div class="foot-bottom"><span>© 2026 FlamingPiston. All rights reserved.</span><span><a href="sitemap.html">Sitemap</a></span></div>
+  <div class="wrap foot-bottom">
+    <span>&copy; 2026 FlamingPiston. All rights reserved.</span>
+    <span><a href="/sitemap.html">Sitemap</a></span>
   </div>
 </footer>
 
+  <script src="/js/nav.js" defer></script>
 </body>
 </html>
