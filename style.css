@@ -295,14 +295,14 @@ h4{ font-size: 1.05rem; font-weight: 600; }
 }
 .section-image img{
   display: block;
-  width: 100%;
+  width: 70%;
   aspect-ratio: 4/3;
   object-fit: cover;
   border-radius: 10px;
 }
 @media (max-width: 560px){
   .section-image{
-    width: 100%;
+    width: 70%;
     max-width: none;
   }
 }
@@ -318,7 +318,7 @@ h4{ font-size: 1.05rem; font-weight: 600; }
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 100%;
+  width: 70%;
   aspect-ratio: 16/9;
   border-radius: 10px;
   margin: 16px 0 24px;
