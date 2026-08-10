@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://flamingpiston.com/sitemap.xml
