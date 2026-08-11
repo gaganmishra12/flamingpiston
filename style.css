@@ -68,6 +68,7 @@ header.site-header{
   border-bottom:1px solid var(--line);
 }
 .navbar{display:flex;align-items:center;justify-content:space-between;height:76px;}
+.nav-collapse{display:flex;align-items:center;gap:26px;}
 .logo{display:flex;align-items:center;}
 .logo-text{
   font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:.01em;
