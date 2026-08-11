@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" href="favicon.ico">
+  <title>FlamingPiston — Know Your Machine</title>
+  <meta name="description" content="FlamingPiston is a car knowledge hub with honest reviews, buying guides, and maintenance breakdowns — no jargon, no fluff.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=9">
+  <link rel="alternate" type="application/rss+xml" title="FlamingPiston RSS Feed" href="feed.xml">
+
+  <link rel="canonical" href="https://flamingpiston.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="FlamingPiston — Know Your Machine">
+  <meta property="og:description" content="FlamingPiston is a car knowledge hub with honest reviews, buying guides, and maintenance breakdowns — no jargon, no fluff.">
+  <meta property="og:url" content="https://flamingpiston.com/">
+  <meta property="og:image" content="https://flamingpiston.com/images/syros-front.jpg">
+  <meta property="og:site_name" content="FlamingPiston">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FlamingPiston — Know Your Machine">
+  <meta name="twitter:description" content="FlamingPiston is a car knowledge hub with honest reviews, buying guides, and maintenance breakdowns — no jargon, no fluff.">
+  <meta name="twitter:image" content="https://flamingpiston.com/images/syros-front.jpg">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://flamingpiston.com/" }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "FlamingPiston",
+  "url": "https://flamingpiston.com",
+  "logo": "https://flamingpiston.com/images/logo.png"
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "FlamingPiston",
+  "url": "https://flamingpiston.com",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://flamingpiston.com/reviews.html?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap navbar">
+      <a href="index.html" class="logo logo-text">
+        <span class="flame">Flaming</span><span class="piston">Piston</span>
+      </a>
+      <div class="nav-collapse" id="navCollapse">
+        <nav class="main-nav">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navCollapse">
+        <svg class="icon-menu" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg><svg class="icon-close" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-grain"></div>
+    <div class="hero-glow"></div>
+    <div class="wrap hero-inner">
+      <div>
+        <p class="eyebrow" style="color:var(--ember)">Car knowledge, unfiltered</p>
+        <h1>KNOW YOUR<br><span class="hl">MACHINE.</span></h1>
+        <p class="lede">Real reviews, plain-English breakdowns, and specs that actually mean something — built for people who want to understand what they're driving, not sit through a dealership pitch.</p>
+        <div class="hero-actions">
+          <a href="reviews-kia-syros-ev.html" class="btn outline-hero" id="latestReviewCta">Read the latest review →</a>
+          <a href="news.html" class="btn outline-hero">See the latest news</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>100%</b><span>Independent</span></div>
+          <div><b>0</b><span>Dealer scripts</span></div>
+          <div><b>New</b><span>Verdict weekly</span></div>
+        </div>
+      </div>
+
+      <a href="reviews-kia-syros-ev.html" class="octane-card" id="latestReviewCard">
+        <div class="oc-media">
+          <img id="latestReviewImg" src="images/syros-front.jpg" alt="Kia Syros EV parked in a city plaza">
+        </div>
+        <div class="oc-top">
+          <div>
+            <p class="eyebrow">Latest verdict</p>
+            <h3 id="latestReviewTitle">Kia Syros EV</h3>
+            <p class="oc-sub">Reviewed this week</p>
+          </div>
+          <img class="oc-stamp-mini" src="images/reviewed-badge.png" alt="FlamingPiston Reviewed stamp">
+        </div>
+        <div class="gauge-wrap">
+          <svg width="72" height="72" viewBox="0 0 72 72">
+            <circle cx="36" cy="36" r="30" fill="none" stroke="#E7DFD2" stroke-width="8"/>
+            <circle id="latestReviewArc" cx="36" cy="36" r="30" fill="none" stroke="#FF4E1F" stroke-width="8" stroke-linecap="round"
+              stroke-dasharray="158.3 188.5" stroke-dashoffset="0" transform="rotate(-90 36 36)"/>
+          </svg>
+          <div class="gauge-num" id="latestReviewScore">8.4<sub>/10 Octane Score</sub></div>
+        </div>
+        <p id="latestReviewSummary" style="font-size:13px;color:var(--ink-soft);line-height:1.5;margin:12px 0 0;">526km range and fast charging — here's where it wins, and where it doesn't.</p>
+        <span class="oc-cta">Read the full verdict →</span>
+      </a>
+    </div>
+    <div class="strip-divider"></div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Fresh off the lift</p>
+          <h2>Latest Reviews</h2>
+        </div>
+        <a href="reviews.html" class="view-all">View all reviews →</a>
+      </div>
+      <div class="review-row">
+        <article class="card">
+          <a href="reviews-toyota-hilux.html" class="card-media">
+            <span class="tag">Pickup</span>
+            <img src="images/hilux-front.jpg" alt="New Toyota Hilux driving through a city at night">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">Full review</p>
+            <h3><a href="reviews-toyota-hilux.html">New Toyota Hilux: still the workhorse to beat?</a></h3>
+            <p>We break down the powertrain, off-road hardware, and payload numbers that actually matter for buyers.</p>
+            <div class="card-foot">
+              <div class="mini-gauge"><span class="dot"></span> 8.5 / 10</div>
+              <a class="read-link" href="reviews-toyota-hilux.html">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <a href="reviews-kia-syros-ev.html" class="card-media">
+            <span class="tag">Electric</span>
+            <img src="images/syros-front.jpg" alt="Kia Syros EV parked in a city plaza">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">Full review</p>
+            <h3><a href="reviews-kia-syros-ev.html">Kia Syros EV: range, price & should you buy it?</a></h3>
+            <p>526km range, 171PS power, and 39-minute fast charging — a full look at Kia's new electric SUV.</p>
+            <div class="card-foot">
+              <div class="mini-gauge"><span class="dot"></span> 8.4 / 10</div>
+              <a class="read-link" href="reviews-kia-syros-ev.html">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-media">
+            <span class="tag">Coming Soon</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="1.3"><path d="M3 16h18M5 16V10l2-4h9l4 5h1a1 1 0 0 1 1 1v4M8 16a2 2 0 1 1-4 0M20 16a2 2 0 1 1-4 0"/></svg>
+          </div>
+          <div class="card-body">
+            <p class="eyebrow">In progress</p>
+            <h3>More reviews are on the way</h3>
+            <p>We're testing more cars every month — check back soon, or subscribe below to get notified.</p>
+            <div class="card-foot">
+              <div class="mini-gauge"><span class="dot" style="background:var(--ink-soft)"></span> In progress</div>
+              <a class="read-link" href="#subscribe">Subscribe →</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="guides-section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">No jargon, promise</p>
+          <h2 style="color:var(--cream)">How We Review</h2>
+        </div>
+        <a href="review-methodology.html" class="view-all" style="border-color:var(--ember);color:var(--cream)">Full methodology →</a>
+      </div>
+      <div class="guide-grid">
+        <a class="guide-card" href="review-methodology.html">
+          <span class="num">01</span>
+          <h3>How every car gets scored</h3>
+          <span class="arrow">Read methodology →</span>
+        </a>
+        <a class="guide-card" href="editorial-policy.html">
+          <span class="num">02</span>
+          <h3>Our editorial independence policy</h3>
+          <span class="arrow">Read policy →</span>
+        </a>
+        <a class="guide-card" href="fact-checking-policy.html">
+          <span class="num">03</span>
+          <h3>How we fact-check every spec</h3>
+          <span class="arrow">Read policy →</span>
+        </a>
+        <a class="guide-card" href="corrections-policy.html">
+          <span class="num">04</span>
+          <h3>Mistakes happen — here's our fix</h3>
+          <span class="arrow">Read policy →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Browse by type</p>
+          <h2>Find Your Lane</h2>
+        </div>
+      </div>
+      <div class="chip-row">
+        <a class="chip" href="reviews.html#hatchback">Hatchback</a>
+        <a class="chip" href="reviews.html#sedan">Sedan</a>
+        <a class="chip" href="reviews.html#suv">SUV</a>
+        <a class="chip" href="reviews.html#pickup">Pickup</a>
+        <a class="chip" href="reviews.html#electric">Electric</a>
+        <a class="chip" href="reviews.html#hybrid">Hybrid</a>
+        <a class="chip" href="reviews.html#off-road">Off-road</a>
+        <a class="chip" href="reviews.html#performance">Performance</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="subscribe">
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h2>Get the verdict before you buy.</h2>
+          <p>One email a week. No spam, no dealership nonsense.</p>
+        </div>
+        <form class="cta-form" onsubmit="return false;">
+          <input type="email" placeholder="you@email.com" required>
+          <button class="btn" style="background:var(--ink);border-color:var(--ink);color:var(--cream);" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a href="index.html" class="logo logo-text logo-text--footer">
+            <span class="flame">Flaming</span><span class="piston">Piston</span>
+          </a>
+          <p>Honest automotive reviews, practical buying advice, and maintenance guides — everything you need before buying your next vehicle.</p>
+          <div class="foot-social">
+            <a href="#">Twitter / X</a>
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Editorial</h4>
+          <ul>
+            <li><a href="editorial-policy.html">Editorial Policy</a></li>
+            <li><a href="review-methodology.html">Review Methodology</a></li>
+            <li><a href="fact-checking-policy.html">Fact-Checking Policy</a></li>
+            <li><a href="corrections-policy.html">Corrections Policy</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+            <li><a href="terms.html">Terms of Use</a></li>
+            <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="foot-bottom">
+        <span>&copy; 2026 FlamingPiston. All rights reserved.</span>
+        <span><a href="sitemap.html">Sitemap</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var btn = document.getElementById('menuBtn');
+      var nav = document.getElementById('navCollapse');
+      if(!btn || !nav) return;
+      btn.addEventListener('click', function(){
+        var open = nav.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.classList.toggle('is-active', open);
+      });
+      nav.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          nav.classList.remove('is-open');
+          btn.setAttribute('aria-expanded','false');
+          btn.classList.remove('is-active');
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    /* ============================================================
+       LATEST REVIEW — edit this block only when you publish a new review.
+       Everything below (photo, title, score, gauge fill, summary,
+       and both links to the review) updates itself from these 6 lines.
+       ============================================================ */
+    var LATEST_REVIEW = {
+      title: "Kia Syros EV",                                   // car name shown on the card
+      url: "reviews-kia-syros-ev.html",                        // the review's page filename
+      image: "images/syros-front.jpg",                         // hero photo for the card
+      imageAlt: "Kia Syros EV parked in a city plaza",          // alt text for that photo
+      score: 8.4,                                               // Octane Score out of 10 — the gauge fill is calculated from this automatically
+      summary: "526km range and fast charging — here's where it wins, and where it doesn't." // one-line teaser
+    };
+    /* ============================================================ */
+
+    (function(){
+      var r = LATEST_REVIEW;
+      var card = document.getElementById('latestReviewCard');
+      var cta = document.getElementById('latestReviewCta');
+      if(!card) return;
+
+      card.href = r.url;
+      if(cta) cta.href = r.url;
+
+      var img = document.getElementById('latestReviewImg');
+      if(img){ img.src = r.image; img.alt = r.imageAlt; }
+
+      var title = document.getElementById('latestReviewTitle');
+      if(title) title.textContent = r.title;
+
+      var summary = document.getElementById('latestReviewSummary');
+      if(summary) summary.textContent = r.summary;
+
+      var scoreEl = document.getElementById('latestReviewScore');
+      if(scoreEl) scoreEl.innerHTML = r.score.toFixed(1) + '<sub>/10 Octane Score</sub>';
+
+      var arc = document.getElementById('latestReviewArc');
+      if(arc){
+        var circumference = 2 * Math.PI * 30; // matches the circle's r=30 in the SVG
+        var filled = circumference * (r.score / 10);
+        arc.setAttribute('stroke-dasharray', filled.toFixed(1) + ' ' + circumference.toFixed(1));
+        arc.setAttribute('stroke-dashoffset', '0');
+      }
+    })();
+  </script>
+</body>
+</html>
