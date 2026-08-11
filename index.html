@@ -1,486 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FlamingPiston — Know Your Machine</title>
-<meta name="description" content="FlamingPiston is a car knowledge hub with honest reviews, buying guides, and maintenance breakdowns — no jargon, no fluff.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --cream:#FBF7F0;
-    --cream-2:#F4EDE0;
-    --ink:#18140F;
-    --ink-soft:#4A423A;
-    --flame:#FF4E1F;
-    --flame-dark:#C7350A;
-    --ember:#FFB020;
-    --steel:#2B3A4A;
-    --line:#E7DFD2;
-    --white:#fff;
-    --radius:14px;
-    --wrap:1180px;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--cream);
-    color:var(--ink);
-    font-family:'Manrope',sans-serif;
-    -webkit-font-smoothing:antialiased;
-  }
-  img,svg{display:block;max-width:100%;}
-  a{color:inherit;text-decoration:none;}
-  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px;}
-  .eyebrow{
-    font-family:'Space Mono',monospace;
-    font-size:12px;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:var(--flame-dark);
-    display:flex;align-items:center;gap:8px;
-    margin:0 0 10px;
-  }
-  .eyebrow::before{content:"";width:18px;height:2px;background:var(--flame);display:inline-block;}
-  h1,h2,h3{
-    font-family:'Anton',sans-serif;
-    font-weight:400;
-    text-transform:uppercase;
-    letter-spacing:.01em;
-    line-height:.95;
-    margin:0;
-  }
-  .btn{
-    display:inline-flex;align-items:center;gap:8px;
-    font-family:'Space Mono',monospace;
-    font-size:13px;letter-spacing:.06em;text-transform:uppercase;
-    padding:14px 22px;border-radius:999px;border:2px solid var(--ink);
-    background:var(--ink);color:var(--cream);
-    transition:transform .15s ease, background .15s ease, color .15s ease;
-    cursor:pointer;
-  }
-  .btn:hover{transform:translateY(-2px);}
-  .btn.ghost{background:transparent;color:var(--ink);}
-  .btn.flame{background:var(--flame);border-color:var(--flame);color:var(--white);}
-  .btn.flame:hover{background:var(--flame-dark);border-color:var(--flame-dark);}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlamingPiston — Know Your Machine</title>
+  <meta name="description" content="FlamingPiston is a car knowledge hub with honest reviews, buying guides, and maintenance breakdowns — no jargon, no fluff.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=9">
+  <link rel="alternate" type="application/rss+xml" title="FlamingPiston RSS Feed" href="/feed.xml">
 
-  /* ===== NAV ===== */
-  header{
-    position:sticky;top:0;z-index:50;
-    background:rgba(251,247,240,.92);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line);
+  <link rel="canonical" href="https://flamingpiston.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="FlamingPiston — Know Your Machine">
+  <meta property="og:description" content="FlamingPiston is a car knowledge hub with honest reviews, buying guides, and maintenance breakdowns — no jargon, no fluff.">
+  <meta property="og:url" content="https://flamingpiston.com/">
+  <meta property="og:image" content="https://flamingpiston.com/images/syros-front.jpg">
+  <meta property="og:site_name" content="FlamingPiston">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FlamingPiston — Know Your Machine">
+  <meta name="twitter:description" content="FlamingPiston is a car knowledge hub with honest reviews, buying guides, and maintenance breakdowns — no jargon, no fluff.">
+  <meta name="twitter:image" content="https://flamingpiston.com/images/syros-front.jpg">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://flamingpiston.com/" }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "FlamingPiston",
+  "url": "https://flamingpiston.com",
+  "logo": "https://flamingpiston.com/images/logo.png"
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "FlamingPiston",
+  "url": "https://flamingpiston.com",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://flamingpiston.com/reviews.html?q={search_term_string}",
+    "query-input": "required name=search_term_string"
   }
-  .navbar{display:flex;align-items:center;justify-content:space-between;height:76px;}
-  .logo{display:flex;align-items:center;gap:10px;font-family:'Anton',sans-serif;font-size:22px;letter-spacing:.02em;}
-  .logo .mark{
-    width:34px;height:34px;border-radius:8px;
-    background:linear-gradient(145deg,var(--flame),var(--flame-dark));
-    display:flex;align-items:center;justify-content:center;
-    box-shadow:0 3px 0 var(--ink);
-  }
-  .logo .mark svg{width:20px;height:20px;}
-  nav ul{list-style:none;display:flex;gap:30px;margin:0;padding:0;}
-  nav a{
-    font-family:'Space Mono',monospace;font-size:13px;text-transform:uppercase;letter-spacing:.06em;
-    position:relative;padding-bottom:4px;
-  }
-  nav a::after{
-    content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--flame);
-    transition:width .2s ease;
-  }
-  nav a:hover::after{width:100%;}
-  .nav-cta{display:flex;align-items:center;gap:14px;}
-  .menu-btn{display:none;background:none;border:none;cursor:pointer;}
-
-  /* ===== HERO ===== */
-  .hero{
-    position:relative;overflow:hidden;
-    background:radial-gradient(120% 140% at 15% 0%, #3a1b10 0%, var(--ink) 45%, #0f0d0a 100%);
-    color:var(--cream);
-    padding:90px 0 0;
-  }
-  .hero-grain{
-    position:absolute;inset:0;opacity:.35;mix-blend-mode:overlay;pointer-events:none;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-  .hero-glow{
-    position:absolute;right:-10%;top:10%;width:600px;height:600px;border-radius:50%;
-    background:radial-gradient(circle, rgba(255,78,31,.55) 0%, rgba(255,78,31,0) 70%);
-    filter:blur(10px);pointer-events:none;
-  }
-  .hero-inner{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:end;padding-bottom:64px;}
-  .hero h1{font-size:clamp(48px,7vw,96px);color:var(--cream);}
-  .hero h1 .hl{color:var(--flame);-webkit-text-stroke:1px var(--ember);}
-  .hero p.lede{
-    font-size:17px;line-height:1.6;color:#E9DFD1;max-width:44ch;margin:22px 0 30px;
-  }
-  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
-  .hero-stats{
-    font-family:'Space Mono',monospace;
-    display:flex;gap:26px;margin-top:40px;flex-wrap:wrap;
-  }
-  .hero-stats div{border-left:2px solid var(--flame);padding-left:10px;}
-  .hero-stats b{display:block;font-size:22px;color:var(--cream);}
-  .hero-stats span{font-size:11px;letter-spacing:.05em;color:#B8AC9C;text-transform:uppercase;}
-  .octane-card{
-    background:var(--cream);color:var(--ink);border-radius:20px;padding:26px;
-    box-shadow:0 20px 50px rgba(0,0,0,.35);
-    transform:rotate(-2deg);
-  }
-  .octane-card .oc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;}
-  .octane-card .oc-top .eyebrow{margin:0;}
-  .octane-card h3{font-size:22px;margin-bottom:4px;}
-  .octane-card .oc-sub{font-family:'Space Mono',monospace;font-size:12px;color:var(--ink-soft);}
-  .gauge-wrap{display:flex;align-items:center;gap:16px;margin-top:16px;}
-  .gauge-num{font-family:'Anton',sans-serif;font-size:34px;color:var(--flame-dark);}
-  .gauge-num sub{font-family:'Space Mono',monospace;font-size:13px;color:var(--ink-soft);}
-  .strip-divider{
-    height:56px;
-    background:repeating-linear-gradient(-45deg, var(--flame) 0 22px, var(--flame-dark) 22px 44px);
-    clip-path:polygon(0 0,100% 0,100% 40%,0 100%);
-  }
-
-  /* ===== SECTION SHELL ===== */
-  section{padding:72px 0;}
-  .section-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px;gap:20px;flex-wrap:wrap;}
-  .section-head h2{font-size:clamp(28px,4vw,44px);}
-  .view-all{font-family:'Space Mono',monospace;font-size:13px;text-transform:uppercase;border-bottom:2px solid var(--flame);padding-bottom:2px;white-space:nowrap;}
-
-  /* ===== REVIEW CARDS ===== */
-  .review-row{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-  .card{
-    background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
-    overflow:hidden;transition:transform .18s ease, box-shadow .18s ease;
-  }
-  .card:hover{transform:translateY(-5px);box-shadow:0 16px 30px rgba(24,20,15,.1);}
-  .card-media{
-    aspect-ratio:4/3;background:linear-gradient(135deg,var(--cream-2),#E4D6C2);
-    display:flex;align-items:center;justify-content:center;position:relative;
-  }
-  .card-media .tag{
-    position:absolute;top:12px;left:12px;background:var(--ink);color:var(--cream);
-    font-family:'Space Mono',monospace;font-size:11px;padding:5px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:.05em;
-  }
-  .card-media svg{width:64px;height:64px;opacity:.55;}
-  .card-body{padding:20px;}
-  .card-body .eyebrow{margin-bottom:8px;}
-  .card-body h3{font-size:19px;text-transform:none;font-family:'Manrope',sans-serif;font-weight:800;letter-spacing:0;line-height:1.25;margin-bottom:8px;}
-  .card-body p{font-size:14px;color:var(--ink-soft);line-height:1.55;margin:0 0 16px;}
-  .card-foot{display:flex;justify-content:space-between;align-items:center;}
-  .mini-gauge{display:flex;align-items:center;gap:6px;font-family:'Space Mono',monospace;font-size:13px;}
-  .mini-gauge .dot{width:8px;height:8px;border-radius:50%;background:var(--flame);}
-  .read-link{font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;color:var(--flame-dark);}
-
-  /* ===== GUIDES ===== */
-  .guides-section{background:var(--steel);color:var(--cream);}
-  .guides-section .eyebrow{color:var(--ember);}
-  .guides-section .eyebrow::before{background:var(--ember);}
-  .guide-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
-  .guide-card{
-    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);
-    padding:22px;min-height:190px;display:flex;flex-direction:column;justify-content:space-between;
-    transition:background .18s ease, transform .18s ease;
-  }
-  .guide-card:hover{background:rgba(255,255,255,.1);transform:translateY(-4px);}
-  .guide-card .num{font-family:'Space Mono',monospace;font-size:12px;color:var(--ember);}
-  .guide-card h3{font-family:'Manrope',sans-serif;font-weight:800;text-transform:none;font-size:17px;letter-spacing:0;line-height:1.3;margin:14px 0;}
-  .guide-card span.arrow{font-family:'Space Mono',monospace;font-size:12px;color:#C9C1B4;}
-
-  /* ===== BRAND / BODY-TYPE STRIP ===== */
-  .chip-row{display:flex;flex-wrap:wrap;gap:12px;}
-  .chip{
-    font-family:'Space Mono',monospace;font-size:13px;text-transform:uppercase;letter-spacing:.04em;
-    border:1px solid var(--ink);border-radius:999px;padding:10px 18px;
-    transition:background .15s ease,color .15s ease;
-  }
-  .chip:hover{background:var(--ink);color:var(--cream);}
-
-  /* ===== NEWSLETTER / CTA BAND ===== */
-  .cta-band{
-    background:var(--flame);color:var(--white);border-radius:24px;
-    padding:52px 44px;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;
-  }
-  .cta-band h2{font-size:clamp(26px,3.6vw,40px);max-width:14ch;color:var(--white);}
-  .cta-band p{font-family:'Space Mono',monospace;font-size:13px;color:#FFE3D5;margin:10px 0 0;}
-  .cta-form{display:flex;gap:10px;flex-wrap:wrap;}
-  .cta-form input{
-    padding:14px 16px;border-radius:999px;border:2px solid var(--ink);min-width:240px;
-    font-family:'Manrope',sans-serif;font-size:14px;background:var(--cream);
-  }
-
-  /* ===== FOOTER ===== */
-  footer{background:var(--ink);color:#C9C1B4;padding:56px 0 28px;margin-top:40px;}
-  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.12);}
-  .foot-grid h4{font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--cream);margin:0 0 16px;}
-  .foot-grid ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:14px;}
-  .foot-grid ul a:hover{color:var(--flame);}
-  .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:22px;font-family:'Space Mono',monospace;font-size:12px;flex-wrap:wrap;gap:10px;}
-
-  @media(max-width:940px){
-    .hero-inner{grid-template-columns:1fr;}
-    .octane-card{transform:none;}
-    .review-row{grid-template-columns:repeat(2,1fr);}
-    .guide-grid{grid-template-columns:repeat(2,1fr);}
-    .foot-grid{grid-template-columns:1fr 1fr;}
-  }
-  @media(max-width:640px){
-    nav ul,.nav-cta .btn.ghost{display:none;}
-    .menu-btn{display:block;}
-    .review-row{grid-template-columns:1fr;}
-    .guide-grid{grid-template-columns:1fr;}
-    .foot-grid{grid-template-columns:1fr;}
-    .cta-band{flex-direction:column;align-items:flex-start;}
-  }
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    .card,.guide-card,.btn{transition:none;}
-  }
-</style>
+}
+  </script>
 </head>
 <body>
 
-<header>
-  <div class="wrap navbar">
-    <a href="index.html" class="logo">
-      <span class="mark">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2c1.8 2.4 3 4.6 3 6.8A3 3 0 1 1 9 8.8C9 6.6 10.2 4.4 12 2Z" fill="#FBF7F0"/><rect x="9" y="14" width="6" height="7" rx="1.2" fill="#FBF7F0"/></svg>
-      </span>
-      FlamingPiston
-    </a>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="reviews.html">Reviews</a></li>
-        <li><a href="guides.html">Guides</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-    </nav>
-    <div class="nav-cta">
-      <a href="reviews.html" class="btn ghost">Latest Review</a>
-      <a href="guides.html" class="btn flame">Browse Guides</a>
-    </div>
-    <button class="menu-btn" aria-label="Open menu">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-    </button>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="hero-grain"></div>
-  <div class="hero-glow"></div>
-  <div class="wrap hero-inner">
-    <div>
-      <p class="eyebrow" style="color:var(--ember)">Car knowledge, unfiltered</p>
-      <h1>KNOW YOUR<br><span class="hl">MACHINE.</span></h1>
-      <p class="lede">Real reviews, plain-English guides, and specs that actually mean something — built for people who want to understand what they're driving, not sit through a dealership pitch.</p>
-      <div class="hero-actions">
-        <a href="reviews.html" class="btn flame">Read the latest test →</a>
-        <a href="guides.html" class="btn" style="background:transparent;border-color:var(--cream);color:var(--cream);">Explore guides</a>
+  <header class="site-header">
+    <div class="wrap navbar">
+      <a href="/" class="logo">
+        <span class="mark"><img src="/images/logo.png" alt="FlamingPiston logo"></span>
+        FlamingPiston
+      </a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="/" class="active">Home</a></li>
+          <li><a href="/reviews.html">Reviews</a></li>
+          <li><a href="/news.html">News</a></li>
+          <li><a href="/about.html">About</a></li>
+        </ul>
+      </nav>
+      <div class="nav-cta">
+        <a href="/reviews.html" class="btn ghost">Latest Review</a>
+        <a href="/news.html" class="btn flame">Latest News</a>
       </div>
-      <div class="hero-stats">
-        <div><b>100%</b><span>Independent</span></div>
-        <div><b>0</b><span>Dealer scripts</span></div>
-        <div><b>New</b><span>Verdict weekly</span></div>
+      <button class="menu-btn" aria-label="Open menu">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-grain"></div>
+    <div class="hero-glow"></div>
+    <div class="wrap hero-inner">
+      <div>
+        <p class="eyebrow" style="color:var(--ember)">Car knowledge, unfiltered</p>
+        <h1>KNOW YOUR<br><span class="hl">MACHINE.</span></h1>
+        <p class="lede">Real reviews, plain-English breakdowns, and specs that actually mean something — built for people who want to understand what they're driving, not sit through a dealership pitch.</p>
+        <div class="hero-actions">
+          <a href="/reviews-kia-syros-ev.html" class="btn flame">Read the latest test →</a>
+          <a href="/news.html" class="btn" style="background:transparent;border-color:var(--cream);color:var(--cream);">See the latest news</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>100%</b><span>Independent</span></div>
+          <div><b>0</b><span>Dealer scripts</span></div>
+          <div><b>New</b><span>Verdict weekly</span></div>
+        </div>
+      </div>
+
+      <div class="octane-card">
+        <div class="oc-top">
+          <div>
+            <p class="eyebrow">Latest verdict</p>
+            <h3>Kia Syros EV</h3>
+            <p class="oc-sub">Reviewed this week</p>
+          </div>
+        </div>
+        <div class="gauge-wrap">
+          <svg width="72" height="72" viewBox="0 0 72 72">
+            <circle cx="36" cy="36" r="30" fill="none" stroke="#E7DFD2" stroke-width="8"/>
+            <circle cx="36" cy="36" r="30" fill="none" stroke="#FF4E1F" stroke-width="8" stroke-linecap="round"
+              stroke-dasharray="188.5" stroke-dashoffset="37" transform="rotate(-90 36 36)"/>
+          </svg>
+          <div class="gauge-num">8.4<sub>/10 Octane Score</sub></div>
+        </div>
+        <p style="font-size:13px;color:var(--ink-soft);line-height:1.5;margin:16px 0 0;">526km range and fast charging — here's where it wins, and where it doesn't.</p>
       </div>
     </div>
+    <div class="strip-divider"></div>
+  </section>
 
-    <div class="octane-card">
-      <div class="oc-top">
+  <section>
+    <div class="wrap">
+      <div class="section-head">
         <div>
-          <p class="eyebrow">Latest verdict</p>
-          <h3>Toyota Hilux</h3>
-          <p class="oc-sub">Reviewed this week</p>
+          <p class="eyebrow">Fresh off the lift</p>
+          <h2>Latest Reviews</h2>
         </div>
+        <a href="/reviews.html" class="view-all">View all reviews →</a>
       </div>
-      <div class="gauge-wrap">
-        <svg width="72" height="72" viewBox="0 0 72 72">
-          <circle cx="36" cy="36" r="30" fill="none" stroke="#E7DFD2" stroke-width="8"/>
-          <circle cx="36" cy="36" r="30" fill="none" stroke="#FF4E1F" stroke-width="8" stroke-linecap="round"
-            stroke-dasharray="188.5" stroke-dashoffset="35" transform="rotate(-90 36 36)"/>
-        </svg>
-        <div class="gauge-num">8.4<sub>/10 Octane Score</sub></div>
-      </div>
-      <p style="font-size:13px;color:var(--ink-soft);line-height:1.5;margin:16px 0 0;">Tough, capable, and honestly priced — here's where it wins and where it doesn't.</p>
-    </div>
-  </div>
-  <div class="strip-divider"></div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <p class="eyebrow">Fresh off the lift</p>
-        <h2>Latest Reviews</h2>
-      </div>
-      <a href="reviews.html" class="view-all">View all reviews →</a>
-    </div>
-    <div class="review-row">
-      <article class="card">
-        <div class="card-media">
-          <span class="tag">Pickup</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="1.3"><path d="M3 16h18M5 16V9l3-4h6l4 4h1a1 1 0 0 1 1 1v6M8 16a2 2 0 1 1-4 0M20 16a2 2 0 1 1-4 0"/></svg>
-        </div>
-        <div class="card-body">
-          <p class="eyebrow">Full review</p>
-          <h3>New Toyota Hilux: still the workhorse to beat?</h3>
-          <p>We break down the powertrain, cabin tech, and payload numbers that actually matter for buyers.</p>
-          <div class="card-foot">
-            <div class="mini-gauge"><span class="dot"></span> 8.4 / 10</div>
-            <a class="read-link" href="reviews-toyota-hilux.html">Read →</a>
+      <div class="review-row">
+        <article class="card">
+          <a href="/reviews-toyota-hilux.html" class="card-media">
+            <span class="tag">Pickup</span>
+            <img src="/images/hilux-front.jpg" alt="New Toyota Hilux driving through a city at night">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">Full review</p>
+            <h3>New Toyota Hilux: still the workhorse to beat?</h3>
+            <p>We break down the powertrain, off-road hardware, and payload numbers that actually matter for buyers.</p>
+            <div class="card-foot">
+              <div class="mini-gauge"><span class="dot"></span> 8.5 / 10</div>
+              <a class="read-link" href="/reviews-toyota-hilux.html">Read →</a>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="card">
-        <div class="card-media">
-          <span class="tag">SUV</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="1.3"><path d="M3 16h18M5 16V10l2-4h9l4 5h1a1 1 0 0 1 1 1v4M8 16a2 2 0 1 1-4 0M20 16a2 2 0 1 1-4 0"/></svg>
-        </div>
-        <div class="card-body">
-          <p class="eyebrow">Coming soon</p>
-          <h3>Compact SUV shootout: value vs. feature list</h3>
-          <p>Three mid-range SUVs, one budget — we're testing which one earns its price tag.</p>
-          <div class="card-foot">
-            <div class="mini-gauge"><span class="dot" style="background:var(--ink-soft)"></span> In progress</div>
-            <a class="read-link" href="reviews.html">Preview →</a>
+        <article class="card">
+          <a href="/reviews-kia-syros-ev.html" class="card-media">
+            <span class="tag">Electric</span>
+            <img src="/images/syros-front.jpg" alt="Kia Syros EV parked in a city plaza">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">Full review</p>
+            <h3>Kia Syros EV: range, price & should you buy it?</h3>
+            <p>526km range, 171PS power, and 39-minute fast charging — a full look at Kia's new electric SUV.</p>
+            <div class="card-foot">
+              <div class="mini-gauge"><span class="dot"></span> 8.4 / 10</div>
+              <a class="read-link" href="/reviews-kia-syros-ev.html">Read →</a>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="card">
-        <div class="card-media">
-          <span class="tag">Hatchback</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="1.3"><path d="M3 16h16M5 16V11l2-3h7l3 3h1a1 1 0 0 1 1 1v4M8 16a2 2 0 1 1-4 0M18 16a2 2 0 1 1-4 0"/></svg>
-        </div>
-        <div class="card-body">
-          <p class="eyebrow">Reader pick</p>
-          <h3>Best first cars for new drivers in 2026</h3>
-          <p>Reliability, running costs, and insurance groups — ranked for people buying car number one.</p>
-          <div class="card-foot">
-            <div class="mini-gauge"><span class="dot" style="background:var(--ink-soft)"></span> In progress</div>
-            <a class="read-link" href="reviews.html">Preview →</a>
+        <article class="card">
+          <div class="card-media">
+            <span class="tag">Coming Soon</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="1.3"><path d="M3 16h18M5 16V10l2-4h9l4 5h1a1 1 0 0 1 1 1v4M8 16a2 2 0 1 1-4 0M20 16a2 2 0 1 1-4 0"/></svg>
           </div>
+          <div class="card-body">
+            <p class="eyebrow">In progress</p>
+            <h3>More reviews are on the way</h3>
+            <p>We're testing more cars every month — check back soon, or subscribe below to get notified.</p>
+            <div class="card-foot">
+              <div class="mini-gauge"><span class="dot" style="background:var(--ink-soft)"></span> In progress</div>
+              <a class="read-link" href="#subscribe">Subscribe →</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="guides-section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">No jargon, promise</p>
+          <h2 style="color:var(--cream)">How We Review</h2>
         </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="guides-section">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <p class="eyebrow">No jargon, promise</p>
-        <h2 style="color:var(--cream)">Garage Guides</h2>
+        <a href="/review-methodology.html" class="view-all" style="border-color:var(--ember);color:var(--cream)">Full methodology →</a>
       </div>
-      <a href="guides.html" class="view-all" style="border-color:var(--ember);color:var(--cream)">View all guides →</a>
-    </div>
-    <div class="guide-grid">
-      <a class="guide-card" href="guides.html">
-        <span class="num">01</span>
-        <h3>Buying your first car: the no-BS checklist</h3>
-        <span class="arrow">Read guide →</span>
-      </a>
-      <a class="guide-card" href="guides.html">
-        <span class="num">02</span>
-        <h3>EV vs. gas: what actually saves you money</h3>
-        <span class="arrow">Read guide →</span>
-      </a>
-      <a class="guide-card" href="guides.html">
-        <span class="num">03</span>
-        <h3>Dashboard warning lights, decoded</h3>
-        <span class="arrow">Read guide →</span>
-      </a>
-      <a class="guide-card" href="guides.html">
-        <span class="num">04</span>
-        <h3>Maintenance 101: what your car actually needs</h3>
-        <span class="arrow">Read guide →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <p class="eyebrow">Browse by type</p>
-        <h2>Find Your Lane</h2>
-      </div>
-    </div>
-    <div class="chip-row">
-      <a class="chip" href="#">Hatchback</a>
-      <a class="chip" href="#">Sedan</a>
-      <a class="chip" href="#">SUV</a>
-      <a class="chip" href="#">Pickup</a>
-      <a class="chip" href="#">Electric</a>
-      <a class="chip" href="#">Hybrid</a>
-      <a class="chip" href="#">Off-road</a>
-      <a class="chip" href="#">Performance</a>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="cta-band">
-      <div>
-        <h2>Get the verdict before you buy.</h2>
-        <p>One email a week. No spam, no dealership nonsense.</p>
-      </div>
-      <form class="cta-form" onsubmit="return false;">
-        <input type="email" placeholder="you@email.com" required>
-        <button class="btn" style="background:var(--ink);border-color:var(--ink);color:var(--cream);" type="submit">Subscribe</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <a href="index.html" class="logo" style="color:var(--cream)">
-          <span class="mark">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2c1.8 2.4 3 4.6 3 6.8A3 3 0 1 1 9 8.8C9 6.6 10.2 4.4 12 2Z" fill="#FBF7F0"/><rect x="9" y="14" width="6" height="7" rx="1.2" fill="#FBF7F0"/></svg>
-          </span>
-          FlamingPiston
+      <div class="guide-grid">
+        <a class="guide-card" href="/review-methodology.html">
+          <span class="num">01</span>
+          <h3>How every car gets scored</h3>
+          <span class="arrow">Read methodology →</span>
         </a>
-        <p style="font-size:14px;line-height:1.6;margin-top:14px;max-width:32ch;">A car knowledge hub for people who want the real answer, not the sales pitch.</p>
-      </div>
-      <div>
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="reviews.html">Reviews</a></li>
-          <li><a href="guides.html">Guides</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="privacy-policy.html">Privacy Policy</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Follow</h4>
-        <ul>
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">YouTube</a></li>
-        </ul>
+        <a class="guide-card" href="/editorial-policy.html">
+          <span class="num">02</span>
+          <h3>Our editorial independence policy</h3>
+          <span class="arrow">Read policy →</span>
+        </a>
+        <a class="guide-card" href="/fact-checking-policy.html">
+          <span class="num">03</span>
+          <h3>How we fact-check every spec</h3>
+          <span class="arrow">Read policy →</span>
+        </a>
+        <a class="guide-card" href="/corrections-policy.html">
+          <span class="num">04</span>
+          <h3>Mistakes happen — here's our fix</h3>
+          <span class="arrow">Read policy →</span>
+        </a>
       </div>
     </div>
-    <div class="foot-bottom">
-      <span>© 2026 FlamingPiston. All rights reserved.</span>
-      <span>Built for people who actually read the manual.</span>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Browse by type</p>
+          <h2>Find Your Lane</h2>
+        </div>
+      </div>
+      <div class="chip-row">
+        <a class="chip" href="/reviews.html">Hatchback</a>
+        <a class="chip" href="/reviews.html">Sedan</a>
+        <a class="chip" href="/reviews.html">SUV</a>
+        <a class="chip" href="/reviews-toyota-hilux.html">Pickup</a>
+        <a class="chip" href="/reviews-kia-syros-ev.html">Electric</a>
+        <a class="chip" href="/reviews.html">Hybrid</a>
+        <a class="chip" href="/reviews.html">Off-road</a>
+        <a class="chip" href="/reviews.html">Performance</a>
+      </div>
     </div>
-  </div>
-</footer>
+  </section>
+
+  <section id="subscribe">
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h2>Get the verdict before you buy.</h2>
+          <p>One email a week. No spam, no dealership nonsense.</p>
+        </div>
+        <form class="cta-form" onsubmit="return false;">
+          <input type="email" placeholder="you@email.com" required>
+          <button class="btn" style="background:var(--ink);border-color:var(--ink);color:var(--cream);" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a href="/" class="logo" style="color:var(--cream)">
+            <span class="mark"><img src="/images/logo.png" alt="FlamingPiston logo"></span>
+            FlamingPiston
+          </a>
+          <p>Honest automotive reviews, practical buying advice, and maintenance guides — everything you need before buying your next vehicle.</p>
+          <div class="foot-social">
+            <a href="#">Twitter / X</a>
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/sitemap.html">Sitemap</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Editorial</h4>
+          <ul>
+            <li><a href="/editorial-policy.html">Editorial Policy</a></li>
+            <li><a href="/review-methodology.html">Review Methodology</a></li>
+            <li><a href="/fact-checking-policy.html">Fact-Checking Policy</a></li>
+            <li><a href="/corrections-policy.html">Corrections Policy</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="/cookie-policy.html">Cookie Policy</a></li>
+            <li><a href="/terms.html">Terms of Use</a></li>
+            <li><a href="/affiliate-disclosure.html">Affiliate Disclosure</a></li>
+            <li><a href="/disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="foot-bottom">
+        <span>&copy; 2026 FlamingPiston. All rights reserved.</span>
+        <span><a href="/sitemap.html">Sitemap</a></span>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>

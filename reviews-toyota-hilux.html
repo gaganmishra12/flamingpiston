@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>New Toyota Hilux Review (2026) - Price, Specs, Mileage & Features | FlamingPiston</title>
   <meta name="description" content="New Toyota Hilux review 2026: what's changed, updated design, engine, mileage, dimensions, 4x4 features, safety & full specifications. Is the new Hilux worth buying?">
-
-  <link rel="stylesheet" href="/style.css?v=7">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=9">
 
   <link rel="canonical" href="https://flamingpiston.com/reviews-toyota-hilux.html">
   <meta property="og:type" content="article">
@@ -78,15 +80,29 @@
 </head>
 <body>
 
-  <nav class="site-nav">
-    <a href="/" class="logo"><img src="/images/logo.png" alt="FlamingPiston logo"></a>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/reviews.html" class="active">Reviews</a></li>
-      <li><a href="/news.html">News</a></li>
-      <li><a href="/about.html">About</a></li>
-    </ul>
-  </nav>
+  <header class="site-header">
+    <div class="wrap navbar">
+      <a href="/" class="logo">
+        <span class="mark"><img src="/images/logo.png" alt="FlamingPiston logo"></span>
+        FlamingPiston
+      </a>
+      <nav class="main-nav">
+        <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/reviews.html" class="active">Reviews</a></li>
+        <li><a href="/news.html">News</a></li>
+        <li><a href="/about.html">About</a></li>
+        </ul>
+      </nav>
+      <div class="nav-cta">
+        <a href="/reviews.html" class="btn ghost">Latest Review</a>
+        <a href="/news.html" class="btn flame">Latest News</a>
+      </div>
+      <button class="menu-btn" aria-label="Open menu">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </header>
 
   <div class="content">
     <span class="tag">Review</span>
@@ -256,69 +272,81 @@
     <h2>Read Next</h2>
   </div>
   <div class="card-grid">
-    <div class="article-card">
-      <img src="/images/syros-front.jpg" alt="Kia Syros EV parked in an urban plaza">
-      <div class="card-body">
+    <article class="card">
+      <a href="/reviews-kia-syros-ev.html" class="card-media">
         <span class="tag">Review</span>
-        <h3><a href="/reviews-kia-syros-ev.html">Kia Syros EV Review: Range, Price & Features (2026)</a></h3>
-        <div class="meta"><span>By Gagan Mishra</span></div>
-      </div>
-    </div>
-    <div class="article-card">
+        <img src="/images/syros-front.jpg" alt="Kia Syros EV parked in an urban plaza">
+      </a>
       <div class="card-body">
-        <span class="tag">News</span>
+        <h3><a href="/reviews-kia-syros-ev.html">Kia Syros EV Review: Range, Price & Features (2026)</a></h3>
+        <div class="card-foot">
+          <a class="read-link" href="/reviews-kia-syros-ev.html">Read →</a>
+        </div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-body">
+        <p class="eyebrow">News</p>
         <h3><a href="/news.html">Latest Car News</a></h3>
         <p>New launches, price updates, and industry news — check the News page for the latest.</p>
+        <div class="card-foot">
+          <a class="read-link" href="/news.html">Read →</a>
+        </div>
       </div>
-    </div>
+    </article>
   </div>
 
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="/" class="logo"><img src="/images/logo.png" alt="FlamingPiston logo"></a>
-        <p>Honest automotive reviews, practical buying advice, and maintenance guides — everything you need before buying your next vehicle.</p>
-        <div class="footer-social">
-          <a href="#" aria-label="Twitter / X">𝕏</a>
-          <a href="#" aria-label="Instagram">IG</a>
-          <a href="#" aria-label="YouTube">YT</a>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a href="/" class="logo" style="color:var(--cream)">
+            <span class="mark"><img src="/images/logo.png" alt="FlamingPiston logo"></span>
+            FlamingPiston
+          </a>
+          <p>Honest automotive reviews, practical buying advice, and maintenance guides — everything you need before buying your next vehicle.</p>
+          <div class="foot-social">
+            <a href="#">Twitter / X</a>
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/sitemap.html">Sitemap</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Editorial</h4>
+          <ul>
+            <li><a href="/editorial-policy.html">Editorial Policy</a></li>
+            <li><a href="/review-methodology.html">Review Methodology</a></li>
+            <li><a href="/fact-checking-policy.html">Fact-Checking Policy</a></li>
+            <li><a href="/corrections-policy.html">Corrections Policy</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="/cookie-policy.html">Cookie Policy</a></li>
+            <li><a href="/terms.html">Terms of Use</a></li>
+            <li><a href="/affiliate-disclosure.html">Affiliate Disclosure</a></li>
+            <li><a href="/disclaimer.html">Disclaimer</a></li>
+          </ul>
         </div>
       </div>
 
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="/about.html">About</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-          <li><a href="/sitemap.html">Sitemap</a></li>
-        </ul>
+      <div class="foot-bottom">
+        <span>&copy; 2026 FlamingPiston. All rights reserved.</span>
+        <span><a href="/sitemap.html">Sitemap</a></span>
       </div>
-
-      <div class="footer-col">
-        <h4>Editorial</h4>
-        <ul>
-          <li><a href="/editorial-policy.html">Editorial Policy</a></li>
-          <li><a href="/review-methodology.html">Review Methodology</a></li>
-          <li><a href="/fact-checking-policy.html">Fact-Checking Policy</a></li>
-          <li><a href="/corrections-policy.html">Corrections Policy</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="/cookie-policy.html">Cookie Policy</a></li>
-          <li><a href="/terms.html">Terms of Use</a></li>
-          <li><a href="/affiliate-disclosure.html">Affiliate Disclosure</a></li>
-          <li><a href="/disclaimer.html">Disclaimer</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <span>&copy; 2026 FlamingPiston. All rights reserved.</span>
-      <span><a href="/sitemap.html">Sitemap</a></span>
     </div>
   </footer>
 
