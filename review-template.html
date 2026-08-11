@@ -345,6 +345,11 @@
     </div>
   </footer>
 
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
   <script>
     (function(){
       var btn = document.getElementById('menuBtn');
@@ -361,6 +366,18 @@
           btn.setAttribute('aria-expanded','false');
           btn.classList.remove('is-active');
         });
+      });
+    })();
+  </script>
+  <script>
+    (function(){
+      var topBtn = document.getElementById('backToTop');
+      if(!topBtn) return;
+      window.addEventListener('scroll', function(){
+        topBtn.classList.toggle('is-visible', window.scrollY > 500);
+      });
+      topBtn.addEventListener('click', function(){
+        window.scrollTo({top:0, behavior:'smooth'});
       });
     })();
   </script>
