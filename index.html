@@ -130,19 +130,15 @@ nav.main-nav a:hover::after, nav.main-nav a.active::after{width:100%;}
 .hero-stats b{display:block;font-size:22px;color:var(--cream);}
 .hero-stats span{font-size:11px;letter-spacing:.05em;color:#B8AC9C;text-transform:uppercase;}
 .octane-card{
-  display:block;background:var(--cream);color:var(--ink);border-radius:20px;padding:28px 26px 26px;
+  display:block;background:var(--cream);color:var(--ink);border-radius:20px;padding:24px 26px 22px;
   box-shadow:0 20px 50px rgba(0,0,0,.35);
-  transform:rotate(-2deg);
+  transform:rotate(-1deg);
   transition:transform .2s ease, box-shadow .2s ease;
 }
-.octane-card:hover{transform:rotate(-1deg) translateY(-4px);box-shadow:0 26px 60px rgba(0,0,0,.42);}
+.octane-card:hover{transform:rotate(-.5deg) translateY(-4px);box-shadow:0 26px 60px rgba(0,0,0,.42);}
 .octane-card .oc-stamp-wrap{
-  position:relative;width:172px;height:172px;margin:0 auto 16px;
+  position:relative;width:172px;height:172px;margin:0 auto 10px;
   display:flex;align-items:center;justify-content:center;
-}
-.octane-card .oc-stamp-wrap::before{
-  content:"";position:absolute;inset:0;border-radius:50%;
-  background:repeating-conic-gradient(from 0deg, rgba(255,78,31,.14) 0deg 6deg, rgba(255,176,32,.08) 6deg 12deg, transparent 12deg 24deg);
 }
 .octane-card .oc-ring{position:absolute;inset:0;width:100%;height:100%;}
 .octane-card .oc-ring text{font-family:'Space Mono',monospace;fill:var(--flame-dark);}
@@ -152,17 +148,18 @@ nav.main-nav a:hover::after, nav.main-nav a.active::after{width:100%;}
 }
 .octane-card .oc-photo img{width:100%;height:100%;object-fit:cover;display:block;}
 .octane-card .oc-seal{
-  position:absolute;bottom:2px;right:2px;width:44px;height:44px;border-radius:50%;
-  background:var(--cream);border:3px solid var(--flame);padding:5px;
-  box-shadow:0 4px 10px rgba(0,0,0,.28);
+  position:absolute;bottom:0;right:2px;width:54px;height:54px;border-radius:50%;
+  background:linear-gradient(145deg,var(--flame),var(--flame-dark));
+  border:3px solid var(--cream);padding:11px;
+  box-shadow:0 4px 12px rgba(0,0,0,.3);
   display:flex;align-items:center;justify-content:center;transform:rotate(8deg);
 }
 .octane-card .oc-seal img{width:100%;height:100%;object-fit:contain;display:block;}
-.octane-card .oc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;padding-top:2px;}
+.octane-card .oc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;padding-top:2px;}
 .octane-card .oc-top .eyebrow{margin:0;}
 .octane-card h3{font-size:22px;margin-bottom:4px;}
 .octane-card .oc-sub{font-family:'Space Mono',monospace;font-size:12px;color:var(--ink-soft);}
-.gauge-wrap{display:flex;align-items:center;gap:16px;margin-top:16px;}
+.gauge-wrap{display:flex;align-items:center;gap:16px;margin-top:10px;}
 .gauge-num{font-family:'Anton',sans-serif;font-size:34px;color:var(--flame-dark);}
 .gauge-num sub{font-family:'Space Mono',monospace;font-size:13px;color:var(--ink-soft);}
 .oc-cta{
@@ -555,19 +552,45 @@ footer.site-footer{background:var(--ink);color:#C9C1B4;padding:56px 0 28px;margi
       <a href="#" class="octane-card">
         <div class="oc-stamp-wrap">
           <svg class="oc-ring" viewBox="0 0 172 172">
+            <g class="oc-rays">
+              <line x1="143.0" y1="86.0" x2="165.0" y2="86.0" stroke="#FF4E1F" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+              <line x1="141.1" y1="100.8" x2="162.3" y2="106.4" stroke="#FFB020" stroke-width="4" stroke-linecap="round" opacity="0.16"/>
+              <line x1="135.4" y1="114.5" x2="154.4" y2="125.5" stroke="#FF4E1F" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+              <line x1="126.3" y1="126.3" x2="141.9" y2="141.9" stroke="#FFB020" stroke-width="4" stroke-linecap="round" opacity="0.16"/>
+              <line x1="114.5" y1="135.4" x2="125.5" y2="154.4" stroke="#FF4E1F" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+              <line x1="100.8" y1="141.1" x2="106.4" y2="162.3" stroke="#FFB020" stroke-width="4" stroke-linecap="round" opacity="0.16"/>
+              <line x1="86.0" y1="143.0" x2="86.0" y2="165.0" stroke="#FF4E1F" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+              <line x1="71.2" y1="141.1" x2="65.6" y2="162.3" stroke="#FFB020" stroke-width="4" stroke-linecap="round" opacity="0.16"/>
+              <line x1="57.5" y1="135.4" x2="46.5" y2="154.4" stroke="#FF4E1F" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+              <line x1="45.7" y1="126.3" x2="30.1" y2="141.9" stroke="#FFB020" stroke-width="4" stroke-linecap="round" opacity="0.16"/>
+              <line x1="36.6" y1="114.5" x2="17.6" y2="125.5" stroke="#FF4E1F" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+              <line x1="30.9" y1="100.8" x2="9.7" y2="106.4" stroke="#FFB020" stroke-width="4" stroke-linecap="round" opacity="0.16"/>
+              <line x1="29.0" y1="86.0" x2="7.0" y2="86.0" stroke="#FF4E1F" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+              <line x1="30.9" y1="71.2" x2="9.7" y2="65.6" stroke="#FFB020" stroke-width="4" stroke-linecap="round" opacity="0.16"/>
+              <line x1="36.6" y1="57.5" x2="17.6" y2="46.5" stroke="#FF4E1F" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+              <line x1="45.7" y1="45.7" x2="30.1" y2="30.1" stroke="#FFB020" stroke-width="4" stroke-linecap="round" opacity="0.16"/>
+              <line x1="57.5" y1="36.6" x2="46.5" y2="17.6" stroke="#FF4E1F" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+              <line x1="71.2" y1="30.9" x2="65.6" y2="9.7" stroke="#FFB020" stroke-width="4" stroke-linecap="round" opacity="0.16"/>
+              <line x1="86.0" y1="29.0" x2="86.0" y2="7.0" stroke="#FF4E1F" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+              <line x1="100.8" y1="30.9" x2="106.4" y2="9.7" stroke="#FFB020" stroke-width="4" stroke-linecap="round" opacity="0.16"/>
+              <line x1="114.5" y1="36.6" x2="125.5" y2="17.6" stroke="#FF4E1F" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+              <line x1="126.3" y1="45.7" x2="141.9" y2="30.1" stroke="#FFB020" stroke-width="4" stroke-linecap="round" opacity="0.16"/>
+              <line x1="135.4" y1="57.5" x2="154.4" y2="46.5" stroke="#FF4E1F" stroke-width="4" stroke-linecap="round" opacity="0.22"/>
+              <line x1="141.1" y1="71.2" x2="162.3" y2="65.6" stroke="#FFB020" stroke-width="4" stroke-linecap="round" opacity="0.16"/>
+            </g>
+            <circle cx="86" cy="86" r="80" fill="none" stroke="#FF4E1F" stroke-width="1.5"/>
             <defs>
-              <path id="stampCurve" d="M 86,86 m -68,0 a 68,68 0 1,1 136,0 a 68,68 0 1,1 -136,0" />
+              <path id="stampCurve" d="M 14.6,60.0 A 76,76 0 0,1 157.4,60.0" />
             </defs>
-            <circle cx="86" cy="86" r="80" fill="none" stroke="#FF4E1F" stroke-width="1.5" stroke-dasharray="2.5 4.5"/>
-            <text font-size="8.5" letter-spacing="2.6">
-              <textPath href="#stampCurve" startOffset="2%">FLAMINGPISTON REVIEWED • FLAMINGPISTON REVIEWED •</textPath>
+            <text font-size="9.5" letter-spacing="1.6">
+              <textPath href="#stampCurve" startOffset="50%" text-anchor="middle">FLAMINGPISTON REVIEWED</textPath>
             </text>
           </svg>
           <div class="oc-photo">
             <img src="images/syros-front.jpg" alt="Kia Syros EV parked in a city plaza">
           </div>
           <div class="oc-seal">
-            <img src="images/icon.png" alt="FlamingPiston icon">
+            <img src="images/icon-mono.png" alt="FlamingPiston icon">
           </div>
         </div>
         <div class="oc-top">
@@ -581,11 +604,11 @@ footer.site-footer{background:var(--ink);color:#C9C1B4;padding:56px 0 28px;margi
           <svg width="72" height="72" viewBox="0 0 72 72">
             <circle cx="36" cy="36" r="30" fill="none" stroke="#E7DFD2" stroke-width="8"/>
             <circle cx="36" cy="36" r="30" fill="none" stroke="#FF4E1F" stroke-width="8" stroke-linecap="round"
-              stroke-dasharray="188.5" stroke-dashoffset="37" transform="rotate(-90 36 36)"/>
+              stroke-dasharray="158.3 188.5" stroke-dashoffset="0" transform="rotate(-90 36 36)"/>
           </svg>
           <div class="gauge-num">8.4<sub>/10 Octane Score</sub></div>
         </div>
-        <p style="font-size:13px;color:var(--ink-soft);line-height:1.5;margin:16px 0 0;">526km range and fast charging — here's where it wins, and where it doesn't.</p>
+        <p style="font-size:13px;color:var(--ink-soft);line-height:1.5;margin:12px 0 0;">526km range and fast charging — here's where it wins, and where it doesn't.</p>
         <span class="oc-cta">Read the full verdict →</span>
       </a>
     </div>
