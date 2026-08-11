@@ -69,8 +69,8 @@ header.site-header{
 }
 .navbar{display:flex;align-items:center;justify-content:space-between;height:76px;}
 .logo{display:flex;align-items:center;}
-.logo img.logo-full{height:36px;width:auto;display:block;}
-.logo.footer-logo img.logo-full{height:32px;}
+.logo img.logo-full{height:46px;width:auto;display:block;}
+.logo.footer-logo img.logo-full{height:40px;}
 nav.main-nav ul{list-style:none;display:flex;gap:30px;margin:0;padding:0;}
 nav.main-nav a{
   font-family:'Space Mono',monospace;font-size:13px;text-transform:uppercase;letter-spacing:.06em;
@@ -115,30 +115,27 @@ nav.main-nav a:hover::after, nav.main-nav a.active::after{width:100%;}
 .hero-stats b{display:block;font-size:22px;color:var(--cream);}
 .hero-stats span{font-size:11px;letter-spacing:.05em;color:#B8AC9C;text-transform:uppercase;}
 .octane-card{
-  display:block;background:var(--cream);color:var(--ink);border-radius:20px;padding:0 26px 26px;
+  display:block;background:var(--cream);color:var(--ink);border-radius:20px;padding:0 26px 22px;
   box-shadow:0 20px 50px rgba(0,0,0,.35);
-  transform:rotate(-2deg);
+  transform:rotate(-1deg);
   transition:transform .2s ease, box-shadow .2s ease;
   overflow:hidden;
 }
-.octane-card:hover{transform:rotate(-1deg) translateY(-4px);box-shadow:0 26px 60px rgba(0,0,0,.42);}
+.octane-card:hover{transform:rotate(-.5deg) translateY(-4px);box-shadow:0 26px 60px rgba(0,0,0,.42);}
 .octane-card .oc-media{
   position:relative;margin:0 -26px 18px;aspect-ratio:16/10;overflow:hidden;
   background:linear-gradient(135deg,var(--cream-2,#F4EDE0),#E4D6C2);
 }
-.octane-card .oc-media img{width:100%;height:100%;object-fit:cover;display:block;}
-.octane-card .oc-stamp{
-  position:absolute;bottom:12px;left:12px;display:inline-flex;align-items:center;gap:6px;
-  background:rgba(24,20,15,.85);color:var(--cream);backdrop-filter:blur(2px);
-  font-family:'Space Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.05em;
-  padding:6px 10px 6px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.25);
+.octane-card .oc-media img:first-child{width:100%;height:100%;object-fit:cover;display:block;}
+.octane-card .oc-badge{
+  position:absolute;bottom:-14px;right:-14px;width:104px;height:104px;
+  filter:drop-shadow(0 6px 14px rgba(0,0,0,.4));
 }
-.octane-card .oc-stamp svg{width:14px;height:14px;color:var(--flame);flex-shrink:0;}
-.octane-card .oc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;padding-top:2px;}
+.octane-card .oc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;padding-top:2px;}
 .octane-card .oc-top .eyebrow{margin:0;}
 .octane-card h3{font-size:22px;margin-bottom:4px;}
 .octane-card .oc-sub{font-family:'Space Mono',monospace;font-size:12px;color:var(--ink-soft);}
-.gauge-wrap{display:flex;align-items:center;gap:16px;margin-top:16px;}
+.gauge-wrap{display:flex;align-items:center;gap:16px;margin-top:10px;}
 .gauge-num{font-family:'Anton',sans-serif;font-size:34px;color:var(--flame-dark);}
 .gauge-num sub{font-family:'Space Mono',monospace;font-size:13px;color:var(--ink-soft);}
 .oc-cta{
@@ -260,7 +257,7 @@ section.tight{padding:48px 0;}
 /* ===== ABOUT: STAT STRIP (reuses hero-stats look on light bg) ===== */
 .stat-strip{display:flex;gap:32px;flex-wrap:wrap;margin:28px 0 4px;}
 .stat-strip div{border-left:2px solid var(--flame);padding-left:12px;}
-.stat-strip b{display:block;font-family:'Anton',sans-serif;font-size:26px;color:var(--ink);}
+.stat-strip b{display:block;font-family:'Manrope',sans-serif;font-weight:800;font-size:24px;letter-spacing:-.01em;}
 .stat-strip span{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.05em;color:var(--ink-soft);text-transform:uppercase;}
 
 /* ===== NEWSLETTER / CTA BAND ===== */
