@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" href="/favicon.ico">
   <title>FlamingPiston — Know Your Machine</title>
   <meta name="description" content="FlamingPiston is a car knowledge hub with honest reviews, buying guides, and maintenance breakdowns — no jargon, no fluff.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,8 +63,7 @@
   <header class="site-header">
     <div class="wrap navbar">
       <a href="/" class="logo">
-        <span class="mark"><img src="/images/logo.png" alt="FlamingPiston logo"></span>
-        FlamingPiston
+        <img src="/images/logo.png" alt="FlamingPiston" class="logo-full">
       </a>
       <nav class="main-nav">
         <ul>
@@ -89,7 +92,7 @@
         <h1>KNOW YOUR<br><span class="hl">MACHINE.</span></h1>
         <p class="lede">Real reviews, plain-English breakdowns, and specs that actually mean something — built for people who want to understand what they're driving, not sit through a dealership pitch.</p>
         <div class="hero-actions">
-          <a href="/reviews-kia-syros-ev.html" class="btn flame">Read the latest test →</a>
+          <a href="/reviews-kia-syros-ev.html" class="btn flame">Read the latest review →</a>
           <a href="/news.html" class="btn" style="background:transparent;border-color:var(--cream);color:var(--cream);">See the latest news</a>
         </div>
         <div class="hero-stats">
@@ -99,7 +102,11 @@
         </div>
       </div>
 
-      <div class="octane-card">
+      <a href="/reviews-kia-syros-ev.html" class="octane-card">
+        <div class="oc-media">
+          <img src="/images/syros-front.jpg" alt="Kia Syros EV parked in a city plaza">
+          <span class="oc-stamp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c1.8 2.4 3 4.6 3 6.8A3 3 0 1 1 9 8.8C9 6.6 10.2 4.4 12 2Z"/><rect x="9" y="14" width="6" height="7" rx="1.2"/></svg>FlamingPiston Reviewed</span>
+        </div>
         <div class="oc-top">
           <div>
             <p class="eyebrow">Latest verdict</p>
@@ -116,7 +123,8 @@
           <div class="gauge-num">8.4<sub>/10 Octane Score</sub></div>
         </div>
         <p style="font-size:13px;color:var(--ink-soft);line-height:1.5;margin:16px 0 0;">526km range and fast charging — here's where it wins, and where it doesn't.</p>
-      </div>
+        <span class="oc-cta">Read the full verdict →</span>
+      </a>
     </div>
     <div class="strip-divider"></div>
   </section>
@@ -138,7 +146,7 @@
           </a>
           <div class="card-body">
             <p class="eyebrow">Full review</p>
-            <h3>New Toyota Hilux: still the workhorse to beat?</h3>
+            <h3><a href="/reviews-toyota-hilux.html">New Toyota Hilux: still the workhorse to beat?</a></h3>
             <p>We break down the powertrain, off-road hardware, and payload numbers that actually matter for buyers.</p>
             <div class="card-foot">
               <div class="mini-gauge"><span class="dot"></span> 8.5 / 10</div>
@@ -154,7 +162,7 @@
           </a>
           <div class="card-body">
             <p class="eyebrow">Full review</p>
-            <h3>Kia Syros EV: range, price & should you buy it?</h3>
+            <h3><a href="/reviews-kia-syros-ev.html">Kia Syros EV: range, price & should you buy it?</a></h3>
             <p>526km range, 171PS power, and 39-minute fast charging — a full look at Kia's new electric SUV.</p>
             <div class="card-foot">
               <div class="mini-gauge"><span class="dot"></span> 8.4 / 10</div>
@@ -225,14 +233,14 @@
         </div>
       </div>
       <div class="chip-row">
-        <a class="chip" href="/reviews.html">Hatchback</a>
-        <a class="chip" href="/reviews.html">Sedan</a>
-        <a class="chip" href="/reviews.html">SUV</a>
-        <a class="chip" href="/reviews-toyota-hilux.html">Pickup</a>
-        <a class="chip" href="/reviews-kia-syros-ev.html">Electric</a>
-        <a class="chip" href="/reviews.html">Hybrid</a>
-        <a class="chip" href="/reviews.html">Off-road</a>
-        <a class="chip" href="/reviews.html">Performance</a>
+        <a class="chip" href="/reviews.html#hatchback">Hatchback</a>
+        <a class="chip" href="/reviews.html#sedan">Sedan</a>
+        <a class="chip" href="/reviews.html#suv">SUV</a>
+        <a class="chip" href="/reviews.html#pickup">Pickup</a>
+        <a class="chip" href="/reviews.html#electric">Electric</a>
+        <a class="chip" href="/reviews.html#hybrid">Hybrid</a>
+        <a class="chip" href="/reviews.html#off-road">Off-road</a>
+        <a class="chip" href="/reviews.html#performance">Performance</a>
       </div>
     </div>
   </section>
@@ -256,9 +264,8 @@
     <div class="wrap">
       <div class="foot-grid">
         <div class="foot-brand">
-          <a href="/" class="logo" style="color:var(--cream)">
-            <span class="mark"><img src="/images/logo.png" alt="FlamingPiston logo"></span>
-            FlamingPiston
+          <a href="/" class="logo footer-logo" style="color:var(--cream)">
+            <img src="/images/logo-footer.png" alt="FlamingPiston" class="logo-full">
           </a>
           <p>Honest automotive reviews, practical buying advice, and maintenance guides — everything you need before buying your next vehicle.</p>
           <div class="foot-social">

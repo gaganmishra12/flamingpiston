@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" href="/favicon.ico">
   <title>Car Reviews - FlamingPiston</title>
   <meta name="description" content="Honest, in-depth car reviews to help you choose your next vehicle.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,8 +50,7 @@
   <header class="site-header">
     <div class="wrap navbar">
       <a href="/" class="logo">
-        <span class="mark"><img src="/images/logo.png" alt="FlamingPiston logo"></span>
-        FlamingPiston
+        <img src="/images/logo.png" alt="FlamingPiston" class="logo-full">
       </a>
       <nav class="main-nav">
         <ul>
@@ -76,10 +79,27 @@
     </div>
   </section>
 
+  <section style="padding-bottom:0;">
+    <div class="wrap">
+      <div class="chip-row" id="filterChips">
+        <a class="chip is-active" href="#all" data-filter="all">All</a>
+        <a class="chip" href="#hatchback" data-filter="hatchback">Hatchback</a>
+        <a class="chip" href="#sedan" data-filter="sedan">Sedan</a>
+        <a class="chip" href="#suv" data-filter="suv">SUV</a>
+        <a class="chip" href="#pickup" data-filter="pickup">Pickup</a>
+        <a class="chip" href="#electric" data-filter="electric">Electric</a>
+        <a class="chip" href="#hybrid" data-filter="hybrid">Hybrid</a>
+        <a class="chip" href="#off-road" data-filter="off-road">Off-road</a>
+        <a class="chip" href="#performance" data-filter="performance">Performance</a>
+      </div>
+    </div>
+  </section>
+
   <section>
     <div class="wrap">
-      <div class="review-row">
-        <article class="card">
+      <p id="filterEmpty" class="filter-empty" hidden>No reviews in this category yet — check back soon, or <a href="/news.html">browse the latest news</a>.</p>
+      <div class="review-row" id="reviewGrid">
+        <article class="card" data-category="pickup off-road">
           <a href="/reviews-toyota-hilux.html" class="card-media">
             <span class="tag">Pickup</span>
             <img src="/images/hilux-front.jpg" alt="New Toyota Hilux driving through a city at night">
@@ -95,7 +115,7 @@
           </div>
         </article>
 
-        <article class="card">
+        <article class="card" data-category="electric suv">
           <a href="/reviews-kia-syros-ev.html" class="card-media">
             <span class="tag">Electric</span>
             <img src="/images/syros-front.jpg" alt="Kia Syros EV parked in a city plaza">
@@ -111,7 +131,7 @@
           </div>
         </article>
 
-        <article class="card">
+        <article class="card" data-category="all">
           <div class="card-media">
             <span class="tag">Coming Soon</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="1.3"><path d="M3 16h18M5 16V10l2-4h9l4 5h1a1 1 0 0 1 1 1v4M8 16a2 2 0 1 1-4 0M20 16a2 2 0 1 1-4 0"/></svg>
@@ -134,9 +154,8 @@
     <div class="wrap">
       <div class="foot-grid">
         <div class="foot-brand">
-          <a href="/" class="logo" style="color:var(--cream)">
-            <span class="mark"><img src="/images/logo.png" alt="FlamingPiston logo"></span>
-            FlamingPiston
+          <a href="/" class="logo footer-logo" style="color:var(--cream)">
+            <img src="/images/logo-footer.png" alt="FlamingPiston" class="logo-full">
           </a>
           <p>Honest automotive reviews, practical buying advice, and maintenance guides — everything you need before buying your next vehicle.</p>
           <div class="foot-social">
@@ -183,6 +202,41 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function(){
+      var chips = document.querySelectorAll('#filterChips .chip');
+      var cards = document.querySelectorAll('#reviewGrid .card');
+      var emptyMsg = document.getElementById('filterEmpty');
+
+      function applyFilter(cat){
+        cat = cat || 'all';
+        var visibleCount = 0;
+        cards.forEach(function(card){
+          var cardCats = (card.getAttribute('data-category') || '').split(' ');
+          var show = cat === 'all' || cardCats.indexOf(cat) !== -1 || cardCats.indexOf('all') !== -1;
+          card.style.display = show ? '' : 'none';
+          if (show) visibleCount++;
+        });
+        emptyMsg.hidden = visibleCount > 0;
+        chips.forEach(function(chip){
+          chip.classList.toggle('is-active', chip.getAttribute('data-filter') === cat);
+        });
+      }
+
+      chips.forEach(function(chip){
+        chip.addEventListener('click', function(e){
+          e.preventDefault();
+          var cat = chip.getAttribute('data-filter');
+          history.replaceState(null, '', cat === 'all' ? '#' : '#' + cat);
+          applyFilter(cat);
+        });
+      });
+
+      var initial = (window.location.hash || '').replace('#','').toLowerCase() || 'all';
+      applyFilter(initial);
+    })();
+  </script>
 
 </body>
 </html>
