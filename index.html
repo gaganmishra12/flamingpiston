@@ -100,29 +100,42 @@
         </div>
       </div>
 
-      <a href="reviews-kia-syros-ev.html" class="octane-card" id="latestReviewCard">
-        <div class="oc-media">
-          <img id="latestReviewImg" src="images/syros-front.jpg" alt="Kia Syros EV parked in a city plaza">
-        </div>
-        <div class="oc-top">
-          <div>
-            <p class="eyebrow">Latest verdict</p>
-            <h3 id="latestReviewTitle">Kia Syros EV</h3>
-            <p class="oc-sub">Reviewed this week</p>
+      <div class="browse-mix-wrap">
+        <div class="hero-visual-ring hero-visual-ring--mix"></div>
+        <div class="hero-visual-glow hero-visual-glow--mix"></div>
+        <div class="browse-card browse-card--big">
+          <p class="eyebrow">Browse by type</p>
+          <h3 class="browse-title">Find Your Lane</h3>
+          <p class="browse-sub">Jump straight to the category you're actually shopping for.</p>
+          <div class="browse-grid">
+            <a href="reviews.html#suv" class="browse-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 16h18M5 16V10l2-4h9l4 5h1a1 1 0 0 1 1 1v4M8 16a2 2 0 1 1-4 0M20 16a2 2 0 1 1-4 0"/></svg>
+              <span>SUV</span>
+            </a>
+            <a href="reviews.html#electric" class="browse-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+              <span>Electric</span>
+            </a>
+            <a href="reviews.html#pickup" class="browse-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 16h18M5 16V9l3-4h6l4 4h1a1 1 0 0 1 1 1v6M8 16a2 2 0 1 1-4 0M20 16a2 2 0 1 1-4 0"/></svg>
+              <span>Pickup</span>
+            </a>
+            <a href="reviews.html#sedan" class="browse-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 16h18M5 16V11l2-3h9l3 3h1a1 1 0 0 1 1 1v4M8 16a2 2 0 1 1-4 0M18 16a2 2 0 1 1-4 0"/></svg>
+              <span>Sedan</span>
+            </a>
+            <a href="reviews.html#hatchback" class="browse-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 16h16M5 16V11l2-3h7l3 3h1a1 1 0 0 1 1 1v4M8 16a2 2 0 1 1-4 0M18 16a2 2 0 1 1-4 0"/></svg>
+              <span>Hatchback</span>
+            </a>
+            <a href="reviews.html#performance" class="browse-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+              <span>Performance</span>
+            </a>
           </div>
-          <img class="oc-stamp-mini" src="images/reviewed-badge.png" alt="FlamingPiston Reviewed stamp">
+          <a href="reviews.html" class="oc-cta" style="display:block;margin-top:18px;">Browse all reviews →</a>
         </div>
-        <div class="gauge-wrap">
-          <svg width="72" height="72" viewBox="0 0 72 72">
-            <circle cx="36" cy="36" r="30" fill="none" stroke="#E7DFD2" stroke-width="8"/>
-            <circle id="latestReviewArc" cx="36" cy="36" r="30" fill="none" stroke="#FF4E1F" stroke-width="8" stroke-linecap="round"
-              stroke-dasharray="158.3 188.5" stroke-dashoffset="0" transform="rotate(-90 36 36)"/>
-          </svg>
-          <div class="gauge-num" id="latestReviewScore">8.4<sub>/10 Octane Score</sub></div>
-        </div>
-        <p id="latestReviewSummary" style="font-size:13px;color:var(--ink-soft);line-height:1.5;margin:12px 0 0;">526km range and fast charging — here's where it wins, and where it doesn't.</p>
-        <span class="oc-cta">Read the full verdict →</span>
-      </a>
+      </div>
     </div>
     <div class="strip-divider"></div>
   </section>
@@ -328,53 +341,6 @@
           btn.classList.remove('is-active');
         });
       });
-    })();
-  </script>
-
-  <script>
-    /* ============================================================
-       LATEST REVIEW — edit this block only when you publish a new review.
-       Everything below (photo, title, score, gauge fill, summary,
-       and both links to the review) updates itself from these 6 lines.
-       ============================================================ */
-    var LATEST_REVIEW = {
-      title: "Kia Syros EV",                                   // car name shown on the card
-      url: "reviews-kia-syros-ev.html",                        // the review's page filename
-      image: "images/syros-front.jpg",                         // hero photo for the card
-      imageAlt: "Kia Syros EV parked in a city plaza",          // alt text for that photo
-      score: 8.4,                                               // Octane Score out of 10 — the gauge fill is calculated from this automatically
-      summary: "526km range and fast charging — here's where it wins, and where it doesn't." // one-line teaser
-    };
-    /* ============================================================ */
-
-    (function(){
-      var r = LATEST_REVIEW;
-      var card = document.getElementById('latestReviewCard');
-      var cta = document.getElementById('latestReviewCta');
-      if(!card) return;
-
-      card.href = r.url;
-      if(cta) cta.href = r.url;
-
-      var img = document.getElementById('latestReviewImg');
-      if(img){ img.src = r.image; img.alt = r.imageAlt; }
-
-      var title = document.getElementById('latestReviewTitle');
-      if(title) title.textContent = r.title;
-
-      var summary = document.getElementById('latestReviewSummary');
-      if(summary) summary.textContent = r.summary;
-
-      var scoreEl = document.getElementById('latestReviewScore');
-      if(scoreEl) scoreEl.innerHTML = r.score.toFixed(1) + '<sub>/10 Octane Score</sub>';
-
-      var arc = document.getElementById('latestReviewArc');
-      if(arc){
-        var circumference = 2 * Math.PI * 30; // matches the circle's r=30 in the SVG
-        var filled = circumference * (r.score / 10);
-        arc.setAttribute('stroke-dasharray', filled.toFixed(1) + ' ' + circumference.toFixed(1));
-        arc.setAttribute('stroke-dashoffset', '0');
-      }
     })();
   </script>
 </body>
