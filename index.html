@@ -62,13 +62,13 @@
 
   <header class="site-header">
     <div class="wrap navbar">
-      <a href="index.html" class="logo logo-text">
+      <a href="/" class="logo logo-text">
         <span class="flame">Flaming</span><span class="piston">Piston</span>
       </a>
       <div class="nav-collapse" id="navCollapse">
         <nav class="main-nav">
         <ul>
-          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="/" class="active">Home</a></li>
           <li><a href="reviews.html">Reviews</a></li>
           <li><a href="news.html">News</a></li>
         <li><a href="guides.html">Guides</a></li>
@@ -91,7 +91,7 @@
         <h1>KNOW YOUR<br><span class="hl">MACHINE.</span></h1>
         <p class="lede">Real reviews, plain-English breakdowns, and specs that actually mean something — built for people who want to understand what they're driving, not sit through a dealership pitch.</p>
         <div class="hero-actions">
-          <a href="reviews/kia-syros-ev/" class="btn outline-hero" id="latestReviewCta">Read the latest review →</a>
+          <a href="reviews/2026-maruti-brezza-review/" class="btn outline-hero" id="latestReviewCta">Read the latest review →</a>
           <a href="news.html" class="btn outline-hero">See the latest news</a>
         </div>
         <div class="hero-stats">
@@ -280,7 +280,7 @@
     <div class="wrap">
       <div class="foot-grid">
         <div class="foot-brand">
-          <a href="index.html" class="logo logo-text logo-text--footer">
+          <a href="/" class="logo logo-text logo-text--footer">
             <span class="flame">Flaming</span><span class="piston">Piston</span>
           </a>
           <p>Honest automotive reviews, practical buying advice, and maintenance guides — everything you need before buying your next vehicle.</p>
@@ -372,7 +372,9 @@
        Whenever you add a new review card to the #latestReviewsRow
        grid, just give it a data-date="YYYY-MM-DD" attribute
        matching its publish date — this script handles the ordering
-       automatically. No manual reordering needed.
+       automatically, and also points the hero's "Read the latest
+       review" button at whichever review ends up newest. No manual
+       reordering or link updates needed.
        ============================================================ */
     (function(){
       var row = document.getElementById('latestReviewsRow');
@@ -382,6 +384,13 @@
         return new Date(b.getAttribute('data-date')) - new Date(a.getAttribute('data-date'));
       });
       cards.forEach(function(card){ row.appendChild(card); });
+
+      var newest = cards[0];
+      var cta = document.getElementById('latestReviewCta');
+      if (newest && cta) {
+        var link = newest.querySelector('a.card-media, a.read-link');
+        if (link) cta.setAttribute('href', link.getAttribute('href'));
+      }
     })();
   </script>
 </body>
