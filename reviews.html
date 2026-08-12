@@ -99,23 +99,23 @@
     <div class="wrap">
       <p id="filterEmpty" class="filter-empty" hidden>No reviews in this category yet — check back soon, or <a href="news.html">browse the latest news</a>.</p>
       <div class="review-row" id="reviewGrid">
-        <article class="card" data-category="pickup off-road">
-          <a href="reviews/toyota-hilux/" class="card-media">
-            <span class="tag">Pickup</span>
-            <img src="images/hilux-front.jpg" alt="New Toyota Hilux driving through a city at night">
+        <article class="card" data-category="suv compact-suv" data-date="2026-08-12">
+          <a href="reviews/2026-maruti-brezza-review/" class="card-media">
+            <span class="tag">Compact SUV</span>
+            <img src="images/brezza-front.jpg" alt="2026 Maruti Brezza, red, front three-quarter shot">
           </a>
           <div class="card-body">
             <p class="eyebrow">Full review</p>
-            <h3><a href="reviews/toyota-hilux/">Toyota Hilux Review: Price, Specs & Features (2026)</a></h3>
-            <p>A full breakdown of the Hilux's engine, off-road hardware, interior features, safety kit, and whether it's worth buying over an SUV.</p>
+            <h3><a href="reviews/2026-maruti-brezza-review/">2026 Maruti Brezza Review: Price, Mileage & Is It Worth It?</a></h3>
+            <p>New 1.0 turbo engine, a 5-star Bharat NCAP rating, and three powertrain choices — but the turbo still doesn't get an automatic.</p>
             <div class="card-foot">
-              <div class="mini-gauge"><span class="dot"></span> 7.9 / 10</div>
-              <a class="read-link" href="reviews/toyota-hilux/">Read →</a>
+              <div class="mini-gauge"><span class="dot"></span> 8.2 / 10</div>
+              <a class="read-link" href="reviews/2026-maruti-brezza-review/">Read →</a>
             </div>
           </div>
         </article>
 
-        <article class="card" data-category="electric suv">
+        <article class="card" data-category="electric suv" data-date="2026-08-05">
           <a href="reviews/kia-syros-ev/" class="card-media">
             <span class="tag">Electric</span>
             <img src="images/syros-front.jpg" alt="Kia Syros EV parked in a city plaza">
@@ -131,18 +131,18 @@
           </div>
         </article>
 
-        <article class="card" data-category="suv compact-suv">
-          <a href="reviews/2026-maruti-brezza-review/" class="card-media">
-            <span class="tag">Compact SUV</span>
-            <img src="images/brezza-front.jpg" alt="2026 Maruti Brezza, red, front three-quarter shot">
+        <article class="card" data-category="pickup off-road" data-date="2026-08-04">
+          <a href="reviews/toyota-hilux/" class="card-media">
+            <span class="tag">Pickup</span>
+            <img src="images/hilux-front.jpg" alt="New Toyota Hilux driving through a city at night">
           </a>
           <div class="card-body">
             <p class="eyebrow">Full review</p>
-            <h3><a href="reviews/2026-maruti-brezza-review/">2026 Maruti Brezza Review: Price, Mileage & Is It Worth It?</a></h3>
-            <p>New 1.0 turbo engine, a 5-star Bharat NCAP rating, and three powertrain choices — but the turbo still doesn't get an automatic.</p>
+            <h3><a href="reviews/toyota-hilux/">Toyota Hilux Review: Price, Specs & Features (2026)</a></h3>
+            <p>A full breakdown of the Hilux's engine, off-road hardware, interior features, safety kit, and whether it's worth buying over an SUV.</p>
             <div class="card-foot">
-              <div class="mini-gauge"><span class="dot"></span> 8.2 / 10</div>
-              <a class="read-link" href="reviews/2026-maruti-brezza-review/">Read →</a>
+              <div class="mini-gauge"><span class="dot"></span> 7.9 / 10</div>
+              <a class="read-link" href="reviews/toyota-hilux/">Read →</a>
             </div>
           </div>
         </article>
@@ -210,6 +210,17 @@
 
   <script>
     (function(){
+      /* Auto-sort by publish date, newest first — matches the homepage's
+         Latest Reviews behavior. New cards just need a data-date attribute. */
+      var grid = document.getElementById('reviewGrid');
+      if (grid) {
+        var sortable = Array.prototype.slice.call(grid.querySelectorAll('.card[data-date]'));
+        sortable.sort(function(a, b){
+          return new Date(b.getAttribute('data-date')) - new Date(a.getAttribute('data-date'));
+        });
+        sortable.forEach(function(card){ grid.appendChild(card); });
+      }
+
       var chips = document.querySelectorAll('#filterChips .chip');
       var cards = document.querySelectorAll('#reviewGrid .card');
       var emptyMsg = document.getElementById('filterEmpty');
