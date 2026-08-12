@@ -66,20 +66,14 @@ h1,h2,h3{
 /* ===== NAV ===== */
 header.site-header{
   position:sticky;top:0;z-index:50;
-  background:rgba(251,247,240,.92);
-  backdrop-filter:blur(8px);
+  background:var(--cream);
   border-bottom:1px solid var(--line);
 }
 .navbar{display:flex;align-items:center;justify-content:space-between;height:76px;}
 .nav-collapse{display:flex;align-items:center;gap:26px;}
 .logo{display:flex;align-items:center;}
-.logo-text{
-  font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:.01em;
-  font-size:24px;line-height:1;display:flex;align-items:baseline;
-}
-.logo-text .flame{color:var(--flame);margin-right:.15em;}
-.logo-text .piston{color:var(--ink);}
-.logo-text.logo-text--footer .piston{color:var(--cream);}
+.logo img.logo-full{height:22px;width:auto;display:block;}
+.logo.footer-logo img.logo-full{height:19px;}
 nav.main-nav ul{list-style:none;display:flex;gap:30px;margin:0;padding:0;}
 nav.main-nav a{
   font-family:'Space Mono',monospace;font-size:13px;text-transform:uppercase;letter-spacing:.06em;
