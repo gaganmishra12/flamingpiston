@@ -13,14 +13,20 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://flamingpiston.com/reviews-toyota-hilux.html</loc>
+    <loc>https://flamingpiston.com/reviews/toyota-hilux/</loc>
     <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://flamingpiston.com/reviews-kia-syros-ev.html</loc>
+    <loc>https://flamingpiston.com/reviews/kia-syros-ev/</loc>
     <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://flamingpiston.com/reviews/2026-maruti-brezza-review/</loc>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
