@@ -321,10 +321,6 @@ img[src*="syros-front"]{object-position:46% 50%;}
 
 /* ===== ABOUT: PULL STATEMENT ===== */
 .pull-band{position:relative;}
-.pull-watermark{
-  position:absolute;top:-20px;right:-10px;width:170px;height:170px;color:var(--flame);opacity:.08;
-  pointer-events:none;
-}
 .pull-statement{
   font-family:'Anton',sans-serif;text-transform:uppercase;line-height:1.05;letter-spacing:.01em;
   font-size:clamp(26px,4.2vw,46px);color:var(--ink);margin:0 0 20px;max-width:14ch;
@@ -541,6 +537,8 @@ footer.site-footer{background:var(--ink);color:#C9C1B4;padding:56px 0 28px;margi
 }
 @media(max-width:640px){
   .navbar{position:relative;}
+  .contact-band{padding:36px 24px;}
+  .contact-band a.email-link{font-size:13px;gap:6px;white-space:nowrap;}
   .nav-collapse{
     display:none;
     position:absolute;top:calc(100% + 1px);left:0;right:0;
