@@ -1,0 +1,9 @@
+# FlamingPiston — URL redirects
+# Old flat review URLs → new folder-style URLs (SEO migration, Aug 2026)
+
+Redirect 301 /reviews-toyota-hilux.html /reviews/toyota-hilux/
+Redirect 301 /reviews-kia-syros-ev.html /reviews/kia-syros-ev/
+Redirect 301 /reviews-maruti-brezza.html /reviews/2026-maruti-brezza-review/
+
+# Homepage — force /index.html to the clean root URL
+Redirect 301 /index.html /
