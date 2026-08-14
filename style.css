@@ -228,6 +228,7 @@ section.tight{padding:48px 0;}
   overflow:hidden;
 }
 .card-media img{width:100%;height:100%;object-fit:cover;}
+img[src*="brezza-vs-nexon-hero"]{object-fit:contain;background:var(--ink);}
 img[src*="hilux-front"]{object-position:30% 50%;}
 img[src*="scorpio-n"]{object-fit:cover;object-position:50% 50%;}
 img[src*="syros-front"]{object-position:46% 50%;}

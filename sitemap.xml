@@ -13,6 +13,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://flamingpiston.com/comparisons.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://flamingpiston.com/reviews.html</loc>
     <lastmod>2026-08-05</lastmod>
     <changefreq>daily</changefreq>
@@ -45,6 +51,12 @@
   <url>
     <loc>https://flamingpiston.com/reviews/2026-maruti-brezza-variants/</loc>
     <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flamingpiston.com/reviews/2026-brezza-vs-nexon/</loc>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
