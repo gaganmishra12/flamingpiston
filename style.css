@@ -228,6 +228,10 @@ section.tight{padding:48px 0;}
   overflow:hidden;
 }
 .card-media img{width:100%;height:100%;object-fit:cover;}
+/* Branded editorial graphics (wide banner-style, not photos) need to show
+   in full rather than get cropped into the 4:3 card frame or 16:9 hero
+   frame when the source aspect doesn't match exactly. */
+img[src*="images/news-"],
 img[src*="brezza-vs-nexon-hero"]{object-fit:contain;background:var(--ink);}
 img[src*="hilux-front"]{object-position:30% 50%;}
 img[src*="scorpio-n"]{object-fit:cover;object-position:50% 50%;}
