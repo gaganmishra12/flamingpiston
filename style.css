@@ -396,7 +396,7 @@ footer.site-footer{background:var(--ink);color:#C9C1B4;padding:56px 0 28px;margi
 
 .author-block{
   display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
-  padding:18px 0;margin:20px 0 32px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:18px 0;margin:20px 0 0;border-top:1px solid var(--line);
 }
 .author-id{display:flex;align-items:center;gap:12px;}
 .author-avatar{
@@ -473,7 +473,7 @@ footer.site-footer{background:var(--ink);color:#C9C1B4;padding:56px 0 28px;margi
 
 .post-actions{
   display:flex;align-items:center;justify-content:flex-end;
-  padding:16px 0;margin:4px 0 32px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:0 0 16px;margin:0 0 32px;border-bottom:1px solid var(--line);
 }
 
 .share-row{display:flex;align-items:center;gap:8px;}
