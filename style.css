@@ -70,8 +70,8 @@ header.site-header{
   border-bottom:1px solid var(--line);
 }
 .navbar{display:flex;align-items:center;height:76px;}
-.nav-collapse{display:flex;align-items:center;gap:26px;margin-left:44px;}
-.fp-search-trigger{margin-left:auto;}
+.nav-collapse{display:flex;align-items:center;gap:26px;margin-left:auto;}
+.fp-search-trigger{margin-left:30px;}
 .logo{display:flex;align-items:center;}
 .logo img.logo-full{height:22px;width:auto;display:block;}
 .logo.footer-logo img.logo-full{height:19px;}
