@@ -69,10 +69,28 @@
     </div>
   </section>
 
+  <section style="padding-bottom:0;">
+    <div class="wrap">
+      <div class="chip-row" id="filterChips">
+        <a class="chip is-active" href="#all" data-filter="all">All</a>
+        <a class="chip" href="#hatchback" data-filter="hatchback">Hatchback</a>
+        <a class="chip" href="#sedan" data-filter="sedan">Sedan</a>
+        <a class="chip" href="#suv" data-filter="suv">SUV</a>
+        <a class="chip" href="#compact-suv" data-filter="compact-suv">Compact SUV</a>
+        <a class="chip" href="#pickup" data-filter="pickup">Pickup</a>
+        <a class="chip" href="#electric" data-filter="electric">Electric</a>
+        <a class="chip" href="#hybrid" data-filter="hybrid">Hybrid</a>
+        <a class="chip" href="#off-road" data-filter="off-road">Off-road</a>
+        <a class="chip" href="#performance" data-filter="performance">Performance</a>
+      </div>
+    </div>
+  </section>
+
   <section>
     <div class="wrap">
+      <p id="filterEmpty" class="filter-empty" hidden>No guides in this category yet — check back soon, or <a href="news.html">browse the latest news</a>.</p>
       <div class="review-row" id="guideGrid">
-        <article class="card">
+        <article class="card" data-category="suv compact-suv" data-date="2026-08-12">
           <a href="reviews/2026-maruti-brezza-mileage/" class="card-media">
             <span class="tag">Mileage Guide</span>
             <img src="images/brezza-mileage-hero.jpg" alt="2026 Maruti Brezza rear three-quarter shot" loading="lazy">
@@ -88,7 +106,7 @@
           </div>
         </article>
 
-        <article class="card">
+        <article class="card" data-category="suv compact-suv" data-date="2026-08-13">
           <a href="reviews/2026-maruti-brezza-variants/" class="card-media">
             <span class="tag">Variants Guide</span>
             <img src="images/brezza-front.jpg" alt="2026 Maruti Brezza, red, front three-quarter shot" loading="lazy">
@@ -104,7 +122,7 @@
           </div>
         </article>
 
-        <article class="card">
+        <article class="card" data-category="suv compact-suv" data-date="2026-08-17">
           <a href="reviews/2026-maruti-brezza-automatic/" class="card-media">
             <span class="tag">Automatic Guide</span>
             <img src="images/brezza-automatic-hero.jpg" alt="2026 Maruti Brezza Automatic, branded graphic with 6-speed torque converter, price, and mileage badges" loading="lazy">
@@ -120,7 +138,7 @@
           </div>
         </article>
 
-        <article class="card">
+        <article class="card" data-category="all">
           <div class="card-media">
             <span class="tag">Coming Soon</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="1.3"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg>
@@ -192,6 +210,51 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
   </button>
 
+  <script>
+    (function(){
+      /* Auto-sort by publish date, newest first — matches the homepage's
+         Latest Reviews behavior. New cards just need a data-date attribute. */
+      var grid = document.getElementById('guideGrid');
+      if (grid) {
+        var sortable = Array.prototype.slice.call(grid.querySelectorAll('.card[data-date]'));
+        sortable.sort(function(a, b){
+          return new Date(b.getAttribute('data-date')) - new Date(a.getAttribute('data-date'));
+        });
+        sortable.forEach(function(card){ grid.appendChild(card); });
+      }
+
+      var chips = document.querySelectorAll('#filterChips .chip');
+      var cards = document.querySelectorAll('#guideGrid .card');
+      var emptyMsg = document.getElementById('filterEmpty');
+
+      function applyFilter(cat){
+        cat = cat || 'all';
+        var visibleCount = 0;
+        cards.forEach(function(card){
+          var cardCats = (card.getAttribute('data-category') || '').split(' ');
+          var show = cat === 'all' || cardCats.indexOf(cat) !== -1 || cardCats.indexOf('all') !== -1;
+          card.style.display = show ? '' : 'none';
+          if (show) visibleCount++;
+        });
+        emptyMsg.hidden = visibleCount > 0;
+        chips.forEach(function(chip){
+          chip.classList.toggle('is-active', chip.getAttribute('data-filter') === cat);
+        });
+      }
+
+      chips.forEach(function(chip){
+        chip.addEventListener('click', function(e){
+          e.preventDefault();
+          var cat = chip.getAttribute('data-filter');
+          history.replaceState(null, '', cat === 'all' ? '#' : '#' + cat);
+          applyFilter(cat);
+        });
+      });
+
+      var initial = (window.location.hash || '').replace('#','').toLowerCase() || 'all';
+      applyFilter(initial);
+    })();
+  </script>
   <script>
     (function(){
       var btn = document.getElementById('menuBtn');
