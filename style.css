@@ -471,7 +471,12 @@ footer.site-footer{background:var(--ink);color:#C9C1B4;padding:56px 0 28px;margi
 
 .review-meta{display:flex;align-items:center;gap:14px;margin:8px 0 4px;}
 
-.share-row{display:flex;align-items:center;gap:8px;margin-left:auto;}
+.post-actions{
+  display:flex;align-items:center;justify-content:flex-end;
+  padding:16px 0;margin:4px 0 32px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+
+.share-row{display:flex;align-items:center;gap:8px;}
 .share-label{font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft);margin-right:2px;}
 .share-btn{
   position:relative;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);
