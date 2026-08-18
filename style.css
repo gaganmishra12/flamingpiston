@@ -275,6 +275,7 @@ img[src*="syros-front"]{object-position:46% 50%;}
 @media(max-width:640px){.back-to-top{bottom:16px;right:16px;width:42px;height:42px;}}
 .card-body p{font-size:14px;color:var(--ink-soft);line-height:1.55;margin:0 0 16px;flex-grow:1;}
 .card-foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;}
+.card-date{font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.02em;color:var(--ink-soft,#8a8072);}
 .mini-gauge{display:flex;align-items:center;gap:6px;font-family:'Space Mono',monospace;font-size:13px;}
 .mini-gauge .dot{width:8px;height:8px;border-radius:50%;background:var(--flame);}
 .read-link{font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;color:var(--flame-dark);}

@@ -118,6 +118,38 @@
     <div class="wrap">
       <p id="filterEmpty" class="filter-empty" hidden>No reviews in this category yet — check back soon, or <a href="news.html">browse the latest news</a>.</p>
       <div class="review-row" id="reviewGrid">
+        <article class="card" data-category="sedan" data-date="2026-08-18">
+          <a href="reviews/2026-skoda-slavia-facelift/" class="card-media">
+            <span class="tag">Sedan</span>
+            <img src="images/skoda-slavia.jpg" alt="Skoda Slavia facelift front three-quarter view" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">Full review</p>
+            <h3><a href="reviews/2026-skoda-slavia-facelift/">Skoda Slavia Facelift Review: Price, Specs & Features (2026)</a></h3>
+            <p>Launched today with a new 8-speed automatic, a bigger digital cluster, and a mild styling refresh — full breakdown.</p>
+            <div class="card-foot">
+              <div class="mini-gauge"><span class="dot"></span> 8.0 / 10</div>
+              <a class="read-link" href="reviews/2026-skoda-slavia-facelift/">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-category="hatchback" data-date="2026-08-18">
+          <a href="reviews/tata-altroz/" class="card-media">
+            <span class="tag">Hatchback</span>
+            <img src="images/altroz-front.jpg" alt="Tata Altroz front three-quarter shot" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">Full review</p>
+            <h3><a href="reviews/tata-altroz/">Tata Altroz Review: Price, Mileage & Safety (2026)</a></h3>
+            <p>5-star safety, the only diesel in its class, and now the only CNG automatic too — is it enough to make up for a middling engine?</p>
+            <div class="card-foot">
+              <div class="mini-gauge"><span class="dot"></span> 7.9 / 10</div>
+              <a class="read-link" href="reviews/tata-altroz/">Read →</a>
+            </div>
+          </div>
+        </article>
+
         <article class="card" data-category="suv compact-suv" data-date="2026-08-12">
           <a href="reviews/2026-maruti-brezza-review/" class="card-media">
             <span class="tag">Compact SUV</span>
@@ -178,9 +210,7 @@
           </a>
           <p>Honest automotive reviews, practical buying advice, and maintenance guides — everything you need before buying your next vehicle.</p>
           <div class="foot-social">
-            <a href="#">Twitter / X</a>
             <a href="https://www.instagram.com/flamingpiston_in/" target="_blank" rel="noopener">Instagram</a>
-            <a href="#">YouTube</a>
           </div>
         </div>
 
@@ -244,6 +274,21 @@
       var cards = document.querySelectorAll('#reviewGrid .card');
       var emptyMsg = document.getElementById('filterEmpty');
 
+      /* Only show a category chip once a review actually exists in it —
+         keeps buyers from hitting a dead "nothing here" click. Add a
+         matching data-category to a new card and its chip reappears
+         automatically, no other change needed. */
+      var presentCats = {};
+      cards.forEach(function(card){
+        (card.getAttribute('data-category') || '').split(' ').forEach(function(c){
+          if (c) presentCats[c] = true;
+        });
+      });
+      chips.forEach(function(chip){
+        var f = chip.getAttribute('data-filter');
+        if (f !== 'all' && !presentCats[f]) chip.style.display = 'none';
+      });
+
       function applyFilter(cat){
         cat = cat || 'all';
         var visibleCount = 0;
@@ -304,6 +349,7 @@
       });
     })();
   </script>
+  <script src="card-dates.js"></script>
   <script src="site-search.js"></script>
 </body>
 </html>

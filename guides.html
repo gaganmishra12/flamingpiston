@@ -186,9 +186,7 @@
           </a>
           <p>Honest automotive reviews, practical buying advice, and maintenance guides — everything you need before buying your next vehicle.</p>
           <div class="foot-social">
-            <a href="#">Twitter / X</a>
             <a href="https://www.instagram.com/flamingpiston_in/" target="_blank" rel="noopener">Instagram</a>
-            <a href="#">YouTube</a>
           </div>
         </div>
         <div>
@@ -246,6 +244,21 @@
       var chips = document.querySelectorAll('#filterChips .chip');
       var cards = document.querySelectorAll('#guideGrid .card');
       var emptyMsg = document.getElementById('filterEmpty');
+
+      /* Only show a category chip once a guide actually exists in it —
+         keeps buyers from hitting a dead "nothing here" click. Add a
+         matching data-category to a new card and its chip reappears
+         automatically, no other change needed. */
+      var presentCats = {};
+      cards.forEach(function(card){
+        (card.getAttribute('data-category') || '').split(' ').forEach(function(c){
+          if (c) presentCats[c] = true;
+        });
+      });
+      chips.forEach(function(chip){
+        var f = chip.getAttribute('data-filter');
+        if (f !== 'all' && !presentCats[f]) chip.style.display = 'none';
+      });
 
       function applyFilter(cat){
         cat = cat || 'all';
@@ -306,6 +319,7 @@
       });
     })();
   </script>
+  <script src="card-dates.js"></script>
   <script src="site-search.js"></script>
 </body>
 </html>
