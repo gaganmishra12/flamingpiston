@@ -103,5 +103,12 @@
     "type": "news",
     "car": "Mahindra BE 6",
     "tags": ["mahindra", "be6", "sporteq", "ev", "electric"]
+  },
+  {
+    "title": "Land Rover Defender Dakar Revealed",
+    "url": "/news-land-rover-defender-dakar.html",
+    "type": "news",
+    "car": "Land Rover Defender",
+    "tags": ["land rover", "defender", "defender dakar", "defender octa", "dakar rally", "suv"]
   }
 ]
