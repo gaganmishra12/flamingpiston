@@ -674,9 +674,15 @@
 
       var newest = cards[0];
       var cta = document.getElementById('latestReviewCta');
-      if (newest && cta) {
-        var link = newest.querySelector('a.card-media, a.read-link');
-        if (link) cta.setAttribute('href', link.getAttribute('href'));
+      if (cta) {
+        var reviewCard = cards.find(function(card){
+          var tagEl = card.querySelector('.tag');
+          return tagEl && tagEl.textContent.trim() !== 'News';
+        });
+        if (reviewCard) {
+          var link = reviewCard.querySelector('a.card-media, a.read-link');
+          if (link) cta.setAttribute('href', link.getAttribute('href'));
+        }
       }
     })();
   </script>
