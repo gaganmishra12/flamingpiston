@@ -675,9 +675,10 @@
       var newest = cards[0];
       var cta = document.getElementById('latestReviewCta');
       if (cta) {
+        var EXCLUDED_TAGS = ['News', 'Comparison', 'Guide'];
         var reviewCard = cards.find(function(card){
           var tagEl = card.querySelector('.tag');
-          return tagEl && tagEl.textContent.trim() !== 'News';
+          return tagEl && EXCLUDED_TAGS.indexOf(tagEl.textContent.trim()) === -1;
         });
         if (reviewCard) {
           var link = reviewCard.querySelector('a.card-media, a.read-link');
