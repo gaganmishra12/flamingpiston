@@ -1,11 +1,11 @@
 // FlamingPiston — Google Analytics 4 (GA4) tracking
-// Measurement ID: G-81SZ88DNT9
+// Measurement ID: G-QE7WZ5DCC6
 // Loaded via: <script async src="/js/analytics.js"></script> in every page's <head>
 
 (function () {
   var script = document.createElement('script');
   script.async = true;
-  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-81SZ88DNT9';
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-QE7WZ5DCC6';
   document.head.appendChild(script);
 
   window.dataLayer = window.dataLayer || [];
@@ -13,5 +13,5 @@
   window.gtag = gtag;
 
   gtag('js', new Date());
-  gtag('config', 'G-81SZ88DNT9');
+  gtag('config', 'G-QE7WZ5DCC6');
 })();
