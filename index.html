@@ -9,616 +9,1049 @@
   <link rel="icon" href="favicon.ico">
   <title>FlamingPiston — Know Your Machine</title>
   <script async src="/js/analytics.js"></script>
-  <meta name="description" content="FlamingPiston is a car knowledge hub with honest reviews, buying guides, and maintenance breakdowns — no jargon, no fluff.">
+  <meta name="description" content="FlamingPiston — honest car reviews, buying guides, and the latest automotive news. No jargon, no dealer scripts.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=9">
+  <link rel="stylesheet" href="style.css?v=12">
   <link rel="alternate" type="application/rss+xml" title="FlamingPiston RSS Feed" href="feed.xml">
-
   <link rel="canonical" href="https://flamingpiston.com/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="FlamingPiston — Know Your Machine">
-  <meta property="og:description" content="FlamingPiston is a car knowledge hub with honest reviews, buying guides, and maintenance breakdowns — no jargon, no fluff.">
+  <meta property="og:description" content="Honest car reviews, buying guides, and the latest automotive news.">
   <meta property="og:url" content="https://flamingpiston.com/">
   <meta property="og:image" content="https://flamingpiston.com/images/syros-front.jpg">
   <meta property="og:site_name" content="FlamingPiston">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="FlamingPiston — Know Your Machine">
-  <meta name="twitter:description" content="FlamingPiston is a car knowledge hub with honest reviews, buying guides, and maintenance breakdowns — no jargon, no fluff.">
-  <meta name="twitter:image" content="https://flamingpiston.com/images/syros-front.jpg">
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://flamingpiston.com/" }
-  ]
-}
-  </script>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "FlamingPiston",
-  "url": "https://flamingpiston.com",
-  "logo": "https://flamingpiston.com/images/logo.png"
-}
-  </script>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "FlamingPiston",
-  "url": "https://flamingpiston.com",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://flamingpiston.com/reviews.html?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
-}
-  </script>
   <link rel="stylesheet" href="site-search.css">
+
+  <style>
+  /* ============================================================
+     HOMEPAGE-SPECIFIC STYLES
+  ============================================================ */
+
+  /* ---- LOGO FIX ---- */
+  .logo img.logo-full        { filter: none; }   /* dark/orange logo for light bg */
+  .logo img.logo-nav         { filter: none; }   /* white logo for dark nav — no filter */
+  .logo.footer-logo img      { filter: none; }   /* dark logo on dark footer bg */
+
+  /* ---- IMAGE TICKER CAROUSEL ---- */
+  .img-ticker {
+    background: #0a0a0a;
+    border-bottom: 1px solid #222;
+    overflow: hidden;
+    position: relative;
+    height: 90px;
+  }
+  .img-ticker-track {
+    display: flex;
+    height: 100%;
+    animation: imgTicker 40s linear infinite;
+  }
+  .img-ticker:hover .img-ticker-track { animation-play-state: paused; }
+  @keyframes imgTicker {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .ticker-card {
+    flex-shrink: 0;
+    width: 260px;
+    height: 90px;
+    position: relative;
+    overflow: hidden;
+    border-right: 1px solid #1a1a1a;
+    text-decoration: none;
+    display: block;
+  }
+  .ticker-card img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform .4s ease;
+  }
+  .ticker-card:hover img { transform: scale(1.06); }
+  .ticker-card-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,.2) 60%, transparent 100%);
+    z-index: 1;
+  }
+  .ticker-card-label {
+    position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+    padding: 6px 10px;
+  }
+  .ticker-card-cat {
+    display: block;
+    font-family: 'Space Mono', monospace; font-size: 8px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .06em; color: #FF4E1F;
+    margin-bottom: 1px;
+  }
+  .ticker-card-title {
+    display: block;
+    font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 700;
+    color: #fff; line-height: 1.3;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+
+  /* ---- HERO CAROUSEL ---- */
+  .fp-carousel-section { padding: 0; background: #0a0a0a; }
+  .fp-carousel-wrap {
+    max-width: var(--wrap); margin: 0 auto; padding: 0 20px;
+    display: grid; grid-template-columns: 1fr 280px; gap: 2px;
+  }
+  .fp-carousel { position: relative; height: 440px; overflow: hidden; }
+  .fp-slide {
+    position: absolute; inset: 0; opacity: 0;
+    transition: opacity .55s ease; display: flex; align-items: flex-end;
+  }
+  .fp-slide.active { opacity: 1; z-index: 2; }
+  .fp-slide-img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center 40%;
+    transition: transform 8s ease; transform: scale(1.04);
+  }
+  .fp-slide.active .fp-slide-img { transform: scale(1); }
+  .fp-slide-gradient {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(5,5,5,.97) 0%, rgba(5,5,5,.55) 50%, rgba(5,5,5,.15) 100%);
+    z-index: 1;
+  }
+  .fp-slide-content {
+    position: relative; z-index: 2; padding: 0 24px 26px; width: 100%;
+  }
+  .fp-slide-tag {
+    display: inline-block; background: #FF4E1F; color: #fff;
+    font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700;
+    letter-spacing: .06em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 3px; margin-bottom: 10px;
+  }
+  .fp-slide-title {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(20px, 2.8vw, 32px); font-weight: 400;
+    text-transform: uppercase; letter-spacing: .01em; line-height: 1.06;
+    color: #fff; margin: 0 0 8px;
+  }
+  .fp-slide-title a { color: inherit; text-decoration: none; }
+  .fp-slide-title a:hover { color: #FF4E1F; }
+  .fp-slide-excerpt { font-size: 13px; color: rgba(255,255,255,.6); line-height: 1.5; margin: 0 0 10px; max-width: 54ch; }
+  .fp-slide-meta { font-family: 'Space Mono', monospace; font-size: 10px; color: rgba(255,255,255,.4); letter-spacing: .03em; }
+
+  /* Dots + arrows */
+  .fp-dots { position: absolute; bottom: 14px; left: 24px; display: flex; gap: 6px; z-index: 10; }
+  .fp-dot {
+    width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.3);
+    border: none; cursor: pointer; padding: 0;
+    transition: background .2s, transform .2s;
+  }
+  .fp-dot.active { background: #FF4E1F; transform: scale(1.3); }
+  .fp-arrow {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    z-index: 10; background: rgba(0,0,0,.55); border: 1px solid rgba(255,255,255,.15);
+    color: #fff; font-size: 20px; width: 38px; height: 38px;
+    border-radius: 50%; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background .2s;
+  }
+  .fp-arrow:hover { background: #FF4E1F; border-color: #FF4E1F; }
+  .fp-arrow.prev { left: 10px; }
+  .fp-arrow.next { right: 10px; }
+
+  /* Side story panel */
+  .fp-carousel-side {
+    border-left: 1px solid rgba(255,255,255,.07);
+    display: flex; flex-direction: column; overflow: hidden;
+  }
+  .fp-side-item {
+    flex: 1; display: flex; gap: 0;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    cursor: pointer; transition: background .18s;
+    text-decoration: none; overflow: hidden;
+  }
+  .fp-side-item:last-child { border-bottom: none; }
+  .fp-side-item:hover { background: rgba(255,255,255,.04); }
+  .fp-side-item.is-active { background: rgba(255,78,31,.12); border-left: 3px solid #FF4E1F; }
+  .fp-side-thumb { width: 88px; flex-shrink: 0; overflow: hidden; }
+  .fp-side-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .fp-side-body { padding: 11px 13px; display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+  .fp-side-tag { font-family: 'Space Mono', monospace; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #FF4E1F; margin-bottom: 4px; }
+  .fp-side-title { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 700; color: rgba(255,255,255,.8); line-height: 1.4; margin: 0 0 4px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .fp-side-meta { font-family: 'Space Mono', monospace; font-size: 10px; color: rgba(255,255,255,.3); }
+
+  /* ---- AD SLOTS ---- */
+  .ad-slot {
+    background: #f0ede8;
+    border: 1px dashed #ccc;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Space Mono', monospace; font-size: 10px;
+    color: #bbb; letter-spacing: .05em; text-transform: uppercase;
+    border-radius: 4px; flex-shrink: 0;
+  }
+  .ad-slot-leaderboard { width: 100%; height: 90px; margin: 0 0 0; }
+  .ad-slot-rectangle  { width: 300px; height: 250px; }
+  .ad-slot-infeed     { width: 100%; height: 60px; margin: 24px 0; }
+  .ad-slot-sidebar    { width: 300px; height: 250px; margin-top: 24px; }
+
+  /* ---- TAB STRIP ---- */
+  .review-tabs-head {
+    display: flex; align-items: flex-end;
+    border-bottom: 3px solid #FF4E1F; margin-bottom: 24px; gap: 0;
+  }
+  .review-tabs-head h2 {
+    font-family: 'Anton', sans-serif; font-size: 20px; font-weight: 400;
+    text-transform: uppercase; letter-spacing: .02em;
+    color: #111; padding: 0 24px 10px 0;
+    border-bottom: 3px solid #FF4E1F; margin-bottom: -3px; white-space: nowrap;
+  }
+  .tab-btn {
+    font-family: 'Space Mono', monospace; font-size: 11px;
+    text-transform: uppercase; letter-spacing: .05em;
+    color: #888; background: none; border: none; cursor: pointer;
+    padding: 10px 16px; border-bottom: 3px solid transparent; margin-bottom: -3px;
+    white-space: nowrap; transition: color .15s, border-color .15s;
+  }
+  .tab-btn:hover { color: #333; }
+  .tab-btn.active { color: #FF4E1F; border-bottom-color: #FF4E1F; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ---- NEWS LIST ---- */
+  .news-list { display: flex; flex-direction: column; }
+  .news-list-item {
+    display: grid; grid-template-columns: 130px 1fr; gap: 0;
+    border-bottom: 1px solid var(--line); text-decoration: none;
+    transition: background .15s; overflow: hidden;
+  }
+  .news-list-item:first-child { border-top: 1px solid var(--line); }
+  .news-list-item:hover { background: #FAFAF0; }
+  .news-list-thumb { overflow: hidden; }
+  .news-list-thumb img { width: 100%; height: 100%; min-height: 85px; object-fit: cover; display: block; transition: transform .3s ease; }
+  .news-list-item:hover .news-list-thumb img { transform: scale(1.04); }
+  .news-list-body { padding: 14px 16px; display: flex; flex-direction: column; justify-content: center; }
+  .news-list-cat { font-family: 'Space Mono', monospace; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #FF4E1F; margin-bottom: 4px; }
+  .news-list-title { font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 700; color: #111; line-height: 1.35; margin-bottom: 4px; }
+  .news-list-item:hover .news-list-title { color: #FF4E1F; }
+  .news-list-excerpt { font-size: 13px; color: #666; line-height: 1.5; margin-bottom: 5px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .news-list-meta { font-family: 'Space Mono', monospace; font-size: 10px; color: #999; display: flex; gap: 12px; }
+
+  /* ---- TRENDING SIDEBAR ---- */
+  .sidebar-widget { margin-bottom: 28px; }
+  .sidebar-heading {
+    font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .08em; color: #111;
+    padding-bottom: 8px; border-bottom: 3px solid #FF4E1F; margin-bottom: 0;
+    display: block;
+  }
+  .trending-list { display: flex; flex-direction: column; }
+  .trending-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 0; border-bottom: 1px solid var(--line);
+    text-decoration: none; transition: background .15s;
+  }
+  .trending-item:last-child { border-bottom: none; }
+  .trending-num { font-family: 'Anton', sans-serif; font-size: 22px; font-weight: 400; color: #E0DDD8; min-width: 22px; flex-shrink: 0; line-height: 1; }
+  .trending-thumb { width: 60px; height: 44px; border-radius: 4px; overflow: hidden; flex-shrink: 0; }
+  .trending-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .trending-name { font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 700; color: #111; line-height: 1.3; margin-bottom: 2px; }
+  .trending-item:hover .trending-name { color: #FF4E1F; }
+  .trending-meta { font-family: 'Space Mono', monospace; font-size: 10px; color: #999; }
+
+  /* ---- WHY READ US STRIP ---- */
+  .trust-strip {
+    background: #111; border-top: 3px solid #FF4E1F;
+    padding: 28px 0;
+  }
+  .trust-strip-inner {
+    display: flex; gap: 0;
+    justify-content: space-around; align-items: center;
+    max-width: var(--wrap); margin: 0 auto; padding: 0 20px;
+  }
+  .trust-item { text-align: center; padding: 0 20px; border-right: 1px solid #2a2a2a; }
+  .trust-item:last-child { border-right: none; }
+  .trust-num { font-family: 'Anton', sans-serif; font-size: 32px; color: #FF4E1F; line-height: 1; display: block; }
+  .trust-label { font-family: 'Space Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: #888; margin-top: 4px; display: block; }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 1060px) {
+    .fp-carousel-wrap { grid-template-columns: 1fr; }
+    .fp-carousel-side { display: none; }
+    .fp-carousel { height: 320px; }
+  }
+  @media (max-width: 740px) {
+    .fp-carousel { height: 260px; }
+    .fp-slide-excerpt { display: none; }
+    .img-ticker { height: 70px; }
+    .ticker-card { width: 180px; height: 70px; }
+    .trust-strip-inner { flex-wrap: wrap; gap: 20px; }
+    .trust-item { border-right: none; }
+  }
+  </style>
 </head>
 <body>
 
-  <div id="fpSearchOverlay" class="fp-search-overlay">
-    <div class="fp-search-panel">
-      <div class="fp-search-input-row">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        <input id="fpSearchInput" class="fp-search-input" type="text" placeholder="Search by car name..." autocomplete="off">
-        <button id="fpSearchClose" class="fp-search-close">ESC</button>
-      </div>
-      <div id="fpSearchResults" class="fp-search-results"></div>
+<!-- SEARCH OVERLAY -->
+<div id="fpSearchOverlay" class="fp-search-overlay">
+  <div class="fp-search-panel">
+    <div class="fp-search-input-row">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input id="fpSearchInput" class="fp-search-input" type="text" placeholder="Search reviews, news, guides..." autocomplete="off">
+      <button id="fpSearchClose" class="fp-search-close">ESC</button>
     </div>
+    <div id="fpSearchResults" class="fp-search-results"></div>
   </div>
+</div>
 
-
-
-  <header class="site-header">
-    <div class="wrap navbar">
-      <a href="/" class="logo">
-        <img src="images/logo.png" alt="FlamingPiston" class="logo-full">
-      </a>
-      <div class="nav-collapse" id="navCollapse">
-        <nav class="main-nav">
+<!-- HEADER — using logo-light.png (white version) on dark nav -->
+<header class="site-header">
+  <div class="wrap navbar">
+    <a href="/" class="logo">
+      <img src="images/logo-light.png" alt="FlamingPiston" class="logo-nav" style="height:28px;width:auto;filter:none;">
+    </a>
+    <div class="nav-collapse" id="navCollapse">
+      <nav class="main-nav">
         <ul>
           <li><a href="/" class="active">Home</a></li>
           <li><a href="reviews.html">Reviews</a></li>
           <li><a href="news.html">News</a></li>
-        <li><a href="guides.html">Guides</a></li>
-        <li><a href="comparisons.html">Comparisons</a></li>
+          <li><a href="guides.html">Guides</a></li>
+          <li><a href="comparisons.html">Comparisons</a></li>
           <li><a href="about.html">About</a></li>
         </ul>
       </nav>
-      </div>
-            <button id="fpSearchTrigger" class="fp-search-trigger" aria-label="Search">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      </button>
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navCollapse">
-        <svg class="icon-menu" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg><svg class="icon-close" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
     </div>
-  </header>
+    <button id="fpSearchTrigger" class="fp-search-trigger" aria-label="Search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+    </button>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navCollapse">
+      <svg class="icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+</header>
 
-  <section class="hero">
-    <div class="hero-grain"></div>
-    <div class="hero-glow"></div>
-    <div class="wrap hero-inner">
-      <div>
-        <p class="eyebrow" style="color:var(--ember)">Car knowledge, unfiltered</p>
-        <h1>KNOW YOUR<br><span class="hl">MACHINE.</span></h1>
-        <p class="lede">Real reviews, plain-English breakdowns, and specs that actually mean something — built for people who want to understand what they're driving, not sit through a dealership pitch.</p>
-        <div class="hero-actions">
-          <a href="reviews/2026-maruti-brezza-review/" class="btn outline-hero" id="latestReviewCta">Read the latest review →</a>
-          <a href="news.html" class="btn outline-hero">See the latest news</a>
-        </div>
-        <div class="hero-stats">
-          <div><b>100%</b><span>Independent</span></div>
-          <div><b>0</b><span>Dealer scripts</span></div>
-          <div><b>New</b><span>Verdict weekly</span></div>
+<!-- GOOGLE ADSENSE — Leaderboard 728×90 below nav -->
+<div style="background:#f5f2ee;border-bottom:1px solid #e8e4de;display:flex;align-items:center;justify-content:center;padding:6px 0;">
+  <!-- Replace the div below with your AdSense <ins> tag -->
+  <div class="ad-slot ad-slot-leaderboard" style="max-width:728px;height:90px;">
+    Advertisement · 728×90
+  </div>
+</div>
+
+<!-- IMAGE CAROUSEL TICKER — pauses on hover -->
+<div class="img-ticker" aria-label="Latest stories">
+  <div class="img-ticker-track" id="imgTickerTrack">
+    <!-- SET 1 -->
+    <a href="reviews/kia-syros-ev/" class="ticker-card">
+      <img src="images/syros-front.jpg" alt="Kia Syros EV" loading="eager">
+      <div class="ticker-card-overlay"></div>
+      <div class="ticker-card-label">
+        <span class="ticker-card-cat">EV Review</span>
+        <span class="ticker-card-title">Kia Syros EV: Best Under ₹20L?</span>
+      </div>
+    </a>
+    <a href="reviews/toyota-hilux/" class="ticker-card">
+      <img src="images/hilux-front.jpg" alt="Toyota Hilux" loading="eager">
+      <div class="ticker-card-overlay"></div>
+      <div class="ticker-card-label">
+        <span class="ticker-card-cat">First Drive</span>
+        <span class="ticker-card-title">2026 Toyota Hilux Review</span>
+      </div>
+    </a>
+    <a href="reviews/2026-skoda-slavia-facelift/" class="ticker-card">
+      <img src="images/skoda-slavia-driving.jpg" alt="Slavia Facelift" loading="lazy">
+      <div class="ticker-card-overlay"></div>
+      <div class="ticker-card-label">
+        <span class="ticker-card-cat">Full Review</span>
+        <span class="ticker-card-title">Skoda Slavia Facelift Tested</span>
+      </div>
+    </a>
+    <a href="reviews/2026-maruti-brezza-review/" class="ticker-card">
+      <img src="images/brezza-front.jpg" alt="Maruti Brezza" loading="lazy">
+      <div class="ticker-card-overlay"></div>
+      <div class="ticker-card-label">
+        <span class="ticker-card-cat">Compact SUV</span>
+        <span class="ticker-card-title">2026 Maruti Brezza Review</span>
+      </div>
+    </a>
+    <a href="news-land-rover-defender-dakar.html" class="ticker-card">
+      <img src="images/news-land-rover-defender-dakar.jpg" alt="Defender Dakar" loading="lazy">
+      <div class="ticker-card-overlay"></div>
+      <div class="ticker-card-label">
+        <span class="ticker-card-cat">News</span>
+        <span class="ticker-card-title">Defender Dakar 626HP</span>
+      </div>
+    </a>
+    <a href="news-mahindra-be6-sporteq.html" class="ticker-card">
+      <img src="images/news-mahindra-be6-sporteq.jpg" alt="BE 6 Sporteq" loading="lazy">
+      <div class="ticker-card-overlay"></div>
+      <div class="ticker-card-label">
+        <span class="ticker-card-cat">EV News</span>
+        <span class="ticker-card-title">Mahindra BE 6 Sporteq Launched</span>
+      </div>
+    </a>
+    <a href="news-skoda-octavia-rs-second-batch.html" class="ticker-card">
+      <img src="images/news-skoda-octavia-rs.jpg" alt="Octavia RS" loading="lazy">
+      <div class="ticker-card-overlay"></div>
+      <div class="ticker-card-label">
+        <span class="ticker-card-cat">Car News</span>
+        <span class="ticker-card-title">Octavia RS Second Batch Opens</span>
+      </div>
+    </a>
+    <a href="reviews/tata-altroz/" class="ticker-card">
+      <img src="images/altroz-front.jpg" alt="Tata Altroz" loading="lazy">
+      <div class="ticker-card-overlay"></div>
+      <div class="ticker-card-label">
+        <span class="ticker-card-cat">Hatchback</span>
+        <span class="ticker-card-title">Tata Altroz 2026 Review</span>
+      </div>
+    </a>
+    <a href="news-aston-martin-valen.html" class="ticker-card">
+      <img src="images/news-aston-martin-valen.jpg" alt="Aston Martin Valen" loading="lazy">
+      <div class="ticker-card-overlay"></div>
+      <div class="ticker-card-label">
+        <span class="ticker-card-cat">News</span>
+        <span class="ticker-card-title">Aston Martin Valen 850PS</span>
+      </div>
+    </a>
+    <!-- SET 2 — duplicate for seamless loop -->
+    <a href="reviews/kia-syros-ev/" class="ticker-card">
+      <img src="images/syros-front.jpg" alt="Kia Syros EV" loading="lazy">
+      <div class="ticker-card-overlay"></div>
+      <div class="ticker-card-label">
+        <span class="ticker-card-cat">EV Review</span>
+        <span class="ticker-card-title">Kia Syros EV: Best Under ₹20L?</span>
+      </div>
+    </a>
+    <a href="reviews/toyota-hilux/" class="ticker-card">
+      <img src="images/hilux-front.jpg" alt="Toyota Hilux" loading="lazy">
+      <div class="ticker-card-overlay"></div>
+      <div class="ticker-card-label">
+        <span class="ticker-card-cat">First Drive</span>
+        <span class="ticker-card-title">2026 Toyota Hilux Review</span>
+      </div>
+    </a>
+    <a href="reviews/2026-skoda-slavia-facelift/" class="ticker-card">
+      <img src="images/skoda-slavia-driving.jpg" alt="Slavia Facelift" loading="lazy">
+      <div class="ticker-card-overlay"></div>
+      <div class="ticker-card-label">
+        <span class="ticker-card-cat">Full Review</span>
+        <span class="ticker-card-title">Skoda Slavia Facelift Tested</span>
+      </div>
+    </a>
+    <a href="reviews/2026-maruti-brezza-review/" class="ticker-card">
+      <img src="images/brezza-front.jpg" alt="Maruti Brezza" loading="lazy">
+      <div class="ticker-card-overlay"></div>
+      <div class="ticker-card-label">
+        <span class="ticker-card-cat">Compact SUV</span>
+        <span class="ticker-card-title">2026 Maruti Brezza Review</span>
+      </div>
+    </a>
+    <a href="news-land-rover-defender-dakar.html" class="ticker-card">
+      <img src="images/news-land-rover-defender-dakar.jpg" alt="Defender Dakar" loading="lazy">
+      <div class="ticker-card-overlay"></div>
+      <div class="ticker-card-label">
+        <span class="ticker-card-cat">News</span>
+        <span class="ticker-card-title">Defender Dakar 626HP</span>
+      </div>
+    </a>
+    <a href="news-mahindra-be6-sporteq.html" class="ticker-card">
+      <img src="images/news-mahindra-be6-sporteq.jpg" alt="BE 6 Sporteq" loading="lazy">
+      <div class="ticker-card-overlay"></div>
+      <div class="ticker-card-label">
+        <span class="ticker-card-cat">EV News</span>
+        <span class="ticker-card-title">Mahindra BE 6 Sporteq Launched</span>
+      </div>
+    </a>
+    <a href="news-skoda-octavia-rs-second-batch.html" class="ticker-card">
+      <img src="images/news-skoda-octavia-rs.jpg" alt="Octavia RS" loading="lazy">
+      <div class="ticker-card-overlay"></div>
+      <div class="ticker-card-label">
+        <span class="ticker-card-cat">Car News</span>
+        <span class="ticker-card-title">Octavia RS Second Batch Opens</span>
+      </div>
+    </a>
+    <a href="reviews/tata-altroz/" class="ticker-card">
+      <img src="images/altroz-front.jpg" alt="Tata Altroz" loading="lazy">
+      <div class="ticker-card-overlay"></div>
+      <div class="ticker-card-label">
+        <span class="ticker-card-cat">Hatchback</span>
+        <span class="ticker-card-title">Tata Altroz 2026 Review</span>
+      </div>
+    </a>
+    <a href="news-aston-martin-valen.html" class="ticker-card">
+      <img src="images/news-aston-martin-valen.jpg" alt="Aston Martin Valen" loading="lazy">
+      <div class="ticker-card-overlay"></div>
+      <div class="ticker-card-label">
+        <span class="ticker-card-cat">News</span>
+        <span class="ticker-card-title">Aston Martin Valen 850PS</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- HERO CAROUSEL — manual only -->
+<section class="fp-carousel-section">
+  <div class="fp-carousel-wrap">
+    <div class="fp-carousel" id="fpCarousel">
+
+      <div class="fp-slide active" id="fp-slide-0">
+        <img class="fp-slide-img" src="images/syros-hero.jpg" alt="Kia Syros EV" loading="eager">
+        <div class="fp-slide-gradient"></div>
+        <div class="fp-slide-content">
+          <span class="fp-slide-tag">EV Review · 8.6/10</span>
+          <h2 class="fp-slide-title"><a href="reviews/kia-syros-ev/">Kia Syros EV: The Best Family EV Under ₹20 Lakh?</a></h2>
+          <p class="fp-slide-excerpt">526km range, 171PS, and 39-minute fast charging — we drove it hard to find out if it's worth your money.</p>
+          <p class="fp-slide-meta">Gagan Mishra &nbsp;·&nbsp; 5 Aug 2026 &nbsp;·&nbsp; 6 min read</p>
         </div>
       </div>
 
-      <div class="browse-mix-wrap">
-        <div class="hero-visual-ring hero-visual-ring--mix"></div>
-        <div class="hero-visual-glow hero-visual-glow--mix"></div>
-        <div class="browse-card browse-card--big">
-          <p class="eyebrow">Browse by type</p>
-          <h3 class="browse-title">Find Your Lane</h3>
-          <p class="browse-sub">Jump straight to the category you're actually shopping for.</p>
-          <div class="browse-grid">
-            <a href="reviews.html#suv" class="browse-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 16h18M5 16V10l2-4h9l4 5h1a1 1 0 0 1 1 1v4M8 16a2 2 0 1 1-4 0M20 16a2 2 0 1 1-4 0"/></svg>
-              <span>SUV</span>
-            </a>
-            <a href="reviews.html#compact-suv" class="browse-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 16h18M5 16V10l2-4h9l4 5h1a1 1 0 0 1 1 1v4M8 16a2 2 0 1 1-4 0M20 16a2 2 0 1 1-4 0"/></svg>
-              <span>Compact SUV</span>
-            </a>
-            <a href="reviews.html#electric" class="browse-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
-              <span>Electric</span>
-            </a>
-            <a href="reviews.html#pickup" class="browse-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 16h18M5 16V9l3-4h6l4 4h1a1 1 0 0 1 1 1v6M8 16a2 2 0 1 1-4 0M20 16a2 2 0 1 1-4 0"/></svg>
-              <span>Pickup</span>
-            </a>
-            <a href="reviews.html#sedan" class="browse-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 16h18M5 16V11l2-3h9l3 3h1a1 1 0 0 1 1 1v4M8 16a2 2 0 1 1-4 0M18 16a2 2 0 1 1-4 0"/></svg>
-              <span>Sedan</span>
-            </a>
-            <a href="reviews.html#hatchback" class="browse-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 16h16M5 16V11l2-3h7l3 3h1a1 1 0 0 1 1 1v4M8 16a2 2 0 1 1-4 0M18 16a2 2 0 1 1-4 0"/></svg>
-              <span>Hatchback</span>
-            </a>
-            <a href="reviews.html#performance" class="browse-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
-              <span>Performance</span>
-            </a>
-          </div>
-          <a href="reviews.html" class="oc-cta" style="display:block;margin-top:18px;">Browse all reviews →</a>
+      <div class="fp-slide" id="fp-slide-1">
+        <img class="fp-slide-img" src="images/hilux-front.jpg" alt="Toyota Hilux" loading="lazy">
+        <div class="fp-slide-gradient"></div>
+        <div class="fp-slide-content">
+          <span class="fp-slide-tag">First Drive · 7.9/10</span>
+          <h2 class="fp-slide-title"><a href="reviews/toyota-hilux/">2026 Toyota Hilux: More Modern, Less Rugged?</a></h2>
+          <p class="fp-slide-excerpt">Big interior and tech upgrade — but has Toyota softened India's toughest pickup truck?</p>
+          <p class="fp-slide-meta">Gagan Mishra &nbsp;·&nbsp; 4 Aug 2026 &nbsp;·&nbsp; 9 min read</p>
         </div>
       </div>
+
+      <div class="fp-slide" id="fp-slide-2">
+        <img class="fp-slide-img" src="images/skoda-slavia-driving.jpg" alt="Skoda Slavia Facelift" loading="lazy">
+        <div class="fp-slide-gradient"></div>
+        <div class="fp-slide-content">
+          <span class="fp-slide-tag">Full Review · 8.0/10</span>
+          <h2 class="fp-slide-title"><a href="reviews/2026-skoda-slavia-facelift/">Skoda Slavia Facelift: New 8-Speed AT Tested</a></h2>
+          <p class="fp-slide-excerpt">New automatic, bigger digital cluster, refreshed styling — does it lead the midsize sedan segment now?</p>
+          <p class="fp-slide-meta">Gagan Mishra &nbsp;·&nbsp; 18 Aug 2026 &nbsp;·&nbsp; 8 min read</p>
+        </div>
+      </div>
+
+      <div class="fp-slide" id="fp-slide-3">
+        <img class="fp-slide-img" src="images/brezza-front.jpg" alt="Maruti Brezza" loading="lazy">
+        <div class="fp-slide-gradient"></div>
+        <div class="fp-slide-content">
+          <span class="fp-slide-tag">Compact SUV · 8.2/10</span>
+          <h2 class="fp-slide-title"><a href="reviews/2026-maruti-brezza-review/">2026 Maruti Brezza: Is the New Turbo Worth It?</a></h2>
+          <p class="fp-slide-excerpt">New 1.0 turbo, 5-star Bharat NCAP, three powertrain choices — the complete breakdown.</p>
+          <p class="fp-slide-meta">Gagan Mishra &nbsp;·&nbsp; 12 Aug 2026 &nbsp;·&nbsp; 11 min read</p>
+        </div>
+      </div>
+
+      <div class="fp-slide" id="fp-slide-4">
+        <img class="fp-slide-img" src="images/news-land-rover-defender-dakar.jpg" alt="Defender Dakar" loading="lazy">
+        <div class="fp-slide-gradient"></div>
+        <div class="fp-slide-content">
+          <span class="fp-slide-tag">News</span>
+          <h2 class="fp-slide-title"><a href="news-land-rover-defender-dakar.html">Defender Dakar: 626HP Road-Legal Rally Beast</a></h2>
+          <p class="fp-slide-excerpt">Limited-run version of the Dakar Rally-winning D7X-R — a V8, rally chassis, and road registration.</p>
+          <p class="fp-slide-meta">Gagan Mishra &nbsp;·&nbsp; 17 Aug 2026 &nbsp;·&nbsp; 4 min read</p>
+        </div>
+      </div>
+
+      <div class="fp-dots" id="fpDots"></div>
+      <button class="fp-arrow prev" id="fpPrev" aria-label="Previous">&#8249;</button>
+      <button class="fp-arrow next" id="fpNext" aria-label="Next">&#8250;</button>
     </div>
-    <div class="strip-divider"></div>
-  </section>
 
-  <section>
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Fresh off the lift</p>
-          <h2>Latest</h2>
+    <div class="fp-carousel-side" id="fpSide">
+      <a href="reviews/kia-syros-ev/" class="fp-side-item is-active" data-slide="0">
+        <div class="fp-side-thumb"><img src="images/syros-front.jpg" alt="Syros EV" loading="lazy"></div>
+        <div class="fp-side-body">
+          <div class="fp-side-tag">EV Review</div>
+          <div class="fp-side-title">Kia Syros EV: Best Under-₹20L?</div>
+          <div class="fp-side-meta">5 Aug · 6 min</div>
         </div>
-        <a href="reviews.html" class="view-all">View all →</a>
-      </div>
-      <div class="review-row" id="latestReviewsRow">
-        <article class="card" data-date="2026-08-19">
-          <a href="reviews/2026-maruti-brezza-turbo-vs-petrol/" class="card-media">
-            <span class="tag">Guide</span>
-            <img src="images/brezza-turbo-vs-petrol-hero.jpg" alt="2026 Maruti Brezza Turbo vs 1.5 Petrol engine comparison" loading="lazy">
-          </a>
-          <div class="card-body">
-            <p class="eyebrow">Guide</p>
-            <h3><a href="reviews/2026-maruti-brezza-turbo-vs-petrol/">Maruti Brezza Turbo vs 1.5 Petrol: Which Engine Should You Choose?</a></h3>
-            <p>The gearbox constraint that decides this before performance even enters the conversation.</p>
-            <div class="card-foot">
-              <a class="read-link" href="reviews/2026-maruti-brezza-turbo-vs-petrol/">Read →</a>
-            </div>
-          </div>
-        </article>
-        <article class="card" data-date="2026-08-18">
-          <a href="reviews/2026-brezza-vs-fronx/" class="card-media">
-            <span class="tag">Comparison</span>
-            <img src="images/brezza-vs-fronx-hero.jpg" alt="Maruti Brezza vs Fronx, side by side" loading="lazy">
-          </a>
-          <div class="card-body">
-            <p class="eyebrow">Comparison</p>
-            <h3><a href="reviews/2026-brezza-vs-fronx/">2026 Maruti Brezza vs Fronx: Which One Should You Buy?</a></h3>
-            <p>The automatic gearbox you want isn't paired with the engine you want, on either car.</p>
-            <div class="card-foot">
-              <a class="read-link" href="reviews/2026-brezza-vs-fronx/">Read →</a>
-            </div>
-          </div>
-        </article>
-        <article class="card" data-date="2026-08-18">
-          <a href="news-land-rover-defender-dakar.html" class="card-media">
-            <span class="tag">News</span>
-            <img src="images/news-land-rover-defender-dakar.jpg" alt="The New Land Rover Defender Dakar" loading="lazy">
-          </a>
-          <div class="card-body">
-            <p class="eyebrow">News</p>
-            <h3><a href="news-land-rover-defender-dakar.html">Land Rover Defender Dakar Revealed: 626HP Road-Legal Rally Beast</a></h3>
-            <p>A limited-run road-going version of the Dakar Rally-winning D7X-R, with a 626hp V8 and rally-derived chassis.</p>
-            <div class="card-foot">
-              <a class="read-link" href="news-land-rover-defender-dakar.html">Read →</a>
-            </div>
-          </div>
-        </article>
-        <article class="card" data-date="2026-08-17">
-          <a href="reviews/2026-maruti-brezza-automatic/" class="card-media">
-            <span class="tag">Guide</span>
-            <img src="images/brezza-automatic-hero.jpg" alt="2026 Maruti Brezza Automatic, branded graphic with 6-speed torque converter, price, and mileage badges" loading="lazy">
-          </a>
-          <div class="card-body">
-            <p class="eyebrow">Guide</p>
-            <h3><a href="reviews/2026-maruti-brezza-automatic/">2026 Maruti Brezza Automatic Review: Is the Torque Converter AT Worth It?</a></h3>
-            <p>What the 6-speed torque converter automatic is actually like to drive, what it costs over the manual, and who it does and doesn't suit.</p>
-            <div class="card-foot">
-              <a class="read-link" href="reviews/2026-maruti-brezza-automatic/">Read →</a>
-            </div>
-          </div>
-        </article>
-        <article class="card" data-date="2026-08-17">
-          <a href="news-aston-martin-valen.html" class="card-media">
-            <span class="tag">News</span>
-            <img src="images/news-aston-martin-valen.jpg" alt="The New Aston Martin Valen" loading="lazy">
-          </a>
-          <div class="card-body">
-            <p class="eyebrow">News</p>
-            <h3><a href="news-aston-martin-valen.html">Aston Martin Valen: World's Most Powerful Front-Engined Car</a></h3>
-            <p>An 850PS twin-turbo V12 special, limited to 150 units, unveiled at Monterey Car Week.</p>
-            <div class="card-foot">
-              <a class="read-link" href="news-aston-martin-valen.html">Read →</a>
-            </div>
-          </div>
-        </article>
-        <article class="card" data-date="2026-08-15">
-          <a href="news-mahindra-be6-sporteq.html" class="card-media">
-            <span class="tag">News</span>
-            <img src="images/news-mahindra-be6-sporteq.jpg" alt="The New Mahindra BE 6 Sporteq" loading="lazy">
-          </a>
-          <div class="card-body">
-            <p class="eyebrow">News</p>
-            <h3><a href="news-mahindra-be6-sporteq.html">Mahindra BE 6 Sporteq Launched at ₹19.45 Lakh</a></h3>
-            <p>A triple-screen cockpit, Google Gemini integration, and two special editions — real specs, not a preview.</p>
-            <div class="card-foot">
-              <a class="read-link" href="news-mahindra-be6-sporteq.html">Read →</a>
-            </div>
-          </div>
-        </article>
-        <article class="card" data-date="2026-08-15">
-          <a href="news-mahindra-scorpio-lifestyler.html" class="card-media">
-            <span class="tag">News</span>
-            <img src="images/news-mahindra-scorpio-lifestyler.jpg" alt="The New Mahindra Scorpio Lifestyler" loading="lazy">
-          </a>
-          <div class="card-body">
-            <p class="eyebrow">News</p>
-            <h3><a href="news-mahindra-scorpio-lifestyler.html">Mahindra Unveils Scorpio Lifestyler Pickup</a></h3>
-            <p>Officially unveiled below ₹19.79 lakh, but the India launch itself isn't until April 2027.</p>
-            <div class="card-foot">
-              <a class="read-link" href="news-mahindra-scorpio-lifestyler.html">Read →</a>
-            </div>
-          </div>
-        </article>
+      </a>
+      <a href="reviews/toyota-hilux/" class="fp-side-item" data-slide="1">
+        <div class="fp-side-thumb"><img src="images/hilux-front.jpg" alt="Hilux" loading="lazy"></div>
+        <div class="fp-side-body">
+          <div class="fp-side-tag">First Drive</div>
+          <div class="fp-side-title">2026 Toyota Hilux: More Modern, Less Rugged?</div>
+          <div class="fp-side-meta">4 Aug · 9 min</div>
+        </div>
+      </a>
+      <a href="reviews/2026-skoda-slavia-facelift/" class="fp-side-item" data-slide="2">
+        <div class="fp-side-thumb"><img src="images/skoda-slavia.jpg" alt="Slavia" loading="lazy"></div>
+        <div class="fp-side-body">
+          <div class="fp-side-tag">Full Review</div>
+          <div class="fp-side-title">Skoda Slavia Facelift: New 8-Speed AT</div>
+          <div class="fp-side-meta">18 Aug · 8 min</div>
+        </div>
+      </a>
+      <a href="reviews/2026-maruti-brezza-review/" class="fp-side-item" data-slide="3">
+        <div class="fp-side-thumb"><img src="images/brezza-front.jpg" alt="Brezza" loading="lazy"></div>
+        <div class="fp-side-body">
+          <div class="fp-side-tag">Compact SUV</div>
+          <div class="fp-side-title">2026 Maruti Brezza: New Turbo Worth It?</div>
+          <div class="fp-side-meta">12 Aug · 11 min</div>
+        </div>
+      </a>
+      <a href="news-land-rover-defender-dakar.html" class="fp-side-item" data-slide="4">
+        <div class="fp-side-thumb"><img src="images/news-land-rover-defender-dakar.jpg" alt="Defender" loading="lazy"></div>
+        <div class="fp-side-body">
+          <div class="fp-side-tag">News</div>
+          <div class="fp-side-title">Defender Dakar: 626HP Road-Legal Beast</div>
+          <div class="fp-side-meta">17 Aug · 4 min</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
 
-        <article class="card" data-date="2026-08-14">
-          <a href="reviews/2026-brezza-vs-nexon/" class="card-media">
-            <span class="tag">Comparison</span>
-            <img src="images/brezza-vs-nexon-hero.jpg" alt="Maruti Brezza vs Tata Nexon, side by side" loading="lazy">
+<!-- TRUST STATS STRIP -->
+<div class="trust-strip">
+  <div class="trust-strip-inner">
+    <div class="trust-item">
+      <span class="trust-num">100%</span>
+      <span class="trust-label">Independent</span>
+    </div>
+    <div class="trust-item">
+      <span class="trust-num">0</span>
+      <span class="trust-label">Dealer scripts</span>
+    </div>
+    <div class="trust-item">
+      <span class="trust-num">12+</span>
+      <span class="trust-label">Cars reviewed</span>
+    </div>
+    <div class="trust-item">
+      <span class="trust-num">Weekly</span>
+      <span class="trust-label">New verdict</span>
+    </div>
+  </div>
+</div>
+
+<!-- REVIEWS — tabbed -->
+<section style="padding:44px 0;background:var(--cream);">
+  <div class="wrap">
+    <div class="review-tabs-head">
+      <h2>Reviews</h2>
+      <button class="tab-btn active" data-tab="tab-all">All</button>
+      <button class="tab-btn" data-tab="tab-car">Car Reviews</button>
+      <button class="tab-btn" data-tab="tab-comp">Comparisons</button>
+      <button class="tab-btn" data-tab="tab-ev">Electric</button>
+      <a href="reviews.html" style="margin-left:auto;font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#FF4E1F;padding-bottom:10px;white-space:nowrap;">View all →</a>
+    </div>
+
+    <div class="tab-panel active" id="tab-all">
+      <div class="card-grid">
+        <article class="card">
+          <a href="reviews/2026-skoda-slavia-facelift/" class="card-media">
+            <span class="tag">Sedan</span>
+            <img src="images/skoda-slavia-driving.jpg" alt="Skoda Slavia Facelift" loading="lazy">
           </a>
           <div class="card-body">
-            <p class="eyebrow">Comparison</p>
-            <h3><a href="reviews/2026-brezza-vs-nexon/">2026 Maruti Brezza vs Tata Nexon</a></h3>
-            <p>The one dealbreaker most comparisons bury: the Brezza doesn't offer a diesel, at any trim.</p>
-            <div class="card-foot">
-              <a class="read-link" href="reviews/2026-brezza-vs-nexon/">Read →</a>
-            </div>
+            <h3><a href="reviews/2026-skoda-slavia-facelift/">Skoda Slavia Facelift Review (2026)</a></h3>
+            <p>New 8-speed AT, bigger cluster, fresh styling — does it lead the midsize sedan segment?</p>
+            <div class="card-foot"><div class="mini-gauge"><span class="dot"></span>8.0/10</div><a class="read-link" href="reviews/2026-skoda-slavia-facelift/">Read →</a></div>
           </div>
         </article>
-
-        <article class="card" data-date="2026-08-13">
-          <a href="news-bmw-x1-lwb.html" class="card-media">
-            <span class="tag">News</span>
-            <img src="images/news-bmw-x1-lwb.jpg" alt="The New BMW X1 LWB" loading="lazy">
-          </a>
-          <div class="card-body">
-            <p class="eyebrow">News</p>
-            <h3><a href="news-bmw-x1-lwb.html">BMW X1 LWB Confirmed for August 21 Launch</a></h3>
-            <p>A stretched, Chennai-built, petrol-only counterpart to the iX1 LWB.</p>
-            <div class="card-foot">
-              <a class="read-link" href="news-bmw-x1-lwb.html">Read →</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card" data-date="2026-08-13">
-          <a href="news-mg-hector-hawk.html" class="card-media">
-            <span class="tag">News</span>
-            <img src="images/news-mg-hector-hawk.jpg" alt="The New MG Hector Hawk" loading="lazy">
-          </a>
-          <div class="card-body">
-            <p class="eyebrow">News</p>
-            <h3><a href="news-mg-hector-hawk.html">MG Hector Hawk Launch Confirmed for August 26</a></h3>
-            <p>MG's first model on its new ADAPT platform, offered in EV and plug-in hybrid form.</p>
-            <div class="card-foot">
-              <a class="read-link" href="news-mg-hector-hawk.html">Read →</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card" data-date="2026-08-12">
-          <a href="reviews/2026-maruti-brezza-review/" class="card-media">
-            <span class="tag">Compact SUV</span>
-            <img src="images/brezza-front.jpg" alt="2026 Maruti Brezza, red, front three-quarter shot" loading="lazy">
-          </a>
-          <div class="card-body">
-            <p class="eyebrow">Full review</p>
-            <h3><a href="reviews/2026-maruti-brezza-review/">2026 Maruti Brezza: is the new turbo worth it?</a></h3>
-            <p>New 1.0 turbo engine, a 5-star Bharat NCAP rating, and three powertrain choices — the full breakdown.</p>
-            <div class="card-foot">
-              <div class="mini-gauge"><span class="dot"></span> 8.2 / 10</div>
-              <a class="read-link" href="reviews/2026-maruti-brezza-review/">Read →</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card" data-date="2026-08-12">
-          <a href="news-mahindra-independence-day-2026.html" class="card-media">
-            <span class="tag">News</span>
-            <img src="images/news-mahindra-idc.jpg" alt="Mahindra Scorpio N Pickup, Vision S, and BE 6 Sporteq" loading="lazy">
-          </a>
-          <div class="card-body">
-            <p class="eyebrow">News</p>
-            <h3><a href="news-mahindra-independence-day-2026.html">Mahindra's Independence Day 2026 Reveal</a></h3>
-            <p>A Scorpio N pickup aimed squarely at the Toyota Hilux, plus the production Vision S.</p>
-            <div class="card-foot">
-              <a class="read-link" href="news-mahindra-independence-day-2026.html">Read →</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card" data-date="2026-08-12">
-          <a href="news-mg-couture-editions.html" class="card-media">
-            <span class="tag">News</span>
-            <img src="images/news-mg-couture.jpg" alt="MG M9 Couture Edition and Cyberster Couture Edition, side by side" loading="lazy">
-          </a>
-          <div class="card-body">
-            <p class="eyebrow">News</p>
-            <h3><a href="news-mg-couture-editions.html">MG Launches Limited-Run Couture Editions</a></h3>
-            <p>Just 50 units of each, designed with fashion designer Gaurav Gupta.</p>
-            <div class="card-foot">
-              <a class="read-link" href="news-mg-couture-editions.html">Read →</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card" data-date="2026-08-10">
-          <a href="news-mahindra-scorpio-n-facelift.html" class="card-media">
-            <span class="tag">News</span>
-            <img src="images/news-mahindra-scorpio-n-facelift.jpg" alt="The New Mahindra Scorpio N" loading="lazy">
-          </a>
-          <div class="card-body">
-            <p class="eyebrow">News</p>
-            <h3><a href="news-mahindra-scorpio-n-facelift.html">Scorpio N Facelift Launched at ₹13.69 Lakh</a></h3>
-            <p>A new Z8S variant, Level 2 ADAS on the top trim, and a panoramic sunroof.</p>
-            <div class="card-foot">
-              <a class="read-link" href="news-mahindra-scorpio-n-facelift.html">Read →</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card" data-date="2026-08-10">
-          <a href="news-skoda-slavia-facelift.html" class="card-media">
-            <span class="tag">News</span>
-            <img src="images/news-skoda-slavia.jpg" alt="The New Skoda Slavia Facelift" loading="lazy">
-          </a>
-          <div class="card-body">
-            <p class="eyebrow">News</p>
-            <h3><a href="news-skoda-slavia-facelift.html">Skoda Slavia Facelift Confirmed for August 18</a></h3>
-            <p>New LED grille, revised light units, and a new alloy wheel design.</p>
-            <div class="card-foot">
-              <a class="read-link" href="news-skoda-slavia-facelift.html">Read →</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card" data-date="2026-08-10">
-          <a href="news-volvo-ex90-india.html" class="card-media">
-            <span class="tag">News</span>
-            <img src="images/news-volvo-ex90.jpg" alt="The New Volvo EX90, Volvo's fully electric flagship" loading="lazy">
-          </a>
-          <div class="card-body">
-            <p class="eyebrow">News</p>
-            <h3><a href="news-volvo-ex90-india.html">Volvo EX90 Set to Land as Brand's New Flagship</a></h3>
-            <p>Volvo's fully electric flagship SUV, expected to arrive in India.</p>
-            <div class="card-foot">
-              <a class="read-link" href="news-volvo-ex90-india.html">Read →</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card" data-date="2026-08-05">
+        <article class="card">
           <a href="reviews/kia-syros-ev/" class="card-media">
             <span class="tag">Electric</span>
-            <img src="images/syros-front.jpg" alt="Kia Syros EV parked in a city plaza" loading="lazy">
+            <img src="images/syros-front.jpg" alt="Kia Syros EV" loading="lazy">
           </a>
           <div class="card-body">
-            <p class="eyebrow">Full review</p>
-            <h3><a href="reviews/kia-syros-ev/">Kia Syros EV: range, price & should you buy it?</a></h3>
-            <p>526km range, 171PS power, and 39-minute fast charging — a full look at Kia's new electric SUV.</p>
-            <div class="card-foot">
-              <div class="mini-gauge"><span class="dot"></span> 8.6 / 10</div>
-              <a class="read-link" href="reviews/kia-syros-ev/">Read →</a>
-            </div>
+            <h3><a href="reviews/kia-syros-ev/">Kia Syros EV: Range, Price & Should You Buy?</a></h3>
+            <p>526km range, 171PS, 39-minute fast charging — a thorough look at India's latest EV.</p>
+            <div class="card-foot"><div class="mini-gauge"><span class="dot"></span>8.6/10</div><a class="read-link" href="reviews/kia-syros-ev/">Read →</a></div>
           </div>
         </article>
-
-        <article class="card" data-date="2026-08-04">
+        <article class="card">
           <a href="reviews/toyota-hilux/" class="card-media">
             <span class="tag">Pickup</span>
-            <img src="images/hilux-front.jpg" alt="New Toyota Hilux driving through a city at night" loading="lazy">
+            <img src="images/hilux-front.jpg" alt="Toyota Hilux" loading="lazy">
           </a>
           <div class="card-body">
-            <p class="eyebrow">Full review</p>
-            <h3><a href="reviews/toyota-hilux/">New Toyota Hilux: still the workhorse to beat?</a></h3>
-            <p>We break down the powertrain, off-road hardware, and payload numbers that actually matter for buyers.</p>
-            <div class="card-foot">
-              <div class="mini-gauge"><span class="dot"></span> 7.9 / 10</div>
-              <a class="read-link" href="reviews/toyota-hilux/">Read →</a>
-            </div>
+            <h3><a href="reviews/toyota-hilux/">New Toyota Hilux: Still the Workhorse to Beat?</a></h3>
+            <p>Powertrain, off-road hardware, and payload numbers that matter for serious buyers.</p>
+            <div class="card-foot"><div class="mini-gauge"><span class="dot"></span>7.9/10</div><a class="read-link" href="reviews/toyota-hilux/">Read →</a></div>
+          </div>
+        </article>
+        <article class="card">
+          <a href="reviews/tata-altroz/" class="card-media">
+            <span class="tag">Hatchback</span>
+            <img src="images/altroz-front.jpg" alt="Tata Altroz" loading="lazy">
+          </a>
+          <div class="card-body">
+            <h3><a href="reviews/tata-altroz/">Tata Altroz Review: Price, Mileage & Safety (2026)</a></h3>
+            <p>5-star safety, only diesel in class, only CNG automatic — is it enough?</p>
+            <div class="card-foot"><div class="mini-gauge"><span class="dot"></span>7.9/10</div><a class="read-link" href="reviews/tata-altroz/">Read →</a></div>
+          </div>
+        </article>
+        <article class="card">
+          <a href="reviews/2026-maruti-brezza-review/" class="card-media">
+            <span class="tag">Compact SUV</span>
+            <img src="images/brezza-front.jpg" alt="Brezza" loading="lazy">
+          </a>
+          <div class="card-body">
+            <h3><a href="reviews/2026-maruti-brezza-review/">2026 Maruti Brezza: Is the New Turbo Worth It?</a></h3>
+            <p>New 1.0 turbo, 5-star NCAP rating, three powertrain choices — full breakdown.</p>
+            <div class="card-foot"><div class="mini-gauge"><span class="dot"></span>8.2/10</div><a class="read-link" href="reviews/2026-maruti-brezza-review/">Read →</a></div>
+          </div>
+        </article>
+        <article class="card">
+          <a href="reviews/2026-slavia-vs-virtus/" class="card-media">
+            <span class="tag">Comparison</span>
+            <img src="images/slavia-vs-virtus-hero.jpg" alt="Slavia vs Virtus" loading="lazy">
+          </a>
+          <div class="card-body">
+            <h3><a href="reviews/2026-slavia-vs-virtus/">Skoda Slavia Facelift vs Volkswagen Virtus</a></h3>
+            <p>Same platform, nearly identical engines — but one now has a real edge.</p>
+            <div class="card-foot"><a class="read-link" href="reviews/2026-slavia-vs-virtus/">Read →</a></div>
           </div>
         </article>
       </div>
     </div>
-  </section>
 
-  <section class="guides-section">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">No jargon, promise</p>
-          <h2 style="color:var(--cream)">How We Review</h2>
-        </div>
-        <a href="review-methodology.html" class="view-all" style="border-color:var(--ember);color:var(--cream)">Full methodology →</a>
-      </div>
-      <div class="guide-grid">
-        <a class="guide-card" href="review-methodology.html">
-          <span class="num">01</span>
-          <h3>How every car gets scored</h3>
-          <span class="arrow">Read methodology →</span>
-        </a>
-        <a class="guide-card" href="editorial-policy.html">
-          <span class="num">02</span>
-          <h3>Our editorial independence policy</h3>
-          <span class="arrow">Read policy →</span>
-        </a>
-        <a class="guide-card" href="fact-checking-policy.html">
-          <span class="num">03</span>
-          <h3>How we fact-check every spec</h3>
-          <span class="arrow">Read policy →</span>
-        </a>
-        <a class="guide-card" href="corrections-policy.html">
-          <span class="num">04</span>
-          <h3>Mistakes happen — here's our fix</h3>
-          <span class="arrow">Read policy →</span>
-        </a>
+    <div class="tab-panel" id="tab-car">
+      <div class="card-grid">
+        <article class="card"><a href="reviews/2026-skoda-slavia-facelift/" class="card-media"><span class="tag">Sedan</span><img src="images/skoda-slavia-driving.jpg" alt="Slavia" loading="lazy"></a><div class="card-body"><h3><a href="reviews/2026-skoda-slavia-facelift/">Skoda Slavia Facelift Review</a></h3><p>New 8-speed AT, bigger cluster, fresh styling.</p><div class="card-foot"><div class="mini-gauge"><span class="dot"></span>8.0</div><a class="read-link" href="reviews/2026-skoda-slavia-facelift/">Read →</a></div></div></article>
+        <article class="card"><a href="reviews/toyota-hilux/" class="card-media"><span class="tag">Pickup</span><img src="images/hilux-front.jpg" alt="Hilux" loading="lazy"></a><div class="card-body"><h3><a href="reviews/toyota-hilux/">New Toyota Hilux Review</a></h3><p>Powertrain, off-road hardware, payload numbers.</p><div class="card-foot"><div class="mini-gauge"><span class="dot"></span>7.9</div><a class="read-link" href="reviews/toyota-hilux/">Read →</a></div></div></article>
+        <article class="card"><a href="reviews/2026-maruti-brezza-review/" class="card-media"><span class="tag">Compact SUV</span><img src="images/brezza-front.jpg" alt="Brezza" loading="lazy"></a><div class="card-body"><h3><a href="reviews/2026-maruti-brezza-review/">2026 Maruti Brezza Review</a></h3><p>New turbo, 5-star NCAP, three powertrains.</p><div class="card-foot"><div class="mini-gauge"><span class="dot"></span>8.2</div><a class="read-link" href="reviews/2026-maruti-brezza-review/">Read →</a></div></div></article>
       </div>
     </div>
-  </section>
 
-  <section id="subscribe">
-    <div class="wrap">
-      <div class="cta-band">
-        <div>
-          <h2>Get the verdict before you buy.</h2>
-          <p>One email a week. No spam, no dealership nonsense.</p>
-        </div>
-        <form class="cta-form" onsubmit="return false;">
-          <input type="email" placeholder="you@email.com" required>
-          <button class="btn" style="background:var(--ink);border-color:var(--ink);color:var(--cream);" type="submit">Subscribe</button>
-        </form>
+    <div class="tab-panel" id="tab-comp">
+      <div class="card-grid">
+        <article class="card"><a href="reviews/2026-slavia-vs-virtus/" class="card-media"><span class="tag">Comparison</span><img src="images/slavia-vs-virtus-hero.jpg" alt="Slavia vs Virtus" loading="lazy"></a><div class="card-body"><h3><a href="reviews/2026-slavia-vs-virtus/">Slavia Facelift vs Volkswagen Virtus</a></h3><p>Same platform — which should you buy?</p><div class="card-foot"><a class="read-link" href="reviews/2026-slavia-vs-virtus/">Read →</a></div></div></article>
+        <article class="card"><a href="reviews/2026-brezza-vs-nexon/" class="card-media"><span class="tag">Comparison</span><img src="images/brezza-vs-nexon-hero.jpg" alt="Brezza vs Nexon" loading="lazy"></a><div class="card-body"><h3><a href="reviews/2026-brezza-vs-nexon/">2026 Maruti Brezza vs Tata Nexon</a></h3><p>The dealbreaker most comparisons bury.</p><div class="card-foot"><a class="read-link" href="reviews/2026-brezza-vs-nexon/">Read →</a></div></div></article>
+        <article class="card"><a href="reviews/2026-brezza-vs-fronx/" class="card-media"><span class="tag">Comparison</span><img src="images/brezza-vs-fronx-hero.jpg" alt="Brezza vs Fronx" loading="lazy"></a><div class="card-body"><h3><a href="reviews/2026-brezza-vs-fronx/">Maruti Brezza vs Fronx</a></h3><p>The automatic you want isn't where you expect it.</p><div class="card-foot"><a class="read-link" href="reviews/2026-brezza-vs-fronx/">Read →</a></div></div></article>
       </div>
     </div>
-  </section>
 
-  <footer class="site-footer">
-    <div class="wrap">
-      <div class="foot-grid">
-        <div class="foot-brand">
-          <a href="/" class="logo footer-logo">
-            <img src="images/logo-footer.png" alt="FlamingPiston" class="logo-full">
+    <div class="tab-panel" id="tab-ev">
+      <div class="card-grid">
+        <article class="card"><a href="reviews/kia-syros-ev/" class="card-media"><span class="tag">Electric</span><img src="images/syros-front.jpg" alt="Syros EV" loading="lazy"></a><div class="card-body"><h3><a href="reviews/kia-syros-ev/">Kia Syros EV: Range, Price & Should You Buy?</a></h3><p>526km range, 171PS, 39-minute fast charging.</p><div class="card-foot"><div class="mini-gauge"><span class="dot"></span>8.6</div><a class="read-link" href="reviews/kia-syros-ev/">Read →</a></div></div></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IN-FEED AD -->
+<div style="background:#f5f2ee;border-top:1px solid #e8e4de;border-bottom:1px solid #e8e4de;display:flex;align-items:center;justify-content:center;padding:12px 0;">
+  <!-- Replace with your AdSense <ins> tag -->
+  <div class="ad-slot ad-slot-infeed" style="max-width:728px;">Advertisement · 728×60 In-Feed</div>
+</div>
+
+<!-- LATEST NEWS + SIDEBAR -->
+<section style="padding:44px 0;background:var(--white);">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1fr 300px;gap:36px;align-items:start;">
+
+      <div>
+        <div class="section-label">
+          <h2>Latest News</h2>
+          <a href="news.html" class="view-all">View all →</a>
+        </div>
+        <div class="news-list">
+          <a href="news-skoda-octavia-rs-second-batch.html" class="news-list-item">
+            <div class="news-list-thumb"><img src="images/news-skoda-octavia-rs.jpg" alt="Octavia RS" loading="lazy"></div>
+            <div class="news-list-body">
+              <div class="news-list-cat">Car News</div>
+              <div class="news-list-title">Skoda Octavia RS Second Batch: Pre-Bookings Open, Deliveries This Festive Season</div>
+              <div class="news-list-excerpt">Skoda has reopened Octavia RS bookings for a second India batch, with deliveries slated for festive season 2026.</div>
+              <div class="news-list-meta"><span>18 Aug 2026</span><span>3 min read</span></div>
+            </div>
           </a>
-          <p>Honest automotive reviews, practical buying advice, and maintenance guides — everything you need before buying your next vehicle.</p>
-          <div class="foot-social">
-            <a href="#">Twitter / X</a>
-            <a href="https://www.instagram.com/flamingpiston_in/" target="_blank" rel="noopener">Instagram</a>
-            <a href="#">YouTube</a>
+          <a href="news-skoda-superb-tdi.html" class="news-list-item">
+            <div class="news-list-thumb"><img src="images/news-skoda-superb.jpg" alt="Skoda Superb TDI" loading="lazy"></div>
+            <div class="news-list-body">
+              <div class="news-list-cat">Car News</div>
+              <div class="news-list-title">Skoda Superb TDI Confirmed for India — Pre-Bookings Open, Deliveries Q2 2027</div>
+              <div class="news-list-excerpt">Skoda's first TDI model in India in years, with deliveries expected next year.</div>
+              <div class="news-list-meta"><span>18 Aug 2026</span><span>2 min read</span></div>
+            </div>
+          </a>
+          <a href="news-mahindra-scorpio-n-facelift.html" class="news-list-item">
+            <div class="news-list-thumb"><img src="images/news-mahindra-scorpio-n-facelift.jpg" alt="Scorpio N Facelift" loading="lazy"></div>
+            <div class="news-list-body">
+              <div class="news-list-cat">Car News</div>
+              <div class="news-list-title">Scorpio N Facelift Launched at ₹13.69 Lakh — Level 2 ADAS, Pano Roof Added</div>
+              <div class="news-list-excerpt">New Z8S variant, Level 2 ADAS on top trim, panoramic sunroof now part of the package.</div>
+              <div class="news-list-meta"><span>15 Aug 2026</span><span>3 min read</span></div>
+            </div>
+          </a>
+          <a href="news-land-rover-defender-dakar.html" class="news-list-item">
+            <div class="news-list-thumb"><img src="images/news-land-rover-defender-dakar.jpg" alt="Defender Dakar" loading="lazy"></div>
+            <div class="news-list-body">
+              <div class="news-list-cat">News</div>
+              <div class="news-list-title">Land Rover Defender Dakar Revealed: 626HP Road-Legal Rally Beast</div>
+              <div class="news-list-excerpt">Limited-run version of the Dakar Rally-winning D7X-R with a V8 and rally-derived chassis.</div>
+              <div class="news-list-meta"><span>17 Aug 2026</span><span>4 min read</span></div>
+            </div>
+          </a>
+          <a href="news-mahindra-be6-sporteq.html" class="news-list-item">
+            <div class="news-list-thumb"><img src="images/news-mahindra-be6-sporteq.jpg" alt="BE 6 Sporteq" loading="lazy"></div>
+            <div class="news-list-body">
+              <div class="news-list-cat">EV News</div>
+              <div class="news-list-title">Mahindra BE 6 Sporteq Launched at ₹19.45 Lakh</div>
+              <div class="news-list-excerpt">Triple-screen cockpit, Google Gemini integration, and two special editions — real specs inside.</div>
+              <div class="news-list-meta"><span>15 Aug 2026</span><span>3 min read</span></div>
+            </div>
+          </a>
+          <a href="news-bmw-x1-lwb.html" class="news-list-item">
+            <div class="news-list-thumb"><img src="images/news-bmw-x1-lwb.jpg" alt="BMW X1 LWB" loading="lazy"></div>
+            <div class="news-list-body">
+              <div class="news-list-cat">Car News</div>
+              <div class="news-list-title">BMW X1 LWB Confirmed for August 21 Launch</div>
+              <div class="news-list-excerpt">A stretched, Chennai-built, petrol-only counterpart to the iX1 LWB.</div>
+              <div class="news-list-meta"><span>13 Aug 2026</span><span>2 min read</span></div>
+            </div>
+          </a>
+        </div>
+        <div style="text-align:center;margin-top:20px;">
+          <a href="news.html" class="btn ghost" style="font-size:11px;padding:9px 22px;">Load more news →</a>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside>
+        <!-- AdSense 300×250 top of sidebar -->
+        <div style="margin-bottom:24px;">
+          <!-- Replace with your AdSense <ins> tag -->
+          <div class="ad-slot ad-slot-rectangle">Advertisement · 300×250</div>
+        </div>
+
+        <div class="sidebar-widget">
+          <span class="sidebar-heading">Trending Reviews</span>
+          <div class="trending-list">
+            <a href="reviews/kia-syros-ev/" class="trending-item">
+              <div class="trending-num">1</div>
+              <div class="trending-thumb"><img src="images/syros-exterior.jpg" alt="Kia Syros EV" loading="lazy"></div>
+              <div>
+                <div class="trending-name">Kia Syros EV</div>
+                <div class="trending-meta">★ 8.6 / 10</div>
+              </div>
+            </a>
+            <a href="reviews/2026-maruti-brezza-review/" class="trending-item">
+              <div class="trending-num">2</div>
+              <div class="trending-thumb"><img src="images/brezza-exterior.jpg" alt="Brezza" loading="lazy"></div>
+              <div>
+                <div class="trending-name">2026 Maruti Brezza</div>
+                <div class="trending-meta">★ 8.2 / 10</div>
+              </div>
+            </a>
+            <a href="reviews/2026-skoda-slavia-facelift/" class="trending-item">
+              <div class="trending-num">3</div>
+              <div class="trending-thumb"><img src="images/skoda-slavia.jpg" alt="Slavia" loading="lazy"></div>
+              <div>
+                <div class="trending-name">Skoda Slavia Facelift</div>
+                <div class="trending-meta">★ 8.0 / 10</div>
+              </div>
+            </a>
+            <a href="reviews/toyota-hilux/" class="trending-item">
+              <div class="trending-num">4</div>
+              <div class="trending-thumb"><img src="images/hilux-exterior.jpg" alt="Hilux" loading="lazy"></div>
+              <div>
+                <div class="trending-name">Toyota Hilux 2026</div>
+                <div class="trending-meta">★ 7.9 / 10</div>
+              </div>
+            </a>
+            <a href="reviews/tata-altroz/" class="trending-item">
+              <div class="trending-num">5</div>
+              <div class="trending-thumb"><img src="images/altroz-exterior.jpg" alt="Altroz" loading="lazy"></div>
+              <div>
+                <div class="trending-name">Tata Altroz 2026</div>
+                <div class="trending-meta">★ 7.9 / 10</div>
+              </div>
+            </a>
           </div>
         </div>
 
-        <div>
-          <h4>Company</h4>
-          <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="sitemap.html">Sitemap</a></li>
-          </ul>
+        <!-- AdSense 300×250 lower sidebar -->
+        <div class="sidebar-widget" style="margin-top:28px;">
+          <!-- Replace with your AdSense <ins> tag -->
+          <div class="ad-slot ad-slot-sidebar">Advertisement · 300×250</div>
         </div>
 
-        <div>
-          <h4>Editorial</h4>
-          <ul>
-            <li><a href="editorial-policy.html">Editorial Policy</a></li>
-            <li><a href="review-methodology.html">Review Methodology</a></li>
-            <li><a href="fact-checking-policy.html">Fact-Checking Policy</a></li>
-            <li><a href="corrections-policy.html">Corrections Policy</a></li>
-          </ul>
+        <div class="sidebar-widget" style="margin-top:28px;padding:20px;background:var(--cream);border:1px solid var(--line);border-radius:8px;">
+          <div style="font-family:'Space Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#FF4E1F;margin-bottom:10px;">Quick Links</div>
+          <a href="comparisons.html" style="display:block;padding:9px 0;border-bottom:1px solid var(--line);font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#111;">Car Comparisons →</a>
+          <a href="guides.html" style="display:block;padding:9px 0;border-bottom:1px solid var(--line);font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#111;">Buying Guides →</a>
+          <a href="reviews.html#electric" style="display:block;padding:9px 0;border-bottom:1px solid var(--line);font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#111;">EV Reviews →</a>
+          <a href="review-methodology.html" style="display:block;padding:9px 0;font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#111;">How We Review →</a>
         </div>
+      </aside>
+    </div>
+  </div>
+</section>
 
-        <div>
-          <h4>Legal</h4>
-          <ul>
-            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="cookie-policy.html">Cookie Policy</a></li>
-            <li><a href="terms.html">Terms of Use</a></li>
-            <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
-            <li><a href="disclaimer.html">Disclaimer</a></li>
-          </ul>
+<!-- HOW WE REVIEW -->
+<section class="guides-section" style="padding:44px 0;">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">No jargon, promise</p>
+        <h2 style="color:#FAFAF8;">How We Review</h2>
+      </div>
+      <a href="review-methodology.html" style="font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#FF9900;border-bottom:2px solid #FF9900;padding-bottom:1px;">Full methodology →</a>
+    </div>
+    <div class="guide-grid">
+      <a class="guide-card" href="review-methodology.html">
+        <span class="num">01</span>
+        <h3>How every car gets scored</h3>
+        <span class="arrow">Read methodology →</span>
+      </a>
+      <a class="guide-card" href="editorial-policy.html">
+        <span class="num">02</span>
+        <h3>Our editorial independence policy</h3>
+        <span class="arrow">Read policy →</span>
+      </a>
+      <a class="guide-card" href="fact-checking-policy.html">
+        <span class="num">03</span>
+        <h3>How we fact-check every spec</h3>
+        <span class="arrow">Read policy →</span>
+      </a>
+      <a class="guide-card" href="corrections-policy.html">
+        <span class="num">04</span>
+        <h3>Mistakes happen — here's how we fix them</h3>
+        <span class="arrow">Read policy →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section style="padding:44px 0;">
+  <div class="wrap">
+    <div class="cta-band">
+      <div>
+        <h2>Get the verdict before you buy.</h2>
+        <p>One email a week. No spam, no dealership nonsense.</p>
+      </div>
+      <form class="cta-form" onsubmit="return false;">
+        <input type="email" placeholder="you@email.com" required>
+        <button class="btn" style="background:#111;border-color:#111;color:#fff;" type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER — using logo.png (dark/orange version) -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="/" class="logo footer-logo">
+          <img src="images/logo-light.png" alt="FlamingPiston" class="logo-full" style="height:22px;width:auto;filter:none;">
+        </a>
+        <p>Honest automotive reviews, practical buying advice, and maintenance guides — everything you need before buying your next vehicle.</p>
+        <div class="foot-social">
+          <a href="https://www.instagram.com/flamingpiston_in/" target="_blank" rel="noopener">Instagram</a>
         </div>
       </div>
-
-      <div class="foot-bottom">
-        <span>&copy; 2026 FlamingPiston. All rights reserved.</span>
-        <span><a href="sitemap.html">Sitemap</a></span>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="sitemap.html">Sitemap</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Editorial</h4>
+        <ul>
+          <li><a href="editorial-policy.html">Editorial Policy</a></li>
+          <li><a href="review-methodology.html">Review Methodology</a></li>
+          <li><a href="fact-checking-policy.html">Fact-Checking Policy</a></li>
+          <li><a href="corrections-policy.html">Corrections Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+          <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+        </ul>
       </div>
     </div>
-  </footer>
+    <div class="foot-bottom">
+      <span>&copy; 2026 FlamingPiston. All rights reserved.</span>
+      <span><a href="sitemap.html">Sitemap</a></span>
+    </div>
+  </div>
+</footer>
 
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
 
-  <button class="back-to-top" id="backToTop" aria-label="Back to top">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-  </button>
+<script>
+/* CAROUSEL — manual only */
+(function(){
+  var TOTAL = 5, current = 0;
+  var dotsEl = document.getElementById('fpDots');
+  var sideItems = document.querySelectorAll('.fp-side-item');
+  var dots = [];
+  for (var i = 0; i < TOTAL; i++) {
+    var d = document.createElement('button');
+    d.className = 'fp-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Slide ' + (i+1));
+    (function(idx){ d.addEventListener('click', function(){ goTo(idx); }); })(i);
+    dotsEl.appendChild(d); dots.push(d);
+  }
+  function goTo(idx) {
+    document.getElementById('fp-slide-'+current).classList.remove('active');
+    dots[current].classList.remove('active');
+    if (sideItems[current]) sideItems[current].classList.remove('is-active');
+    current = (idx + TOTAL) % TOTAL;
+    document.getElementById('fp-slide-'+current).classList.add('active');
+    dots[current].classList.add('active');
+    if (sideItems[current]) sideItems[current].classList.add('is-active');
+  }
+  document.getElementById('fpPrev').addEventListener('click', function(){ goTo(current-1); });
+  document.getElementById('fpNext').addEventListener('click', function(){ goTo(current+1); });
+  sideItems.forEach(function(item, idx){
+    item.addEventListener('click', function(e){ e.preventDefault(); goTo(idx); });
+  });
+})();
 
-  <script>
-    (function(){
-      var btn = document.getElementById('menuBtn');
-      var nav = document.getElementById('navCollapse');
-      if(!btn || !nav) return;
-      btn.addEventListener('click', function(){
-        var open = nav.classList.toggle('is-open');
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-        btn.classList.toggle('is-active', open);
-      });
-      nav.querySelectorAll('a').forEach(function(a){
-        a.addEventListener('click', function(){
-          nav.classList.remove('is-open');
-          btn.setAttribute('aria-expanded','false');
-          btn.classList.remove('is-active');
-        });
-      });
-    })();
-  </script>
-  <script>
-    (function(){
-      var topBtn = document.getElementById('backToTop');
-      if(!topBtn) return;
-      window.addEventListener('scroll', function(){
-        topBtn.classList.toggle('is-visible', window.scrollY > 500);
-      });
-      topBtn.addEventListener('click', function(){
-        window.scrollTo({top:0, behavior:'smooth'});
-      });
-    })();
-  </script>
+/* TABS */
+(function(){
+  var btns = document.querySelectorAll('.tab-btn');
+  btns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      btns.forEach(function(b){ b.classList.remove('active'); });
+      document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+      btn.classList.add('active');
+      var panel = document.getElementById(btn.getAttribute('data-tab'));
+      if (panel) panel.classList.add('active');
+    });
+  });
+})();
 
-  <script>
-    /* ============================================================
-       LATEST — unified feed across News, Reviews, and Comparisons,
-       auto-sorted by date, newest first, capped to the 6 most recent.
-       Whenever you publish something new, just add a card to
-       #latestReviewsRow with a data-date="YYYY-MM-DD" attribute
-       matching its publish date — this script handles the ordering,
-       trims anything past the 6th spot (removed from the page
-       entirely, not just hidden, so it stays light), and points the
-       hero's "Read the latest review" button at whichever piece
-       ends up newest. No manual reordering needed.
-       ============================================================ */
-    (function(){
-      var row = document.getElementById('latestReviewsRow');
-      if (!row) return;
-      var MAX_VISIBLE = 6;
-      var cards = Array.prototype.slice.call(row.querySelectorAll('.card[data-date]'));
-      cards.sort(function(a, b){
-        return new Date(b.getAttribute('data-date')) - new Date(a.getAttribute('data-date'));
-      });
-      cards.forEach(function(card, i){
-        if (i < MAX_VISIBLE) {
-          row.appendChild(card);
-        } else {
-          card.remove();
-        }
-      });
+/* NAV */
+(function(){
+  var btn = document.getElementById('menuBtn'), nav = document.getElementById('navCollapse');
+  if (!btn||!nav) return;
+  btn.addEventListener('click', function(){
+    var open = nav.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded', open); btn.classList.toggle('is-active', open);
+  });
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ nav.classList.remove('is-open'); btn.setAttribute('aria-expanded','false'); btn.classList.remove('is-active'); });
+  });
+})();
 
-      var newest = cards[0];
-      var cta = document.getElementById('latestReviewCta');
-      if (newest && cta) {
-        var link = newest.querySelector('a.card-media, a.read-link');
-        if (link) cta.setAttribute('href', link.getAttribute('href'));
-      }
-    })();
-  </script>
-  <script src="site-search.js"></script>
+/* BACK TO TOP */
+(function(){
+  var t = document.getElementById('backToTop'); if (!t) return;
+  window.addEventListener('scroll', function(){ t.classList.toggle('is-visible', window.scrollY>400); });
+  t.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+})();
+
+/* SEARCH */
+(function(){
+  var trigger = document.getElementById('fpSearchTrigger');
+  var overlay = document.getElementById('fpSearchOverlay');
+  var closeBtn = document.getElementById('fpSearchClose');
+  if (!trigger||!overlay) return;
+  trigger.addEventListener('click', function(){ overlay.classList.add('is-open'); document.getElementById('fpSearchInput').focus(); });
+  closeBtn.addEventListener('click', function(){ overlay.classList.remove('is-open'); });
+  overlay.addEventListener('click', function(e){ if(e.target===overlay) overlay.classList.remove('is-open'); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') overlay.classList.remove('is-open'); });
+})();
+</script>
+<script src="site-search.js"></script>
 </body>
 </html>
