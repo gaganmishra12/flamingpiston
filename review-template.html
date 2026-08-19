@@ -53,40 +53,6 @@
   "articleSection": "[Category, e.g. Electric SUVs / Pickup Trucks / Sedans]"
 }
   </script>
-  <!-- REVIEW SCHEMA: only include this block on pages with a genuine single verdict score (full reviews) — NOT on comparisons or guides without one overall rating. ratingValue must match the badge/score-breakdown total on the page. -->
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Review",
-  "itemReviewed": {
-    "@type": "Car",
-    "name": "[Year] [Make] [Model]",
-    "brand": { "@type": "Brand", "name": "[Make]" },
-    "model": "[Model]"
-  },
-  "reviewRating": {
-    "@type": "Rating",
-    "ratingValue": "[X.X]",
-    "bestRating": "10",
-    "worstRating": "1"
-  },
-  "author": { "@type": "Person", "name": "[Author Name]", "url": "https://flamingpiston.com/author-[author-slug].html" },
-  "publisher": { "@type": "Organization", "name": "FlamingPiston" },
-  "datePublished": "[YYYY-MM-DD]"
-}
-  </script>
-  <!-- FAQ SCHEMA: keep this in sync with the visible FAQ section near the bottom of the page — same questions, same answers, word for word. -->
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    { "@type": "Question", "name": "[Question 1]", "acceptedAnswer": { "@type": "Answer", "text": "[Answer 1]" } },
-    { "@type": "Question", "name": "[Question 2]", "acceptedAnswer": { "@type": "Answer", "text": "[Answer 2]" } },
-    { "@type": "Question", "name": "[Question 3]", "acceptedAnswer": { "@type": "Answer", "text": "[Answer 3]" } }
-  ]
-}
-  </script>
   <link rel="stylesheet" href="site-search.css">
 </head>
 <body>
@@ -314,16 +280,6 @@
       </div>
     </div>
 
-    <!-- FAQ HTML: must match the FAQPage schema in <head> word for word, same order. Aim for 4-9 questions people actually search. -->
-    <div class="section-block">
-      <div class="section-num-heading">
-        <h2 style="font-size:1.4rem;">FAQs</h2>
-      </div>
-      <p><strong>[Question 1]</strong><br>[Answer 1]</p>
-      <p><strong>[Question 2]</strong><br>[Answer 2]</p>
-      <p><strong>[Question 3]</strong><br>[Answer 3]</p>
-    </div>
-
       </div>
 
   <div class="section-heading">
@@ -364,7 +320,9 @@
           </a>
           <p>Honest automotive reviews, practical buying advice, and maintenance guides — everything you need before buying your next vehicle.</p>
           <div class="foot-social">
+            <a href="#">Twitter / X</a>
             <a href="https://www.instagram.com/flamingpiston_in/" target="_blank" rel="noopener">Instagram</a>
+            <a href="#">YouTube</a>
           </div>
         </div>
 

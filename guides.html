@@ -155,6 +155,40 @@
             </div>
           </div>
         </article>
+
+        </article>
+
+        <article class="card" data-category="suv compact-suv" data-date="2026-08-19">
+          <a href="reviews/2026-maruti-brezza-turbo-vs-petrol/" class="card-media">
+            <span class="tag">Engine Guide</span>
+            <img src="images/brezza-turbo-vs-petrol-hero.jpg" alt="2026 Maruti Brezza Turbo vs 1.5 Petrol engine comparison" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">Buying guide</p>
+            <h3><a href="reviews/2026-maruti-brezza-turbo-vs-petrol/">Maruti Brezza Turbo vs 1.5 Petrol: Which Engine Should You Choose?</a></h3>
+            <p>The gearbox constraint that decides this before performance even enters the conversation.</p>
+            <div class="card-foot">
+              <div class="mini-gauge"><span class="dot" style="background:var(--ink-soft)"></span> Guide</div>
+              <a class="read-link" href="reviews/2026-maruti-brezza-turbo-vs-petrol/">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-category="all">
+          <div class="card-media">
+            <span class="tag">Coming Soon</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="1.3"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg>
+          </div>
+          <div class="card-body">
+            <p class="eyebrow">In progress</p>
+            <h3>More guides are on the way</h3>
+            <p>Maintenance costs, CNG ownership, boot space, and safety breakdowns are next up — check back soon.</p>
+            <div class="card-foot">
+              <div class="mini-gauge"><span class="dot" style="background:var(--ink-soft)"></span> In progress</div>
+              <a class="read-link" href="/">Subscribe →</a>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -168,7 +202,9 @@
           </a>
           <p>Honest automotive reviews, practical buying advice, and maintenance guides — everything you need before buying your next vehicle.</p>
           <div class="foot-social">
+            <a href="#">Twitter / X</a>
             <a href="https://www.instagram.com/flamingpiston_in/" target="_blank" rel="noopener">Instagram</a>
+            <a href="#">YouTube</a>
           </div>
         </div>
         <div>
@@ -226,21 +262,6 @@
       var chips = document.querySelectorAll('#filterChips .chip');
       var cards = document.querySelectorAll('#guideGrid .card');
       var emptyMsg = document.getElementById('filterEmpty');
-
-      /* Only show a category chip once a guide actually exists in it —
-         keeps buyers from hitting a dead "nothing here" click. Add a
-         matching data-category to a new card and its chip reappears
-         automatically, no other change needed. */
-      var presentCats = {};
-      cards.forEach(function(card){
-        (card.getAttribute('data-category') || '').split(' ').forEach(function(c){
-          if (c) presentCats[c] = true;
-        });
-      });
-      chips.forEach(function(chip){
-        var f = chip.getAttribute('data-filter');
-        if (f !== 'all' && !presentCats[f]) chip.style.display = 'none';
-      });
 
       function applyFilter(cat){
         cat = cat || 'all';
@@ -301,7 +322,6 @@
       });
     })();
   </script>
-  <script src="card-dates.js"></script>
   <script src="site-search.js"></script>
 </body>
 </html>
