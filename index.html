@@ -13,9 +13,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=9">
+  <link rel="stylesheet" href="style.css?v=10">
   <link rel="alternate" type="application/rss+xml" title="FlamingPiston RSS Feed" href="feed.xml">
-
   <link rel="canonical" href="https://flamingpiston.com/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="FlamingPiston — Know Your Machine">
@@ -59,6 +58,287 @@
 }
   </script>
   <link rel="stylesheet" href="site-search.css">
+
+  <style>
+    /* ===== BREAKING NEWS TICKER ===== */
+    .fp-ticker {
+      background: var(--flame);
+      padding: 7px 0;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      gap: 0;
+      position: relative;
+      z-index: 40;
+    }
+    .fp-ticker-label {
+      background: var(--ink);
+      color: var(--cream);
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 14px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      z-index: 1;
+    }
+    .fp-ticker-track {
+      overflow: hidden;
+      flex: 1;
+      mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
+    }
+    .fp-ticker-inner {
+      display: flex;
+      white-space: nowrap;
+      animation: fpTicker 28s linear infinite;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .04em;
+      color: var(--white);
+    }
+    .fp-ticker-inner span { padding: 0 28px; }
+    .fp-ticker-inner .sep { color: rgba(255,255,255,.5); padding: 0 4px; }
+    @keyframes fpTicker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ===== HERO CAROUSEL ===== */
+    .fp-carousel-section {
+      background: var(--ink);
+      position: relative;
+    }
+    .fp-carousel-wrap {
+      max-width: var(--wrap);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 0;
+    }
+
+    /* Main slide area */
+    .fp-carousel {
+      position: relative;
+      height: 420px;
+      overflow: hidden;
+    }
+    .fp-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity .55s ease;
+      display: flex;
+      align-items: flex-end;
+    }
+    .fp-slide.active { opacity: 1; z-index: 2; }
+
+    .fp-slide-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+    }
+    .fp-slide-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(24,20,15,.96) 0%, rgba(24,20,15,.5) 45%, rgba(24,20,15,.15) 100%);
+      z-index: 1;
+    }
+    .fp-slide-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 28px 28px;
+      width: 100%;
+    }
+    .fp-slide-tag {
+      display: inline-block;
+      background: var(--flame);
+      color: var(--white);
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+    .fp-slide-title {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: .01em;
+      line-height: 1.05;
+      color: var(--cream);
+      margin: 0 0 8px;
+    }
+    .fp-slide-excerpt {
+      font-size: 14px;
+      color: rgba(251,247,240,.65);
+      line-height: 1.55;
+      margin: 0 0 12px;
+      max-width: 58ch;
+    }
+    .fp-slide-meta {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: rgba(251,247,240,.45);
+      letter-spacing: .03em;
+    }
+
+    /* Progress bar */
+    .fp-progress {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      background: var(--flame);
+      z-index: 10;
+      width: 0%;
+      transition: none;
+    }
+    .fp-progress.running {
+      animation: fpProgress 5s linear forwards;
+    }
+    @keyframes fpProgress {
+      from { width: 0%; }
+      to   { width: 100%; }
+    }
+
+    /* Dots */
+    .fp-dots {
+      position: absolute;
+      bottom: 14px;
+      right: 14px;
+      display: flex;
+      gap: 6px;
+      z-index: 10;
+    }
+    .fp-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.3);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background .2s, transform .2s;
+    }
+    .fp-dot.active { background: var(--flame); transform: scale(1.35); }
+
+    /* Arrows */
+    .fp-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background: rgba(24,20,15,.6);
+      border: 1px solid rgba(255,255,255,.15);
+      color: var(--cream);
+      font-size: 18px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .2s;
+    }
+    .fp-arrow:hover { background: var(--flame); border-color: var(--flame); }
+    .fp-arrow.prev { left: 12px; }
+    .fp-arrow.next { right: 12px; }
+
+    /* Side story list */
+    .fp-carousel-side {
+      border-left: 1px solid rgba(255,255,255,.08);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .fp-side-item {
+      flex: 1;
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      cursor: pointer;
+      transition: background .18s;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .fp-side-item:last-child { border-bottom: none; }
+    .fp-side-item:hover { background: rgba(255,255,255,.04); }
+    .fp-side-item.is-active { background: rgba(255,78,31,.08); border-left: 3px solid var(--flame); }
+    .fp-side-thumb {
+      width: 90px;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .fp-side-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .fp-side-body {
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+    .fp-side-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--flame);
+      margin-bottom: 4px;
+    }
+    .fp-side-title {
+      font-family: 'Manrope', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(251,247,240,.85);
+      line-height: 1.4;
+      margin: 0 0 4px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .fp-side-meta {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: rgba(251,247,240,.35);
+    }
+
+    /* ===== CAROUSEL RESPONSIVE ===== */
+    @media (max-width: 860px) {
+      .fp-carousel-wrap {
+        grid-template-columns: 1fr;
+        padding: 0;
+      }
+      .fp-carousel { height: 300px; }
+      .fp-carousel-side { display: none; }
+      .fp-slide-title { font-size: 20px; }
+    }
+    @media (max-width: 640px) {
+      .fp-carousel { height: 260px; }
+      .fp-slide-excerpt { display: none; }
+      .fp-slide-content { padding: 0 16px 20px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -73,8 +353,6 @@
     </div>
   </div>
 
-
-
   <header class="site-header">
     <div class="wrap navbar">
       <a href="/" class="logo">
@@ -86,13 +364,13 @@
           <li><a href="/" class="active">Home</a></li>
           <li><a href="reviews.html">Reviews</a></li>
           <li><a href="news.html">News</a></li>
-        <li><a href="guides.html">Guides</a></li>
-        <li><a href="comparisons.html">Comparisons</a></li>
+          <li><a href="guides.html">Guides</a></li>
+          <li><a href="comparisons.html">Comparisons</a></li>
           <li><a href="about.html">About</a></li>
         </ul>
-      </nav>
+        </nav>
       </div>
-            <button id="fpSearchTrigger" class="fp-search-trigger" aria-label="Search">
+      <button id="fpSearchTrigger" class="fp-search-trigger" aria-label="Search">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
       </button>
       <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navCollapse">
@@ -101,67 +379,147 @@
     </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-grain"></div>
-    <div class="hero-glow"></div>
-    <div class="wrap hero-inner">
-      <div>
-        <p class="eyebrow" style="color:var(--ember)">Car knowledge, unfiltered</p>
-        <h1>KNOW YOUR<br><span class="hl">MACHINE.</span></h1>
-        <p class="lede">Real reviews, plain-English breakdowns, and specs that actually mean something — built for people who want to understand what they're driving, not sit through a dealership pitch.</p>
-        <div class="hero-actions">
-          <a href="reviews/2026-maruti-brezza-review/" class="btn outline-hero" id="latestReviewCta">Read the latest review →</a>
-          <a href="news.html" class="btn outline-hero">See the latest news</a>
-        </div>
-        <div class="hero-stats">
-          <div><b>100%</b><span>Independent</span></div>
-          <div><b>0</b><span>Dealer scripts</span></div>
-          <div><b>New</b><span>Verdict weekly</span></div>
-        </div>
-      </div>
-
-      <div class="browse-mix-wrap">
-        <div class="hero-visual-ring hero-visual-ring--mix"></div>
-        <div class="hero-visual-glow hero-visual-glow--mix"></div>
-        <div class="browse-card browse-card--big">
-          <p class="eyebrow">Browse by type</p>
-          <h3 class="browse-title">Find Your Lane</h3>
-          <p class="browse-sub">Jump straight to the category you're actually shopping for.</p>
-          <div class="browse-grid">
-            <a href="reviews.html#suv" class="browse-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 16h18M5 16V10l2-4h9l4 5h1a1 1 0 0 1 1 1v4M8 16a2 2 0 1 1-4 0M20 16a2 2 0 1 1-4 0"/></svg>
-              <span>SUV</span>
-            </a>
-            <a href="reviews.html#compact-suv" class="browse-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 16h18M5 16V10l2-4h9l4 5h1a1 1 0 0 1 1 1v4M8 16a2 2 0 1 1-4 0M20 16a2 2 0 1 1-4 0"/></svg>
-              <span>Compact SUV</span>
-            </a>
-            <a href="reviews.html#electric" class="browse-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
-              <span>Electric</span>
-            </a>
-            <a href="reviews.html#pickup" class="browse-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 16h18M5 16V9l3-4h6l4 4h1a1 1 0 0 1 1 1v6M8 16a2 2 0 1 1-4 0M20 16a2 2 0 1 1-4 0"/></svg>
-              <span>Pickup</span>
-            </a>
-            <a href="reviews.html#sedan" class="browse-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 16h18M5 16V11l2-3h9l3 3h1a1 1 0 0 1 1 1v4M8 16a2 2 0 1 1-4 0M18 16a2 2 0 1 1-4 0"/></svg>
-              <span>Sedan</span>
-            </a>
-            <a href="reviews.html#hatchback" class="browse-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 16h16M5 16V11l2-3h7l3 3h1a1 1 0 0 1 1 1v4M8 16a2 2 0 1 1-4 0M18 16a2 2 0 1 1-4 0"/></svg>
-              <span>Hatchback</span>
-            </a>
-            <a href="reviews.html#performance" class="browse-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
-              <span>Performance</span>
-            </a>
-          </div>
-          <a href="reviews.html" class="oc-cta" style="display:block;margin-top:18px;">Browse all reviews →</a>
-        </div>
+  <!-- BREAKING NEWS TICKER -->
+  <div class="fp-ticker" aria-label="Breaking news ticker">
+    <span class="fp-ticker-label">Breaking</span>
+    <div class="fp-ticker-track">
+      <div class="fp-ticker-inner" aria-hidden="true">
+        <span>Kia Syros EV First Drive: Best Under-₹20L EV?</span><span class="sep">·</span>
+        <span>2026 Toyota Hilux Review: More Modern, Less Rugged?</span><span class="sep">·</span>
+        <span>Skoda Slavia Facelift Launched — New 8-Speed AT</span><span class="sep">·</span>
+        <span>Mahindra Scorpio N Facelift at ₹13.69 Lakh</span><span class="sep">·</span>
+        <span>Land Rover Defender Dakar: 626HP Rally Beast</span><span class="sep">·</span>
+        <span>BMW X1 LWB Confirmed for August 21</span><span class="sep">·</span>
+        <span>MG Hector Hawk Launch: August 26</span><span class="sep">·</span>
+        <!-- duplicate for seamless loop -->
+        <span>Kia Syros EV First Drive: Best Under-₹20L EV?</span><span class="sep">·</span>
+        <span>2026 Toyota Hilux Review: More Modern, Less Rugged?</span><span class="sep">·</span>
+        <span>Skoda Slavia Facelift Launched — New 8-Speed AT</span><span class="sep">·</span>
+        <span>Mahindra Scorpio N Facelift at ₹13.69 Lakh</span><span class="sep">·</span>
+        <span>Land Rover Defender Dakar: 626HP Rally Beast</span><span class="sep">·</span>
+        <span>BMW X1 LWB Confirmed for August 21</span><span class="sep">·</span>
+        <span>MG Hector Hawk Launch: August 26</span><span class="sep">·</span>
       </div>
     </div>
-    <div class="strip-divider"></div>
+  </div>
+
+  <!-- HERO CAROUSEL -->
+  <section class="fp-carousel-section" aria-label="Featured stories">
+    <div class="fp-carousel-wrap">
+
+      <div class="fp-carousel" id="fpCarousel">
+
+        <!-- Slide 0 -->
+        <div class="fp-slide active" id="fp-slide-0">
+          <img class="fp-slide-img" src="images/syros-hero.jpg" alt="Kia Syros EV parked in a city plaza" loading="eager">
+          <div class="fp-slide-gradient"></div>
+          <div class="fp-slide-content">
+            <a href="reviews/kia-syros-ev/" class="fp-slide-tag">EV Review</a>
+            <h2 class="fp-slide-title"><a href="reviews/kia-syros-ev/" style="color:inherit;text-decoration:none;">Kia Syros EV: The Best Family EV Under ₹20 Lakh?</a></h2>
+            <p class="fp-slide-excerpt">526km range, 171PS power, and 39-minute fast charging — a full look at Kia's new electric SUV for Indian families.</p>
+            <p class="fp-slide-meta">Gagan Mishra &nbsp;·&nbsp; 5 Aug 2026 &nbsp;·&nbsp; 6 min read</p>
+          </div>
+        </div>
+
+        <!-- Slide 1 -->
+        <div class="fp-slide" id="fp-slide-1">
+          <img class="fp-slide-img" src="images/hilux-front.jpg" alt="New Toyota Hilux driving through a city" loading="lazy">
+          <div class="fp-slide-gradient"></div>
+          <div class="fp-slide-content">
+            <a href="reviews/toyota-hilux/" class="fp-slide-tag">First Drive</a>
+            <h2 class="fp-slide-title"><a href="reviews/toyota-hilux/" style="color:inherit;text-decoration:none;">2026 Toyota Hilux: More Modern, Less Rugged?</a></h2>
+            <p class="fp-slide-excerpt">The Hilux gets a big interior and tech upgrade — but has Toyota softened the toughest pickup truck in India?</p>
+            <p class="fp-slide-meta">Gagan Mishra &nbsp;·&nbsp; 4 Aug 2026 &nbsp;·&nbsp; 9 min read</p>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="fp-slide" id="fp-slide-2">
+          <img class="fp-slide-img" src="images/skoda-slavia-driving.jpg" alt="Skoda Slavia Facelift white sedan driving shot" loading="lazy">
+          <div class="fp-slide-gradient"></div>
+          <div class="fp-slide-content">
+            <a href="reviews/2026-skoda-slavia-facelift/" class="fp-slide-tag">Full Review</a>
+            <h2 class="fp-slide-title"><a href="reviews/2026-skoda-slavia-facelift/" style="color:inherit;text-decoration:none;">Skoda Slavia Facelift: New 8-Speed AT, Bigger Screen</a></h2>
+            <p class="fp-slide-excerpt">Launched with a new 8-speed automatic, a larger digital cluster, and mild styling tweaks — is it enough to lead the segment?</p>
+            <p class="fp-slide-meta">Gagan Mishra &nbsp;·&nbsp; 18 Aug 2026 &nbsp;·&nbsp; 8 min read</p>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="fp-slide" id="fp-slide-3">
+          <img class="fp-slide-img" src="images/brezza-front.jpg" alt="2026 Maruti Brezza, red, front three-quarter shot" loading="lazy">
+          <div class="fp-slide-gradient"></div>
+          <div class="fp-slide-content">
+            <a href="reviews/2026-maruti-brezza-review/" class="fp-slide-tag">Compact SUV</a>
+            <h2 class="fp-slide-title"><a href="reviews/2026-maruti-brezza-review/" style="color:inherit;text-decoration:none;">2026 Maruti Brezza: Is the New Turbo Worth It?</a></h2>
+            <p class="fp-slide-excerpt">New 1.0 turbo engine, a 5-star Bharat NCAP rating, and three powertrain choices — the full breakdown.</p>
+            <p class="fp-slide-meta">Gagan Mishra &nbsp;·&nbsp; 12 Aug 2026 &nbsp;·&nbsp; 11 min read</p>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="fp-slide" id="fp-slide-4">
+          <img class="fp-slide-img" src="images/news-land-rover-defender-dakar.jpg" alt="Land Rover Defender Dakar" loading="lazy">
+          <div class="fp-slide-gradient"></div>
+          <div class="fp-slide-content">
+            <a href="news-land-rover-defender-dakar.html" class="fp-slide-tag">News</a>
+            <h2 class="fp-slide-title"><a href="news-land-rover-defender-dakar.html" style="color:inherit;text-decoration:none;">Defender Dakar: The World's Wildest Road-Legal SUV</a></h2>
+            <p class="fp-slide-excerpt">A limited-run road-going version of the Dakar Rally-winning D7X-R, with a 626hp V8 and rally-derived chassis.</p>
+            <p class="fp-slide-meta">Gagan Mishra &nbsp;·&nbsp; 17 Aug 2026 &nbsp;·&nbsp; 4 min read</p>
+          </div>
+        </div>
+
+        <div class="fp-dots" id="fpDots"></div>
+        <button class="fp-arrow prev" id="fpPrev" aria-label="Previous story">&#8249;</button>
+        <button class="fp-arrow next" id="fpNext" aria-label="Next story">&#8250;</button>
+        <div class="fp-progress" id="fpProgress"></div>
+      </div>
+
+      <!-- Side story list -->
+      <div class="fp-carousel-side" id="fpSide">
+        <a href="reviews/kia-syros-ev/" class="fp-side-item is-active" data-slide="0">
+          <div class="fp-side-thumb"><img src="images/syros-front.jpg" alt="Kia Syros EV" loading="lazy"></div>
+          <div class="fp-side-body">
+            <div class="fp-side-tag">EV Review</div>
+            <div class="fp-side-title">Kia Syros EV: Best Under-₹20L EV?</div>
+            <div class="fp-side-meta">5 Aug · 6 min</div>
+          </div>
+        </a>
+        <a href="reviews/toyota-hilux/" class="fp-side-item" data-slide="1">
+          <div class="fp-side-thumb"><img src="images/hilux-front.jpg" alt="Toyota Hilux" loading="lazy"></div>
+          <div class="fp-side-body">
+            <div class="fp-side-tag">First Drive</div>
+            <div class="fp-side-title">2026 Toyota Hilux: More Modern, Less Rugged?</div>
+            <div class="fp-side-meta">4 Aug · 9 min</div>
+          </div>
+        </a>
+        <a href="reviews/2026-skoda-slavia-facelift/" class="fp-side-item" data-slide="2">
+          <div class="fp-side-thumb"><img src="images/skoda-slavia.jpg" alt="Skoda Slavia Facelift" loading="lazy"></div>
+          <div class="fp-side-body">
+            <div class="fp-side-tag">Full Review</div>
+            <div class="fp-side-title">Skoda Slavia Facelift: New 8-Speed AT</div>
+            <div class="fp-side-meta">18 Aug · 8 min</div>
+          </div>
+        </a>
+        <a href="reviews/2026-maruti-brezza-review/" class="fp-side-item" data-slide="3">
+          <div class="fp-side-thumb"><img src="images/brezza-front.jpg" alt="2026 Maruti Brezza" loading="lazy"></div>
+          <div class="fp-side-body">
+            <div class="fp-side-tag">Compact SUV</div>
+            <div class="fp-side-title">2026 Maruti Brezza: Is the New Turbo Worth It?</div>
+            <div class="fp-side-meta">12 Aug · 11 min</div>
+          </div>
+        </a>
+        <a href="news-land-rover-defender-dakar.html" class="fp-side-item" data-slide="4">
+          <div class="fp-side-thumb"><img src="images/news-land-rover-defender-dakar.jpg" alt="Defender Dakar" loading="lazy"></div>
+          <div class="fp-side-body">
+            <div class="fp-side-tag">News</div>
+            <div class="fp-side-title">Defender Dakar: 626HP Road-Legal Rally Beast</div>
+            <div class="fp-side-meta">17 Aug · 4 min</div>
+          </div>
+        </a>
+      </div>
+
+    </div>
   </section>
 
   <section>
@@ -282,7 +640,7 @@
         <article class="card" data-date="2026-08-17">
           <a href="reviews/2026-maruti-brezza-automatic/" class="card-media">
             <span class="tag">Guide</span>
-            <img src="images/brezza-automatic-hero.jpg" alt="2026 Maruti Brezza Automatic, branded graphic with 6-speed torque converter, price, and mileage badges" loading="lazy">
+            <img src="images/brezza-automatic-hero.jpg" alt="2026 Maruti Brezza Automatic" loading="lazy">
           </a>
           <div class="card-body">
             <p class="eyebrow">Guide</p>
@@ -335,7 +693,6 @@
             </div>
           </div>
         </article>
-
         <article class="card" data-date="2026-08-14">
           <a href="reviews/2026-brezza-vs-nexon/" class="card-media">
             <span class="tag">Comparison</span>
@@ -350,7 +707,6 @@
             </div>
           </div>
         </article>
-
         <article class="card" data-date="2026-08-13">
           <a href="news-bmw-x1-lwb.html" class="card-media">
             <span class="tag">News</span>
@@ -365,7 +721,6 @@
             </div>
           </div>
         </article>
-
         <article class="card" data-date="2026-08-13">
           <a href="news-mg-hector-hawk.html" class="card-media">
             <span class="tag">News</span>
@@ -380,7 +735,6 @@
             </div>
           </div>
         </article>
-
         <article class="card" data-date="2026-08-12">
           <a href="reviews/2026-maruti-brezza-review/" class="card-media">
             <span class="tag">Compact SUV</span>
@@ -396,7 +750,6 @@
             </div>
           </div>
         </article>
-
         <article class="card" data-date="2026-08-12">
           <a href="news-mahindra-independence-day-2026.html" class="card-media">
             <span class="tag">News</span>
@@ -411,7 +764,6 @@
             </div>
           </div>
         </article>
-
         <article class="card" data-date="2026-08-12">
           <a href="news-mg-couture-editions.html" class="card-media">
             <span class="tag">News</span>
@@ -426,7 +778,6 @@
             </div>
           </div>
         </article>
-
         <article class="card" data-date="2026-08-10">
           <a href="news-mahindra-scorpio-n-facelift.html" class="card-media">
             <span class="tag">News</span>
@@ -441,7 +792,6 @@
             </div>
           </div>
         </article>
-
         <article class="card" data-date="2026-08-10">
           <a href="news-skoda-slavia-facelift.html" class="card-media">
             <span class="tag">News</span>
@@ -456,11 +806,10 @@
             </div>
           </div>
         </article>
-
         <article class="card" data-date="2026-08-10">
           <a href="news-volvo-ex90-india.html" class="card-media">
             <span class="tag">News</span>
-            <img src="images/news-volvo-ex90.jpg" alt="The New Volvo EX90, Volvo's fully electric flagship" loading="lazy">
+            <img src="images/news-volvo-ex90.jpg" alt="The New Volvo EX90" loading="lazy">
           </a>
           <div class="card-body">
             <p class="eyebrow">News</p>
@@ -471,7 +820,6 @@
             </div>
           </div>
         </article>
-
         <article class="card" data-date="2026-08-05">
           <a href="reviews/kia-syros-ev/" class="card-media">
             <span class="tag">Electric</span>
@@ -487,7 +835,6 @@
             </div>
           </div>
         </article>
-
         <article class="card" data-date="2026-08-04">
           <a href="reviews/toyota-hilux/" class="card-media">
             <span class="tag">Pickup</span>
@@ -568,7 +915,6 @@
             <a href="https://www.instagram.com/flamingpiston_in/" target="_blank" rel="noopener">Instagram</a>
           </div>
         </div>
-
         <div>
           <h4>Company</h4>
           <ul>
@@ -577,7 +923,6 @@
             <li><a href="sitemap.html">Sitemap</a></li>
           </ul>
         </div>
-
         <div>
           <h4>Editorial</h4>
           <ul>
@@ -587,7 +932,6 @@
             <li><a href="corrections-policy.html">Corrections Policy</a></li>
           </ul>
         </div>
-
         <div>
           <h4>Legal</h4>
           <ul>
@@ -599,7 +943,6 @@
           </ul>
         </div>
       </div>
-
       <div class="foot-bottom">
         <span>&copy; 2026 FlamingPiston. All rights reserved.</span>
         <span><a href="sitemap.html">Sitemap</a></span>
@@ -607,10 +950,74 @@
     </div>
   </footer>
 
-
   <button class="back-to-top" id="backToTop" aria-label="Back to top">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
   </button>
+
+  <script>
+    /* ===== CAROUSEL ===== */
+    (function(){
+      var TOTAL = 5;
+      var INTERVAL = 5000;
+      var current = 0;
+      var timer = null;
+
+      var dotsEl = document.getElementById('fpDots');
+      var progress = document.getElementById('fpProgress');
+      var sideItems = document.querySelectorAll('.fp-side-item');
+
+      /* Build dots */
+      var dots = [];
+      for (var i = 0; i < TOTAL; i++) {
+        var d = document.createElement('button');
+        d.className = 'fp-dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        (function(idx){ d.addEventListener('click', function(){ goTo(idx); }); })(i);
+        dotsEl.appendChild(d);
+        dots.push(d);
+      }
+
+      function goTo(idx) {
+        document.getElementById('fp-slide-' + current).classList.remove('active');
+        dots[current].classList.remove('active');
+        sideItems[current] && sideItems[current].classList.remove('is-active');
+
+        current = (idx + TOTAL) % TOTAL;
+
+        document.getElementById('fp-slide-' + current).classList.add('active');
+        dots[current].classList.add('active');
+        sideItems[current] && sideItems[current].classList.add('is-active');
+
+        restartProgress();
+        resetTimer();
+      }
+
+      function restartProgress() {
+        progress.classList.remove('running');
+        void progress.offsetWidth; /* force reflow */
+        progress.classList.add('running');
+      }
+
+      function resetTimer() {
+        clearInterval(timer);
+        timer = setInterval(function(){ goTo(current + 1); }, INTERVAL);
+      }
+
+      document.getElementById('fpPrev').addEventListener('click', function(){ goTo(current - 1); });
+      document.getElementById('fpNext').addEventListener('click', function(){ goTo(current + 1); });
+
+      /* Side item clicks */
+      sideItems.forEach(function(item, idx) {
+        item.addEventListener('click', function(e){
+          e.preventDefault();
+          goTo(idx);
+        });
+      });
+
+      restartProgress();
+      resetTimer();
+    })();
+  </script>
 
   <script>
     (function(){
@@ -631,6 +1038,7 @@
       });
     })();
   </script>
+
   <script>
     (function(){
       var topBtn = document.getElementById('backToTop');
@@ -645,17 +1053,7 @@
   </script>
 
   <script>
-    /* ============================================================
-       LATEST — unified feed across News, Reviews, and Comparisons,
-       auto-sorted by date, newest first, capped to the 6 most recent.
-       Whenever you publish something new, just add a card to
-       #latestReviewsRow with a data-date="YYYY-MM-DD" attribute
-       matching its publish date — this script handles the ordering,
-       trims anything past the 6th spot (removed from the page
-       entirely, not just hidden, so it stays light), and points the
-       hero's "Read the latest review" button at whichever piece
-       ends up newest. No manual reordering needed.
-       ============================================================ */
+    /* Auto-sort latest cards, cap to 6, point hero CTA at newest review */
     (function(){
       var row = document.getElementById('latestReviewsRow');
       if (!row) return;
@@ -665,26 +1063,8 @@
         return new Date(b.getAttribute('data-date')) - new Date(a.getAttribute('data-date'));
       });
       cards.forEach(function(card, i){
-        if (i < MAX_VISIBLE) {
-          row.appendChild(card);
-        } else {
-          card.remove();
-        }
+        if (i < MAX_VISIBLE) { row.appendChild(card); } else { card.remove(); }
       });
-
-      var newest = cards[0];
-      var cta = document.getElementById('latestReviewCta');
-      if (cta) {
-        var EXCLUDED_TAGS = ['News', 'Comparison', 'Guide'];
-        var reviewCard = cards.find(function(card){
-          var tagEl = card.querySelector('.tag');
-          return tagEl && EXCLUDED_TAGS.indexOf(tagEl.textContent.trim()) === -1;
-        });
-        if (reviewCard) {
-          var link = reviewCard.querySelector('a.card-media, a.read-link');
-          if (link) cta.setAttribute('href', link.getAttribute('href'));
-        }
-      }
     })();
   </script>
   <script src="card-dates.js"></script>
