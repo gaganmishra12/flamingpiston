@@ -297,6 +297,34 @@
     ]
   },
   {
+    "title": "BMW X5 vs Genesis GV80 vs Volvo XC90: Three Very Different Answers to the Same Question",
+    "url": "/reviews/bmw-x5-vs-genesis-gv80-vs-volvo-xc90/",
+    "type": "comparison",
+    "car": "BMW X5, Genesis GV80, Volvo XC90",
+    "tags": ["bmw", "x5", "genesis", "gv80", "volvo", "xc90", "luxury suv", "midsize suv"]
+  },
+  {
+    "title": "Range Rover Sport vs BMW X5 vs Mercedes GLE: The Premium SUV Ladder Explained",
+    "url": "/reviews/range-rover-sport-vs-bmw-x5-vs-mercedes-gle/",
+    "type": "comparison",
+    "car": "Range Rover Sport, BMW X5, Mercedes GLE",
+    "tags": ["range rover", "land rover", "bmw", "x5", "mercedes", "gle", "premium suv", "luxury suv"]
+  },
+  {
+    "title": "BMW 7 Series vs Mercedes S-Class vs Genesis G90: The Flagship Sedan Fight",
+    "url": "/reviews/bmw-7-series-vs-mercedes-s-class-vs-genesis-g90/",
+    "type": "comparison",
+    "car": "BMW 7 Series, Mercedes S-Class, Genesis G90",
+    "tags": ["bmw", "7 series", "mercedes", "s-class", "genesis", "g90", "luxury sedan", "flagship"]
+  },
+  {
+    "title": "2026 Mercedes-Benz S-Class Launched in India: First PHEV S-Class, ₹2.20 Crore",
+    "url": "/news-mercedes-s-class-2026-india.html",
+    "type": "news",
+    "car": "Mercedes-Benz S-Class",
+    "tags": ["mercedes", "s-class", "phev", "plug-in hybrid", "luxury sedan", "india launch", "s450e"]
+  },
+  {
     "title": "BMW i5 Long Wheelbase Launched in India: 669 km Range, Local Assembly, 99-Unit First Edition",
     "url": "/news-bmw-i5-lwb-india.html",
     "type": "news",
