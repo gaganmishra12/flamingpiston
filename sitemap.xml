@@ -300,4 +300,16 @@
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://flamingpiston.com/news-tata-nexon-camo-edition.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://flamingpiston.com/news-kia-sorento-india-launch.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
