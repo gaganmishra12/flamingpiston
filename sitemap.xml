@@ -182,6 +182,7 @@
   </url>
   <url>
     <loc>https://flamingpiston.com/reviews/bmw-7-series-vs-mercedes-s-class-vs-genesis-g90/</loc>
+    <lastmod>null</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -193,6 +194,7 @@
   </url>
   <url>
     <loc>https://flamingpiston.com/reviews/range-rover-sport-vs-bmw-x5-vs-mercedes-gle/</loc>
+    <lastmod>null</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -223,12 +225,6 @@
   <url>
     <loc>https://flamingpiston.com/news-hyundai-tucson-2027.html</loc>
     <lastmod>2026-08-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://flamingpiston.com/news-kia-sorento-india-launch.html</loc>
-    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -299,14 +295,20 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://flamingpiston.com/news-volvo-ex90-india.html</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://flamingpiston.com/news-tata-nexon-camo-edition.html</loc>
     <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://flamingpiston.com/news-volvo-ex90-india.html</loc>
-    <lastmod>2026-08-10</lastmod>
+    <loc>https://flamingpiston.com/news-kia-sorento-india-launch.html</loc>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

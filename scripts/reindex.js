@@ -204,8 +204,7 @@ function generateSitemap(articles) {
   const newsArticles = articles.filter(a => a.kind === 'news');
 
   function urlEntry(loc, lastmod, freq, priority) {
-    const lastmodLine = lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : '';
-    return `  <url>\n    <loc>${BASE_URL}${loc}</loc>${lastmodLine}\n    <changefreq>${freq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+    return `  <url>\n    <loc>${BASE_URL}${loc}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${freq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
   }
 
   const entries = [];
