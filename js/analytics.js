@@ -1,18 +1,40 @@
-// FlamingPiston — Google Analytics 4 (GA4) with consent gating
+// FlamingPiston — GA4 with Google Consent Mode v2
 // Measurement ID: G-QE7WZ5DCC6
+// GA4 loads immediately with consent denied (cookieless pings record session source).
+// Full cookie-based tracking activates only after the user clicks Accept.
 
 (function () {
   var CONSENT_KEY = 'fp_analytics_consent';
+  var GA_ID = 'G-QE7WZ5DCC6';
+
+  // 1. Initialize dataLayer and consent defaults BEFORE loading gtag.js
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  window.gtag = gtag;
+
   var stored = localStorage.getItem(CONSENT_KEY);
+  var hasConsent = stored === 'granted';
 
-  // If user has already made a choice, act on it
-  if (stored === 'granted') {
-    loadGA();
-    return;
-  }
-  if (stored === 'denied') return;
+  gtag('consent', 'default', {
+    analytics_storage: hasConsent ? 'granted' : 'denied',
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied'
+  });
 
-  // Show consent banner
+  // 2. Load gtag.js immediately — consent mode controls what data is collected
+  var script = document.createElement('script');
+  script.async = true;
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+  document.head.appendChild(script);
+
+  gtag('js', new Date());
+  gtag('config', GA_ID);
+
+  // 3. If already decided, skip banner
+  if (stored) return;
+
+  // 4. Show consent banner for first-time visitors
   var banner = document.createElement('div');
   banner.id = 'fpCookieBanner';
   banner.setAttribute('role', 'dialog');
@@ -42,8 +64,8 @@
     document.body.appendChild(banner);
     document.getElementById('fpCookieAccept').addEventListener('click', function () {
       localStorage.setItem(CONSENT_KEY, 'granted');
+      gtag('consent', 'update', { analytics_storage: 'granted' });
       banner.remove();
-      loadGA();
     });
     document.getElementById('fpCookieDeny').addEventListener('click', function () {
       localStorage.setItem(CONSENT_KEY, 'denied');
@@ -55,19 +77,5 @@
     document.addEventListener('DOMContentLoaded', showBanner);
   } else {
     showBanner();
-  }
-
-  function loadGA() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-QE7WZ5DCC6';
-    document.head.appendChild(script);
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    window.gtag = gtag;
-
-    gtag('js', new Date());
-    gtag('config', 'G-QE7WZ5DCC6');
   }
 })();
