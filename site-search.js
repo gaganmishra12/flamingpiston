@@ -63,8 +63,8 @@
       }
 
       resultsEl.innerHTML = scored.map(function (entry, i) {
-        return '<a href="' + entry.url + '" class="fp-search-result" data-index="' + i + '">' +
-          '<span class="fp-search-result-tag" data-type="' + entry.type + '">' + entry.type + '</span>' +
+        return '<a href="' + escapeHtml(entry.url) + '" class="fp-search-result" data-index="' + i + '">' +
+          '<span class="fp-search-result-tag" data-type="' + escapeHtml(entry.type) + '">' + escapeHtml(entry.type) + '</span>' +
           '<span class="fp-search-result-text">' +
             '<div class="fp-search-result-title">' + escapeHtml(entry.title) + '</div>' +
             (entry.car ? '<div class="fp-search-result-car">' + escapeHtml(entry.car) + '</div>' : '') +

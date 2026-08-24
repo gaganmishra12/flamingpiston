@@ -61,6 +61,7 @@
   <link rel="stylesheet" href="site-search.css">
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to content</a>
 
   <div id="fpSearchOverlay" class="fp-search-overlay">
     <div class="fp-search-panel">
@@ -101,6 +102,7 @@
     </div>
   </header>
 
+  <main id="main">
   <section class="hero">
     <div class="hero-grain"></div>
     <div class="hero-glow"></div>
@@ -358,6 +360,7 @@
           </div>
         </article>
         <article class="card" data-date="2026-08-21">
+          <a href="news-bmw-i5-lwb-india.html" class="card-media">
             <span class="tag">News</span>
             <img src="images/news-bmw-i5-lwb-india.jpg" alt="BMW i5 Long Wheelbase connected to a charger" loading="lazy">
           </a>
@@ -399,6 +402,7 @@
           </div>
         </article>
         <article class="card" data-date="2026-08-17">
+          <a href="news-aston-martin-valen.html" class="card-media">
             <span class="tag">News</span>
             <img src="images/news-aston-martin-valen.jpg" alt="The New Aston Martin Valen" loading="lazy">
           </a>
@@ -653,12 +657,14 @@
           <p>One email a week. No spam, no dealership nonsense.</p>
         </div>
         <form class="cta-form" onsubmit="return false;">
-          <input type="email" placeholder="you@email.com" required>
+          <label for="newsletter-email" class="sr-only">Email address</label>
+          <input id="newsletter-email" type="email" placeholder="you@email.com" required>
           <button class="btn" style="background:var(--ink);border-color:var(--ink);color:var(--cream);" type="submit">Subscribe</button>
         </form>
       </div>
     </div>
   </section>
+  </main>
 
   <footer class="site-footer">
     <div class="wrap">
