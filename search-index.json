@@ -1,35 +1,5 @@
 [
   {
-    "title": "Tata Nexon Camo Edition Launched at ₹9.99 Lakh: New Colours, Bigger Screen & ADAS",
-    "url": "/news-tata-nexon-camo-edition.html",
-    "type": "news",
-    "car": "Tata Nexon",
-    "tags": [
-      "tata",
-      "nexon",
-      "camo",
-      "special edition",
-      "compact suv",
-      "adas",
-      "dashcam"
-    ]
-  },
-  {
-    "title": "Kia Sorento India Launch Set for September 4: Hybrid, Diesel & AWD Confirmed",
-    "url": "/news-kia-sorento-india-launch.html",
-    "type": "news",
-    "car": "Kia Sorento",
-    "tags": [
-      "kia",
-      "sorento",
-      "hybrid",
-      "diesel",
-      "awd",
-      "3-row suv",
-      "india launch"
-    ]
-  },
-  {
     "title": "Aston Martin Valen Unveiled: 850PS V12, World's Most Powerful Front-Engined Car (2026)",
     "url": "/news-aston-martin-valen.html",
     "type": "news",
@@ -95,6 +65,21 @@
       "hybrid",
       "phev",
       "suv"
+    ]
+  },
+  {
+    "title": "Kia Sorento India Launch Sept 4: Hybrid, Diesel & AWD",
+    "url": "/news-kia-sorento-india-launch.html",
+    "type": "news",
+    "car": "Kia Sorento",
+    "tags": [
+      "kia",
+      "sorento",
+      "hybrid",
+      "diesel",
+      "awd",
+      "3-row suv",
+      "india launch"
     ]
   },
   {
@@ -237,6 +222,21 @@
       "superb tdi",
       "diesel",
       "sedan"
+    ]
+  },
+  {
+    "title": "Tata Nexon Camo Edition at ₹9.99 Lakh: ADAS, 12.3\" Screen",
+    "url": "/news-tata-nexon-camo-edition.html",
+    "type": "news",
+    "car": "Tata Nexon",
+    "tags": [
+      "tata",
+      "nexon",
+      "camo",
+      "special edition",
+      "compact suv",
+      "adas",
+      "dashcam"
     ]
   },
   {
