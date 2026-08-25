@@ -235,6 +235,7 @@ section.tight{padding:48px 0;}
 img[src*="images/news-"],
 img[src*="brezza-vs-nexon-hero"],
 img[src*="brezza-vs-fronx-hero"],
+img[src*="brezza-turbo-vs-petrol-hero"],
 img[src*="brezza-automatic-hero"],
 img[src*="slavia-vs-virtus-hero"]{object-fit:contain;background:var(--ink);}
 img[src*="hilux-front"]{object-position:30% 50%;}
