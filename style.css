@@ -251,6 +251,12 @@ img[src*="brezza-automatic-hero"],
 img[src*="slavia-vs-virtus-hero"]{object-fit:contain;background:var(--ink);}
 img[src*="hilux-front"]{object-position:30% 50%;}
 img[src*="syros-front"]{object-position:46% 50%;}
+
+/* Full-photo letterbox: show the ENTIRE 16:9 photo inside the card with
+   black bars top & bottom (no cropping). For wide photos where you want
+   the whole image visible. */
+img[src*="brezza-mileage-hero"],
+img[src*="brezza-variants-hero"]{object-fit:contain;background:#000;}
 .card-media .tag{
   position:absolute;top:12px;left:12px;background:var(--ink);color:var(--cream);
   font-family:'Space Mono',monospace;font-size:11px;padding:5px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:.05em;
