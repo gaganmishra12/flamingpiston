@@ -492,5 +492,19 @@
       "pickup",
       "truck"
     ]
+  },
+  {
+    "title": "New Audi Q3 Debuts in India, Launching This Festive Season",
+    "url": "/news-audi-q3-india-debut.html",
+    "type": "news",
+    "car": "Audi Q3",
+    "tags": ["audi","q3","compact suv","luxury","tfsi","quattro","india","2026"]
+  },
+  {
+    "title": "2026 Maruti Brezza Turbo vs 1.5 Petrol: Which Engine Should You Pick?",
+    "url": "/reviews/2026-brezza-turbo-vs-petrol/",
+    "type": "comparison",
+    "car": "Maruti Brezza",
+    "tags": ["maruti","brezza","turbo","petrol","comparison","engine","1.0 turbo","1.5 petrol","2026"]
   }
 ]
