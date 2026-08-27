@@ -1,5 +1,33 @@
 [
   {
+    "title": "Ford Fathom EV Truck Revealed: $28,350 Starting Price, Preorders in 2027",
+    "url": "/news-ford-fathom-ev-truck.html",
+    "type": "news",
+    "car": "Ford Fathom",
+    "tags": ["ford","fathom","electric truck","ev","uev platform","affordable","us market","2027"]
+  },
+  {
+    "title": "Slate Truck: The $28,000 Electric Pickup That Lost Its Federal Tax Credit",
+    "url": "/news-slate-truck-ev.html",
+    "type": "news",
+    "car": "Slate Truck",
+    "tags": ["slate","electric truck","ev","affordable","us market","bezos","tax credit","2026"]
+  },
+  {
+    "title": "US New Car Prices Hit $49,077 in August 2026 — Tariffs Are Now Your Problem",
+    "url": "/news-us-car-prices-aug2026.html",
+    "type": "news",
+    "car": "US Market",
+    "tags": ["us market","car prices","tariffs","ev","hybrid","2026","average price"]
+  },
+  {
+    "title": "Maruti Brezza Maintenance Cost: Service, Insurance & 5-Year Ownership Explained",
+    "url": "/guides/maruti-brezza-maintenance-cost/",
+    "type": "guide",
+    "car": "Maruti Brezza",
+    "tags": ["maruti","brezza","maintenance","service cost","insurance","ownership cost","cng","turbo","5-year"]
+  },
+  {
     "title": "MG Hector Tomahawk Launched: 517km EV at ₹19.49 Lakh, PHEV at ₹25.69 Lakh — India's First V2H Car",
     "url": "/news-mg-hector-tomahawk-launch.html",
     "type": "news",
