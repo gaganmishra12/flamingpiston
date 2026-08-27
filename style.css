@@ -228,36 +228,17 @@ section.tight{padding:48px 0;}
   display:flex;align-items:center;justify-content:center;position:relative;
   overflow:hidden;
 }
-/* ── IMAGE FRAMING RULE (read before adding hero images) ──────────────
-   DEFAULT: all card/hero images CROP-TO-FILL, centered. This looks good
-   for any normal CAR PHOTO — the car sits centred, so top/bottom trim is
-   harmless. You do NOT need to touch this file when adding a photo hero.
-
-   EXCEPTION: only "branded graphic" images — ones with TEXT or BADGES
-   baked into the picture (spec banners, price/mileage badge graphics,
-   the news-* promo banners) — must show WHOLE or their text gets cut off.
-   Add those, and only those, to the contain list below.
-   A clean photograph should NEVER be added here.
-   ──────────────────────────────────────────────────────────────────── */
-.card-media img{width:100%;height:100%;object-fit:cover;object-position:center 45%;}
-
-/* Branded graphics with baked-in text/badges — show whole, don't crop.
-   ONLY add image names here if they contain text or badges. */
+.card-media img{width:100%;height:100%;object-fit:cover;}
+/* Branded editorial graphics (wide banner-style, not photos) need to show
+   in full rather than get cropped into the 4:3 card frame or 16:9 hero
+   frame when the source aspect doesn't match exactly. */
 img[src*="images/news-"],
 img[src*="brezza-vs-nexon-hero"],
 img[src*="brezza-vs-fronx-hero"],
-img[src*="brezza-turbo-vs-petrol-hero"],
 img[src*="brezza-automatic-hero"],
 img[src*="slavia-vs-virtus-hero"]{object-fit:contain;background:var(--ink);}
 img[src*="hilux-front"]{object-position:30% 50%;}
 img[src*="syros-front"]{object-position:46% 50%;}
-
-/* Full-photo letterbox: show the ENTIRE 16:9 photo inside the card with
-   black bars top & bottom (no cropping). For wide photos where you want
-   the whole image visible. */
-img[src*="brezza-mileage-hero"],
-img[src*="brezza-variants-hero"],
-img[src*="news-audi-q3-india-debut"]{object-fit:contain;background:#000;}
 .card-media .tag{
   position:absolute;top:12px;left:12px;background:var(--ink);color:var(--cream);
   font-family:'Space Mono',monospace;font-size:11px;padding:5px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:.05em;

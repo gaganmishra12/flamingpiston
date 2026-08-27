@@ -29,14 +29,7 @@
   document.head.appendChild(script);
 
   gtag('js', new Date());
-  gtag('config', GA_ID, {
-    send_page_view: true,
-    // Preserve organic source even for cookieless (consent-denied) pings
-    url_passthrough: true
-  });
-
-  // Enable Consent Mode URL passthrough so gclid / source survives without cookies
-  gtag('set', 'url_passthrough', true);
+  gtag('config', GA_ID);
 
   // 3. If already decided, skip banner
   if (stored) return;

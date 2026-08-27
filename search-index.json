@@ -1,5 +1,42 @@
 [
   {
+    "title": "MG Hector Tomahawk Launched: 517km EV at ₹19.49 Lakh, PHEV at ₹25.69 Lakh — India's First V2H Car",
+    "url": "/news-mg-hector-tomahawk-launch.html",
+    "type": "news",
+    "car": "MG Hector Tomahawk",
+    "tags": ["mg","hector tomahawk","ev","phev","electric suv","3-row suv","v2h","baas","india launch"]
+  },
+  {
+    "title": "Tata Nexon Camo Edition Launched at ₹9.99 Lakh: New Colours, Bigger Screen & ADAS",
+    "url": "/news-tata-nexon-camo-edition.html",
+    "type": "news",
+    "car": "Tata Nexon",
+    "tags": [
+      "tata",
+      "nexon",
+      "camo",
+      "special edition",
+      "compact suv",
+      "adas",
+      "dashcam"
+    ]
+  },
+  {
+    "title": "Kia Sorento India Launch Set for September 4: Hybrid, Diesel & AWD Confirmed",
+    "url": "/news-kia-sorento-india-launch.html",
+    "type": "news",
+    "car": "Kia Sorento",
+    "tags": [
+      "kia",
+      "sorento",
+      "hybrid",
+      "diesel",
+      "awd",
+      "3-row suv",
+      "india launch"
+    ]
+  },
+  {
     "title": "Aston Martin Valen Unveiled: 850PS V12, World's Most Powerful Front-Engined Car (2026)",
     "url": "/news-aston-martin-valen.html",
     "type": "news",
@@ -9,19 +46,6 @@
       "valen",
       "v12",
       "limited edition"
-    ]
-  },
-  {
-    "title": "Audi Q3 Debuts in India: 204hp, Quattro AWD",
-    "url": "/news-audi-q3-india-debut.html",
-    "type": "news",
-    "car": "Audi Q3 Debuts in India",
-    "tags": [
-      "audi",
-      "q3",
-      "debuts",
-      "in",
-      "india"
     ]
   },
   {
@@ -78,21 +102,6 @@
       "hybrid",
       "phev",
       "suv"
-    ]
-  },
-  {
-    "title": "Kia Sorento India Launch: Hybrid, Diesel & AWD",
-    "url": "/news-kia-sorento-india-launch.html",
-    "type": "news",
-    "car": "Kia Sorento",
-    "tags": [
-      "kia",
-      "sorento",
-      "hybrid",
-      "diesel",
-      "awd",
-      "3-row suv",
-      "india launch"
     ]
   },
   {
@@ -238,21 +247,6 @@
     ]
   },
   {
-    "title": "Nexon Camo Edition: ₹9.99L, ADAS & Dashcam",
-    "url": "/news-tata-nexon-camo-edition.html",
-    "type": "news",
-    "car": "Tata Nexon",
-    "tags": [
-      "tata",
-      "nexon",
-      "camo",
-      "special edition",
-      "compact suv",
-      "adas",
-      "dashcam"
-    ]
-  },
-  {
     "title": "Volvo EX90 India: Price, Range, Specs & Launch Date (2026)",
     "url": "/news-volvo-ex90-india.html",
     "type": "news",
@@ -263,18 +257,6 @@
       "ev",
       "electric",
       "luxury"
-    ]
-  },
-  {
-    "title": "Brezza Turbo vs 1.5 Petrol: Which to Buy",
-    "url": "/reviews/2026-brezza-turbo-vs-petrol/",
-    "type": "comparison",
-    "car": "Brezza Turbo, 1.5 Petrol",
-    "tags": [
-      "brezza",
-      "turbo",
-      "15",
-      "petrol"
     ]
   },
   {
@@ -370,7 +352,7 @@
     ]
   },
   {
-    "title": "Skoda Slavia Facelift Review 2026: Verdict",
+    "title": "Skoda Slavia Facelift Review (2026): Price, Specs & Is It Worth Buying?",
     "url": "/reviews/2026-skoda-slavia-facelift/",
     "type": "review",
     "car": "Skoda Slavia",

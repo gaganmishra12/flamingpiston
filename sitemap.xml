@@ -2,31 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://flamingpiston.com/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://flamingpiston.com/guides.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://flamingpiston.com/comparisons.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://flamingpiston.com/reviews.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://flamingpiston.com/news.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -104,7 +104,7 @@
   </url>
   <url>
     <loc>https://flamingpiston.com/sitemap.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -116,7 +116,7 @@
   </url>
   <url>
     <loc>https://flamingpiston.com/reviews/2026-skoda-slavia-facelift/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -163,12 +163,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://flamingpiston.com/reviews/2026-brezza-turbo-vs-petrol/</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://flamingpiston.com/reviews/2026-brezza-vs-fronx/</loc>
     <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -211,12 +205,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://flamingpiston.com/news-audi-q3-india-debut.html</loc>
-    <lastmod>2026-08-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://flamingpiston.com/news-bmw-i5-lwb-india.html</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -237,12 +225,6 @@
   <url>
     <loc>https://flamingpiston.com/news-hyundai-tucson-2027.html</loc>
     <lastmod>2026-08-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://flamingpiston.com/news-kia-sorento-india-launch.html</loc>
-    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -313,14 +295,26 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://flamingpiston.com/news-volvo-ex90-india.html</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://flamingpiston.com/news-mg-hector-tomahawk-launch.html</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://flamingpiston.com/news-tata-nexon-camo-edition.html</loc>
     <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://flamingpiston.com/news-volvo-ex90-india.html</loc>
-    <lastmod>2026-08-10</lastmod>
+    <loc>https://flamingpiston.com/news-kia-sorento-india-launch.html</loc>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
