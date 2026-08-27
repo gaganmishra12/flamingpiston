@@ -1,0 +1,496 @@
+[
+  {
+    "title": "Ford Fathom EV Truck Revealed: $28,350 Starting Price, Preorders in 2027",
+    "url": "/news-ford-fathom-ev-truck.html",
+    "type": "news",
+    "car": "Ford Fathom",
+    "tags": ["ford","fathom","electric truck","ev","uev platform","affordable","us market","2027"]
+  },
+  {
+    "title": "Slate Truck: The $28,000 Electric Pickup That Lost Its Federal Tax Credit",
+    "url": "/news-slate-truck-ev.html",
+    "type": "news",
+    "car": "Slate Truck",
+    "tags": ["slate","electric truck","ev","affordable","us market","bezos","tax credit","2026"]
+  },
+  {
+    "title": "US New Car Prices Hit $49,077 in August 2026 — Tariffs Are Now Your Problem",
+    "url": "/news-us-car-prices-aug2026.html",
+    "type": "news",
+    "car": "US Market",
+    "tags": ["us market","car prices","tariffs","ev","hybrid","2026","average price"]
+  },
+  {
+    "title": "Maruti Brezza Maintenance Cost: Service, Insurance & 5-Year Ownership Explained",
+    "url": "/guides/maruti-brezza-maintenance-cost/",
+    "type": "guide",
+    "car": "Maruti Brezza",
+    "tags": ["maruti","brezza","maintenance","service cost","insurance","ownership cost","cng","turbo","5-year"]
+  },
+  {
+    "title": "MG Hector Tomahawk Launched: 517km EV at ₹19.49 Lakh, PHEV at ₹25.69 Lakh — India's First V2H Car",
+    "url": "/news-mg-hector-tomahawk-launch.html",
+    "type": "news",
+    "car": "MG Hector Tomahawk",
+    "tags": ["mg","hector tomahawk","ev","phev","electric suv","3-row suv","v2h","baas","india launch"]
+  },
+  {
+    "title": "Tata Nexon Camo Edition Launched at ₹9.99 Lakh: New Colours, Bigger Screen & ADAS",
+    "url": "/news-tata-nexon-camo-edition.html",
+    "type": "news",
+    "car": "Tata Nexon",
+    "tags": [
+      "tata",
+      "nexon",
+      "camo",
+      "special edition",
+      "compact suv",
+      "adas",
+      "dashcam"
+    ]
+  },
+  {
+    "title": "Kia Sorento India Launch Set for September 4: Hybrid, Diesel & AWD Confirmed",
+    "url": "/news-kia-sorento-india-launch.html",
+    "type": "news",
+    "car": "Kia Sorento",
+    "tags": [
+      "kia",
+      "sorento",
+      "hybrid",
+      "diesel",
+      "awd",
+      "3-row suv",
+      "india launch"
+    ]
+  },
+  {
+    "title": "Aston Martin Valen Unveiled: 850PS V12, World's Most Powerful Front-Engined Car (2026)",
+    "url": "/news-aston-martin-valen.html",
+    "type": "news",
+    "car": "Aston Martin Valen",
+    "tags": [
+      "aston martin",
+      "valen",
+      "v12",
+      "limited edition"
+    ]
+  },
+  {
+    "title": "BMW i5 Long Wheelbase Launched in India: 669 km Range, Local Assembly, 99-Unit First Edition",
+    "url": "/news-bmw-i5-lwb-india.html",
+    "type": "news",
+    "car": "BMW i5 LWB",
+    "tags": [
+      "bmw",
+      "i5",
+      "lwb",
+      "electric",
+      "luxury sedan",
+      "india launch",
+      "chennai"
+    ]
+  },
+  {
+    "title": "BMW X1 LWB Confirmed for August 21 Launch (2026)",
+    "url": "/news-bmw-x1-lwb.html",
+    "type": "news",
+    "car": "BMW X1",
+    "tags": [
+      "bmw",
+      "x1",
+      "lwb",
+      "luxury suv"
+    ]
+  },
+  {
+    "title": "Genesis GV90 Revealed: Coach Doors, Cinema Cabin, Europe's Largest Electric SUV",
+    "url": "/news-genesis-gv90.html",
+    "type": "news",
+    "car": "Genesis GV90",
+    "tags": [
+      "genesis",
+      "gv90",
+      "electric suv",
+      "luxury",
+      "coach doors",
+      "800v"
+    ]
+  },
+  {
+    "title": "2027 Hyundai Tucson Revealed: Art of Steel Design, Fully Electrified Powertrain Range",
+    "url": "/news-hyundai-tucson-2027.html",
+    "type": "news",
+    "car": "Hyundai Tucson",
+    "tags": [
+      "hyundai",
+      "tucson",
+      "2027",
+      "art of steel",
+      "hybrid",
+      "phev",
+      "suv"
+    ]
+  },
+  {
+    "title": "Land Rover Defender Dakar Revealed: 626HP Road-Legal Rally Beast",
+    "url": "/news-land-rover-defender-dakar.html",
+    "type": "news",
+    "car": "Land Rover Defender",
+    "tags": [
+      "land rover",
+      "defender",
+      "defender dakar",
+      "defender octa",
+      "dakar rally",
+      "suv"
+    ]
+  },
+  {
+    "title": "Mahindra BE 6 Sporteq Launched at ₹19.45 Lakh, Triple-Screen Cockpit (2026)",
+    "url": "/news-mahindra-be6-sporteq.html",
+    "type": "news",
+    "car": "Mahindra BE 6",
+    "tags": [
+      "mahindra",
+      "be6",
+      "sporteq",
+      "ev",
+      "electric"
+    ]
+  },
+  {
+    "title": "What to Expect From Mahindra's Independence Day 2026 Reveal",
+    "url": "/news-mahindra-independence-day-2026.html",
+    "type": "news",
+    "car": "Mahindra Scorpio N Pickup, Mahindra Vision S",
+    "tags": [
+      "mahindra",
+      "scorpio n",
+      "pickup",
+      "vision s",
+      "independence day"
+    ]
+  },
+  {
+    "title": "Mahindra Scorpio Lifestyler Pickup: Price, Launch Date & Hilux Rival Details",
+    "url": "/news-mahindra-scorpio-lifestyler.html",
+    "type": "news",
+    "car": "Mahindra Scorpio Lifestyler",
+    "tags": [
+      "mahindra",
+      "scorpio",
+      "lifestyler",
+      "pickup"
+    ]
+  },
+  {
+    "title": "Mahindra Scorpio N Facelift Launched at ₹13.69 Lakh (2026)",
+    "url": "/news-mahindra-scorpio-n-facelift.html",
+    "type": "news",
+    "car": "Mahindra Scorpio N",
+    "tags": [
+      "mahindra",
+      "scorpio",
+      "facelift",
+      "suv",
+      "adas"
+    ]
+  },
+  {
+    "title": "2026 Mercedes-Benz S-Class Launched in India: First PHEV S-Class, ₹2.20 Crore",
+    "url": "/news-mercedes-s-class-2026-india.html",
+    "type": "news",
+    "car": "Mercedes-Benz S-Class",
+    "tags": [
+      "mercedes",
+      "s-class",
+      "phev",
+      "plug-in hybrid",
+      "luxury sedan",
+      "india launch",
+      "s450e"
+    ]
+  },
+  {
+    "title": "MG Cyberster & M9 Couture Editions Launched: Price & Details (2026)",
+    "url": "/news-mg-couture-editions.html",
+    "type": "news",
+    "car": "MG",
+    "tags": [
+      "mg",
+      "couture",
+      "special edition"
+    ]
+  },
+  {
+    "title": "MG Hector Hawk Launch Confirmed for August 26 (2026)",
+    "url": "/news-mg-hector-hawk.html",
+    "type": "news",
+    "car": "MG Hector Hawk",
+    "tags": [
+      "mg",
+      "hector",
+      "hawk",
+      "ev",
+      "phev"
+    ]
+  },
+  {
+    "title": "Skoda Octavia RS Second Batch: Pre-Bookings Open, Deliveries This Festive Season",
+    "url": "/news-skoda-octavia-rs-second-batch.html",
+    "type": "news",
+    "car": "Skoda Octavia RS",
+    "tags": [
+      "skoda",
+      "octavia",
+      "octavia rs",
+      "performance sedan",
+      "cbu"
+    ]
+  },
+  {
+    "title": "Skoda Slavia Facelift Confirmed for August 18 Launch (2026)",
+    "url": "/news-skoda-slavia-facelift.html",
+    "type": "news",
+    "car": "Skoda Slavia",
+    "tags": [
+      "skoda",
+      "slavia",
+      "facelift",
+      "sedan"
+    ]
+  },
+  {
+    "title": "Skoda Superb TDI Confirmed for India: Pre-Bookings Open, Deliveries in Q2 2027",
+    "url": "/news-skoda-superb-tdi.html",
+    "type": "news",
+    "car": "Skoda Superb",
+    "tags": [
+      "skoda",
+      "superb",
+      "superb tdi",
+      "diesel",
+      "sedan"
+    ]
+  },
+  {
+    "title": "Volvo EX90 India: Price, Range, Specs & Launch Date (2026)",
+    "url": "/news-volvo-ex90-india.html",
+    "type": "news",
+    "car": "Volvo EX90",
+    "tags": [
+      "volvo",
+      "ex90",
+      "ev",
+      "electric",
+      "luxury"
+    ]
+  },
+  {
+    "title": "2026 Maruti Brezza vs Fronx: Which One Should You Buy?",
+    "url": "/reviews/2026-brezza-vs-fronx/",
+    "type": "comparison",
+    "car": "Maruti Brezza, Maruti Fronx",
+    "tags": [
+      "maruti",
+      "brezza",
+      "fronx",
+      "comparison",
+      "suv",
+      "crossover"
+    ]
+  },
+  {
+    "title": "2026 Maruti Brezza vs Tata Nexon: Which Compact SUV Should You Buy?",
+    "url": "/reviews/2026-brezza-vs-nexon/",
+    "type": "comparison",
+    "car": "Maruti Brezza, Tata Nexon",
+    "tags": [
+      "maruti",
+      "brezza",
+      "tata",
+      "nexon",
+      "comparison",
+      "suv"
+    ]
+  },
+  {
+    "title": "2026 Maruti Brezza Automatic Review: Is the Torque Converter AT Worth It?",
+    "url": "/reviews/2026-maruti-brezza-automatic/",
+    "type": "guide",
+    "car": "Maruti Brezza",
+    "tags": [
+      "maruti",
+      "brezza",
+      "automatic",
+      "torque converter",
+      "suv"
+    ]
+  },
+  {
+    "title": "2026 Maruti Brezza CNG Review: Mileage, Ownership & Is It Worth It?",
+    "url": "/reviews/2026-maruti-brezza-cng/",
+    "type": "guide",
+    "car": "Maruti Brezza",
+    "tags": [
+      "maruti",
+      "brezza",
+      "cng",
+      "mileage",
+      "fuel economy",
+      "s-cng"
+    ]
+  },
+  {
+    "title": "2026 Maruti Brezza Real-World Mileage: City, Highway & CNG Tested",
+    "url": "/reviews/2026-maruti-brezza-mileage/",
+    "type": "guide",
+    "car": "Maruti Brezza",
+    "tags": [
+      "maruti",
+      "brezza",
+      "mileage",
+      "fuel economy"
+    ]
+  },
+  {
+    "title": "2026 Maruti Brezza Review: Price, Mileage, Features & Verdict",
+    "url": "/reviews/2026-maruti-brezza-review/",
+    "type": "review",
+    "car": "Maruti Brezza",
+    "tags": [
+      "maruti",
+      "brezza",
+      "suv",
+      "compact suv",
+      "petrol"
+    ]
+  },
+  {
+    "title": "2026 Maruti Brezza Variants Explained: Which One Can You Actually Order?",
+    "url": "/reviews/2026-maruti-brezza-variants/",
+    "type": "guide",
+    "car": "Maruti Brezza",
+    "tags": [
+      "maruti",
+      "brezza",
+      "variants",
+      "trims"
+    ]
+  },
+  {
+    "title": "Skoda Slavia Facelift Review (2026): Price, Specs & Is It Worth Buying?",
+    "url": "/reviews/2026-skoda-slavia-facelift/",
+    "type": "review",
+    "car": "Skoda Slavia",
+    "tags": [
+      "skoda",
+      "slavia",
+      "slavia facelift",
+      "sedan",
+      "petrol",
+      "8-speed automatic"
+    ]
+  },
+  {
+    "title": "Skoda Slavia Facelift vs Volkswagen Virtus: Which Should You Buy? (2026)",
+    "url": "/reviews/2026-slavia-vs-virtus/",
+    "type": "comparison",
+    "car": "Skoda Slavia, Volkswagen Virtus",
+    "tags": [
+      "skoda",
+      "slavia",
+      "volkswagen",
+      "virtus",
+      "comparison",
+      "sedan"
+    ]
+  },
+  {
+    "title": "BMW 7 Series vs Mercedes S-Class vs Genesis G90: Flagship Luxury Sedans Compared",
+    "url": "/reviews/bmw-7-series-vs-mercedes-s-class-vs-genesis-g90/",
+    "type": "comparison",
+    "car": "BMW 7 Series, Mercedes S-Class, Genesis G90",
+    "tags": [
+      "bmw",
+      "7 series",
+      "mercedes",
+      "s-class",
+      "genesis",
+      "g90",
+      "luxury sedan",
+      "flagship"
+    ]
+  },
+  {
+    "title": "BMW X5 vs Genesis GV80 vs Volvo XC90: Which Luxury SUV Should You Buy?",
+    "url": "/reviews/bmw-x5-vs-genesis-gv80-vs-volvo-xc90/",
+    "type": "comparison",
+    "car": "BMW X5, Genesis GV80, Volvo XC90",
+    "tags": [
+      "bmw",
+      "x5",
+      "genesis",
+      "gv80",
+      "volvo",
+      "xc90",
+      "luxury suv",
+      "midsize suv"
+    ]
+  },
+  {
+    "title": "Kia Syros EV Review (2026) - Price, Range, Specs & Features",
+    "url": "/reviews/kia-syros-ev/",
+    "type": "review",
+    "car": "Kia Syros EV",
+    "tags": [
+      "kia",
+      "syros",
+      "ev",
+      "electric"
+    ]
+  },
+  {
+    "title": "Range Rover Sport vs BMW X5 vs Mercedes GLE: Which Premium SUV Justifies Its Price?",
+    "url": "/reviews/range-rover-sport-vs-bmw-x5-vs-mercedes-gle/",
+    "type": "comparison",
+    "car": "Range Rover Sport, BMW X5, Mercedes GLE",
+    "tags": [
+      "range rover",
+      "land rover",
+      "bmw",
+      "x5",
+      "mercedes",
+      "gle",
+      "premium suv",
+      "luxury suv"
+    ]
+  },
+  {
+    "title": "Tata Altroz Review (2026): Price, Mileage, Safety & Is It Worth Buying?",
+    "url": "/reviews/tata-altroz/",
+    "type": "review",
+    "car": "Tata Altroz",
+    "tags": [
+      "tata",
+      "altroz",
+      "hatchback",
+      "diesel",
+      "cng",
+      "petrol"
+    ]
+  },
+  {
+    "title": "New Toyota Hilux Review (2026) - Price, Specs, Mileage & Features",
+    "url": "/reviews/toyota-hilux/",
+    "type": "review",
+    "car": "Toyota Hilux",
+    "tags": [
+      "toyota",
+      "hilux",
+      "pickup",
+      "truck"
+    ]
+  }
+]

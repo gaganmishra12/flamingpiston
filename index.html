@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" href="favicon.ico">
+  <title>FlamingPiston — Know Your Machine</title>
+  <script async src="/js/analytics.js"></script>
+  <meta name="description" content="FlamingPiston is a car knowledge hub with honest reviews, buying guides, and maintenance breakdowns — no jargon, no fluff.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=9">
+  <link rel="alternate" type="application/rss+xml" title="FlamingPiston RSS Feed" href="feed.xml">
+
+  <link rel="canonical" href="https://flamingpiston.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="FlamingPiston — Know Your Machine">
+  <meta property="og:description" content="FlamingPiston is a car knowledge hub with honest reviews, buying guides, and maintenance breakdowns — no jargon, no fluff.">
+  <meta property="og:url" content="https://flamingpiston.com/">
+  <meta property="og:image" content="https://flamingpiston.com/images/syros-front.jpg">
+  <meta property="og:site_name" content="FlamingPiston">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FlamingPiston — Know Your Machine">
+  <meta name="twitter:description" content="FlamingPiston is a car knowledge hub with honest reviews, buying guides, and maintenance breakdowns — no jargon, no fluff.">
+  <meta name="twitter:image" content="https://flamingpiston.com/images/syros-front.jpg">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://flamingpiston.com/" }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "FlamingPiston",
+  "url": "https://flamingpiston.com",
+  "logo": "https://flamingpiston.com/images/logo.png"
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "FlamingPiston",
+  "url": "https://flamingpiston.com",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://flamingpiston.com/reviews.html?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+  </script>
+  <link rel="stylesheet" href="site-search.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <div id="fpSearchOverlay" class="fp-search-overlay">
+    <div class="fp-search-panel">
+      <div class="fp-search-input-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input id="fpSearchInput" class="fp-search-input" type="text" placeholder="Search by car name..." autocomplete="off">
+        <button id="fpSearchClose" class="fp-search-close">ESC</button>
+      </div>
+      <div id="fpSearchResults" class="fp-search-results"></div>
+    </div>
+  </div>
+
+
+
+  <header class="site-header">
+    <div class="wrap navbar">
+      <a href="/" class="logo">
+        <img src="images/logo.png" alt="FlamingPiston" class="logo-full">
+      </a>
+      <div class="nav-collapse" id="navCollapse">
+        <nav class="main-nav">
+        <ul>
+          <li><a href="/" class="active">Home</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+          <li><a href="news.html">News</a></li>
+        <li><a href="guides.html">Guides</a></li>
+        <li><a href="comparisons.html">Comparisons</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+      </div>
+            <button id="fpSearchTrigger" class="fp-search-trigger" aria-label="Search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navCollapse">
+        <svg class="icon-menu" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg><svg class="icon-close" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+  <section class="hero">
+    <div class="hero-grain"></div>
+    <div class="hero-glow"></div>
+    <div class="wrap hero-inner">
+      <div>
+        <p class="eyebrow" style="color:var(--ember)">Car knowledge, unfiltered</p>
+        <h1>KNOW YOUR<br><span class="hl">MACHINE.</span></h1>
+        <p class="lede">Real reviews, plain-English breakdowns, and specs that actually mean something — built for people who want to understand what they're driving, not sit through a dealership pitch.</p>
+        <div class="hero-actions">
+          <a href="reviews/2026-maruti-brezza-review/" class="btn outline-hero" id="latestReviewCta">Read the latest review →</a>
+          <a href="news.html" class="btn outline-hero">See the latest news</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>100%</b><span>Independent</span></div>
+          <div><b>0</b><span>Dealer scripts</span></div>
+          <div><b>New</b><span>Verdict weekly</span></div>
+        </div>
+      </div>
+
+      <div class="browse-mix-wrap">
+        <div class="hero-visual-ring hero-visual-ring--mix"></div>
+        <div class="hero-visual-glow hero-visual-glow--mix"></div>
+        <div class="browse-card browse-card--big">
+          <p class="eyebrow">Browse by type</p>
+          <h3 class="browse-title">Find Your Lane</h3>
+          <p class="browse-sub">Jump straight to the category you're actually shopping for.</p>
+          <div class="browse-grid">
+            <a href="reviews.html#suv" class="browse-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 16h18M5 16V10l2-4h9l4 5h1a1 1 0 0 1 1 1v4M8 16a2 2 0 1 1-4 0M20 16a2 2 0 1 1-4 0"/></svg>
+              <span>SUV</span>
+            </a>
+            <a href="reviews.html#compact-suv" class="browse-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 16h18M5 16V10l2-4h9l4 5h1a1 1 0 0 1 1 1v4M8 16a2 2 0 1 1-4 0M20 16a2 2 0 1 1-4 0"/></svg>
+              <span>Compact SUV</span>
+            </a>
+            <a href="reviews.html#electric" class="browse-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+              <span>Electric</span>
+            </a>
+            <a href="reviews.html#pickup" class="browse-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 16h18M5 16V9l3-4h6l4 4h1a1 1 0 0 1 1 1v6M8 16a2 2 0 1 1-4 0M20 16a2 2 0 1 1-4 0"/></svg>
+              <span>Pickup</span>
+            </a>
+            <a href="reviews.html#sedan" class="browse-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 16h18M5 16V11l2-3h9l3 3h1a1 1 0 0 1 1 1v4M8 16a2 2 0 1 1-4 0M18 16a2 2 0 1 1-4 0"/></svg>
+              <span>Sedan</span>
+            </a>
+            <a href="reviews.html#hatchback" class="browse-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 16h16M5 16V11l2-3h7l3 3h1a1 1 0 0 1 1 1v4M8 16a2 2 0 1 1-4 0M18 16a2 2 0 1 1-4 0"/></svg>
+              <span>Hatchback</span>
+            </a>
+            <a href="reviews.html#performance" class="browse-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+              <span>Performance</span>
+            </a>
+          </div>
+          <a href="reviews.html" class="oc-cta" style="display:block;margin-top:18px;">Browse all reviews →</a>
+        </div>
+      </div>
+    </div>
+    <div class="strip-divider"></div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Fresh off the lift</p>
+          <h2>Latest</h2>
+        </div>
+        <a href="reviews.html" class="view-all">View all →</a>
+      </div>
+      <div class="review-row" id="latestReviewsRow">
+        <article class="card" data-date="2026-08-27">
+          <a href="news-ford-fathom-ev-truck.html" class="card-media">
+            <span class="tag">News · US</span>
+            <img src="images/news-ford-fathom-ev.jpg" alt="Ford Fathom electric truck dark navy front three-quarter" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">US Market</p>
+            <h3><a href="news-ford-fathom-ev-truck.html">Ford Fathom: $28,350 Electric Truck, Preorders 2027</a></h3>
+            <p>Ford's new affordable EV truck on the UEV platform.</p>
+            <div class="card-foot"><a class="read-link" href="news-ford-fathom-ev-truck.html">Read →</a></div>
+          </div>
+        </article>
+
+        <article class="card" data-date="2026-08-27">
+          <a href="news-slate-truck-ev.html" class="card-media">
+            <span class="tag">News · US</span>
+            <img src="images/news-slate-truck-ev.jpg" alt="Slate electric pickup truck raw grey front three-quarter" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">US Market</p>
+            <h3><a href="news-slate-truck-ev.html">Slate Truck: $28K EV, No Federal Credit</a></h3>
+            <p>The Bezos-backed affordable electric truck minus the tax credit.</p>
+            <div class="card-foot"><a class="read-link" href="news-slate-truck-ev.html">Read →</a></div>
+          </div>
+        </article>
+
+        <article class="card" data-date="2026-08-27">
+          <a href="news-us-car-prices-aug2026.html" class="card-media">
+            <span class="tag">News · US</span>
+            <img src="images/news-us-car-prices-aug2026.jpg" alt="US average new car price $49,077 August 2026" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">US Market</p>
+            <h3><a href="news-us-car-prices-aug2026.html">US New Car Prices Hit $49,077 in August 2026</a></h3>
+            <p>Tariff discounts thinning, average transaction price climbs.</p>
+            <div class="card-foot"><a class="read-link" href="news-us-car-prices-aug2026.html">Read →</a></div>
+          </div>
+        </article>
+
+        <article class="card" data-date="2026-08-27">
+          <a href="guides/maruti-brezza-maintenance-cost/" class="card-media">
+            <span class="tag">Guide</span>
+            <img src="images/news-brezza-maintenance-cost-hero.jpg" alt="Maruti Brezza maintenance cost 5-year guide" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">Brezza Cluster</p>
+            <h3><a href="guides/maruti-brezza-maintenance-cost/">Maruti Brezza Maintenance Cost: What 5 Years of Ownership Costs</a></h3>
+            <p>Full 5-year running cost breakdown — petrol, turbo, and CNG compared.</p>
+            <div class="card-foot">
+              <div class="mini-gauge"><span class="dot" style="background:var(--ink-soft)"></span> Guide</div>
+              <a class="read-link" href="guides/maruti-brezza-maintenance-cost/">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-date="2026-08-27">
+          <a href="news-mg-hector-tomahawk-launch.html" class="card-media">
+            <span class="tag">News</span>
+            <img src="images/news-mg-hector-tomahawk.jpg" alt="MG Hector Tomahawk EV, dark graphite, front three-quarter view" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">Just in</p>
+            <h3><a href="news-mg-hector-tomahawk-launch.html">MG Hector Tomahawk: 517km EV at ₹19.49L & India's First V2H Car</a></h3>
+            <p>Three-row EV and PHEV, ADAPT platform, 201 PS, BaaS from ₹13.99L.</p>
+            <div class="card-foot">
+              <a class="read-link" href="news-mg-hector-tomahawk-launch.html">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-date="2026-08-24">
+          <a href="news-tata-nexon-camo-edition.html" class="card-media">
+            <span class="tag">News</span>
+            <img src="images/news-tata-nexon-camo.jpg" alt="Tata Nexon Camo Edition in Munnar Mist colour" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">Just in</p>
+            <h3><a href="news-tata-nexon-camo-edition.html">Tata Nexon Camo Edition Launched at ₹9.99 Lakh: New Colours, Bigger Screen & ADAS</a></h3>
+            <p>Two exclusive colours, a 12.3-inch screen, integrated dashcam, and ADAS — in petrol, diesel, and CNG.</p>
+            <div class="card-foot">
+              <a class="read-link" href="news-tata-nexon-camo-edition.html">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-date="2026-08-24">
+          <a href="news-kia-sorento-india-launch.html" class="card-media">
+            <span class="tag">News</span>
+            <img src="images/news-kia-sorento-india.jpg" alt="Kia Sorento three-row SUV front three-quarter view" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">Just in</p>
+            <h3><a href="news-kia-sorento-india-launch.html">Kia Sorento India Launch Set for September 4: Hybrid, Diesel & AWD Confirmed</a></h3>
+            <p>Kia's first hybrid SUV in India — 238 PS strong-hybrid, 2.2L diesel, AWD, three rows. Starting around ₹40 lakh.</p>
+            <div class="card-foot">
+              <a class="read-link" href="news-kia-sorento-india-launch.html">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-date="2026-08-18">
+          <a href="news-skoda-octavia-rs-second-batch.html" class="card-media">
+            <span class="tag">News</span>
+            <img src="images/news-skoda-octavia-rs.jpg" alt="Skoda Octavia RS, red, side profile studio shot" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">Just in</p>
+            <h3><a href="news-skoda-octavia-rs-second-batch.html">Skoda Octavia RS Second Batch: Pre-Bookings Open, Deliveries This Festive Season</a></h3>
+            <p>Skoda has reopened Octavia RS bookings for a second India batch, with deliveries slated for festive season 2026.</p>
+            <div class="card-foot">
+              <a class="read-link" href="news-skoda-octavia-rs-second-batch.html">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-date="2026-08-18">
+          <a href="news-skoda-superb-tdi.html" class="card-media">
+            <span class="tag">News</span>
+            <img src="images/news-skoda-superb.jpg" alt="Skoda Superb silver sedan, front three-quarter driving shot" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">Just in</p>
+            <h3><a href="news-skoda-superb-tdi.html">Skoda Superb TDI Confirmed for India: Pre-Bookings Open, Deliveries in Q2 2027</a></h3>
+            <p>Skoda has opened pre-bookings for a diesel-powered Superb in India, marking the brand's first TDI model here in years.</p>
+            <div class="card-foot">
+              <a class="read-link" href="news-skoda-superb-tdi.html">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-date="2026-08-18">
+          <a href="reviews/2026-slavia-vs-virtus/" class="card-media">
+            <span class="tag">Comparison</span>
+            <img src="images/slavia-vs-virtus-hero.jpg" alt="Skoda Slavia facelift and Volkswagen Virtus, side by side studio shot" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">Comparison</p>
+            <h3><a href="reviews/2026-slavia-vs-virtus/">Skoda Slavia Facelift vs Volkswagen Virtus: Which Should You Buy?</a></h3>
+            <p>Same platform, nearly identical engines — but the Slavia facelift just picked up a real mechanical edge the Virtus doesn't have yet.</p>
+            <div class="card-foot">
+              <a class="read-link" href="reviews/2026-slavia-vs-virtus/">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-date="2026-08-18">
+          <a href="reviews/2026-skoda-slavia-facelift/" class="card-media">
+            <span class="tag">Sedan</span>
+            <img src="images/skoda-slavia-driving.jpg" alt="Skoda Slavia facelift white sedan, front three-quarter driving shot" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">Full review</p>
+            <h3><a href="reviews/2026-skoda-slavia-facelift/">Skoda Slavia Facelift Review: Price, Specs & Features (2026)</a></h3>
+            <p>Launched today with a new 8-speed automatic, a bigger digital cluster, and a mild styling refresh — full breakdown.</p>
+            <div class="card-foot">
+              <div class="mini-gauge"><span class="dot"></span> 8.0 / 10</div>
+              <a class="read-link" href="reviews/2026-skoda-slavia-facelift/">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-date="2026-08-18">
+          <a href="reviews/tata-altroz/" class="card-media">
+            <span class="tag">Hatchback</span>
+            <img src="images/altroz-front.jpg" alt="Tata Altroz front three-quarter shot" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">Full review</p>
+            <h3><a href="reviews/tata-altroz/">Tata Altroz Review: Price, Mileage & Safety (2026)</a></h3>
+            <p>5-star safety, the only diesel in its class, and now the only CNG automatic too — is it enough to make up for a middling engine?</p>
+            <div class="card-foot">
+              <div class="mini-gauge"><span class="dot"></span> 7.9 / 10</div>
+              <a class="read-link" href="reviews/tata-altroz/">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-date="2026-08-18">
+          <a href="reviews/2026-brezza-vs-fronx/" class="card-media">
+            <span class="tag">Comparison</span>
+            <img src="images/brezza-vs-fronx-hero.jpg" alt="Maruti Brezza vs Fronx, side by side" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">Comparison</p>
+            <h3><a href="reviews/2026-brezza-vs-fronx/">2026 Maruti Brezza vs Fronx: Which One Should You Buy?</a></h3>
+            <p>The automatic gearbox you want isn't paired with the engine you want, on either car.</p>
+            <div class="card-foot">
+              <a class="read-link" href="reviews/2026-brezza-vs-fronx/">Read →</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-date="2026-08-18">
+          <a href="news-land-rover-defender-dakar.html" class="card-media">
+            <span class="tag">News</span>
+            <img src="images/news-land-rover-defender-dakar.jpg" alt="The New Land Rover Defender Dakar" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">News</p>
+            <h3><a href="news-land-rover-defender-dakar.html">Land Rover Defender Dakar Revealed: 626HP Road-Legal Rally Beast</a></h3>
+            <p>A limited-run road-going version of the Dakar Rally-winning D7X-R, with a 626hp V8 and rally-derived chassis.</p>
+            <div class="card-foot">
+              <a class="read-link" href="news-land-rover-defender-dakar.html">Read →</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-date="2026-08-23">
+          <a href="reviews/2026-maruti-brezza-cng/" class="card-media">
+            <span class="tag">Guide</span>
+            <img src="images/news-brezza-cng-hero.jpg" alt="2026 Maruti Brezza CNG, dark studio graphic with underbody tank highlight and 26.90 km/kg mileage badge" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">Guide</p>
+            <h3><a href="reviews/2026-maruti-brezza-cng/">2026 Maruti Brezza CNG Review: Mileage, Ownership & Is It Worth It?</a></h3>
+            <p>The underbody tank fixes the boot space problem. Here's what it costs and whether the economics work out.</p>
+            <div class="card-foot">
+              <a class="read-link" href="reviews/2026-maruti-brezza-cng/">Read →</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-date="2026-08-17">
+          <a href="reviews/2026-maruti-brezza-automatic/" class="card-media">
+            <span class="tag">Guide</span>
+            <img src="images/brezza-automatic-hero.jpg" alt="2026 Maruti Brezza Automatic, branded graphic with 6-speed torque converter, price, and mileage badges" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">Guide</p>
+            <h3><a href="reviews/2026-maruti-brezza-automatic/">2026 Maruti Brezza Automatic Review: Is the Torque Converter AT Worth It?</a></h3>
+            <p>What the 6-speed torque converter automatic is actually like to drive, what it costs over the manual, and who it does and doesn't suit.</p>
+            <div class="card-foot">
+              <a class="read-link" href="reviews/2026-maruti-brezza-automatic/">Read →</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-date="2026-08-23">
+          <a href="reviews/bmw-7-series-vs-mercedes-s-class-vs-genesis-g90/" class="card-media">
+            <span class="tag">Comparison</span>
+            <img src="images/news-7series-sclass-g90.jpg" alt="BMW 7 Series vs Mercedes S-Class vs Genesis G90" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">Comparison</p>
+            <h3><a href="reviews/bmw-7-series-vs-mercedes-s-class-vs-genesis-g90/">BMW 7 Series vs Mercedes S-Class vs Genesis G90: The Flagship Sedan Fight</a></h3>
+            <p>The S-Class sets standards. The 7 Series drives better. The G90 undercuts both. Which is right for you?</p>
+            <div class="card-foot"><a class="read-link" href="reviews/bmw-7-series-vs-mercedes-s-class-vs-genesis-g90/">Read →</a></div>
+          </div>
+        </article>
+        <article class="card" data-date="2026-08-23">
+          <a href="reviews/range-rover-sport-vs-bmw-x5-vs-mercedes-gle/" class="card-media">
+            <span class="tag">Comparison</span>
+            <img src="images/news-rr-sport-x5-gle.jpg" alt="Range Rover Sport vs BMW X5 vs Mercedes GLE" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">Comparison</p>
+            <h3><a href="reviews/range-rover-sport-vs-bmw-x5-vs-mercedes-gle/">Range Rover Sport vs BMW X5 vs Mercedes GLE: Does the Premium Pay Off?</a></h3>
+            <p>The Range Rover costs more. Is that premium earned by the product or just the badge?</p>
+            <div class="card-foot"><a class="read-link" href="reviews/range-rover-sport-vs-bmw-x5-vs-mercedes-gle/">Read →</a></div>
+          </div>
+        </article>
+        <article class="card" data-date="2026-08-23">
+          <a href="reviews/bmw-x5-vs-genesis-gv80-vs-volvo-xc90/" class="card-media">
+            <span class="tag">Comparison</span>
+            <img src="images/news-bmw-x5-gv80-xc90.jpg" alt="BMW X5 vs Genesis GV80 vs Volvo XC90" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">Comparison</p>
+            <h3><a href="reviews/bmw-x5-vs-genesis-gv80-vs-volvo-xc90/">BMW X5 vs Genesis GV80 vs Volvo XC90: Three Different Philosophies</a></h3>
+            <p>The driver's car, the value statement, or the conscience choice — three very different answers at the same price point.</p>
+            <div class="card-foot"><a class="read-link" href="reviews/bmw-x5-vs-genesis-gv80-vs-volvo-xc90/">Read →</a></div>
+          </div>
+        </article>
+        <article class="card" data-date="2026-08-23">
+          <a href="news-mercedes-s-class-2026-india.html" class="card-media">
+            <span class="tag">News</span>
+            <img src="images/news-mercedes-s-class-2026.jpg" alt="2026 Mercedes-Benz S-Class facelift" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">News</p>
+            <h3><a href="news-mercedes-s-class-2026-india.html">2026 Mercedes S-Class in India: PHEV-Only, 115 km EV Range, ₹2.20 Crore</a></h3>
+            <p>India's first PHEV S-Class arrives with 435 bhp, 115 km electric range, and an MBUX Superscreen triple-display cabin.</p>
+            <div class="card-foot">
+              <a class="read-link" href="news-mercedes-s-class-2026-india.html">Read →</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-date="2026-08-21">
+          <a href="news-bmw-i5-lwb-india.html" class="card-media">
+            <span class="tag">News</span>
+            <img src="images/news-bmw-i5-lwb-india.jpg" alt="BMW i5 Long Wheelbase connected to a charger" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">News</p>
+            <h3><a href="news-bmw-i5-lwb-india.html">BMW i5 LWB Launched in India: 669 km Range, Local Assembly</a></h3>
+            <p>India's first locally assembled BMW electric sedan — 81.6 kWh, 264 hp, and a 99-unit First Edition already live.</p>
+            <div class="card-foot">
+              <a class="read-link" href="news-bmw-i5-lwb-india.html">Read →</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-date="2026-08-21">
+          <a href="news-genesis-gv90.html" class="card-media">
+            <span class="tag">News</span>
+            <img src="images/news-genesis-gv90.jpg" alt="Genesis GV90 flagship electric SUV with coach doors open" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">News</p>
+            <h3><a href="news-genesis-gv90.html">Genesis GV90 Revealed: Coach Doors, Cinema Cabin</a></h3>
+            <p>The Korean brand's most ambitious car — no B-pillar, 800V platform, and a direct challenge to Rolls-Royce territory.</p>
+            <div class="card-foot">
+              <a class="read-link" href="news-genesis-gv90.html">Read →</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-date="2026-08-21">
+          <a href="news-hyundai-tucson-2027.html" class="card-media">
+            <span class="tag">News</span>
+            <img src="images/news-hyundai-tucson-2027.jpg" alt="2027 Hyundai Tucson fifth generation Art of Steel design" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">News</p>
+            <h3><a href="news-hyundai-tucson-2027.html">2027 Hyundai Tucson Revealed: Art of Steel, Fully Electrified</a></h3>
+            <p>Fifth-gen Tucson goes angular with Art of Steel design, Pleos OS, Gleo AI, and an electrified-only powertrain range.</p>
+            <div class="card-foot">
+              <a class="read-link" href="news-hyundai-tucson-2027.html">Read →</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-date="2026-08-17">
+          <a href="news-aston-martin-valen.html" class="card-media">
+            <span class="tag">News</span>
+            <img src="images/news-aston-martin-valen.jpg" alt="The New Aston Martin Valen" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">News</p>
+            <h3><a href="news-aston-martin-valen.html">Aston Martin Valen: World's Most Powerful Front-Engined Car</a></h3>
+            <p>An 850PS twin-turbo V12 special, limited to 150 units, unveiled at Monterey Car Week.</p>
+            <div class="card-foot">
+              <a class="read-link" href="news-aston-martin-valen.html">Read →</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-date="2026-08-15">
+          <a href="news-mahindra-be6-sporteq.html" class="card-media">
+            <span class="tag">News</span>
+            <img src="images/news-mahindra-be6-sporteq.jpg" alt="The New Mahindra BE 6 Sporteq" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">News</p>
+            <h3><a href="news-mahindra-be6-sporteq.html">Mahindra BE 6 Sporteq Launched at ₹19.45 Lakh</a></h3>
+            <p>A triple-screen cockpit, Google Gemini integration, and two special editions — real specs, not a preview.</p>
+            <div class="card-foot">
+              <a class="read-link" href="news-mahindra-be6-sporteq.html">Read →</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-date="2026-08-15">
+          <a href="news-mahindra-scorpio-lifestyler.html" class="card-media">
+            <span class="tag">News</span>
+            <img src="images/news-mahindra-scorpio-lifestyler.jpg" alt="The New Mahindra Scorpio Lifestyler" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">News</p>
+            <h3><a href="news-mahindra-scorpio-lifestyler.html">Mahindra Unveils Scorpio Lifestyler Pickup</a></h3>
+            <p>Officially unveiled below ₹19.79 lakh, but the India launch itself isn't until April 2027.</p>
+            <div class="card-foot">
+              <a class="read-link" href="news-mahindra-scorpio-lifestyler.html">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-date="2026-08-14">
+          <a href="reviews/2026-brezza-vs-nexon/" class="card-media">
+            <span class="tag">Comparison</span>
+            <img src="images/brezza-vs-nexon-hero.jpg" alt="Maruti Brezza vs Tata Nexon, side by side" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">Comparison</p>
+            <h3><a href="reviews/2026-brezza-vs-nexon/">2026 Maruti Brezza vs Tata Nexon</a></h3>
+            <p>The one dealbreaker most comparisons bury: the Brezza doesn't offer a diesel, at any trim.</p>
+            <div class="card-foot">
+              <a class="read-link" href="reviews/2026-brezza-vs-nexon/">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-date="2026-08-13">
+          <a href="news-bmw-x1-lwb.html" class="card-media">
+            <span class="tag">News</span>
+            <img src="images/news-bmw-x1-lwb.jpg" alt="The New BMW X1 LWB" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">News</p>
+            <h3><a href="news-bmw-x1-lwb.html">BMW X1 LWB Confirmed for August 21 Launch</a></h3>
+            <p>A stretched, Chennai-built, petrol-only counterpart to the iX1 LWB.</p>
+            <div class="card-foot">
+              <a class="read-link" href="news-bmw-x1-lwb.html">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-date="2026-08-13">
+          <a href="news-mg-hector-hawk.html" class="card-media">
+            <span class="tag">News</span>
+            <img src="images/news-mg-hector-hawk.jpg" alt="The New MG Hector Hawk" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">News</p>
+            <h3><a href="news-mg-hector-hawk.html">MG Hector Hawk Launch Confirmed for August 26</a></h3>
+            <p>MG's first model on its new ADAPT platform, offered in EV and plug-in hybrid form.</p>
+            <div class="card-foot">
+              <a class="read-link" href="news-mg-hector-hawk.html">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-date="2026-08-12">
+          <a href="reviews/2026-maruti-brezza-review/" class="card-media">
+            <span class="tag">Compact SUV</span>
+            <img src="images/brezza-front.jpg" alt="2026 Maruti Brezza, red, front three-quarter shot" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">Full review</p>
+            <h3><a href="reviews/2026-maruti-brezza-review/">2026 Maruti Brezza: is the new turbo worth it?</a></h3>
+            <p>New 1.0 turbo engine, a 5-star Bharat NCAP rating, and three powertrain choices — the full breakdown.</p>
+            <div class="card-foot">
+              <div class="mini-gauge"><span class="dot"></span> 8.2 / 10</div>
+              <a class="read-link" href="reviews/2026-maruti-brezza-review/">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-date="2026-08-12">
+          <a href="news-mahindra-independence-day-2026.html" class="card-media">
+            <span class="tag">News</span>
+            <img src="images/news-mahindra-idc.jpg" alt="Mahindra Scorpio N Pickup, Vision S, and BE 6 Sporteq" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">News</p>
+            <h3><a href="news-mahindra-independence-day-2026.html">Mahindra's Independence Day 2026 Reveal</a></h3>
+            <p>A Scorpio N pickup aimed squarely at the Toyota Hilux, plus the production Vision S.</p>
+            <div class="card-foot">
+              <a class="read-link" href="news-mahindra-independence-day-2026.html">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-date="2026-08-12">
+          <a href="news-mg-couture-editions.html" class="card-media">
+            <span class="tag">News</span>
+            <img src="images/news-mg-couture.jpg" alt="MG M9 Couture Edition and Cyberster Couture Edition, side by side" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">News</p>
+            <h3><a href="news-mg-couture-editions.html">MG Launches Limited-Run Couture Editions</a></h3>
+            <p>Just 50 units of each, designed with fashion designer Gaurav Gupta.</p>
+            <div class="card-foot">
+              <a class="read-link" href="news-mg-couture-editions.html">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-date="2026-08-10">
+          <a href="news-mahindra-scorpio-n-facelift.html" class="card-media">
+            <span class="tag">News</span>
+            <img src="images/news-mahindra-scorpio-n-facelift.jpg" alt="The New Mahindra Scorpio N" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">News</p>
+            <h3><a href="news-mahindra-scorpio-n-facelift.html">Scorpio N Facelift Launched at ₹13.69 Lakh</a></h3>
+            <p>A new Z8S variant, Level 2 ADAS on the top trim, and a panoramic sunroof.</p>
+            <div class="card-foot">
+              <a class="read-link" href="news-mahindra-scorpio-n-facelift.html">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-date="2026-08-10">
+          <a href="news-skoda-slavia-facelift.html" class="card-media">
+            <span class="tag">News</span>
+            <img src="images/news-skoda-slavia.jpg" alt="The New Skoda Slavia Facelift" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">News</p>
+            <h3><a href="news-skoda-slavia-facelift.html">Skoda Slavia Facelift Confirmed for August 18</a></h3>
+            <p>New LED grille, revised light units, and a new alloy wheel design.</p>
+            <div class="card-foot">
+              <a class="read-link" href="news-skoda-slavia-facelift.html">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-date="2026-08-10">
+          <a href="news-volvo-ex90-india.html" class="card-media">
+            <span class="tag">News</span>
+            <img src="images/news-volvo-ex90.jpg" alt="The New Volvo EX90, Volvo's fully electric flagship" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">News</p>
+            <h3><a href="news-volvo-ex90-india.html">Volvo EX90 Set to Land as Brand's New Flagship</a></h3>
+            <p>Volvo's fully electric flagship SUV, expected to arrive in India.</p>
+            <div class="card-foot">
+              <a class="read-link" href="news-volvo-ex90-india.html">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-date="2026-08-05">
+          <a href="reviews/kia-syros-ev/" class="card-media">
+            <span class="tag">Electric</span>
+            <img src="images/syros-front.jpg" alt="Kia Syros EV parked in a city plaza" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">Full review</p>
+            <h3><a href="reviews/kia-syros-ev/">Kia Syros EV: range, price & should you buy it?</a></h3>
+            <p>526km range, 171PS power, and 39-minute fast charging — a full look at Kia's new electric SUV.</p>
+            <div class="card-foot">
+              <div class="mini-gauge"><span class="dot"></span> 8.6 / 10</div>
+              <a class="read-link" href="reviews/kia-syros-ev/">Read →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-date="2026-08-04">
+          <a href="reviews/toyota-hilux/" class="card-media">
+            <span class="tag">Pickup</span>
+            <img src="images/hilux-front.jpg" alt="New Toyota Hilux driving through a city at night" loading="lazy">
+          </a>
+          <div class="card-body">
+            <p class="eyebrow">Full review</p>
+            <h3><a href="reviews/toyota-hilux/">New Toyota Hilux: still the workhorse to beat?</a></h3>
+            <p>We break down the powertrain, off-road hardware, and payload numbers that actually matter for buyers.</p>
+            <div class="card-foot">
+              <div class="mini-gauge"><span class="dot"></span> 7.9 / 10</div>
+              <a class="read-link" href="reviews/toyota-hilux/">Read →</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="guides-section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">No jargon, promise</p>
+          <h2 style="color:var(--cream)">How We Review</h2>
+        </div>
+        <a href="review-methodology.html" class="view-all" style="border-color:var(--ember);color:var(--cream)">Full methodology →</a>
+      </div>
+      <div class="guide-grid">
+        <a class="guide-card" href="review-methodology.html">
+          <span class="num">01</span>
+          <h3>How every car gets scored</h3>
+          <span class="arrow">Read methodology →</span>
+        </a>
+        <a class="guide-card" href="editorial-policy.html">
+          <span class="num">02</span>
+          <h3>Our editorial independence policy</h3>
+          <span class="arrow">Read policy →</span>
+        </a>
+        <a class="guide-card" href="fact-checking-policy.html">
+          <span class="num">03</span>
+          <h3>How we fact-check every spec</h3>
+          <span class="arrow">Read policy →</span>
+        </a>
+        <a class="guide-card" href="corrections-policy.html">
+          <span class="num">04</span>
+          <h3>Mistakes happen — here's our fix</h3>
+          <span class="arrow">Read policy →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="subscribe">
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h2>Get the verdict before you buy.</h2>
+          <p>One email a week. No spam, no dealership nonsense.</p>
+        </div>
+        <form class="cta-form" onsubmit="return false;">
+          <label for="newsletter-email" class="sr-only">Email address</label>
+          <input id="newsletter-email" type="email" placeholder="you@email.com" required>
+          <button class="btn" style="background:var(--ink);border-color:var(--ink);color:var(--cream);" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a href="/" class="logo footer-logo">
+            <img src="images/logo-footer.png" alt="FlamingPiston" class="logo-full">
+          </a>
+          <p>Honest automotive reviews, practical buying advice, and maintenance guides — everything you need before buying your next vehicle.</p>
+          <div class="foot-social">
+            <a href="https://www.instagram.com/flamingpiston_in/" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="sitemap.html">Sitemap</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Editorial</h4>
+          <ul>
+            <li><a href="editorial-policy.html">Editorial Policy</a></li>
+            <li><a href="review-methodology.html">Review Methodology</a></li>
+            <li><a href="fact-checking-policy.html">Fact-Checking Policy</a></li>
+            <li><a href="corrections-policy.html">Corrections Policy</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+            <li><a href="terms.html">Terms of Use</a></li>
+            <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="foot-bottom">
+        <span>&copy; 2026 FlamingPiston. All rights reserved.</span>
+        <span><a href="sitemap.html">Sitemap</a></span>
+      </div>
+    </div>
+  </footer>
+
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script>
+    (function(){
+      var btn = document.getElementById('menuBtn');
+      var nav = document.getElementById('navCollapse');
+      if(!btn || !nav) return;
+      btn.addEventListener('click', function(){
+        var open = nav.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.classList.toggle('is-active', open);
+      });
+      nav.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          nav.classList.remove('is-open');
+          btn.setAttribute('aria-expanded','false');
+          btn.classList.remove('is-active');
+        });
+      });
+    })();
+  </script>
+  <script>
+    (function(){
+      var topBtn = document.getElementById('backToTop');
+      if(!topBtn) return;
+      window.addEventListener('scroll', function(){
+        topBtn.classList.toggle('is-visible', window.scrollY > 500);
+      });
+      topBtn.addEventListener('click', function(){
+        window.scrollTo({top:0, behavior:'smooth'});
+      });
+    })();
+  </script>
+
+  <script>
+    /* ============================================================
+       LATEST — unified feed across News, Reviews, and Comparisons,
+       auto-sorted by date, newest first, capped to the 6 most recent.
+       Whenever you publish something new, just add a card to
+       #latestReviewsRow with a data-date="YYYY-MM-DD" attribute
+       matching its publish date — this script handles the ordering,
+       trims anything past the 6th spot (removed from the page
+       entirely, not just hidden, so it stays light), and points the
+       hero's "Read the latest review" button at whichever piece
+       ends up newest. No manual reordering needed.
+       ============================================================ */
+    (function(){
+      var row = document.getElementById('latestReviewsRow');
+      if (!row) return;
+      var MAX_VISIBLE = 6;
+      var cards = Array.prototype.slice.call(row.querySelectorAll('.card[data-date]'));
+      cards.sort(function(a, b){
+        return new Date(b.getAttribute('data-date')) - new Date(a.getAttribute('data-date'));
+      });
+      cards.forEach(function(card, i){
+        if (i < MAX_VISIBLE) {
+          row.appendChild(card);
+        } else {
+          card.remove();
+        }
+      });
+
+      var newest = cards[0];
+      var cta = document.getElementById('latestReviewCta');
+      if (cta) {
+        var EXCLUDED_TAGS = ['News', 'Comparison', 'Guide'];
+        var reviewCard = cards.find(function(card){
+          var tagEl = card.querySelector('.tag');
+          return tagEl && EXCLUDED_TAGS.indexOf(tagEl.textContent.trim()) === -1;
+        });
+        if (reviewCard) {
+          var link = reviewCard.querySelector('a.card-media, a.read-link');
+          if (link) cta.setAttribute('href', link.getAttribute('href'));
+        }
+      }
+    })();
+  </script>
+  <script src="card-dates.js"></script>
+  <script src="site-search.js"></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+/* FlamingPiston Site Search — uses existing brand CSS variables:
+   --cream #FBF7F0 --ink #18140F --flame #FF4E1F --flame-dark #C7350A
+   --ember #FFB020 --steel #2B3A4A --line #E7DFD2
+   If any of these aren't already defined globally, add them once in your root stylesheet. */
+
+.fp-search-trigger{
+  background:none;
+  border:none;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:38px;
+  height:38px;
+  color:var(--ink);
+  padding:0;
+}
+.fp-search-trigger:hover{ color:var(--flame); }
+.fp-search-trigger svg{ width:20px; height:20px; }
+
+.fp-search-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(24,20,15,.55);
+  z-index:999;
+  display:none;
+  align-items:flex-start;
+  justify-content:center;
+  padding:10vh 16px 0;
+}
+.fp-search-overlay.is-open{ display:flex; }
+
+.fp-search-panel{
+  width:100%;
+  max-width:600px;
+  background:var(--cream);
+  border:1px solid var(--line);
+  border-radius:10px;
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
+  overflow:hidden;
+}
+
+.fp-search-input-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:14px 16px;
+  border-bottom:1px solid var(--line);
+}
+.fp-search-input-row svg{ width:18px; height:18px; color:var(--steel); flex-shrink:0; }
+
+.fp-search-input{
+  flex:1;
+  border:none;
+  background:transparent;
+  font-family:'Manrope',sans-serif;
+  font-size:16px;
+  color:var(--ink);
+  outline:none;
+}
+.fp-search-input::placeholder{ color:var(--steel); opacity:.6; }
+
+.fp-search-close{
+  background:none;
+  border:none;
+  cursor:pointer;
+  color:var(--steel);
+  font-family:'Space Mono',monospace;
+  font-size:12px;
+  padding:4px 8px;
+  border:1px solid var(--line);
+  border-radius:4px;
+}
+.fp-search-close:hover{ color:var(--flame); border-color:var(--flame); }
+
+.fp-search-results{
+  max-height:60vh;
+  overflow-y:auto;
+}
+
+.fp-search-result{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px 16px;
+  text-decoration:none;
+  border-bottom:1px solid var(--line);
+  transition:background .12s ease;
+}
+.fp-search-result:last-child{ border-bottom:none; }
+.fp-search-result:hover,
+.fp-search-result.is-active{ background:rgba(255,78,31,.08); }
+
+.fp-search-result-tag{
+  font-family:'Space Mono',monospace;
+  font-size:10px;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:#fff;
+  background:var(--flame);
+  padding:3px 7px;
+  border-radius:3px;
+  flex-shrink:0;
+}
+.fp-search-result-tag[data-type="news"]{ background:var(--steel); }
+.fp-search-result-tag[data-type="guide"]{ background:var(--ember); color:var(--ink); }
+.fp-search-result-tag[data-type="comparison"]{ background:var(--flame-dark); }
+
+.fp-search-result-text{ min-width:0; }
+.fp-search-result-title{
+  font-family:'Manrope',sans-serif;
+  font-weight:700;
+  font-size:14px;
+  color:var(--ink);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.fp-search-result-car{
+  font-family:'Manrope',sans-serif;
+  font-size:12px;
+  color:var(--steel);
+  margin-top:2px;
+}
+
+.fp-search-empty,
+.fp-search-hint{
+  padding:24px 16px;
+  text-align:center;
+  font-family:'Manrope',sans-serif;
+  font-size:13px;
+  color:var(--steel);
+}
+
+@media (max-width:480px){
+  .fp-search-overlay{ padding:0; align-items:stretch; }
+  .fp-search-panel{ max-width:none; border-radius:0; height:100%; display:flex; flex-direction:column; }
+  .fp-search-results{ max-height:none; flex:1; }
+}
