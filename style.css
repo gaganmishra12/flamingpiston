@@ -459,7 +459,7 @@ footer.site-footer{background:var(--ink);color:#C9C1B4;padding:56px 0 28px;margi
 
 .score-breakdown{
   background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
-  padding:26px 28px;margin:32px 0;
+  padding:26px 28px;margin:44px 0;
 }
 .score-breakdown h3{font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--flame-dark);margin:0 0 6px;}
 .score-breakdown > p{font-size:14px;color:var(--ink-soft);margin:0 0 18px;}
@@ -495,7 +495,7 @@ footer.site-footer{background:var(--ink);color:#C9C1B4;padding:56px 0 28px;margi
 }
 .share-btn.copied .copied-tip{opacity:1;}
 
-.buyer-fit{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:28px 0;}
+.buyer-fit{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:44px 0;}
 .fit-card{border-radius:var(--radius);padding:22px;border:1px solid var(--line);}
 .fit-card h3{font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.06em;margin:0 0 14px;}
 .fit-card ul{margin:0;padding-left:18px;font-size:14px;line-height:1.6;}
@@ -518,6 +518,9 @@ footer.site-footer{background:var(--ink);color:#C9C1B4;padding:56px 0 28px;margi
 .sitemap-list li{margin-bottom:10px;break-inside:avoid;}
 .sitemap-list a{text-decoration:none;color:var(--ink-soft);}
 .sitemap-list a:hover{color:var(--flame-dark);}
+
+.content h2.faq-heading{font-size:1.4rem;}
+.series-nav{font-family:'Space Mono',monospace;font-size:.82rem;color:var(--ink-soft);line-height:2;}
 
 /* ===== Read Next / secondary section heading (used within .content-width pages) ===== */
 .section-heading{max-width:var(--wrap);margin:0 auto;padding:48px 24px 24px;}
