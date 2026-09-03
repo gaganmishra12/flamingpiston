@@ -241,6 +241,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://flamingpiston.com/news-bmw-7-series-i7-facelift-india.html</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://flamingpiston.com/news-bmw-i5-lwb-india.html</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -307,6 +313,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://flamingpiston.com/news-maruti-baleno-facelift-launch.html</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://flamingpiston.com/news-mercedes-s-class-2026-india.html</loc>
     <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -327,6 +339,12 @@
   <url>
     <loc>https://flamingpiston.com/news-mg-hector-tomahawk-launch.html</loc>
     <lastmod>2026-08-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://flamingpiston.com/news-porsche-cayenne-electric-india.html</loc>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
