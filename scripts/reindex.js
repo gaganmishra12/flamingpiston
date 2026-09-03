@@ -228,9 +228,11 @@ function generateSearchIndex(articles, existingIndex) {
   return articles.map(a => {
     const existing = existingByUrl[a.urlPath];
     return {
-      title: a.title,
+      title: decodeEntities(a.title),
       url: a.urlPath,
-      type: typeMap[a.kind] || a.kind,
+      // manual type in the existing index wins — folder path alone can't tell
+      // a guide living under /reviews/ from an actual road test
+      type: existing?.type || typeMap[a.kind] || a.kind,
       car: existing?.car || a.car || '',
       tags: existing?.tags || a.tags || [],
     };
@@ -258,8 +260,16 @@ function generateFeed(articles) {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0">\n  <channel>\n    <title>FlamingPiston</title>\n    <link>${BASE_URL}/</link>\n    <description>Honest automotive reviews, practical buying advice, and maintenance guides.</description>\n    <language>en-in</language>\n    <lastBuildDate>${buildDate}</lastBuildDate>\n\n${items.join('\n\n')}\n  </channel>\n</rss>\n`;
 }
 
+function decodeEntities(s) {
+  // Titles and descriptions are scraped out of HTML, so they may already carry
+  // entities. Decode first, otherwise escapeXml turns &amp; into &amp;amp;.
+  return s
+    .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&nbsp;/g, ' ');
+}
+
 function escapeXml(s) {
-  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  return decodeEntities(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
 // ─── Main ───

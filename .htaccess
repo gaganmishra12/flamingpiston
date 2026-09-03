@@ -7,3 +7,12 @@ Redirect 301 /reviews-maruti-brezza.html /reviews/2026-maruti-brezza-review/
 
 # Homepage — force /index.html to the clean root URL
 Redirect 301 /index.html /
+
+# Consolidated duplicate article URLs (Sep 2026)
+Redirect 301 /guides/maruti-brezza-maintenance-cost/ /reviews/2026-maruti-brezza-maintenance-cost/
+Redirect 301 /reviews/2026-brezza-turbo-vs-petrol/ /reviews/2026-maruti-brezza-turbo-vs-petrol/
+Redirect 301 /news-bmw-i5-lwb.html /news-bmw-i5-lwb-india.html
+
+# Stale nested copy of the site — should never have shipped
+RedirectMatch 301 ^/site/(.*)$ /$1
+

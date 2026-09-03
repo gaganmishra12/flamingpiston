@@ -231,17 +231,12 @@ section.tight{padding:48px 0;}
 .card-media img{width:100%;height:100%;object-fit:cover;}
 /* Branded editorial graphics (wide banner-style, not photos) need to show
    in full rather than get cropped into the 4:3 card frame or 16:9 hero
-   frame when the source aspect doesn't match exactly. */
+   frame when the source aspect doesn't match exactly.
+   The two wildcards below auto-catch any future file named news-*.jpg or
+   *-hero.jpg, so new articles inherit this without a new rule each time. */
 img[src*="images/news-"],
-img[src*="brezza-vs-nexon-hero"],
-img[src*="brezza-vs-fronx-hero"],
-img[src*="brezza-automatic-hero"],
-img[src*="brezza-turbo-vs-petrol-hero"],
-img[src*="brezza-variants-hero"],
-img[src*="brezza-mileage-hero"],
-img[src*="skoda-slavia-facelift-hero"],
-img[src*="brezza-front"],
-img[src*="slavia-vs-virtus-hero"]{object-fit:contain;background:var(--ink);}
+img[src*="-hero"],
+img[src*="brezza-front"]{object-fit:contain;background:var(--ink);}
 img[src*="hilux-front"]{object-position:30% 50%;}
 img[src*="syros-front"]{object-position:46% 50%;}
 .card-media .tag{

@@ -1,71 +1,6 @@
 [
   {
-    "title": "Ford Fathom EV Truck Revealed: $28,350 Starting Price, Preorders in 2027",
-    "url": "/news-ford-fathom-ev-truck.html",
-    "type": "news",
-    "car": "Ford Fathom",
-    "tags": ["ford","fathom","electric truck","ev","uev platform","affordable","us market","2027"]
-  },
-  {
-    "title": "Slate Truck: The $28,000 Electric Pickup That Lost Its Federal Tax Credit",
-    "url": "/news-slate-truck-ev.html",
-    "type": "news",
-    "car": "Slate Truck",
-    "tags": ["slate","electric truck","ev","affordable","us market","bezos","tax credit","2026"]
-  },
-  {
-    "title": "US New Car Prices Hit $49,077 in August 2026 — Tariffs Are Now Your Problem",
-    "url": "/news-us-car-prices-aug2026.html",
-    "type": "news",
-    "car": "US Market",
-    "tags": ["us market","car prices","tariffs","ev","hybrid","2026","average price"]
-  },
-  {
-    "title": "Maruti Brezza Maintenance Cost: Service, Insurance & 5-Year Ownership Explained",
-    "url": "/guides/maruti-brezza-maintenance-cost/",
-    "type": "guide",
-    "car": "Maruti Brezza",
-    "tags": ["maruti","brezza","maintenance","service cost","insurance","ownership cost","cng","turbo","5-year"]
-  },
-  {
-    "title": "MG Hector Tomahawk Launched: 517km EV at ₹19.49 Lakh, PHEV at ₹25.69 Lakh — India's First V2H Car",
-    "url": "/news-mg-hector-tomahawk-launch.html",
-    "type": "news",
-    "car": "MG Hector Tomahawk",
-    "tags": ["mg","hector tomahawk","ev","phev","electric suv","3-row suv","v2h","baas","india launch"]
-  },
-  {
-    "title": "Tata Nexon Camo Edition Launched at ₹9.99 Lakh: New Colours, Bigger Screen & ADAS",
-    "url": "/news-tata-nexon-camo-edition.html",
-    "type": "news",
-    "car": "Tata Nexon",
-    "tags": [
-      "tata",
-      "nexon",
-      "camo",
-      "special edition",
-      "compact suv",
-      "adas",
-      "dashcam"
-    ]
-  },
-  {
-    "title": "Kia Sorento India Launch Set for September 4: Hybrid, Diesel & AWD Confirmed",
-    "url": "/news-kia-sorento-india-launch.html",
-    "type": "news",
-    "car": "Kia Sorento",
-    "tags": [
-      "kia",
-      "sorento",
-      "hybrid",
-      "diesel",
-      "awd",
-      "3-row suv",
-      "india launch"
-    ]
-  },
-  {
-    "title": "Aston Martin Valen Unveiled: 850PS V12, World's Most Powerful Front-Engined Car (2026)",
+    "title": "Aston Martin Valen: 850PS V12 Unveiled",
     "url": "/news-aston-martin-valen.html",
     "type": "news",
     "car": "Aston Martin Valen",
@@ -77,7 +12,23 @@
     ]
   },
   {
-    "title": "BMW i5 Long Wheelbase Launched in India: 669 km Range, Local Assembly, 99-Unit First Edition",
+    "title": "Audi Q3 India Debut: Price, Specs & Launch",
+    "url": "/news-audi-q3-india-debut.html",
+    "type": "news",
+    "car": "Audi Q3",
+    "tags": [
+      "audi",
+      "q3",
+      "compact suv",
+      "luxury",
+      "tfsi",
+      "quattro",
+      "india",
+      "2026"
+    ]
+  },
+  {
+    "title": "BMW i5 LWB India: 669 km Range, Price",
     "url": "/news-bmw-i5-lwb-india.html",
     "type": "news",
     "car": "BMW i5 LWB",
@@ -92,7 +43,7 @@
     ]
   },
   {
-    "title": "BMW X1 LWB Confirmed for August 21 Launch (2026)",
+    "title": "BMW X1 LWB: August 21 India Launch",
     "url": "/news-bmw-x1-lwb.html",
     "type": "news",
     "car": "BMW X1",
@@ -104,7 +55,23 @@
     ]
   },
   {
-    "title": "Genesis GV90 Revealed: Coach Doors, Cinema Cabin, Europe's Largest Electric SUV",
+    "title": "Ford Fathom EV Truck Revealed: $28,350, 2027",
+    "url": "/news-ford-fathom-ev-truck.html",
+    "type": "news",
+    "car": "Ford Fathom",
+    "tags": [
+      "ford",
+      "fathom",
+      "electric truck",
+      "ev",
+      "uev platform",
+      "affordable",
+      "us market",
+      "2027"
+    ]
+  },
+  {
+    "title": "Genesis GV90: Coach Doors, Electric Flagship",
     "url": "/news-genesis-gv90.html",
     "type": "news",
     "car": "Genesis GV90",
@@ -118,7 +85,7 @@
     ]
   },
   {
-    "title": "2027 Hyundai Tucson Revealed: Art of Steel Design, Fully Electrified Powertrain Range",
+    "title": "2027 Hyundai Tucson Revealed: Design, Specs",
     "url": "/news-hyundai-tucson-2027.html",
     "type": "news",
     "car": "Hyundai Tucson",
@@ -133,7 +100,22 @@
     ]
   },
   {
-    "title": "Land Rover Defender Dakar Revealed: 626HP Road-Legal Rally Beast",
+    "title": "Kia Sorento India: Hybrid, Diesel & AWD",
+    "url": "/news-kia-sorento-india-launch.html",
+    "type": "news",
+    "car": "Kia Sorento",
+    "tags": [
+      "kia",
+      "sorento",
+      "hybrid",
+      "diesel",
+      "awd",
+      "3-row suv",
+      "india launch"
+    ]
+  },
+  {
+    "title": "Defender Dakar Revealed: 626HP Rally Beast",
     "url": "/news-land-rover-defender-dakar.html",
     "type": "news",
     "car": "Land Rover Defender",
@@ -147,7 +129,7 @@
     ]
   },
   {
-    "title": "Mahindra BE 6 Sporteq Launched at ₹19.45 Lakh, Triple-Screen Cockpit (2026)",
+    "title": "Mahindra BE 6 Sporteq: ₹19.45 Lakh Launch",
     "url": "/news-mahindra-be6-sporteq.html",
     "type": "news",
     "car": "Mahindra BE 6",
@@ -160,7 +142,7 @@
     ]
   },
   {
-    "title": "What to Expect From Mahindra's Independence Day 2026 Reveal",
+    "title": "Mahindra Independence Day 2026: Preview",
     "url": "/news-mahindra-independence-day-2026.html",
     "type": "news",
     "car": "Mahindra Scorpio N Pickup, Mahindra Vision S",
@@ -173,7 +155,7 @@
     ]
   },
   {
-    "title": "Mahindra Scorpio Lifestyler Pickup: Price, Launch Date & Hilux Rival Details",
+    "title": "Scorpio Lifestyler Pickup: Price & Launch",
     "url": "/news-mahindra-scorpio-lifestyler.html",
     "type": "news",
     "car": "Mahindra Scorpio Lifestyler",
@@ -185,7 +167,7 @@
     ]
   },
   {
-    "title": "Mahindra Scorpio N Facelift Launched at ₹13.69 Lakh (2026)",
+    "title": "Scorpio N Facelift Launched at ₹13.69 Lakh",
     "url": "/news-mahindra-scorpio-n-facelift.html",
     "type": "news",
     "car": "Mahindra Scorpio N",
@@ -198,7 +180,7 @@
     ]
   },
   {
-    "title": "2026 Mercedes-Benz S-Class Launched in India: First PHEV S-Class, ₹2.20 Crore",
+    "title": "2026 Mercedes S-Class India: ₹2.20 Cr PHEV",
     "url": "/news-mercedes-s-class-2026-india.html",
     "type": "news",
     "car": "Mercedes-Benz S-Class",
@@ -213,7 +195,7 @@
     ]
   },
   {
-    "title": "MG Cyberster & M9 Couture Editions Launched: Price & Details (2026)",
+    "title": "MG Cyberster & M9 Couture Editions: Price",
     "url": "/news-mg-couture-editions.html",
     "type": "news",
     "car": "MG",
@@ -224,7 +206,7 @@
     ]
   },
   {
-    "title": "MG Hector Hawk Launch Confirmed for August 26 (2026)",
+    "title": "MG Hector Hawk: August 26 Launch Confirmed",
     "url": "/news-mg-hector-hawk.html",
     "type": "news",
     "car": "MG Hector Hawk",
@@ -237,7 +219,24 @@
     ]
   },
   {
-    "title": "Skoda Octavia RS Second Batch: Pre-Bookings Open, Deliveries This Festive Season",
+    "title": "MG Hector Tomahawk: 517km EV, PHEV Launched",
+    "url": "/news-mg-hector-tomahawk-launch.html",
+    "type": "news",
+    "car": "MG Hector Tomahawk",
+    "tags": [
+      "mg",
+      "hector tomahawk",
+      "ev",
+      "phev",
+      "electric suv",
+      "3-row suv",
+      "v2h",
+      "baas",
+      "india launch"
+    ]
+  },
+  {
+    "title": "Skoda Octavia RS Second Batch: Bookings Open",
     "url": "/news-skoda-octavia-rs-second-batch.html",
     "type": "news",
     "car": "Skoda Octavia RS",
@@ -250,7 +249,7 @@
     ]
   },
   {
-    "title": "Skoda Slavia Facelift Confirmed for August 18 Launch (2026)",
+    "title": "Skoda Slavia Facelift: August 18 Launch Date",
     "url": "/news-skoda-slavia-facelift.html",
     "type": "news",
     "car": "Skoda Slavia",
@@ -262,7 +261,7 @@
     ]
   },
   {
-    "title": "Skoda Superb TDI Confirmed for India: Pre-Bookings Open, Deliveries in Q2 2027",
+    "title": "Skoda Superb TDI India: Pre-Bookings Open",
     "url": "/news-skoda-superb-tdi.html",
     "type": "news",
     "car": "Skoda Superb",
@@ -275,7 +274,53 @@
     ]
   },
   {
-    "title": "Volvo EX90 India: Price, Range, Specs & Launch Date (2026)",
+    "title": "Slate Truck: $28K EV, No Federal Credit",
+    "url": "/news-slate-truck-ev.html",
+    "type": "news",
+    "car": "Slate Truck",
+    "tags": [
+      "slate",
+      "electric truck",
+      "ev",
+      "affordable",
+      "us market",
+      "bezos",
+      "tax credit",
+      "2026"
+    ]
+  },
+  {
+    "title": "Nexon Camo Edition: ₹9.99L, ADAS & Dashcam",
+    "url": "/news-tata-nexon-camo-edition.html",
+    "type": "news",
+    "car": "Tata Nexon",
+    "tags": [
+      "tata",
+      "nexon",
+      "camo",
+      "special edition",
+      "compact suv",
+      "adas",
+      "dashcam"
+    ]
+  },
+  {
+    "title": "US New Car Prices Hit $49,077 in August 2026",
+    "url": "/news-us-car-prices-aug2026.html",
+    "type": "news",
+    "car": "US Market",
+    "tags": [
+      "us market",
+      "car prices",
+      "tariffs",
+      "ev",
+      "hybrid",
+      "2026",
+      "average price"
+    ]
+  },
+  {
+    "title": "Volvo EX90 India: Price, Range & Launch Date",
     "url": "/news-volvo-ex90-india.html",
     "type": "news",
     "car": "Volvo EX90",
@@ -288,7 +333,7 @@
     ]
   },
   {
-    "title": "2026 Maruti Brezza vs Fronx: Which One Should You Buy?",
+    "title": "2026 Brezza vs Fronx: Which Should You Buy?",
     "url": "/reviews/2026-brezza-vs-fronx/",
     "type": "comparison",
     "car": "Maruti Brezza, Maruti Fronx",
@@ -302,7 +347,7 @@
     ]
   },
   {
-    "title": "2026 Maruti Brezza vs Tata Nexon: Which Compact SUV Should You Buy?",
+    "title": "2026 Brezza vs Tata Nexon: Which to Buy?",
     "url": "/reviews/2026-brezza-vs-nexon/",
     "type": "comparison",
     "car": "Maruti Brezza, Tata Nexon",
@@ -316,7 +361,7 @@
     ]
   },
   {
-    "title": "2026 Maruti Brezza Automatic Review: Is the Torque Converter AT Worth It?",
+    "title": "Maruti Brezza Automatic Review: Worth It?",
     "url": "/reviews/2026-maruti-brezza-automatic/",
     "type": "guide",
     "car": "Maruti Brezza",
@@ -329,7 +374,21 @@
     ]
   },
   {
-    "title": "2026 Maruti Brezza CNG Review: Mileage, Ownership & Is It Worth It?",
+    "title": "Brezza Boot Space & Family Practicality",
+    "url": "/reviews/2026-maruti-brezza-boot-space/",
+    "type": "guide",
+    "car": "Maruti Brezza",
+    "tags": [
+      "brezza",
+      "boot",
+      "space",
+      "amp",
+      "family",
+      "practicality"
+    ]
+  },
+  {
+    "title": "Maruti Brezza CNG Review: Mileage & Cost",
     "url": "/reviews/2026-maruti-brezza-cng/",
     "type": "guide",
     "car": "Maruti Brezza",
@@ -343,7 +402,24 @@
     ]
   },
   {
-    "title": "2026 Maruti Brezza Real-World Mileage: City, Highway & CNG Tested",
+    "title": "Brezza Maintenance Cost: 5-Year Guide",
+    "url": "/reviews/2026-maruti-brezza-maintenance-cost/",
+    "type": "guide",
+    "car": "Maruti Brezza",
+    "tags": [
+      "maruti",
+      "brezza",
+      "maintenance",
+      "service cost",
+      "insurance",
+      "ownership cost",
+      "cng",
+      "turbo",
+      "5-year"
+    ]
+  },
+  {
+    "title": "Brezza Real-World Mileage: City & Highway",
     "url": "/reviews/2026-maruti-brezza-mileage/",
     "type": "guide",
     "car": "Maruti Brezza",
@@ -355,7 +431,20 @@
     ]
   },
   {
-    "title": "2026 Maruti Brezza Review: Price, Mileage, Features & Verdict",
+    "title": "Maruti Brezza Pros & Cons: Before You Buy",
+    "url": "/reviews/2026-maruti-brezza-pros-cons/",
+    "type": "guide",
+    "car": "Maruti Brezza",
+    "tags": [
+      "maruti",
+      "brezza",
+      "pros",
+      "amp",
+      "cons"
+    ]
+  },
+  {
+    "title": "2026 Maruti Brezza Review: Price & Verdict",
     "url": "/reviews/2026-maruti-brezza-review/",
     "type": "review",
     "car": "Maruti Brezza",
@@ -368,7 +457,38 @@
     ]
   },
   {
-    "title": "2026 Maruti Brezza Variants Explained: Which One Can You Actually Order?",
+    "title": "Brezza Safety & Bharat NCAP Explained",
+    "url": "/reviews/2026-maruti-brezza-safety/",
+    "type": "guide",
+    "car": "Maruti Brezza",
+    "tags": [
+      "brezza",
+      "safety",
+      "amp",
+      "bharat",
+      "ncap",
+      "explained"
+    ]
+  },
+  {
+    "title": "Brezza Turbo vs 1.5 Petrol: Which Engine?",
+    "url": "/reviews/2026-maruti-brezza-turbo-vs-petrol/",
+    "type": "comparison",
+    "car": "Maruti Brezza",
+    "tags": [
+      "maruti",
+      "brezza",
+      "turbo",
+      "petrol",
+      "comparison",
+      "engine",
+      "1.0 turbo",
+      "1.5 petrol",
+      "2026"
+    ]
+  },
+  {
+    "title": "2026 Brezza Variants: Which One to Buy?",
     "url": "/reviews/2026-maruti-brezza-variants/",
     "type": "guide",
     "car": "Maruti Brezza",
@@ -380,7 +500,7 @@
     ]
   },
   {
-    "title": "Skoda Slavia Facelift Review (2026): Price, Specs & Is It Worth Buying?",
+    "title": "Skoda Slavia Facelift Review: Price & Specs",
     "url": "/reviews/2026-skoda-slavia-facelift/",
     "type": "review",
     "car": "Skoda Slavia",
@@ -394,7 +514,7 @@
     ]
   },
   {
-    "title": "Skoda Slavia Facelift vs Volkswagen Virtus: Which Should You Buy? (2026)",
+    "title": "Slavia Facelift vs VW Virtus: Which to Buy?",
     "url": "/reviews/2026-slavia-vs-virtus/",
     "type": "comparison",
     "car": "Skoda Slavia, Volkswagen Virtus",
@@ -408,7 +528,7 @@
     ]
   },
   {
-    "title": "BMW 7 Series vs Mercedes S-Class vs Genesis G90: Flagship Luxury Sedans Compared",
+    "title": "7 Series vs S-Class vs G90: Which Flagship?",
     "url": "/reviews/bmw-7-series-vs-mercedes-s-class-vs-genesis-g90/",
     "type": "comparison",
     "car": "BMW 7 Series, Mercedes S-Class, Genesis G90",
@@ -424,7 +544,7 @@
     ]
   },
   {
-    "title": "BMW X5 vs Genesis GV80 vs Volvo XC90: Which Luxury SUV Should You Buy?",
+    "title": "BMW X5 vs Genesis GV80 vs Volvo XC90",
     "url": "/reviews/bmw-x5-vs-genesis-gv80-vs-volvo-xc90/",
     "type": "comparison",
     "car": "BMW X5, Genesis GV80, Volvo XC90",
@@ -440,7 +560,7 @@
     ]
   },
   {
-    "title": "Kia Syros EV Review (2026) - Price, Range, Specs & Features",
+    "title": "Kia Syros EV Review: Price, Range & Specs",
     "url": "/reviews/kia-syros-ev/",
     "type": "review",
     "car": "Kia Syros EV",
@@ -452,7 +572,7 @@
     ]
   },
   {
-    "title": "Range Rover Sport vs BMW X5 vs Mercedes GLE: Which Premium SUV Justifies Its Price?",
+    "title": "Range Rover Sport vs BMW X5 vs GLE",
     "url": "/reviews/range-rover-sport-vs-bmw-x5-vs-mercedes-gle/",
     "type": "comparison",
     "car": "Range Rover Sport, BMW X5, Mercedes GLE",
@@ -468,7 +588,7 @@
     ]
   },
   {
-    "title": "Tata Altroz Review (2026): Price, Mileage, Safety & Is It Worth Buying?",
+    "title": "Tata Altroz Review 2026: Price & Safety",
     "url": "/reviews/tata-altroz/",
     "type": "review",
     "car": "Tata Altroz",
@@ -482,7 +602,7 @@
     ]
   },
   {
-    "title": "New Toyota Hilux Review (2026) - Price, Specs, Mileage & Features",
+    "title": "Toyota Hilux Review 2026: Price & Specs",
     "url": "/reviews/toyota-hilux/",
     "type": "review",
     "car": "Toyota Hilux",
@@ -492,19 +612,5 @@
       "pickup",
       "truck"
     ]
-  },
-  {
-    "title": "New Audi Q3 Debuts in India, Launching This Festive Season",
-    "url": "/news-audi-q3-india-debut.html",
-    "type": "news",
-    "car": "Audi Q3",
-    "tags": ["audi","q3","compact suv","luxury","tfsi","quattro","india","2026"]
-  },
-  {
-    "title": "2026 Maruti Brezza Turbo vs 1.5 Petrol: Which Engine Should You Pick?",
-    "url": "/reviews/2026-brezza-turbo-vs-petrol/",
-    "type": "comparison",
-    "car": "Maruti Brezza",
-    "tags": ["maruti","brezza","turbo","petrol","comparison","engine","1.0 turbo","1.5 petrol","2026"]
   }
 ]
