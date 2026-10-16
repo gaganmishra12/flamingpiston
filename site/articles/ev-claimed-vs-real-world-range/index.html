@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../images/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png">
+  <link rel="icon" href="../../favicon.ico">
+  <title>EV Claimed vs Real-World Range: WLTP, EPA and Trip Maths | FlamingPiston</title>
+  <script async src="/js/analytics.js?v=20260910"></script>
+  <meta name="description" content="Understand EV range claims, usable battery capacity and charging windows. A simple worked example explains why a 600 km claim is not your next charging stop.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css?v=20260910">
+  <link rel="alternate" type="application/rss+xml" title="FlamingPiston RSS Feed" href="/feed.xml">
+
+  <link rel="canonical" href="https://flamingpiston.com/articles/ev-claimed-vs-real-world-range/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="EV Claimed vs Real-World Range: WLTP, EPA and Trip Maths">
+  <meta property="og:description" content="Understand EV range claims, usable battery capacity and charging windows. A simple worked example explains why a 600 km claim is not your next charging stop.">
+  <meta property="og:url" content="https://flamingpiston.com/articles/ev-claimed-vs-real-world-range/">
+  <meta property="og:image" content="https://flamingpiston.com/images/news-bmw-i5-lwb.jpg">
+  <meta property="og:site_name" content="FlamingPiston">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://flamingpiston.com/images/news-bmw-i5-lwb.jpg">
+  <meta name="twitter:title" content="EV Claimed vs Real-World Range: WLTP, EPA and Trip Maths">
+  <meta name="twitter:description" content="Understand EV range claims, usable battery capacity and charging windows. A simple worked example explains why a 600 km claim is not your next charging stop.">
+  <link rel="stylesheet" href="../../site-search.css?v=20260910">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Why a 600 km EV Claim Does Not Promise a 600 km Road Trip", "description": "Understand EV range claims, usable battery capacity and charging windows. A simple worked example explains why a 600 km claim is not your next charging stop.", "datePublished": "2026-10-16T11:35:00+05:30", "dateModified": "2026-10-16T11:35:00+05:30", "author": {"@type": "Person", "name": "Gagan Mishra", "url": "https://flamingpiston.com/author-gagan-mishra.html"}, "publisher": {"@type": "Organization", "name": "FlamingPiston", "logo": {"@type": "ImageObject", "url": "https://flamingpiston.com/images/logo.png"}}, "image": ["https://flamingpiston.com/images/news-bmw-i5-lwb.jpg"], "mainEntityOfPage": {"@type": "WebPage", "@id": "https://flamingpiston.com/articles/ev-claimed-vs-real-world-range/"}, "articleSection": "Article", "inLanguage": "en-IN"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://flamingpiston.com/"}, {"@type": "ListItem", "position": 2, "name": "Article", "item": "https://flamingpiston.com/guides.html"}, {"@type": "ListItem", "position": 3, "name": "Why a 600 km EV Claim Does Not Promise a 600 km Road Trip", "item": "https://flamingpiston.com/articles/ev-claimed-vs-real-world-range/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I directly compare WLTP and EPA range?", "acceptedAnswer": {"@type": "Answer", "text": "Treat them as different test bases. Prefer the same cycle for a like-for-like comparison and do not use a universal conversion percentage."}}, {"@type": "Question", "name": "How do I estimate an EV charging leg?", "acceptedAnswer": {"@type": "Answer", "text": "Divide the usable energy available within your planned charge window by route consumption, then retain an appropriate arrival reserve."}}, {"@type": "Question", "name": "Are the 60 kWh examples measured results?", "acceptedAnswer": {"@type": "Answer", "text": "No. They are hypothetical arithmetic examples, not test results for any named vehicle."}}]}</script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <div id="fpSearchOverlay" class="fp-search-overlay">
+    <div class="fp-search-panel">
+      <div class="fp-search-input-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input id="fpSearchInput" class="fp-search-input" type="text" placeholder="Search by car name..." autocomplete="off">
+        <button id="fpSearchClose" class="fp-search-close">ESC</button>
+      </div>
+      <div id="fpSearchResults" class="fp-search-results"></div>
+    </div>
+  </div>
+
+
+
+  <header class="site-header">
+    <div class="wrap navbar">
+      <a href="/" class="logo">
+        <img src="../../images/logo.png" alt="FlamingPiston" class="logo-full">
+      </a>
+      <div class="nav-collapse" id="navCollapse">
+        <nav class="main-nav">
+        <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="../../reviews.html">Reviews</a></li>
+        <li><a href="../../news.html">News</a></li>
+        <li><a href="../../guides.html" class="active">Guides</a></li>
+        <li><a href="../../comparisons.html">Comparisons</a></li>
+        <li><a href="../../about.html">About</a></li>
+        </ul>
+      </nav>
+      </div>
+            <button id="fpSearchTrigger" class="fp-search-trigger" aria-label="Search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navCollapse">
+        <svg class="icon-menu" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg><svg class="icon-close" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="content" id="main"><span class="tag">Article</span><h1>Why a 600 km EV Claim Does Not Promise a 600 km Road Trip</h1><img class="hero-image" src="../../images/news-bmw-i5-lwb.jpg" alt="BMW electric sedan used to illustrate EV range planning"><div class="photo-caption">Image: existing FlamingPiston artwork. Numerical examples below are hypothetical, not BMW test results.</div><div class="author-block">
+      <div class="author-col-left">
+        <div class="author-id">
+          <div class="author-avatar">G</div>
+          <div>
+            <div class="name"><a href="../../author-gagan-mishra.html">Gagan Mishra</a></div>
+            <div class="dates">Published Oct 16, 2026</div>
+          </div>
+        </div>
+        <div class="read-time"><strong>3</strong> min read</div>
+      </div>
+      <div class="category-line">Category: <strong>Article</strong></div>
+        <div class="share-row">
+        <span class="share-label">Share</span>
+        <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fflamingpiston.com%2Farticles%2Fev-claimed-vs-real-world-range%2F" aria-label="Share on Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
+        <a class="share-btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fflamingpiston.com%2Farticles%2Fev-claimed-vs-real-world-range%2F&text=Why%20a%20600%20km%20EV%20Claim%20Does%20Not%20Promise%20a%20600%20km%20Road%20Trip" aria-label="Share on X" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18.9 2H22l-7.5 8.6L23 22h-6.6l-5.1-6.6L5.4 22H2.3l8-9.2L1 2h6.8l4.6 6.1L18.9 2zm-1.2 18h1.8L7.4 4H5.5l12.2 16z"/></svg></a>
+        <a class="share-btn" href="mailto:?subject=Why%20a%20600%20km%20EV%20Claim%20Does%20Not%20Promise%20a%20600%20km%20Road%20Trip&body=Check%20this%20out%3A%20https%3A%2F%2Fflamingpiston.com%2Farticles%2Fev-claimed-vs-real-world-range%2F" aria-label="Share by email">
+          <svg viewBox="0 0 24 24"><path d="M2 4h20v16H2V4zm2 2v.01L12 12l8-5.99V6H4zm16 12V8.24l-8 6-8-6V18h16z"/></svg>
+        </a>
+        <button class="share-btn" type="button" onclick="const b=this;navigator.clipboard.writeText('https://flamingpiston.com/articles/ev-claimed-vs-real-world-range/');b.classList.add('copied');setTimeout(()=&gt;b.classList.remove('copied'),1500);" aria-label="Copy link">
+          <svg viewBox="0 0 24 24"><path d="M3.9 12a5 5 0 0 1 5-5h4v2h-4a3 3 0 0 0 0 6h4v2h-4a5 5 0 0 1-5-5zm7-1h6v2h-6v-2zm3-4h4a5 5 0 0 1 0 10h-4v-2h4a3 3 0 0 0 0-6h-4V7z"/></svg>
+          <span class="copied-tip">Copied!</span>
+        </button>
+      </div>
+    </div><p>A car advertises 600 km of range. Your planned journey is 430 km. Does that mean you can comfortably skip a charging stop? Not from those two numbers alone. You still need to know the test cycle, the usable battery energy, your consumption and the charge level you want left on arrival.</p>
+<div class="quick-verdict"><h3>Read the Small Label Beside the Big Number</h3><p>WLTP, EPA and an Indian certification figure are not interchangeable units. Keep the test procedure attached to every range claim, then use route-specific consumption and a reserve to plan the journey.</p></div>
+<h2>Certified Range Is a Reference, Not Your Itinerary</h2>
+<p>The US fuel-economy label explains electric range as the distance expected on a full charge under its test basis, while also presenting electricity consumption. <a href="#source-1">[1]</a> Another certification system can use a different procedure. Comparing two range figures without their test labels can make a methodological difference look like a vehicle advantage.</p>
+<p>For a shortlist, try to compare the same cycle and equivalent variants. Note wheel size and specification where the manufacturer distinguishes them. If only different-cycle figures are available, show them separately rather than applying a made-up universal conversion percentage.</p>
+<h2>The Useful Formula Is Energy Divided by Consumption</h2>
+<p>Suppose an EV has 60 kWh of usable battery energy and consumes 15 kWh per 100 km on your route. The arithmetic gives 400 km from the full usable energy: 60 ÷ 15 × 100. This is a hypothetical example, not the specification of the pictured car.</p>
+<p>Now plan a motorway leg from 80% charge down to a 15% arrival reserve. You are using 65% of the usable battery, or 39 kWh. If consumption rises to 20 kWh/100 km, the planned leg becomes about 195 km. The car has not mysteriously lost half its battery; you changed both the energy window and the consumption assumption.</p>
+<table><tr><th>Hypothetical scenario</th><th>Available energy</th><th>Consumption</th><th>Calculated distance</th></tr><tr><td>Full usable battery</td><td>60 kWh</td><td>15 kWh/100 km</td><td>400 km</td></tr><tr><td>80% to 15% charge window</td><td>39 kWh</td><td>15 kWh/100 km</td><td>260 km</td></tr><tr><td>Same window, higher consumption</td><td>39 kWh</td><td>20 kWh/100 km</td><td>195 km</td></tr></table>
+<h2>Why Consumption Changes</h2>
+<p>Tesla’s owner guidance identifies speed, weather, elevation, climate control, load and tyre condition among the factors affecting energy use. Its navigation guidance also describes route-energy predictions as estimates that respond to driving and environmental conditions. <a href="#source-2">[2]</a> <a href="#source-3">[3]</a></p>
+<p>That makes a previous city commute an imperfect predictor for a loaded highway holiday. Start with relevant evidence, watch the car’s arrival estimate during the journey and keep a backup charger in mind. A precise-looking percentage remains an estimate.</p>
+<h2>Do Not Confuse Battery Energy with Electricity Bought</h2>
+<p>The dashboard’s driving consumption and the electricity billed at a charger do not necessarily measure the same boundary. The EPA label’s electricity-consumption measure includes charging losses. <a href="#source-1">[1]</a> If you are calculating cost from a meter or bill, use the energy actually purchased rather than assuming every billed unit became usable driving energy.</p>
+<p>Likewise, a headline peak charging rate does not by itself tell you the duration of a whole stop. Check the manufacturer’s stated charging window and conditions, then allow for charger access and a backup plan. For everyday ownership, dependable charging where you park can matter more than winning a range-table comparison.</p>
+<h2>FlamingPiston’s Take</h2>
+<p>Use certified range to begin a comparison and consumption to plan a trip. There is no honest single percentage by which every EV falls short of its brochure. The sensible question is whether the car can cover your regular route with a comfortable reserve and a workable charging routine.</p>
+<p>For a very different kind of electric-car claim, our <a href="../../news-tesla-roadster-reveal-2026.html">Roadster reveal report</a> separates Tesla’s demonstration figures from independent testing and delivery plans.</p><div class="section-block"><div class="section-num-heading"><h2 class="faq-heading">FAQs</h2></div><p><strong>Can I directly compare WLTP and EPA range?</strong><br>Treat them as different test bases. Prefer the same cycle for a like-for-like comparison and do not use a universal conversion percentage.</p><p><strong>How do I estimate an EV charging leg?</strong><br>Divide the usable energy available within your planned charge window by route consumption, then retain an appropriate arrival reserve.</p><p><strong>Are the 60 kWh examples measured results?</strong><br>No. They are hypothetical arithmetic examples, not test results for any named vehicle.</p></div><div class="section-block"><div class="section-num-heading"><h2>Sources and Method</h2></div><p>Checked on 16 October 2026. This is sourced editorial analysis, not a FlamingPiston road test. Manufacturer claims and illustrative calculations are identified in the text.</p><ol><li id="source-1"><a href="https://www.fueleconomy.gov/feg/label/learn-more-electric-label.shtml">US Department of Energy/EPA: electric-vehicle fuel-economy label</a></li><li id="source-2"><a href="https://www.tesla.com/ownersmanual/model3/en_sg/GUID-4AC32116-979A-4146-A935-F41F8551AFE6.html">Tesla owner manual: factors affecting energy consumption</a></li><li id="source-3"><a href="https://www.tesla.com/ownersmanual/model3/en_pr/GUID-01F1A582-99D1-4933-B5FB-B2F0203FFE6F.html">Tesla owner manual: navigation energy predictions</a></li></ol></div><a href="../../guides.html" class="back-inline" id="backInline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>Back to all guides</a></main>
+
+  <div class="section-heading">
+    <h2>Read Next</h2>
+  </div>
+  <div class="card-grid">
+    <article class="card">
+      <a href="../../news-bmw-x1-lwb.html" class="card-media">
+        <span class="tag">News</span>
+        <img src="../../images/news-bmw-x1-lwb.jpg" alt="The New BMW X1 LWB" loading="lazy">
+      </a>
+      <div class="card-body">
+        <h3><a href="../../news-bmw-x1-lwb.html">BMW X1 LWB Now on Sale in India from ₹49.90 Lakh</a></h3>
+        <div class="card-foot">
+          <a class="read-link" href="../../news-bmw-x1-lwb.html">Read →</a>
+        </div>
+      </div>
+    </article>
+    <article class="card">
+      <a href="../../reviews/2026-skoda-slavia-facelift/" class="card-media">
+        <span class="tag">Review</span>
+        <img src="../../images/skoda-slavia-facelift-hero.jpg" alt="2026 Skoda Slavia facelift blue sedan, front three-quarter view" loading="lazy">
+      </a>
+      <div class="card-body">
+        <h3><a href="../../reviews/2026-skoda-slavia-facelift/">Skoda Slavia Facelift Review: Price, Specs, New Automatic &amp; Is It Worth Buying? (2026)</a></h3>
+        <div class="card-foot">
+          <a class="read-link" href="../../reviews/2026-skoda-slavia-facelift/">Read →</a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a href="/" class="logo footer-logo">
+            <img src="../../images/logo-footer.png" alt="FlamingPiston" class="logo-full">
+          </a>
+          <p>Honest automotive reviews, practical buying advice, and maintenance guides — everything you need before buying your next vehicle.</p>
+          <div class="foot-social">
+            <a href="https://www.instagram.com/flamingpiston_in/" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="../../about.html">About</a></li>
+            <li><a href="../../contact.html">Contact</a></li>
+            <li><a href="../../sitemap.html">Sitemap</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Editorial</h4>
+          <ul>
+            <li><a href="../../editorial-policy.html">Editorial Policy</a></li>
+            <li><a href="../../review-methodology.html">Review Methodology</a></li>
+            <li><a href="../../fact-checking-policy.html">Fact-Checking Policy</a></li>
+            <li><a href="../../corrections-policy.html">Corrections Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="../../privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="../../cookie-policy.html">Cookie Policy</a></li>
+            <li><a href="../../terms.html">Terms of Use</a></li>
+            <li><a href="../../affiliate-disclosure.html">Affiliate Disclosure</a></li>
+            <li><a href="../../disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>&copy; 2026 FlamingPiston. All rights reserved.</span>
+        <span><a href="../../sitemap.html">Sitemap</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script>
+    (function(){
+      var btn = document.getElementById('menuBtn');
+      var nav = document.getElementById('navCollapse');
+      if(!btn || !nav) return;
+      btn.addEventListener('click', function(){
+        var open = nav.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.classList.toggle('is-active', open);
+      });
+      nav.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          nav.classList.remove('is-open');
+          btn.setAttribute('aria-expanded','false');
+          btn.classList.remove('is-active');
+        });
+      });
+    })();
+  </script>
+  <script>
+    (function(){
+      var topBtn = document.getElementById('backToTop');
+      if(!topBtn) return;
+      window.addEventListener('scroll', function(){
+        topBtn.classList.toggle('is-visible', window.scrollY > 500);
+      });
+      topBtn.addEventListener('click', function(){
+        window.scrollTo({top:0, behavior:'smooth'});
+      });
+    })();
+  </script>
+  <script>
+    (function(){
+      var backLink = document.getElementById('backInline');
+      if(!backLink) return;
+      backLink.addEventListener('click', function(e){
+        if (window.history.length > 1) {
+          e.preventDefault();
+          window.history.back();
+        }
+      });
+    })();
+  </script>
+  <script src="../../site-search.js"></script></body>
+</html>

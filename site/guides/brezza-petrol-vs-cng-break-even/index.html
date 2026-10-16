@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../images/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png">
+  <link rel="icon" href="../../favicon.ico">
+  <title>Brezza Petrol vs CNG: Running Cost and Break-Even Guide | FlamingPiston</title>
+  <script async src="/js/analytics.js?v=20260910"></script>
+  <meta name="description" content="Calculate Brezza CNG break-even using your quoted price premium, local fuel prices and realistic mileage. Worked examples at 600, 1,200 and 2,000 km a month.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css?v=20260910">
+  <link rel="alternate" type="application/rss+xml" title="FlamingPiston RSS Feed" href="/feed.xml">
+
+  <link rel="canonical" href="https://flamingpiston.com/guides/brezza-petrol-vs-cng-break-even/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Brezza Petrol vs CNG: Running Cost and Break-Even Guide">
+  <meta property="og:description" content="Calculate Brezza CNG break-even using your quoted price premium, local fuel prices and realistic mileage. Worked examples at 600, 1,200 and 2,000 km a month.">
+  <meta property="og:url" content="https://flamingpiston.com/guides/brezza-petrol-vs-cng-break-even/">
+  <meta property="og:image" content="https://flamingpiston.com/images/brezza-cng-hero.jpg">
+  <meta property="og:site_name" content="FlamingPiston">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://flamingpiston.com/images/brezza-cng-hero.jpg">
+  <meta name="twitter:title" content="Brezza Petrol vs CNG: Running Cost and Break-Even Guide">
+  <meta name="twitter:description" content="Calculate Brezza CNG break-even using your quoted price premium, local fuel prices and realistic mileage. Worked examples at 600, 1,200 and 2,000 km a month.">
+  <link rel="stylesheet" href="../../site-search.css?v=20260910">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Brezza Petrol vs CNG: How Many Kilometres Before the Extra Cost Pays Back?", "description": "Calculate Brezza CNG break-even using your quoted price premium, local fuel prices and realistic mileage. Worked examples at 600, 1,200 and 2,000 km a month.", "datePublished": "2026-10-16T11:35:00+05:30", "dateModified": "2026-10-16T11:35:00+05:30", "author": {"@type": "Person", "name": "Gagan Mishra", "url": "https://flamingpiston.com/author-gagan-mishra.html"}, "publisher": {"@type": "Organization", "name": "FlamingPiston", "logo": {"@type": "ImageObject", "url": "https://flamingpiston.com/images/logo.png"}}, "image": ["https://flamingpiston.com/images/brezza-cng-hero.jpg"], "mainEntityOfPage": {"@type": "WebPage", "@id": "https://flamingpiston.com/guides/brezza-petrol-vs-cng-break-even/"}, "articleSection": "Guide", "inLanguage": "en-IN"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://flamingpiston.com/"}, {"@type": "ListItem", "position": 2, "name": "Guide", "item": "https://flamingpiston.com/guides.html"}, {"@type": "ListItem", "position": 3, "name": "Brezza Petrol vs CNG: How Many Kilometres Before the Extra Cost Pays Back?", "item": "https://flamingpiston.com/guides/brezza-petrol-vs-cng-break-even/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "At what monthly running does Brezza CNG make sense?", "acceptedAnswer": {"@type": "Answer", "text": "There is no universal threshold. Calculate the upfront premium, fuel saving per kilometre and the kilometres you expect to drive before selling."}}, {"@type": "Question", "name": "Are these current petrol and CNG prices?", "acceptedAnswer": {"@type": "Answer", "text": "No. ₹95/litre and ₹80/kg are explicit illustrative assumptions. Replace them with local prices."}}, {"@type": "Question", "name": "Does break-even include every ownership expense?", "acceptedAnswer": {"@type": "Answer", "text": "No. The worked example is fuel-only and excludes finance, maintenance differences, petrol used by the CNG vehicle, resale and refuelling time."}}]}</script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <div id="fpSearchOverlay" class="fp-search-overlay">
+    <div class="fp-search-panel">
+      <div class="fp-search-input-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input id="fpSearchInput" class="fp-search-input" type="text" placeholder="Search by car name..." autocomplete="off">
+        <button id="fpSearchClose" class="fp-search-close">ESC</button>
+      </div>
+      <div id="fpSearchResults" class="fp-search-results"></div>
+    </div>
+  </div>
+
+
+
+  <header class="site-header">
+    <div class="wrap navbar">
+      <a href="/" class="logo">
+        <img src="../../images/logo.png" alt="FlamingPiston" class="logo-full">
+      </a>
+      <div class="nav-collapse" id="navCollapse">
+        <nav class="main-nav">
+        <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="../../reviews.html">Reviews</a></li>
+        <li><a href="../../news.html">News</a></li>
+        <li><a href="../../guides.html" class="active">Guides</a></li>
+        <li><a href="../../comparisons.html">Comparisons</a></li>
+        <li><a href="../../about.html">About</a></li>
+        </ul>
+      </nav>
+      </div>
+            <button id="fpSearchTrigger" class="fp-search-trigger" aria-label="Search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navCollapse">
+        <svg class="icon-menu" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg><svg class="icon-close" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="content" id="main"><span class="tag">Guide</span><h1>Brezza Petrol vs CNG: How Many Kilometres Before the Extra Cost Pays Back?</h1><img class="hero-image" src="../../images/brezza-cng-hero.jpg" alt="Maruti Brezza CNG illustration for running-cost comparison"><div class="photo-caption">Image: existing FlamingPiston Brezza artwork.</div><div class="author-block">
+      <div class="author-col-left">
+        <div class="author-id">
+          <div class="author-avatar">G</div>
+          <div>
+            <div class="name"><a href="../../author-gagan-mishra.html">Gagan Mishra</a></div>
+            <div class="dates">Published Oct 16, 2026</div>
+          </div>
+        </div>
+        <div class="read-time"><strong>3</strong> min read</div>
+      </div>
+      <div class="category-line">Category: <strong>Guide</strong></div>
+        <div class="share-row">
+        <span class="share-label">Share</span>
+        <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fflamingpiston.com%2Fguides%2Fbrezza-petrol-vs-cng-break-even%2F" aria-label="Share on Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
+        <a class="share-btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fflamingpiston.com%2Fguides%2Fbrezza-petrol-vs-cng-break-even%2F&text=Brezza%20Petrol%20vs%20CNG%3A%20How%20Many%20Kilometres%20Before%20the%20Extra%20Cost%20Pays%20Back%3F" aria-label="Share on X" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18.9 2H22l-7.5 8.6L23 22h-6.6l-5.1-6.6L5.4 22H2.3l8-9.2L1 2h6.8l4.6 6.1L18.9 2zm-1.2 18h1.8L7.4 4H5.5l12.2 16z"/></svg></a>
+        <a class="share-btn" href="mailto:?subject=Brezza%20Petrol%20vs%20CNG%3A%20How%20Many%20Kilometres%20Before%20the%20Extra%20Cost%20Pays%20Back%3F&body=Check%20this%20out%3A%20https%3A%2F%2Fflamingpiston.com%2Fguides%2Fbrezza-petrol-vs-cng-break-even%2F" aria-label="Share by email">
+          <svg viewBox="0 0 24 24"><path d="M2 4h20v16H2V4zm2 2v.01L12 12l8-5.99V6H4zm16 12V8.24l-8 6-8-6V18h16z"/></svg>
+        </a>
+        <button class="share-btn" type="button" onclick="const b=this;navigator.clipboard.writeText('https://flamingpiston.com/guides/brezza-petrol-vs-cng-break-even/');b.classList.add('copied');setTimeout(()=&gt;b.classList.remove('copied'),1500);" aria-label="Copy link">
+          <svg viewBox="0 0 24 24"><path d="M3.9 12a5 5 0 0 1 5-5h4v2h-4a3 3 0 0 0 0 6h4v2h-4a5 5 0 0 1-5-5zm7-1h6v2h-6v-2zm3-4h4a5 5 0 0 1 0 10h-4v-2h4a3 3 0 0 0 0-6h-4V7z"/></svg>
+          <span class="copied-tip">Copied!</span>
+        </button>
+      </div>
+    </div><p>The right question is not whether CNG costs less per kilometre. It is whether you will drive enough kilometres to recover the extra purchase cost while you still own the car. For a Brezza used mainly for short weekend trips, that answer can look very different from a daily commuter’s.</p>
+<div class="quick-verdict"><h3>Start with Your Own Quotation</h3><p>Compare equivalent petrol and CNG trims, calculate the actual upfront difference, then divide it by the fuel saving per kilometre. Do not compare the cheapest petrol version with a better-equipped CNG version and call the entire gap a fuel-system premium.</p></div>
+<h2>Three Inputs, One Calculation</h2>
+<p>You need the local petrol price per litre, the CNG price per kilogram and a realistic efficiency assumption for each. Fuel cost per kilometre is fuel price divided by efficiency. Break-even distance is the additional upfront cost divided by the per-kilometre saving.</p>
+<p>Use comparable mileage evidence. A petrol figure measured in dense traffic and a laboratory CNG claim do not form a fair pair. Our <a href="../../reviews/2026-maruti-brezza-mileage/">Brezza mileage guide</a> explains the distinction between claimed figures and individual owner reports.</p>
+<h2>A Transparent Example</h2>
+<p>The following is a planning example, not a current fuel-price quotation or a measured Brezza test. Assume petrol costs ₹95/litre and returns 14 km/l; CNG costs ₹80/kg and returns 22 km/kg. Assume your equivalent CNG car costs ₹1,00,000 more upfront.</p>
+<table><tr><th>Calculation</th><th>Result</th></tr><tr><td>Petrol: ₹95 ÷ 14 km/l</td><td>₹6.79 per km</td></tr><tr><td>CNG: ₹80 ÷ 22 km/kg</td><td>₹3.64 per km</td></tr><tr><td>Fuel saving</td><td>About ₹3.15 per km</td></tr><tr><td>₹1,00,000 ÷ unrounded saving</td><td>About 31,753 km to recover the premium</td></tr></table>
+<table><tr><th>Monthly distance</th><th>Monthly fuel saving</th><th>Approximate payback</th></tr><tr><td>600 km</td><td>₹1,890</td><td>53 months</td></tr><tr><td>1,200 km</td><td>₹3,779</td><td>26.5 months</td></tr><tr><td>2,000 km</td><td>₹6,299</td><td>15.9 months</td></tr></table>
+<p>The calculations use unrounded per-kilometre figures. They exclude financing, maintenance differences, any petrol used by the CNG car, resale value and the time or extra driving involved in refuelling. They are fuel-only payback estimates, not a full ownership-cost forecast.</p>
+<h2>How Sensitive Is the Answer?</h2>
+<p>Keep the same ₹1 lakh premium, but change the saving to ₹2/km: payback becomes 50,000 km. At ₹4/km, it falls to 25,000 km. That is why a universal “buy CNG above X kilometres a month” rule is weak advice unless it also states prices, efficiency and ownership period.</p>
+<p>If you expect to keep the car for three years and drive 600 km monthly, you would cover 21,600 km. In our main example, that is below the fuel-only break-even distance. At 1,200 km monthly, three-year usage reaches 43,200 km, above it. Your own assumptions may change either conclusion.</p>
+<h2>The New Tank Layout Does Not Remove Every Trade-off</h2>
+<p>Maruti identifies the current Brezza’s S-CNG system as underbody-mounted. <a href="#source-1">[1]</a> That makes the packaging relevant to a family buyer, but inspect the actual boot, emergency tyre equipment and the car’s specification. Our <a href="../../reviews/2026-maruti-brezza-cng/">boot-space guide</a> also distinguishes the facelift from older CNG cars.</p>
+<p>Finally, check the stations you would genuinely use. A pump on your normal route is different from a detour each week. Choose CNG when the cost case and the routine both work; petrol can remain the simpler choice when annual usage is low or access is inconvenient.</p><div class="section-block"><div class="section-num-heading"><h2 class="faq-heading">FAQs</h2></div><p><strong>At what monthly running does Brezza CNG make sense?</strong><br>There is no universal threshold. Calculate the upfront premium, fuel saving per kilometre and the kilometres you expect to drive before selling.</p><p><strong>Are these current petrol and CNG prices?</strong><br>No. ₹95/litre and ₹80/kg are explicit illustrative assumptions. Replace them with local prices.</p><p><strong>Does break-even include every ownership expense?</strong><br>No. The worked example is fuel-only and excludes finance, maintenance differences, petrol used by the CNG vehicle, resale and refuelling time.</p></div><div class="section-block"><div class="section-num-heading"><h2>Sources and Method</h2></div><p>Checked on 16 October 2026. This is sourced editorial analysis, not a FlamingPiston road test. Manufacturer claims and illustrative calculations are identified in the text.</p><ol><li id="source-1"><a href="https://www.marutisuzuki.com/arena/brezza">Maruti Suzuki: current Brezza powertrains and underbody S-CNG</a></li><li id="source-2"><a href="https://www.marutisuzuki.com/arena/brezza/price">Maruti Suzuki: variant selection and current price enquiry</a></li></ol></div><a href="../../guides.html" class="back-inline" id="backInline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>Back to all guides</a></main>
+
+  <div class="section-heading">
+    <h2>Read Next</h2>
+  </div>
+  <div class="card-grid">
+    <article class="card">
+      <a href="../../news-bmw-x1-lwb.html" class="card-media">
+        <span class="tag">News</span>
+        <img src="../../images/news-bmw-x1-lwb.jpg" alt="The New BMW X1 LWB" loading="lazy">
+      </a>
+      <div class="card-body">
+        <h3><a href="../../news-bmw-x1-lwb.html">BMW X1 LWB Now on Sale in India from ₹49.90 Lakh</a></h3>
+        <div class="card-foot">
+          <a class="read-link" href="../../news-bmw-x1-lwb.html">Read →</a>
+        </div>
+      </div>
+    </article>
+    <article class="card">
+      <a href="../../reviews/2026-skoda-slavia-facelift/" class="card-media">
+        <span class="tag">Review</span>
+        <img src="../../images/skoda-slavia-facelift-hero.jpg" alt="2026 Skoda Slavia facelift blue sedan, front three-quarter view" loading="lazy">
+      </a>
+      <div class="card-body">
+        <h3><a href="../../reviews/2026-skoda-slavia-facelift/">Skoda Slavia Facelift Review: Price, Specs, New Automatic &amp; Is It Worth Buying? (2026)</a></h3>
+        <div class="card-foot">
+          <a class="read-link" href="../../reviews/2026-skoda-slavia-facelift/">Read →</a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a href="/" class="logo footer-logo">
+            <img src="../../images/logo-footer.png" alt="FlamingPiston" class="logo-full">
+          </a>
+          <p>Honest automotive reviews, practical buying advice, and maintenance guides — everything you need before buying your next vehicle.</p>
+          <div class="foot-social">
+            <a href="https://www.instagram.com/flamingpiston_in/" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="../../about.html">About</a></li>
+            <li><a href="../../contact.html">Contact</a></li>
+            <li><a href="../../sitemap.html">Sitemap</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Editorial</h4>
+          <ul>
+            <li><a href="../../editorial-policy.html">Editorial Policy</a></li>
+            <li><a href="../../review-methodology.html">Review Methodology</a></li>
+            <li><a href="../../fact-checking-policy.html">Fact-Checking Policy</a></li>
+            <li><a href="../../corrections-policy.html">Corrections Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="../../privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="../../cookie-policy.html">Cookie Policy</a></li>
+            <li><a href="../../terms.html">Terms of Use</a></li>
+            <li><a href="../../affiliate-disclosure.html">Affiliate Disclosure</a></li>
+            <li><a href="../../disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>&copy; 2026 FlamingPiston. All rights reserved.</span>
+        <span><a href="../../sitemap.html">Sitemap</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script>
+    (function(){
+      var btn = document.getElementById('menuBtn');
+      var nav = document.getElementById('navCollapse');
+      if(!btn || !nav) return;
+      btn.addEventListener('click', function(){
+        var open = nav.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.classList.toggle('is-active', open);
+      });
+      nav.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          nav.classList.remove('is-open');
+          btn.setAttribute('aria-expanded','false');
+          btn.classList.remove('is-active');
+        });
+      });
+    })();
+  </script>
+  <script>
+    (function(){
+      var topBtn = document.getElementById('backToTop');
+      if(!topBtn) return;
+      window.addEventListener('scroll', function(){
+        topBtn.classList.toggle('is-visible', window.scrollY > 500);
+      });
+      topBtn.addEventListener('click', function(){
+        window.scrollTo({top:0, behavior:'smooth'});
+      });
+    })();
+  </script>
+  <script>
+    (function(){
+      var backLink = document.getElementById('backInline');
+      if(!backLink) return;
+      backLink.addEventListener('click', function(e){
+        if (window.history.length > 1) {
+          e.preventDefault();
+          window.history.back();
+        }
+      });
+    })();
+  </script>
+  <script src="../../site-search.js"></script></body>
+</html>
