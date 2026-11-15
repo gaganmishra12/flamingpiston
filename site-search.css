@@ -65,7 +65,7 @@
   border:none;
   cursor:pointer;
   color:var(--steel);
-  font-family:'Space Mono',monospace;
+  font-family:'Manrope',sans-serif;
   font-size:12px;
   padding:4px 8px;
   border:1px solid var(--line);
@@ -92,7 +92,7 @@
 .fp-search-result.is-active{ background:rgba(255,78,31,.08); }
 
 .fp-search-result-tag{
-  font-family:'Space Mono',monospace;
+  font-family:'Manrope',sans-serif;
   font-size:10px;
   letter-spacing:.04em;
   text-transform:uppercase;
