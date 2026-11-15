@@ -1,7 +1,7 @@
 // card-dates.js
 // 1. Renders publish dates on every .card with data-date
 // 2. Sorts the "Latest" section by date (newest first)
-// 3. Updates the hero "Read the latest review" CTA to the most recent review
+// 3. Points the hero CTA at the most recent buyer's brief
 
 (function () {
   var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -50,7 +50,7 @@
       var href = link.getAttribute('href') || '';
       var tag = allCards[i].querySelector('.tag');
       var tagText = tag ? tag.textContent.trim().toLowerCase() : '';
-      if (href.indexOf('reviews/') === 0 && tagText !== 'comparison') {
+      if (href.indexOf('reviews/') === 0 && tagText !== 'comparison' && tagText !== 'guide') {
         cta.setAttribute('href', href);
         break;
       }

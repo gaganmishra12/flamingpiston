@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="max-image-preview:large">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
@@ -13,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260910">
+  <link rel="stylesheet" href="style.css?v=20261115">
   <link rel="alternate" type="application/rss+xml" title="FlamingPiston RSS Feed" href="feed.xml">
 
   <link rel="canonical" href="https://flamingpiston.com/">
@@ -50,12 +51,7 @@
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "FlamingPiston",
-  "url": "https://flamingpiston.com",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://flamingpiston.com/reviews.html?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
+  "url": "https://flamingpiston.com"
 }
   </script>
   <link rel="stylesheet" href="site-search.css?v=20260910">
@@ -79,7 +75,7 @@
   <header class="site-header">
     <div class="wrap navbar">
       <a href="/" class="logo">
-        <img src="images/logo.png" alt="FlamingPiston" class="logo-full">
+        <img src="images/logo.png" alt="FlamingPiston" class="logo-full" width="660" height="56">
       </a>
       <div class="nav-collapse" id="navCollapse">
         <nav class="main-nav">
@@ -110,15 +106,10 @@
       <div>
         <p class="eyebrow" style="color:var(--ember)">Car knowledge, unfiltered</p>
         <h1>KNOW YOUR<br><span class="hl">MACHINE.</span></h1>
-        <p class="lede">Real reviews, plain-English breakdowns, and specs that actually mean something — built for people who want to understand what they're driving, not sit through a dealership pitch.</p>
+        <p class="lede">Plain-English buying analysis for Indian cars: which variant to buy, what the price list hides, and what it really costs to own. Built for people who want to understand what they’re buying, not sit through a dealership pitch.</p>
         <div class="hero-actions">
-          <a href="reviews/2026-maruti-brezza-review/" class="btn outline-hero" id="latestReviewCta">Read the latest review →</a>
+          <a href="reviews/2026-maruti-brezza-review/" class="btn outline-hero" id="latestReviewCta">Read the latest buyer’s brief →</a>
           <a href="news.html" class="btn outline-hero">See the latest news</a>
-        </div>
-        <div class="hero-stats">
-          <div><b>100%</b><span>Independent</span></div>
-          <div><b>0</b><span>Dealer scripts</span></div>
-          <div><b>New</b><span>Verdict weekly</span></div>
         </div>
       </div>
 
@@ -159,7 +150,7 @@
               <span>Performance</span>
             </a>
           </div>
-          <a href="reviews.html" class="oc-cta" style="display:block;margin-top:18px;">Browse all reviews →</a>
+          <a href="reviews.html" class="oc-cta" style="display:block;margin-top:18px;">Browse all buyer’s briefs →</a>
         </div>
       </div>
     </div>
@@ -176,76 +167,61 @@
         <a href="reviews.html" class="view-all">View all →</a>
       </div>
       <div class="review-row" id="latestReviewsRow">
-        <article class="card" data-category="electric performance" data-date="2026-10-16">
-          <a href="news-tesla-roadster-reveal-2026.html" class="card-media"><span class="tag">News</span><img src="images/tesla-roadster-news-hero.jpg" alt="Tesla Roadster editorial illustration" loading="lazy"></a>
-          <div class="card-body"><p class="eyebrow">News</p><h3><a href="news-tesla-roadster-reveal-2026.html">Tesla Roadster Finally Takes Flight in Musk’s Demo — Production Is Still Planned for 2028</a></h3><p>Tesla’s October Roadster reveal brought thruster-assisted stunts and sub-second acceleration claims. Here’s what is confirmed, and what buyers still do not know.</p><div class="card-foot"><a class="read-link" href="news-tesla-roadster-reveal-2026.html">Read →</a></div></div>
+<!-- LATEST:START -->
+        <article class="card" data-date="2026-10-23">
+          <a href="reviews/2026-isuzu-v-cross-review/" class="card-media"><span class="tag">Buyer’s Brief</span><img src="images/isuzu-v-cross-review-hero.jpg" alt="Isuzu D-MAX V-Cross editorial review banner" loading="lazy" width="1600" height="900"></a>
+          <div class="card-body"><p class="eyebrow">Buyer’s Brief</p><h3><a href="reviews/2026-isuzu-v-cross-review/">Isuzu V-Cross 2026: Pickup Practicality, 4WD and Which Variant</a></h3><p>Isuzu D-MAX V-Cross buyer’s brief: price, engines, comfort, safety and practicality from official specs and published drives, plus our variant verdict.</p><div class="card-foot"><a class="read-link" href="reviews/2026-isuzu-v-cross-review/">Read →</a></div></div>
         </article>
-        <article class="card" data-category="hatchback" data-date="2026-10-16">
-          <a href="news-toyota-glanza-facelift-2026.html" class="card-media"><span class="tag">News</span><img src="images/toyota-glanza-facelift-news-hero.jpg" alt="Toyota Glanza editorial illustration" loading="lazy"></a>
-          <div class="card-body"><p class="eyebrow">News</p><h3><a href="news-toyota-glanza-facelift-2026.html">Toyota Glanza Facelift Launched at ₹6.99 Lakh — Check the Variant Before Chasing ADAS</a></h3><p>The new Glanza launched on 14 October from ₹6.99 lakh. CNG AMT joins the range, but the ADAS headline belongs to a specific trim.</p><div class="card-foot"><a class="read-link" href="news-toyota-glanza-facelift-2026.html">Read →</a></div></div>
+        <article class="card" data-date="2026-10-23">
+          <a href="reviews/2026-kia-seltos-review/" class="card-media"><span class="tag">Buyer’s Brief</span><img src="images/kia-seltos-review-hero.jpg" alt="Kia Seltos editorial review banner" loading="lazy" width="1600" height="900"></a>
+          <div class="card-body"><p class="eyebrow">Buyer’s Brief</p><h3><a href="reviews/2026-kia-seltos-review/">Kia Seltos 2026: Which Engine and Variant to Buy</a></h3><p>Kia Seltos buyer’s brief: price, engines, comfort, safety and practicality from official specs and published drives, plus our variant verdict.</p><div class="card-foot"><a class="read-link" href="reviews/2026-kia-seltos-review/">Read →</a></div></div>
         </article>
-        <article class="card" data-category="hatchback" data-date="2026-10-16">
-          <a href="comparisons/2026-glanza-vs-baleno/" class="card-media"><span class="tag">Comparison</span><img src="images/glanza-vs-baleno-comparison-hero.jpg" alt="Toyota Glanza and Maruti Baleno comparison illustration" loading="lazy"></a>
+        <article class="card" data-date="2026-10-23">
+          <a href="reviews/2026-mahindra-be6-sporteq-review/" class="card-media"><span class="tag">Buyer’s Brief</span><img src="images/mahindra-be6-sporteq-review-hero.jpg" alt="Mahindra BE 6 SPORTEQ editorial review banner" loading="lazy" width="1600" height="900"></a>
+          <div class="card-body"><p class="eyebrow">Buyer’s Brief</p><h3><a href="reviews/2026-mahindra-be6-sporteq-review/">Mahindra BE 6 SPORTEQ: BaaS or Outright Purchase?</a></h3><p>Mahindra BE 6 SPORTEQ buyer’s brief: price, engines, comfort, safety and practicality from official specs and published drives, plus our variant verdict.</p><div class="card-foot"><a class="read-link" href="reviews/2026-mahindra-be6-sporteq-review/">Read →</a></div></div>
+        </article>
+        <article class="card" data-date="2026-10-23">
+          <a href="reviews/2026-maruti-swift-review/" class="card-media"><span class="tag">Buyer’s Brief</span><img src="images/maruti-swift-review-hero.jpg" alt="Maruti Suzuki Swift editorial review banner" loading="lazy" width="1600" height="900"></a>
+          <div class="card-body"><p class="eyebrow">Buyer’s Brief</p><h3><a href="reviews/2026-maruti-swift-review/">Maruti Swift 2026: Mileage, AMT or CNG? Which to Buy</a></h3><p>Maruti Suzuki Swift buyer’s brief: price, engines, comfort, safety and practicality from official specs and published drives, plus our variant verdict.</p><div class="card-foot"><a class="read-link" href="reviews/2026-maruti-swift-review/">Read →</a></div></div>
+        </article>
+        <article class="card" data-date="2026-10-23">
+          <a href="reviews/2026-skoda-kylaq-review/" class="card-media"><span class="tag">Buyer’s Brief</span><img src="images/skoda-kylaq-review-hero.jpg" alt="Skoda Kylaq editorial review banner" loading="lazy" width="1600" height="900"></a>
+          <div class="card-body"><p class="eyebrow">Buyer’s Brief</p><h3><a href="reviews/2026-skoda-kylaq-review/">Skoda Kylaq 2026: Price, Automatic and Which Variant</a></h3><p>Skoda Kylaq buyer’s brief: price, engines, comfort, safety and practicality from official specs and published drives, plus our variant verdict.</p><div class="card-foot"><a class="read-link" href="reviews/2026-skoda-kylaq-review/">Read →</a></div></div>
+        </article>
+        <article class="card" data-date="2026-10-23">
+          <a href="reviews/2026-mahindra-thar-roxx-4x4-review/" class="card-media"><span class="tag">Buyer’s Brief</span><img src="images/mahindra-thar-roxx-review-hero.jpg" alt="Mahindra Thar Roxx 4x4 editorial review banner" loading="lazy" width="1600" height="900"></a>
+          <div class="card-body"><p class="eyebrow">Buyer’s Brief</p><h3><a href="reviews/2026-mahindra-thar-roxx-4x4-review/">Thar Roxx 4x4 2026: Capability or Costly Compromise?</a></h3><p>Mahindra Thar Roxx 4x4 buyer’s brief: price, engines, comfort, safety and practicality from official specs and published drives, plus our variant verdict.</p><div class="card-foot"><a class="read-link" href="reviews/2026-mahindra-thar-roxx-4x4-review/">Read →</a></div></div>
+        </article>
+        <article class="card" data-date="2026-10-23">
+          <a href="reviews/2026-volkswagen-virtus-review/" class="card-media"><span class="tag">Buyer’s Brief</span><img src="images/volkswagen-virtus-review-hero.jpg" alt="Volkswagen Virtus editorial review banner" loading="lazy" width="1600" height="900"></a>
+          <div class="card-body"><p class="eyebrow">Buyer’s Brief</p><h3><a href="reviews/2026-volkswagen-virtus-review/">Volkswagen Virtus 2026: 1.0 TSI or 1.5 TSI?</a></h3><p>Volkswagen Virtus buyer’s brief: price, engines, comfort, safety and practicality from official specs and published drives, plus our variant verdict.</p><div class="card-foot"><a class="read-link" href="reviews/2026-volkswagen-virtus-review/">Read →</a></div></div>
+        </article>
+        <article class="card" data-date="2026-10-16">
+          <a href="comparisons/2026-glanza-vs-baleno/" class="card-media"><span class="tag">Comparison</span><img src="images/glanza-vs-baleno-comparison-hero.jpg" alt="Toyota Glanza and Maruti Baleno comparison illustration" loading="lazy" width="1600" height="900"></a>
           <div class="card-body"><p class="eyebrow">Comparison</p><h3><a href="comparisons/2026-glanza-vs-baleno/">2026 Toyota Glanza vs Maruti Baleno: Compare the Variant, Not Just the Badge</a></h3><p>Glanza or Baleno? Compare October launch pricing, CNG automatic choices and equipment priorities without confusing base prices with equivalent variants.</p><div class="card-foot"><a class="read-link" href="comparisons/2026-glanza-vs-baleno/">Read →</a></div></div>
         </article>
-        <article class="card" data-category="hatchback sedan suv compact-suv electric hybrid luxury" data-date="2026-10-16">
-          <a href="guides/festive-car-discounts-2026/" class="card-media"><span class="tag">Guide</span><img src="images/festive-car-discounts-guide-hero.jpg" alt="Festive car buying and discounts illustration" loading="lazy"></a>
-          <div class="card-body"><p class="eyebrow">Guide</p><h3><a href="guides/festive-car-discounts-2026/">Festive Car Discounts in October 2026: What You Actually Save</a></h3><p>A big festive discount is often several conditional benefits added together. Learn how to compare cash, exchange, insurance and finance before booking.</p><div class="card-foot"><div class="mini-gauge"><span class="dot" style="background:var(--ink-soft)"></span> Guide</div><a class="read-link" href="guides/festive-car-discounts-2026/">Read →</a></div></div>
+        <article class="card" data-date="2026-10-16">
+          <a href="guides/brezza-petrol-vs-cng-break-even/" class="card-media"><span class="tag">Guide</span><img src="images/brezza-petrol-vs-cng-guide-hero.jpg" alt="Maruti Brezza petrol versus CNG ownership illustration" loading="lazy" width="1600" height="900"></a>
+          <div class="card-body"><p class="eyebrow">Guide</p><h3><a href="guides/brezza-petrol-vs-cng-break-even/">Brezza Petrol vs CNG: How Many Kilometres Before the Extra Cost Pays Back?</a></h3><p>Calculate Brezza CNG break-even using your quoted price premium, local fuel prices and realistic mileage. Worked examples at 600, 1,200 and 2,000 km a month.</p><div class="card-foot"><a class="read-link" href="guides/brezza-petrol-vs-cng-break-even/">Read →</a></div></div>
         </article>
-        <article class="card" data-category="compact-suv suv ownership" data-date="2026-10-16">
-          <a href="guides/brezza-petrol-vs-cng-break-even/" class="card-media"><span class="tag">Guide</span><img src="images/brezza-petrol-vs-cng-guide-hero.jpg" alt="Maruti Brezza petrol versus CNG ownership illustration" loading="lazy"></a>
-          <div class="card-body"><p class="eyebrow">Guide</p><h3><a href="guides/brezza-petrol-vs-cng-break-even/">Brezza Petrol vs CNG: How Many Kilometres Before the Extra Cost Pays Back?</a></h3><p>Calculate Brezza CNG break-even using your quoted price premium, local fuel prices and realistic mileage. Worked examples at 600, 1,200 and 2,000 km a month.</p><div class="card-foot"><div class="mini-gauge"><span class="dot" style="background:var(--ink-soft)"></span> Guide</div><a class="read-link" href="guides/brezza-petrol-vs-cng-break-even/">Read →</a></div></div>
-        </article>
-        <article class="card" data-category="electric ownership" data-date="2026-10-16">
-          <a href="articles/ev-claimed-vs-real-world-range/" class="card-media"><span class="tag">Article</span><img src="images/ev-real-world-range-guide-hero.jpg" alt="Electric vehicle charging and real-world range illustration" loading="lazy"></a>
-          <div class="card-body"><p class="eyebrow">Article</p><h3><a href="articles/ev-claimed-vs-real-world-range/">Why a 600 km EV Claim Does Not Promise a 600 km Road Trip</a></h3><p>Understand EV range claims, usable battery capacity and charging windows. A simple worked example explains why a 600 km claim is not your next charging stop.</p><div class="card-foot"><div class="mini-gauge"><span class="dot" style="background:var(--ink-soft)"></span> Article</div><a class="read-link" href="articles/ev-claimed-vs-real-world-range/">Read →</a></div></div>
-        </article>
-        <article class="card" data-category="suv compact-suv" data-date="2026-09-03">
-          <a href="reviews/2026-maruti-brezza-turbo-vs-petrol/" class="card-media">
-            <span class="tag">Comparison</span>
-            <img src="images/brezza-turbo-vs-petrol-hero.jpg" alt="2026 Maruti Brezza 1.0 turbo and 1.5 petrol engines compared" loading="lazy">
-          </a>
-          <div class="card-body">
-            <p class="eyebrow">Engine Comparison</p>
-            <h3><a href="reviews/2026-maruti-brezza-turbo-vs-petrol/">Brezza Turbo vs 1.5 Petrol: Which Engine Should You Choose?</a></h3>
-            <p>The specs side by side, how the two actually behave in traffic, and why the running-cost maths lands on the engine most buyers would not expect.</p>
-            <div class="card-foot">
-              <div class="mini-gauge"><span class="dot" style="background:var(--ink-soft)"></span> Guide</div>
-              <a class="read-link" href="reviews/2026-maruti-brezza-turbo-vs-petrol/">Read →</a>
-            </div>
-          </div>
-        </article>
-        <article class="card" data-date="2026-09-03">
-          <a href="reviews/2026-maruti-brezza-maintenance-cost/" class="card-media">
-            <span class="tag">Guide</span>
-            <img src="images/brezza-maintenance-cost-hero.jpg" alt="Maruti Brezza maintenance cost 5-year guide" loading="lazy">
-          </a>
-          <div class="card-body">
-            <p class="eyebrow">Brezza Cluster</p>
-            <h3><a href="reviews/2026-maruti-brezza-maintenance-cost/">Maruti Brezza Maintenance Cost: What 5 Years of Ownership Costs</a></h3>
-            <p>Full 5-year running cost breakdown — petrol, turbo, and CNG compared.</p>
-            <div class="card-foot">
-              <div class="mini-gauge"><span class="dot" style="background:var(--ink-soft)"></span> Guide</div>
-              <a class="read-link" href="reviews/2026-maruti-brezza-maintenance-cost/">Read →</a>
-            </div>
-          </div>
-        </article>
-
-        </section>
+<!-- LATEST:END -->
+      </div>
+    </div>
+  </section>
 
   <section class="guides-section">
     <div class="wrap">
       <div class="section-head">
         <div>
           <p class="eyebrow">No jargon, promise</p>
-          <h2 style="color:var(--cream)">How We Review</h2>
+          <h2 style="color:var(--cream)">How We Work</h2>
         </div>
         <a href="review-methodology.html" class="view-all" style="border-color:var(--ember);color:var(--cream)">Full methodology →</a>
       </div>
       <div class="guide-grid">
         <a class="guide-card" href="review-methodology.html">
           <span class="num">01</span>
-          <h3>How every car gets scored</h3>
+          <h3>How every car gets assessed</h3>
           <span class="arrow">Read methodology →</span>
         </a>
         <a class="guide-card" href="editorial-policy.html">
@@ -266,22 +242,7 @@
       </div>
     </div>
   </section>
-
-  <section id="subscribe">
-    <div class="wrap">
-      <div class="cta-band">
-        <div>
-          <h2>Get the verdict before you buy.</h2>
-          <p>One email a week. No spam, no dealership nonsense.</p>
-        </div>
-        <form class="cta-form" onsubmit="return false;">
-          <label for="newsletter-email" class="sr-only">Email address</label>
-          <input id="newsletter-email" type="email" placeholder="you@email.com" required>
-          <button class="btn" style="background:var(--ink);border-color:var(--ink);color:var(--cream);" type="submit">Subscribe</button>
-        </form>
-      </div>
-    </div>
-  </section>
+  <!-- Newsletter signup removed until a provider (e.g. Buttondown/MailerLite) is connected. -->
   </main>
 
   <footer class="site-footer">
@@ -289,7 +250,7 @@
       <div class="foot-grid">
         <div class="foot-brand">
           <a href="/" class="logo footer-logo">
-            <img src="images/logo-footer.png" alt="FlamingPiston" class="logo-full">
+            <img src="images/logo-footer.png" alt="FlamingPiston" class="logo-full" width="660" height="56">
           </a>
           <p>Honest automotive reviews, practical buying advice, and maintenance guides — everything you need before buying your next vehicle.</p>
           <div class="foot-social">
@@ -371,57 +332,7 @@
       });
     })();
   </script>
-
-  <script>
-    /* ============================================================
-       LATEST — unified feed across News, Reviews, and Comparisons,
-       auto-sorted by date, newest first, capped to the 6 most recent.
-       Whenever you publish something new, just add a card to
-       #latestReviewsRow with a data-date="YYYY-MM-DD" attribute
-       matching its publish date — this script handles the ordering,
-       trims anything past the 6th spot (removed from the page
-       entirely, not just hidden, so it stays light), and points the
-       hero's "Read the latest review" button at whichever piece
-       ends up newest. No manual reordering needed.
-
-       Only the ~8 most recent cards are kept in the HTML source. Older
-       articles are reachable from reviews.html / news.html / guides.html /
-       comparisons.html and the sitemap — there is no reason to ship 40
-       cards the script is only going to delete on load. When you publish,
-       add the new card at the top of the row and delete the oldest one.
-       ============================================================ */
-    (function(){
-      var row = document.getElementById('latestReviewsRow');
-      if (!row) return;
-      var MAX_VISIBLE = 6;
-      var cards = Array.prototype.slice.call(row.querySelectorAll('.card[data-date]'));
-      cards.sort(function(a, b){
-        return new Date(b.getAttribute('data-date')) - new Date(a.getAttribute('data-date'));
-      });
-      cards.forEach(function(card, i){
-        if (i < MAX_VISIBLE) {
-          row.appendChild(card);
-        } else {
-          card.remove();
-        }
-      });
-
-      var newest = cards[0];
-      var cta = document.getElementById('latestReviewCta');
-      if (cta) {
-        var EXCLUDED_TAGS = ['News', 'Comparison', 'Guide'];
-        var reviewCard = cards.find(function(card){
-          var tagEl = card.querySelector('.tag');
-          return tagEl && EXCLUDED_TAGS.indexOf(tagEl.textContent.trim()) === -1;
-        });
-        if (reviewCard) {
-          var link = reviewCard.querySelector('a.card-media, a.read-link');
-          if (link) cta.setAttribute('href', link.getAttribute('href'));
-        }
-      }
-    })();
-  </script>
-  <script src="card-dates.js"></script>
+  <script src="card-dates.js?v=20261115"></script>
   <script src="site-search.js"></script>
 </body>
 </html>

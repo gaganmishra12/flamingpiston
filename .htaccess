@@ -1,4 +1,10 @@
 # FlamingPiston — URL redirects
+
+# Canonical host — send www.flamingpiston.com to flamingpiston.com (Nov 2026)
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.flamingpiston\.com$ [NC]
+RewriteRule ^(.*)$ https://flamingpiston.com/$1 [R=301,L]
+
 # Old flat review URLs → new folder-style URLs (SEO migration, Aug 2026)
 
 Redirect 301 /reviews-toyota-hilux.html /reviews/toyota-hilux/
@@ -13,6 +19,9 @@ Redirect 301 /guides/maruti-brezza-maintenance-cost/ /reviews/2026-maruti-brezza
 Redirect 301 /reviews/2026-brezza-turbo-vs-petrol/ /reviews/2026-maruti-brezza-turbo-vs-petrol/
 Redirect 301 /news-bmw-i5-lwb.html /news-bmw-i5-lwb-india.html
 
-# Stale nested copy of the site — should never have shipped
+# Stale nested copy of the site — removed from the repo Nov 2026; redirect kept for old links
 RedirectMatch 301 ^/site/(.*)$ /$1
 
+
+# Working files that should never be served
+RedirectMatch 404 ^/(templates|scripts)/

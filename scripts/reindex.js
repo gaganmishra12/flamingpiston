@@ -223,7 +223,7 @@ function generateSearchIndex(articles, existingIndex) {
   const existingByUrl = {};
   for (const e of existingIndex) existingByUrl[e.url] = e;
 
-  const typeMap = { review: 'review', news: 'news', comparison: 'comparison', guide: 'guide' };
+  const typeMap = { review: 'brief', news: 'news', comparison: 'comparison', guide: 'guide' };
 
   return articles.map(a => {
     const existing = existingByUrl[a.urlPath];
