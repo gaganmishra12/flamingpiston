@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /review-template.html
-Disallow: /news-bmw-i5-lwb.html
-
-Sitemap: https://flamingpiston.com/sitemap.xml
