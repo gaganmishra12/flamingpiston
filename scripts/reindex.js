@@ -67,10 +67,19 @@ function findSchema(blocks, type) {
 function discoverArticles() {
   const articles = [];
 
+  const redirected = new Set();
+  try {
+    for (const line of readFile('.htaccess').split('\n')) {
+      const m = line.match(/^\s*Redirect\s+301\s+(\S+)/i);
+      if (m) redirected.add(m[1]);
+    }
+  } catch {}
+
   // News articles: news-*.html in root (skip review-template, skip noindex stubs)
   const rootFiles = fs.readdirSync(SITE_ROOT);
   for (const f of rootFiles) {
     if (!f.startsWith('news-') || !f.endsWith('.html')) continue;
+    if (redirected.has(`/${f}`)) continue;
     const html = readFile(f);
     if (hasNoIndex(html)) continue;
     const canonical = extractCanonical(html);
@@ -78,11 +87,15 @@ function discoverArticles() {
     articles.push({ file: f, html, canonical, kind: 'news' });
   }
 
-  // Reviews/comparisons/guides: reviews/*/index.html
-  const reviewsDir = path.join(SITE_ROOT, 'reviews');
-  if (fs.existsSync(reviewsDir)) {
-    for (const slug of fs.readdirSync(reviewsDir)) {
-      const indexPath = path.join('reviews', slug, 'index.html');
+  // Folder articles: reviews/*, guides/*, comparisons/*, articles/* (each slug/index.html).
+  // Any URL that .htaccess 301-redirects elsewhere is skipped, so leftover
+  // duplicate folders can never be re-listed in the sitemap, feed or search.
+  for (const section of ['reviews', 'guides', 'comparisons', 'articles']) {
+    const sectionDir = path.join(SITE_ROOT, section);
+    if (!fs.existsSync(sectionDir)) continue;
+    for (const slug of fs.readdirSync(sectionDir)) {
+      if (redirected.has(`/${section}/${slug}/`)) continue;
+      const indexPath = path.join(section, slug, 'index.html');
       const fullPath = path.join(SITE_ROOT, indexPath);
       if (!fs.existsSync(fullPath)) continue;
       const html = readFile(indexPath);
@@ -91,7 +104,8 @@ function discoverArticles() {
       if (!canonical) continue;
 
       let kind = 'review';
-      if (slug.includes('-vs-')) kind = 'comparison';
+      if (section === 'comparisons' || slug.includes('-vs-')) kind = 'comparison';
+      else if (section === 'guides' || section === 'articles') kind = 'guide';
       else if (slug.includes('mileage') || slug.includes('variants') || slug.includes('automatic') || slug.includes('cng')) kind = 'guide';
 
       articles.push({ file: indexPath, html, canonical, kind });
