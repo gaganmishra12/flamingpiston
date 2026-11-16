@@ -336,6 +336,17 @@ img[src*="syros-front"]{object-position:46% 50%;}
   font-size:clamp(26px,4.2vw,46px);color:var(--ink);margin:0 0 20px;max-width:14ch;
 }
 .pull-statement .hl{color:var(--flame);}
+.about-split{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:56px;align-items:center;}
+.about-facts{background:var(--white);border:1px solid var(--line);border-top:3px solid var(--flame);border-radius:var(--radius);padding:28px 30px;}
+.about-facts .af-label{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--flame-dark);margin:0 0 6px;}
+.about-facts dl{margin:0;}
+.about-facts .af-row{padding:16px 0;border-bottom:1px solid var(--line);}
+.about-facts .af-row:last-child{border-bottom:0;}
+.about-facts dt{font-family:'Manrope',sans-serif;font-weight:800;font-size:15px;color:var(--ink);margin:0 0 4px;}
+.about-facts dd{margin:0;font-size:14px;line-height:1.6;color:var(--ink-soft);}
+.about-facts .af-link{display:inline-block;margin-top:10px;font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;color:var(--flame-dark);border-bottom:2px solid var(--flame);padding-bottom:2px;}
+.about-facts .af-link:hover{color:var(--flame);}
+@media(max-width:900px){.about-split{grid-template-columns:1fr;gap:32px;}}
 
 /* ===== ABOUT: CONTACT BAND ===== */
 .contact-band{
