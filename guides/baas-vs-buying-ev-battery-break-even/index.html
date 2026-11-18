@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="max-image-preview:large">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../images/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon.png">
+  <link rel="icon" href="../../favicon.ico">
+  <title>EV Battery Rental (BaaS) vs Buying: Break-Even Maths</title>
+  <script async src="/js/analytics.js?v=20260910"></script>
+  <meta name="description" content="BaaS cuts an EV&#x27;s upfront price but charges per km. The break-even formula, worked examples for five EVs, and the terms to check before you sign.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css?v=20261115c">
+  <link rel="alternate" type="application/rss+xml" title="FlamingPiston RSS Feed" href="/feed.xml">
+
+  <link rel="canonical" href="https://flamingpiston.com/guides/baas-vs-buying-ev-battery-break-even/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="EV Battery Rental (BaaS) vs Buying: Break-Even Maths">
+  <meta property="og:description" content="BaaS cuts an EV&#x27;s upfront price but charges per km. The break-even formula, worked examples for five EVs, and the terms to check before you sign.">
+  <meta property="og:url" content="https://flamingpiston.com/guides/baas-vs-buying-ev-battery-break-even/">
+  <meta property="og:image" content="https://flamingpiston.com/images/baas-vs-buying-ev-guide-hero.jpg">
+  <meta property="og:site_name" content="FlamingPiston">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://flamingpiston.com/images/baas-vs-buying-ev-guide-hero.jpg">
+  <meta name="twitter:title" content="EV Battery Rental (BaaS) vs Buying: Break-Even Maths">
+  <meta name="twitter:description" content="BaaS cuts an EV&#x27;s upfront price but charges per km. The break-even formula, worked examples for five EVs, and the terms to check before you sign.">
+  <link rel="stylesheet" href="../../site-search.css?v=20261115">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "EV Battery Rental (BaaS) vs Buying Outright: When Does Renting the Battery Cost More?", "description": "BaaS cuts an EV's upfront price but charges per km. The break-even formula, worked examples for five EVs, and the terms to check before you sign.", "datePublished": "2026-11-18T13:00:00+05:30", "dateModified": "2026-11-18T13:00:00+05:30", "author": {"@type": "Person", "name": "Gagan Mishra", "url": "https://flamingpiston.com/author-gagan-mishra.html"}, "publisher": {"@type": "Organization", "name": "FlamingPiston", "logo": {"@type": "ImageObject", "url": "https://flamingpiston.com/images/logo.png"}}, "image": ["https://flamingpiston.com/images/baas-vs-buying-ev-guide-hero.jpg"], "mainEntityOfPage": {"@type": "WebPage", "@id": "https://flamingpiston.com/guides/baas-vs-buying-ev-battery-break-even/"}, "inLanguage": "en-IN"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://flamingpiston.com/"}, {"@type": "ListItem", "position": 2, "name": "Guide", "item": "https://flamingpiston.com/guides.html"}, {"@type": "ListItem", "position": 3, "name": "EV Battery Rental (BaaS) vs Buying Outright: When Does Renting the Battery Cost More?", "item": "https://flamingpiston.com/guides/baas-vs-buying-ev-battery-break-even/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is BaaS for electric cars?", "acceptedAnswer": {"@type": "Answer", "text": "Battery-as-a-Service lets you buy an EV without paying for the battery upfront. You pay a lower showroom price plus a rent for each kilometre you drive."}}, {"@type": "Question", "name": "How do I calculate BaaS break-even?", "acceptedAnswer": {"@type": "Answer", "text": "Divide the upfront saving (full price minus BaaS price) by the rent per kilometre. Below that distance, BaaS costs less; above it, buying outright costs less."}}, {"@type": "Question", "name": "Is the battery rent in addition to charging cost?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. You still pay for electricity. The per-km rent is an extra cost on top of charging."}}]}</script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <div id="fpSearchOverlay" class="fp-search-overlay">
+    <div class="fp-search-panel">
+      <div class="fp-search-input-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input id="fpSearchInput" class="fp-search-input" type="text" placeholder="Search by car name..." autocomplete="off">
+        <button id="fpSearchClose" class="fp-search-close">ESC</button>
+      </div>
+      <div id="fpSearchResults" class="fp-search-results"></div>
+    </div>
+  </div>
+
+
+
+  <header class="site-header">
+    <div class="wrap navbar">
+      <a href="/" class="logo">
+        <img src="../../images/logo.png" alt="FlamingPiston" class="logo-full" width="660" height="56">
+      </a>
+      <div class="nav-collapse" id="navCollapse">
+        <nav class="main-nav">
+        <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="../../reviews.html">Reviews</a></li>
+        <li><a href="../../news.html">News</a></li>
+        <li><a href="../../guides.html" class="active">Guides</a></li>
+        <li><a href="../../comparisons.html">Comparisons</a></li>
+        <li><a href="../../about.html">About</a></li>
+        </ul>
+      </nav>
+      </div>
+            <button id="fpSearchTrigger" class="fp-search-trigger" aria-label="Search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navCollapse">
+        <svg class="icon-menu" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg><svg class="icon-close" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="content" id="main"><span class="tag">Guide</span><h1>EV Battery Rental (BaaS) vs Buying Outright: When Does Renting the Battery Cost More?</h1><img class="hero-image" src="../../images/baas-vs-buying-ev-guide-hero.jpg" alt="FlamingPiston title card: EV battery rental versus buying, break-even maths" width="1600" height="900"><div class="photo-caption">Title card: FlamingPiston</div><div class="author-block">
+      <div class="author-col-left">
+        <div class="author-id">
+          <div class="author-avatar">G</div>
+          <div>
+            <div class="name"><a href="../../author-gagan-mishra.html">Gagan Mishra</a></div>
+            <div class="dates">Published Nov 18, 2026</div>
+          </div>
+        </div>
+        <div class="read-time"><strong>4</strong> min read</div>
+      </div>
+      <div class="category-line">Category: <strong>Guide</strong></div>
+        <div class="share-row">
+        <span class="share-label">Share</span>
+        <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fflamingpiston.com%2Fguides%2Fbaas-vs-buying-ev-battery-break-even%2F" aria-label="Share on Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
+        <a class="share-btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fflamingpiston.com%2Fguides%2Fbaas-vs-buying-ev-battery-break-even%2F&text=EV%20Battery%20Rental%20%28BaaS%29%20vs%20Buying%20Outright%3A%20When%20Does%20Renting%20the%20Battery%20Cost%20More%3F" aria-label="Share on X" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18.9 2H22l-7.5 8.6L23 22h-6.6l-5.1-6.6L5.4 22H2.3l8-9.2L1 2h6.8l4.6 6.1L18.9 2zm-1.2 18h1.8L7.4 4H5.5l12.2 16z"/></svg></a>
+        <a class="share-btn" href="mailto:?subject=EV%20Battery%20Rental%20%28BaaS%29%20vs%20Buying%20Outright%3A%20When%20Does%20Renting%20the%20Battery%20Cost%20More%3F&body=Check%20this%20out%3A%20https%3A%2F%2Fflamingpiston.com%2Fguides%2Fbaas-vs-buying-ev-battery-break-even%2F" aria-label="Share by email">
+          <svg viewBox="0 0 24 24"><path d="M2 4h20v16H2V4zm2 2v.01L12 12l8-5.99V6H4zm16 12V8.24l-8 6-8-6V18h16z"/></svg>
+        </a>
+        <button class="share-btn" type="button" onclick="const b=this;navigator.clipboard.writeText('https://flamingpiston.com/guides/baas-vs-buying-ev-battery-break-even/');b.classList.add('copied');setTimeout(()=&gt;b.classList.remove('copied'),1500);" aria-label="Copy link">
+          <svg viewBox="0 0 24 24"><path d="M3.9 12a5 5 0 0 1 5-5h4v2h-4a3 3 0 0 0 0 6h4v2h-4a5 5 0 0 1-5-5zm7-1h6v2h-6v-2zm3-4h4a5 5 0 0 1 0 10h-4v-2h4a3 3 0 0 0 0-6h-4V7z"/></svg>
+          <span class="copied-tip">Copied!</span>
+        </button>
+      </div>
+    </div><p>Battery-as-a-Service (BaaS) lets you buy an electric car without paying for its battery upfront. The showroom price drops by lakhs, and in return you pay a rent for every kilometre you drive. Whether that is a good deal depends on one number: how far you will drive before the rent adds up to the money you saved.</p>
+<div class="quick-verdict"><h3>The Short Answer</h3><p>Divide the upfront saving by the rent per kilometre. If you will drive fewer kilometres than that while you own the car, BaaS costs less on these numbers. For most of the EVs below, that point is well over one lakh kilometres. The real risks are rate increases, minimum monthly billing and unclear terms when you sell.</p></div>
+
+<div class="section-block">
+  <div class="section-num-heading"><span class="num">1</span><h2>The Break-Even Formula</h2></div>
+<p><strong>Break-even distance = (full price − BaaS price) ÷ battery rent per km</strong></p>
+<p>Example: if BaaS saves ₹2,00,000 upfront and the rent is ₹3.20/km, the break-even is 62,500 km. Drive less than that before you sell and BaaS was cheaper. Drive more and buying outright would have cost less.</p>
+<p>Two things to remember. The rent is on top of your charging cost, which you pay either way. And the formula ignores interest: if you would have taken a loan for the extra battery money, buying outright costs more than the formula shows, which pushes the result further in BaaS’s favour.</p>
+</div>
+
+<div class="section-block">
+  <div class="section-num-heading"><span class="num">2</span><h2>Worked Examples for Five EVs</h2></div>
+<p>Prices are entry ex-showroom figures as reported by CarHP in its BaaS list, last updated 28 September 2026, cross-checked against launch reports where available. Our arithmetic, not a brand calculation.</p>
+<table><tr><th>EV</th><th>Full price</th><th>BaaS price</th><th>Rent</th><th>Break-even</th></tr>
+<tr><td>MG Comet EV</td><td>₹7.00 lakh</td><td>₹4.99 lakh</td><td>₹3.20/km</td><td>~62,800 km</td></tr>
+<tr><td>Tata Punch EV</td><td>₹9.79 lakh</td><td>₹6.59 lakh</td><td>₹2.60/km</td><td>~1,23,100 km</td></tr>
+<tr><td>MG Windsor EV (38 kWh)</td><td>₹14.69 lakh</td><td>₹9.99 lakh</td><td>₹3.90/km*</td><td>~1,20,500 km</td></tr>
+<tr><td>Maruti e Vitara (49 kWh)</td><td>₹15.99 lakh</td><td>₹10.99 lakh</td><td>₹3.99/km</td><td>~1,25,300 km</td></tr>
+<tr><td>Kia Syros EV (42 kWh)</td><td>₹13.49 lakh</td><td>₹7.99 lakh</td><td>₹3.30/km</td><td>~1,66,700 km</td></tr></table>
+<p>*Reports differ on the Windsor’s current rate: some list ₹3.90/km and others ₹3.99/km. At ₹3.99/km, break-even falls to about 1,17,800 km. Confirm the rate on your quote.</p>
+<p>In years: at 1,000 km a month, the Comet reaches break-even in a little over five years. The others take around ten years or more. At 1,500 km a month, most take about seven years, and the Syros EV about nine.</p>
+</div>
+
+<div class="section-block">
+  <div class="section-num-heading"><span class="num">3</span><h2>Minimum Billing Changes the Maths for Light Users</h2></div>
+<p>Some plans charge for a minimum distance each month even if you drive less. EV Select reports that the Maruti e Vitara bills a minimum of 1,800 km a month, about ₹7,182, and the Citroën eC3X a minimum of 2,000 km, about ₹4,520.</p>
+<p>That matters if you drive little. On a 1,800 km minimum, someone who drives 800 km a month still pays for 1,800. Ask for the minimum in writing, and recalculate the break-even using the distance you will be billed for, not the distance you will drive.</p>
+</div>
+
+<div class="section-block">
+  <div class="section-num-heading"><span class="num">4</span><h2>Rates Have Gone Up Before</h2></div>
+<p>Per-km rates are not fixed for life on every plan. Car Quest India reports that the Comet’s rate was ₹2.50/km when BaaS was introduced in 2024 and has since risen to ₹3.20/km. AckoDrive reports the Windsor started at ₹3.50/km.</p>
+<p>Before signing, ask whether your rate is locked for the contract, and how much notice you get of any change. A rise of ₹0.50/km on 1,500 km a month is ₹750 a month more.</p>
+</div>
+
+<div class="section-block">
+  <div class="section-num-heading"><span class="num">5</span><h2>Five Questions to Ask Before You Sign</h2></div>
+<ul>
+<li>Is the per-km rate fixed for the contract, and for how long?</li>
+<li>Is there a minimum monthly distance or bill?</li>
+<li>How long is the contract, and what happens when it ends?</li>
+<li>If I sell the car, can the buyer take over the plan, and is there a fee?</li>
+<li>Who covers the battery under warranty, and does BaaS change that cover?</li>
+</ul>
+<p>If the answers are clear and you drive well under the break-even distance, BaaS is a sensible way to cut the upfront cost. If the answers are vague, the lower showroom price is not the whole story.</p>
+<p>Charging cost is separate from all of this. For what range you can expect in daily use, see our <a href="../../articles/ev-claimed-vs-real-world-range/">claimed vs real-world EV range guide</a>.</p>
+</div>
+<div class="section-block"><div class="section-num-heading"><h2 class="faq-heading">FAQs</h2></div><p><strong>What is BaaS for electric cars?</strong><br>Battery-as-a-Service lets you buy an EV without paying for the battery upfront. You pay a lower showroom price plus a rent for each kilometre you drive.</p><p><strong>How do I calculate BaaS break-even?</strong><br>Divide the upfront saving (full price minus BaaS price) by the rent per kilometre. Below that distance, BaaS costs less; above it, buying outright costs less.</p><p><strong>Is the battery rent in addition to charging cost?</strong><br>Yes. You still pay for electricity. The per-km rent is an extra cost on top of charging.</p></div>
+<div class="sources-block">
+      <h3>Sources</h3>
+      <ul>
+        <li><a href="https://carhp.in/car-news/which-evs-are-available-with-baas-scheme" target="_blank" rel="noopener">CarHP: Which EVs are available with BaaS (updated 28 September 2026)</a></li>
+        <li><a href="https://www.91wheels.com/news/kia-syros-ev-launched-india-price-526km-range" target="_blank" rel="noopener">91Wheels: Kia Syros EV launched, BaaS from Rs 7.99 lakh + Rs 3.3/km</a></li>
+        <li><a href="https://www.evselect.in/blog/battery-as-a-service-baas-ev-india" target="_blank" rel="noopener">EV Select: BaaS in India, rates and minimum billing</a></li>
+        <li><a href="https://carquestindia.com/all-evs-with-baas-schemes-in-india/" target="_blank" rel="noopener">Car Quest India: Every EV with a BaaS scheme</a></li>
+        <li><a href="https://ackodrive.com/news/every-car-you-can-buy-with-battery-as-a-service-in-india-october-2026-list/" target="_blank" rel="noopener">AckoDrive: Every car you can buy with BaaS (October 2026)</a></li>
+      </ul>
+      <p class="sources-note">Links checked 18 November 2026. Break-even figures are our arithmetic from the listed prices. Rates and prices change; confirm both on your dealer quote.</p>
+    </div>
+<a href="../../guides.html" class="back-inline" id="backInline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>Back to all guides</a></main>
+
+  <div class="section-heading">
+    <h2>Read Next</h2>
+  </div>
+  <div class="card-grid">
+    <article class="card">
+      <a href="../../articles/ev-claimed-vs-real-world-range/" class="card-media">
+        <span class="tag">Article</span>
+        <img src="../../images/ev-real-world-range-guide-hero.jpg" alt="Electric vehicle charging and real-world range illustration" loading="lazy" width="1600" height="900">
+      </a>
+      <div class="card-body">
+        <h3><a href="../../articles/ev-claimed-vs-real-world-range/">Why a 600 km EV Claim Does Not Promise a 600 km Road Trip</a></h3>
+        <div class="card-foot">
+          <a class="read-link" href="../../articles/ev-claimed-vs-real-world-range/">Read →</a>
+        </div>
+      </div>
+    </article>
+    <article class="card">
+      <a href="../../reviews/kia-syros-ev/" class="card-media">
+        <span class="tag">Buyer’s Brief</span>
+        <img src="../../images/syros-front.jpg" alt="Kia Syros EV parked in a city plaza" loading="lazy" width="1100" height="619">
+      </a>
+      <div class="card-body">
+        <h3><a href="../../reviews/kia-syros-ev/">Kia Syros EV: Range, Price and Which Trim to Buy</a></h3>
+        <div class="card-foot">
+          <a class="read-link" href="../../reviews/kia-syros-ev/">Read →</a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a href="/" class="logo footer-logo">
+            <img src="../../images/logo-footer.png" alt="FlamingPiston" class="logo-full" width="660" height="56">
+          </a>
+          <p>Honest automotive reviews, practical buying advice, and maintenance guides — everything you need before buying your next vehicle.</p>
+          <div class="foot-social">
+            <a href="https://www.instagram.com/flamingpiston_in/" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="../../about.html">About</a></li>
+            <li><a href="../../contact.html">Contact</a></li>
+            <li><a href="../../sitemap.html">Sitemap</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Editorial</h4>
+          <ul>
+            <li><a href="../../editorial-policy.html">Editorial Policy</a></li>
+            <li><a href="../../review-methodology.html">Review Methodology</a></li>
+            <li><a href="../../fact-checking-policy.html">Fact-Checking Policy</a></li>
+            <li><a href="../../corrections-policy.html">Corrections Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="../../privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="../../cookie-policy.html">Cookie Policy</a></li>
+            <li><a href="../../terms.html">Terms of Use</a></li>
+            <li><a href="../../affiliate-disclosure.html">Affiliate Disclosure</a></li>
+            <li><a href="../../disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>&copy; 2026 FlamingPiston. All rights reserved.</span>
+        <span><a href="../../sitemap.html">Sitemap</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script>
+    (function(){
+      var btn = document.getElementById('menuBtn');
+      var nav = document.getElementById('navCollapse');
+      if(!btn || !nav) return;
+      btn.addEventListener('click', function(){
+        var open = nav.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.classList.toggle('is-active', open);
+      });
+      nav.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          nav.classList.remove('is-open');
+          btn.setAttribute('aria-expanded','false');
+          btn.classList.remove('is-active');
+        });
+      });
+    })();
+  </script>
+  <script>
+    (function(){
+      var topBtn = document.getElementById('backToTop');
+      if(!topBtn) return;
+      window.addEventListener('scroll', function(){
+        topBtn.classList.toggle('is-visible', window.scrollY > 500);
+      });
+      topBtn.addEventListener('click', function(){
+        window.scrollTo({top:0, behavior:'smooth'});
+      });
+    })();
+  </script>
+  <script>
+    (function(){
+      var backLink = document.getElementById('backInline');
+      if(!backLink) return;
+      backLink.addEventListener('click', function(e){
+        if (window.history.length > 1) {
+          e.preventDefault();
+          window.history.back();
+        }
+      });
+    })();
+  </script>
+  <script src="../../site-search.js"></script></body>
+</html>
