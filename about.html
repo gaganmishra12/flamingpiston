@@ -48,6 +48,31 @@
 }
   </script>
   <link rel="stylesheet" href="site-search.css?v=20261115">
+  <style>
+    .about-intro{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:56px;align-items:start;}
+    .about-intro .pull-statement{max-width:none;}
+    .about-intro p.body{font-size:16px;color:var(--ink-soft);line-height:1.75;margin:0 0 16px;}
+    .about-intro p.body a{color:var(--flame-dark);text-decoration:underline;}
+    .glance{background:var(--ink);color:var(--cream);border-radius:20px;padding:30px 30px 26px;}
+    .glance .eyebrow{color:var(--ember);margin:0 0 18px;}
+    .glance-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px;}
+    .glance-stat{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:16px 16px 14px;}
+    .glance-stat b{display:block;font-family:'Anton',sans-serif;font-weight:400;font-size:38px;line-height:1;color:var(--cream);}
+    .glance-stat span{display:block;margin-top:6px;font-size:13px;color:#CFC5B6;}
+    .glance ul{list-style:none;margin:0;padding:0;}
+    .glance li{display:flex;gap:12px;padding:12px 0;border-top:1px solid rgba(255,255,255,.1);font-size:14.5px;line-height:1.55;color:#E9E1D4;}
+    .glance li strong{flex:0 0 92px;color:var(--ember);font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding-top:2px;}
+    .process{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:8px;}
+    .process-step{border:1px solid var(--line);background:var(--white);border-radius:16px;padding:22px 20px;}
+    .process-step .n{font-family:'Anton',sans-serif;font-size:30px;color:var(--flame);line-height:1;}
+    .process-step h3{font-family:'Manrope',sans-serif;font-weight:800;text-transform:none;font-size:17px;margin:12px 0 6px;line-height:1.3;}
+    .process-step p{font-size:14px;color:var(--ink-soft);line-height:1.6;margin:0;}
+    .about-sec-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin:0 0 18px;}
+    .about-sec-head h2{font-size:clamp(24px,3vw,32px);margin:0;}
+    .about-sec-head a{font-size:13px;font-weight:700;color:var(--flame-dark);letter-spacing:.04em;text-transform:uppercase;}
+    @media(max-width:900px){.about-intro{grid-template-columns:1fr;gap:32px;}.process{grid-template-columns:1fr 1fr;}}
+    @media(max-width:560px){.process{grid-template-columns:1fr;}.glance{padding:24px 20px;}.glance li strong{flex-basis:78px;}}
+  </style>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
@@ -102,36 +127,63 @@
 
   <section>
     <div class="wrap">
-      <div class="pull-band">
-        <p class="eyebrow">Our approach</p>
-        <p class="pull-statement">We read the fine print <span class="hl">so you don’t have to.</span></p>
-        <p style="font-size:16px;color:var(--ink-soft);line-height:1.7;max-width:62ch;">Most car coverage tells you everything about a car. We try to answer one decision well: which engine, which variant, which fuel, and what it really costs to own. Every price and specification is checked against the manufacturer’s own documents, and when we use another publication’s driving impressions, we say so and name them.</p>
-        <p style="font-size:16px;color:var(--ink-soft);line-height:1.7;max-width:62ch;">FlamingPiston was founded by Gagan Mishra, who leads its editorial work. Every article goes through the same process: official documents first, published test evidence second, and a plain note of what we have and haven’t verified ourselves. We don’t take payment from manufacturers or dealers for coverage, and we haven’t yet driven most of the cars we write about; each article says clearly whether we have. See <a style="color:var(--flame-dark);text-decoration:underline;" href="review-methodology.html">How We Assess Cars</a> and our <a style="color:var(--flame-dark);text-decoration:underline;" href="editorial-policy.html">Editorial Policy</a>.</p>
+      <div class="about-intro">
+        <div class="pull-band">
+          <p class="eyebrow">Our approach</p>
+          <p class="pull-statement">We read the fine print <span class="hl">so you don’t have to.</span></p>
+          <p class="body">Most car coverage tells you everything about a car. We try to answer one decision well: which engine, which variant, which fuel, and what it really costs to own. Every price and specification is checked against the manufacturer’s own documents, and when we use another publication’s driving impressions, we say so and name them.</p>
+          <p class="body">FlamingPiston was founded by Gagan Mishra, who leads its editorial work. We don’t take payment from manufacturers or dealers for coverage, and we haven’t yet driven most of the cars we write about; each article says clearly whether we have. See <a href="review-methodology.html">How We Assess Cars</a> and our <a href="editorial-policy.html">Editorial Policy</a>.</p>
+        </div>
+        <aside class="glance" aria-label="FlamingPiston at a glance">
+          <p class="eyebrow">FlamingPiston at a glance</p>
+          <div class="glance-stats">
+            <div class="glance-stat"><b>12</b><span>Buyer’s Briefs</span></div>
+            <div class="glance-stat"><b>13</b><span>Buying guides</span></div>
+            <div class="glance-stat"><b>8</b><span>Comparisons</span></div>
+            <div class="glance-stat"><b>32</b><span>News reports</span></div>
+          </div>
+          <ul>
+            <li><strong>Based in</strong><span>New Delhi, covering cars sold in India</span></li>
+            <li><strong>Sources</strong><span>Official price lists, spec sheets and Bharat NCAP reports, linked on every article</span></li>
+            <li><strong>Money</strong><span>No paid coverage from manufacturers or dealers</span></li>
+            <li><strong>Mistakes</strong><span>Corrected once verified, with the updated date shown on the article</span></li>
+          </ul>
+        </aside>
       </div>
     </div>
   </section>
 
   <section style="padding-top:0;">
     <div class="wrap">
+      <div class="about-sec-head"><h2>What we publish</h2></div>
       <div class="value-grid">
-        <div class="value-card">
-          <span class="vc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+        <a class="value-card" href="reviews.html" style="color:inherit;text-decoration:none;">
           <span class="vc-num">01</span>
-          <h3>Buyer’s briefs</h3>
+          <h3>Buyer’s Briefs</h3>
           <p>Which variant, engine and fuel to buy, built from official price lists and spec sheets, with the trade-offs stated plainly.</p>
-        </div>
-        <div class="value-card">
-          <span class="vc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+        </a>
+        <a class="value-card" href="guides.html" style="color:inherit;text-decoration:none;">
           <span class="vc-num">02</span>
           <h3>Ownership maths</h3>
-          <p>CNG break-even, EV range and battery-rental costs, maintenance and insurance, worked through with real numbers.</p>
-        </div>
-        <div class="value-card">
-          <span class="vc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v18M16 3v18M3 8h5M16 8h5M3 16h5M16 16h5"/></svg></span>
+          <p>CNG break-even, EV range and battery-rental costs, safety ratings and running costs, worked through with real numbers.</p>
+        </a>
+        <a class="value-card" href="comparisons.html" style="color:inherit;text-decoration:none;">
           <span class="vc-num">03</span>
           <h3>Head-to-head comparisons</h3>
-          <p>Direct, no-hedging breakdowns between two shortlisted cars, so you know exactly which one actually fits your needs.</p>
-        </div>
+          <p>Side-by-side breakdowns of shortlisted cars, so you know which one fits your needs and budget.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <div class="about-sec-head"><h2>How an article is made</h2><a href="review-methodology.html">Full methodology →</a></div>
+      <div class="process">
+        <div class="process-step"><span class="n">01</span><h3>Start from official documents</h3><p>Price lists, variant sheets and brochures from the manufacturer come first.</p></div>
+        <div class="process-step"><span class="n">02</span><h3>Add published evidence</h3><p>Bharat NCAP reports and named road tests from other publications, credited in the text.</p></div>
+        <div class="process-step"><span class="n">03</span><h3>Answer the buying question</h3><p>Which version suits which buyer, what it costs to run, and what the brochure leaves out.</p></div>
+        <div class="process-step"><span class="n">04</span><h3>Keep it current</h3><p>Prices and specs are rechecked, and every page shows when it was last updated.</p></div>
       </div>
     </div>
   </section>
@@ -170,7 +222,7 @@
         <div>
           <h4>Editorial</h4>
           <ul>
-            <li><a style="color:var(--flame-dark);text-decoration:underline;" href="editorial-policy.html">Editorial Policy</a></li>
+            <li><a href="editorial-policy.html">Editorial Policy</a></li>
             <li><a href="review-methodology.html">Review Methodology</a></li>
             <li><a href="fact-checking-policy.html">Fact-Checking Policy</a></li>
             <li><a href="corrections-policy.html">Corrections Policy</a></li>
