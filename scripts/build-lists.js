@@ -113,3 +113,76 @@ ${articles.map((a) => `      <li><a href="${a.url}">${esc(a.title)}</a> <span cl
 replaceBetween('author-gagan-mishra.html', 'AUTHOR-LIST:START', 'AUTHOR-LIST:END', list);
 
 console.log(`Homepage: ${Math.min(LATEST_COUNT, articles.length)} latest cards. Author page: ${articles.length} articles.`);
+
+// ---------------------------------------------------------------------------
+// 3. Section pages: every article must appear on its section page.
+//    News -> news.html, comparisons (URL has "-vs-" or comparisons/) -> comparisons.html,
+//    guides/ and articles/ -> guides.html, everything else in reviews/ -> reviews.html.
+//    Articles already listed on ANY section page are left where they are (manual choice wins).
+//    Missing ones are added to the top of the right section, and each section is kept newest first.
+// ---------------------------------------------------------------------------
+const SECTIONS = {
+  news: { file: 'news.html', open: /(<section>\s*<div class="wrap">\s*<div class="card-grid">)/, label: 'News' },
+  comparisons: { file: 'comparisons.html', open: /(<div class="review-row" id="comparisonGrid">)/, label: 'Comparison' },
+  guides: { file: 'guides.html', open: /(<div class="review-row" id="guideGrid">)/, label: 'Guide' },
+  reviews: { file: 'reviews.html', open: /(<div class="review-row" id="reviewGrid">)/, label: 'Buyer’s Brief' },
+};
+function sectionOf(a) {
+  if (a.rel.startsWith('news-')) return 'news';
+  if (a.rel.startsWith('comparisons/') || /-vs-/.test(a.url)) return 'comparisons';
+  if (a.rel.startsWith('guides/') || a.rel.startsWith('articles/') || a.type === 'Guide' || a.type === 'Article') return 'guides';
+  if (a.rel.startsWith('reviews/')) return 'reviews';
+  return null;
+}
+function chips(a) {
+  const t = (a.title + ' ' + a.desc).toLowerCase();
+  const c = [];
+  if (/\b(ev|electric|battery|baas)\b/.test(t)) c.push('electric');
+  if (/hybrid/.test(t)) c.push('hybrid');
+  if (/hatchback|swift|altroz|baleno|glanza|punch/.test(t)) c.push('hatchback');
+  if (/sedan|dzire|amaze|virtus|slavia|city/.test(t)) c.push('sedan');
+  if (/suv|brezza|nexon|seltos|venue|kylaq|syros|3xo/.test(t)) c.push('suv', 'compact-suv');
+  if (/pickup|hilux|v-cross/.test(t)) c.push('pickup');
+  if (/luxury|mercedes|bmw|lexus|porsche|denza|range rover/.test(t)) c.push('luxury');
+  return [...new Set(c)].join(' ');
+}
+const gridOf = (html, open) => {
+  const m = html.match(open); if (!m) return null;
+  const start = m.index + m[0].length;
+  // grid ends at the last </article> before the next </section>
+  const secEnd = html.indexOf('</section>', start);
+  const lastArt = html.lastIndexOf('</article>', secEnd);
+  const end = lastArt > start ? lastArt + '</article>'.length : start;
+  return { start, end, body: html.slice(start, end) };
+};
+const pagesHtml = {};
+for (const [k, s] of Object.entries(SECTIONS)) pagesHtml[k] = fs.readFileSync(path.join(ROOT, s.file), 'utf-8');
+const listedAnywhere = (url) => Object.entries(SECTIONS).some(([k, s]) => {
+  const g = gridOf(pagesHtml[k], s.open); return g && g.body.includes(`href="${url}"`);
+});
+const added = [];
+for (const a of articles) {
+  const sec = sectionOf(a); if (!sec || listedAnywhere(a.url)) continue;
+  const s = SECTIONS[sec]; const g = gridOf(pagesHtml[sec], s.open);
+  if (!g) { console.warn(`WARN: grid not found in ${s.file}`); continue; }
+  const label = a.type === 'Buyer’s Brief' && sec !== 'reviews' ? s.label : a.type;
+  const size = a.img ? imageSize(path.join(ROOT, a.img)) : null;
+  const dims = size ? ` width="${size[0]}" height="${size[1]}"` : '';
+  const c = `<article class="card" data-category="${chips(a)}" data-date="${a.date}">
+          <a href="${a.url}" class="card-media"><span class="tag">${esc(label)}</span><img src="${a.img}" alt="${esc(a.alt)}" loading="lazy"${dims}></a>
+          <div class="card-body"><p class="eyebrow">${esc(label)}</p><h3><a href="${a.url}">${esc(a.title)}</a></h3><p>${esc(a.desc)}</p><div class="card-foot"><a class="read-link" href="${a.url}">Read →</a></div></div>
+        </article>`;
+  pagesHtml[sec] = pagesHtml[sec].slice(0, g.start) + '\n' + c + pagesHtml[sec].slice(g.start);
+  added.push(`${a.url} -> ${s.file}`);
+}
+// keep every section newest first
+for (const [k, s] of Object.entries(SECTIONS)) {
+  const g = gridOf(pagesHtml[k], s.open); if (!g) continue;
+  const cards = g.body.match(/<article class="card"[\s\S]*?<\/article>/g) || [];
+  const dated = cards.map((c, i) => ({ c, i, d: (c.match(/data-date="([^"]+)"/) || [, ''])[1] }));
+  dated.sort((x, y) => y.d.localeCompare(x.d) || x.i - y.i);
+  const sorted = '\n' + dated.map((x) => x.c).join('') ;
+  pagesHtml[k] = pagesHtml[k].slice(0, g.start) + sorted + pagesHtml[k].slice(g.end);
+  fs.writeFileSync(path.join(ROOT, s.file), pagesHtml[k], 'utf-8');
+}
+console.log(added.length ? `Added to sections:\n  ${added.join('\n  ')}` : 'Sections: every article is already listed.');
