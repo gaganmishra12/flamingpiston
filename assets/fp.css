@@ -531,8 +531,8 @@ body.info main.content>p>em:only-child{display:inline;padding:0;background:none;
 .pull-band a,.about-sec a{color:var(--ink);text-decoration-color:var(--ember);text-underline-offset:3px}
 .glance{padding:24px;background:var(--petrol);color:var(--ivory)}
 .glance .eyebrow{color:var(--teal)}
-.glance-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule-dark);margin:16px 0}
-.glance-stat{background:var(--petrol);padding:14px 0}
+.glance-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0 20px}
+.glance-stat{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px 16px 14px}
 .glance-stat b{display:block;font:500 2rem/1 var(--f-mono);color:var(--ivory)}
 .glance-stat span{font:400 12px var(--f-mono);color:var(--on-dark-2)}
 .glance ul{list-style:none;padding:0;margin:0}

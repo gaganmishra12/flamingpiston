@@ -292,6 +292,11 @@ ${perf.slice(3, 7).map((a) => card(a)).join('\n')}
 between('car-culture.html', 'CARDS', culture.map((a) => card(a)).join('\n'));
 setCount('car-culture.html', culture.length);
 
+// ---- about page "at a glance" numbers ----------------------------------------------------------
+if (fs.existsSync(path.join(ROOT, 'about.html'))) {
+  pages['about.html'] = read('about.html').replace(/(data-fp-stat="(\w+)"><b>)[^<]*/g, (m, a, k) => lists[k] ? a + lists[k].length : m);
+}
+
 // ---- author page ---------------------------------------------------------------------------------
 between('author-gagan-mishra.html', 'AUTHOR-LIST', `    <p>${articles.length} articles, newest first.</p>
     <ul class="author-articles">

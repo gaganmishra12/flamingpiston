@@ -18,7 +18,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
-const V = '20261120';                       // bump to bust caches after editing assets
+const V = '20261120b';                       // bump to bust caches after editing assets
 const SKIP_DIRS = new Set(['site', 'scripts', 'images', 'js', 'assets', '.git', 'node_modules', 'design-preview']);
 const args = process.argv.slice(2);
 const DRY = args.includes('--dry-run');
