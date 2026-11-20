@@ -152,8 +152,8 @@ function apply(rel) {
   h = h.replace(/\s*<meta name="theme-color"[^>]*>/g, '');
   // Author photo in every byline (the site has one author). Idempotent: only replaces the old letter avatar.
   h = h.replace(/<div class="author-avatar"( style="[^"]*")?>(?:G|\[First initial\])<\/div>/g, (m, st) => st
-    ? '<div class="author-avatar author-avatar-lg"><img src="/images/gagan-mishra-v1.jpg" alt="Gagan Mishra" width="96" height="96"></div>'
-    : '<div class="author-avatar"><img src="/images/gagan-mishra-avatar-v1.jpg" alt="Gagan Mishra" width="36" height="36"></div>');
+    ? '<div class="author-avatar author-avatar-lg"><img src="/images/gagan-mishra-v2.jpg" alt="Gagan Mishra" width="96" height="96"></div>'
+    : '<div class="author-avatar"><img src="/images/gagan-mishra-avatar-v2.jpg" alt="Gagan Mishra" width="36" height="36"></div>');
 
   // Article lead photo: tell the browser to fetch it first (it is the largest thing on screen).
   let head = HEAD;
