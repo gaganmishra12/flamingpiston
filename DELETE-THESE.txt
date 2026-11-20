@@ -1,21 +1,26 @@
-FlamingPiston update, 15 November 2026 - files to DELETE from your repo folder
-(unzipping the changed files cannot delete anything, so do these by hand)
+FlamingPiston redesign, 20 November 2026 - files to DELETE from your repo folder
+(copying the new files in cannot delete anything, so do these by hand in File Explorer/Finder)
 
-Delete these 6 files/folders:
+1. Old design files - nothing uses them any more:
+  style.css
+  site-search.css
+  site-search.js
+  card-dates.js
+  images/logo-footer.png
+  images/logo-light.png
+  images/logo-full-tagline.png      (old logo with the retired tagline)
+
+2. Still left over from the 15 November clean-up (all already redirect through .htaccess):
   guides/maruti-brezza-maintenance-cost/          (whole folder)
   reviews/2026-brezza-turbo-vs-petrol/            (whole folder)
   news-bmw-i5-lwb.html
   reviews-kia-syros-ev.html
   reviews-maruti-brezza.html
   reviews-toyota-hilux.html
-  review-template.html                            (a copy now lives in templates/)
+  review-template.html                            (the template lives in templates/)
 
-And this folder (an old duplicate copy of the whole site, 24 MB):
-  site/
+Do NOT delete images/logo.png - it is now the new logo, used by Google's article data.
+Do NOT delete js/analytics.js - every page uses it.
 
-All of these already redirect to the right pages through .htaccess,
-so visitors and Google are sent to the correct URLs.
-
-After publishing a new article from now on, run:
-  node scripts/build-lists.js
-It refreshes the homepage "Latest" row and the author page list.
+After deleting, GitHub Desktop will list them as deleted; commit that together with the redesign.
+You can delete this text file afterwards too.

@@ -25,3 +25,6 @@ RedirectMatch 301 ^/site/(.*)$ /$1
 
 # Working files that should never be served
 RedirectMatch 404 ^/(templates|scripts)/
+
+# Custom not-found page (redesign, Nov 2026)
+ErrorDocument 404 /404.html

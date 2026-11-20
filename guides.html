@@ -12,10 +12,6 @@
   <script async src="/js/analytics.js?v=20260910"></script>
   <meta name="description" content="Practical car buying guides: real-world mileage, variants, ownership costs, and comparisons to help you decide before you buy.">
   <link rel="alternate" type="application/rss+xml" title="FlamingPiston RSS Feed" href="/feed.xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20261115c">
   <link rel="canonical" href="https://flamingpiston.com/guides.html">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Car Buying Guides - FlamingPiston">
@@ -37,60 +33,52 @@
   ]
 }
   </script>
-  <link rel="stylesheet" href="site-search.css?v=20261115">
+  <!-- FP:HEAD -->
+  <meta name="theme-color" content="#11252E">
+  <link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/familjen-grotesk-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fp.css?v=20261120">
+  <!-- /FP:HEAD -->
 </head>
-<body>
+<body class="listing">
   <a href="#main" class="skip-link">Skip to content</a>
 
-  <div id="fpSearchOverlay" class="fp-search-overlay">
+  <div id="fpSearchOverlay" class="fp-search-overlay" role="dialog" aria-modal="true" aria-label="Search FlamingPiston" aria-hidden="true">
     <div class="fp-search-panel">
-      <div class="fp-search-input-row">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        <input id="fpSearchInput" class="fp-search-input" type="text" placeholder="Search by car name..." autocomplete="off">
-        <button id="fpSearchClose" class="fp-search-close">ESC</button>
+      <div class="fp-search-input-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7.5"/><path d="M20.5 20.5 16.4 16.4"/></svg>
+        <label for="fpSearchInput" class="sr-only">Search</label>
+        <input id="fpSearchInput" class="fp-search-input" type="search" placeholder="Search cars, guides, comparisons" autocomplete="off">
+        <button id="fpSearchClose" class="fp-search-close" type="button">ESC</button>
       </div>
-      <div id="fpSearchResults" class="fp-search-results"></div>
+      <div id="fpSearchResults" class="fp-search-results" aria-live="polite"></div>
+      <div class="fp-search-foot"><span>↑ ↓ to move</span><span>Enter to open</span><span>Esc to close</span></div>
     </div>
   </div>
 
-
-
   <header class="site-header">
     <div class="wrap navbar">
-      <a href="/" class="logo">
-        <img src="images/logo.png" alt="FlamingPiston" class="logo-full" width="660" height="56">
-      </a>
-      <div class="nav-collapse" id="navCollapse">
-        <nav class="main-nav">
-        <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="reviews.html">Reviews</a></li>
-        <li><a href="news.html">News</a></li>
-        <li><a href="guides.html" class="active">Guides</a></li>
-        <li><a href="comparisons.html">Comparisons</a></li>
-        <li><a href="about.html">About</a></li>
-        </ul>
+      <a href="/" class="logo" aria-label="FlamingPiston home"><img src="/assets/brand/flamingpiston_horizontal_cropped_light.svg" alt="FlamingPiston" width="249" height="20"></a>
+      <nav class="main-nav" id="navCollapse" aria-label="Main">
+        <ul><li class="mobile-only"><a href="/">Home</a></li><li><a href="/news.html">News</a></li><li><a href="/reviews.html">Reviews</a></li><li><a href="/guides.html" class="active" aria-current="page">Buying Guides</a></li><li><a href="/comparisons.html">Comparisons</a></li><li><a href="/car-culture.html">Car Culture</a></li><li><a href="/about.html">About</a></li></ul>
+        <div class="nav-secondary"><a href="/contact.html">Contact</a><a href="/editorial-policy.html">Editorial Policy</a><a href="/review-methodology.html">How We Assess Cars</a><a href="https://www.instagram.com/flamingpiston_in/" rel="noopener">Instagram</a></div>
       </nav>
+      <div class="nav-tools">
+        <button id="fpSearchTrigger" class="fp-search-trigger" type="button" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7.5"/><path d="M20.5 20.5 16.4 16.4"/></svg><span class="label">Search</span><kbd>/</kbd></button>
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navCollapse">
+          <svg class="icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg><svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
       </div>
-            <button id="fpSearchTrigger" class="fp-search-trigger" aria-label="Search">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      </button>
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navCollapse">
-        <svg class="icon-menu" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg><svg class="icon-close" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
     </div>
   </header>
+  <main id="main">
 
-  <section class="page-hero">
-    <div class="hero-grain"></div>
-    <div class="wrap">
-      <p class="eyebrow">Before you buy</p>
-      <h1>Buying Guides</h1>
-      <p class="lede">Money, safety and ownership questions answered with worked numbers — mileage, running costs, battery rental, crash ratings and variant choices. Looking at one car? See <a href="reviews.html" style="color:#FFB020;text-decoration:underline">Reviews</a>.</p>
-    </div>
-  </section>
+  <section class="page-head page-head--compact" aria-labelledby="pageTitle"><div class="wrap">
+      <div class="ph-title"><h1 id="pageTitle">Buying Guides</h1><span class="ph-count" data-fp-count="articles">13 articles</span></div>
+      <p class="lede">Money, safety and ownership questions answered with worked numbers — mileage, running costs, battery rental, crash ratings and variant choices. Looking at one car? See <a href="reviews.html">Reviews</a>.</p>
+  </div></section>
 
-  <section style="padding-bottom:0;">
+  <section>
     <div class="wrap">
       <div class="chip-row" id="filterChips">
         <a class="chip is-active" href="#all" data-filter="all">All</a>
@@ -111,189 +99,86 @@
   <section>
     <div class="wrap">
       <p id="filterEmpty" class="filter-empty" hidden>No guides in this category yet — check back soon, or <a href="news.html">browse the latest news</a>.</p>
-      <div class="review-row" id="guideGrid">
-<article class="card" data-category="hatchback sedan suv compact-suv safety" data-date="2026-11-18">
-          <a href="guides/5-star-bharat-ncap-cars-under-10-lakh/" class="card-media"><span class="tag">Guide</span><img src="images/bharat-ncap-cars-under-10-lakh-hero-photo.jpg" alt="White hatchback with crash-test dummy in a crash-test laboratory" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">Guide</p><h3><a href="guides/5-star-bharat-ncap-cars-under-10-lakh/">Safest Cars Under ₹10 Lakh: Every 5-Star Bharat NCAP Car, Sorted by Price</a></h3><p>Every car starting under ₹10 lakh with a 5-star Bharat NCAP rating, sorted by price, with adult and child scores and which variants each rating covers.</p><div class="card-foot"><a class="read-link" href="guides/5-star-bharat-ncap-cars-under-10-lakh/">Read →</a></div></div>
-        </article><article class="card" data-category="electric" data-date="2026-11-18">
-          <a href="guides/baas-vs-buying-ev-battery-break-even/" class="card-media"><span class="tag">Guide</span><img src="images/baas-vs-buying-ev-guide-hero-photo.jpg" alt="Electric SUV charging at a highway charging station at sunset" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">Guide</p><h3><a href="guides/baas-vs-buying-ev-battery-break-even/">EV Battery Rental (BaaS) vs Buying Outright: When Does Renting the Battery Cost More?</a></h3><p>BaaS cuts an EV's upfront price but charges per km. The break-even formula, worked examples for five EVs, and the terms to check before you sign.</p><div class="card-foot"><a class="read-link" href="guides/baas-vs-buying-ev-battery-break-even/">Read →</a></div></div>
-        </article><article class="card" data-category="hatchback sedan suv compact-suv electric hybrid luxury" data-date="2026-10-16">
-          <a href="guides/festive-car-discounts-2026/" class="card-media"><span class="tag">Guide</span><img src="images/festive-car-discounts-guide-hero.jpg" alt="Festive car buying and discounts illustration" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">Guide</p><h3><a href="guides/festive-car-discounts-2026/">Festive Car Discounts in October 2026: What You Actually Save</a></h3><p>A big festive discount is often several conditional benefits added together. Learn how to compare cash, exchange, insurance and finance before booking.</p><div class="card-foot"><a class="read-link" href="guides/festive-car-discounts-2026/">Read →</a></div></div>
-        </article><article class="card" data-category="compact-suv suv ownership" data-date="2026-10-16">
-          <a href="guides/brezza-petrol-vs-cng-break-even/" class="card-media"><span class="tag">Guide</span><img src="images/brezza-petrol-vs-cng-guide-hero.jpg" alt="Maruti Brezza petrol versus CNG ownership illustration" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">Guide</p><h3><a href="guides/brezza-petrol-vs-cng-break-even/">Brezza Petrol vs CNG: How Many Kilometres Before the Extra Cost Pays Back?</a></h3><p>Calculate Brezza CNG break-even using your quoted price premium, local fuel prices and realistic mileage. Worked examples at 600, 1,200 and 2,000 km a month.</p><div class="card-foot"><a class="read-link" href="guides/brezza-petrol-vs-cng-break-even/">Read →</a></div></div>
-        </article><article class="card" data-category="electric ownership" data-date="2026-10-16">
-          <a href="articles/ev-claimed-vs-real-world-range/" class="card-media"><span class="tag">Article</span><img src="images/ev-real-world-range-guide-hero.jpg" alt="Electric vehicle charging and real-world range illustration" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">Article</p><h3><a href="articles/ev-claimed-vs-real-world-range/">Why a 600 km EV Claim Does Not Promise a 600 km Road Trip</a></h3><p>Understand EV range claims, usable battery capacity and charging windows. A simple worked example explains why a 600 km claim is not your next charging stop.</p><div class="card-foot"><a class="read-link" href="articles/ev-claimed-vs-real-world-range/">Read →</a></div></div>
-        </article><article class="card" data-category="suv compact-suv ownership" data-date="2026-09-03">
-          <a href="reviews/2026-maruti-brezza-boot-space/" class="card-media">
-            <span class="tag">Ownership Guide</span>
-            <img src="images/brezza-boot-space-hero.jpg" alt="2026 Maruti Brezza boot space and rear seat practicality" loading="lazy" width="1100" height="619">
-          </a>
-          <div class="card-body">
-            <p class="eyebrow">Ownership Guide</p>
-            <h3><a href="reviews/2026-maruti-brezza-boot-space/">Maruti Brezza Boot Space: 328 Litres, CNG and Family Practicality</a></h3>
-            <p>2026 Brezza boot space is 328 litres, including the new underbody CNG version. See model-year differences and practical luggage checks.</p>
-            <div class="card-foot">
-              <div class="mini-gauge"><span class="dot" style="background:var(--ink-soft)"></span> Guide</div>
-              <a class="read-link" href="reviews/2026-maruti-brezza-boot-space/">Read →</a>
-            </div>
-          </div>
-        </article><article class="card" data-category="suv compact-suv safety" data-date="2026-09-03">
-          <a href="reviews/2026-maruti-brezza-safety/" class="card-media">
-            <span class="tag">Safety Guide</span>
-            <img src="images/brezza-safety-hero.jpg" alt="2026 Maruti Brezza Bharat NCAP safety rating explained" loading="lazy" width="1100" height="619">
-          </a>
-          <div class="card-body">
-            <p class="eyebrow">Safety</p>
-            <h3><a href="reviews/2026-maruti-brezza-safety/">Maruti Brezza Safety &amp; Bharat NCAP Explained</a></h3>
-            <p>The 5-star score decoded: what 30.41/32 and 43/49 actually measure, why Bharat NCAP and Global NCAP numbers are not interchangeable, and what is standard.</p>
-            <div class="card-foot">
-              <div class="mini-gauge"><span class="dot" style="background:var(--ink-soft)"></span> Guide</div>
-              <a class="read-link" href="reviews/2026-maruti-brezza-safety/">Read →</a>
-            </div>
-          </div>
-        </article><article class="card" data-category="suv compact-suv ownership" data-date="2026-09-03">
-          <a href="reviews/2026-maruti-brezza-pros-cons/" class="card-media">
-            <span class="tag">Buying Guide</span>
-            <img src="images/brezza-pros-cons-hero.jpg" alt="2026 Maruti Brezza pros and cons before buying" loading="lazy" width="1100" height="619">
-          </a>
-          <div class="card-body">
-            <p class="eyebrow">Buying Guide</p>
-            <h3><a href="reviews/2026-maruti-brezza-pros-cons/">Maruti Brezza Pros &amp; Cons: Things to Know Before Buying</a></h3>
-            <p>What the Brezza genuinely gets right, the trade-offs nobody raises in the showroom, and the buyers who should be looking somewhere else entirely.</p>
-            <div class="card-foot">
-              <div class="mini-gauge"><span class="dot" style="background:var(--ink-soft)"></span> Guide</div>
-              <a class="read-link" href="reviews/2026-maruti-brezza-pros-cons/">Read →</a>
-            </div>
-          </div>
-        </article><article class="card" data-category="suv compact-suv ownership" data-date="2026-09-03">
-          <a href="reviews/2026-maruti-brezza-maintenance-cost/" class="card-media">
-            <span class="tag">Ownership Guide</span>
-            <img src="images/brezza-maintenance-cost-hero.jpg" alt="2026 Maruti Brezza maintenance cost guide hero" loading="lazy" width="1100" height="619">
-          </a>
-          <div class="card-body">
-            <p class="eyebrow">Ownership Guide</p>
-            <h3><a href="reviews/2026-maruti-brezza-maintenance-cost/">Maruti Brezza Maintenance Cost: What 5 Years of Ownership Costs</a></h3>
-            <p>Service schedule cost by powertrain, insurance estimates with NCB, tyre replacement timing, and a full 5-year running cost breakdown — petrol, turbo, and CNG compared.</p>
-            <div class="card-foot">
-              <div class="mini-gauge"><span class="dot" style="background:var(--ink-soft)"></span> Guide</div>
-              <a class="read-link" href="reviews/2026-maruti-brezza-maintenance-cost/">Read →</a>
-            </div>
-          </div>
-        </article><article class="card" data-category="suv compact-suv hybrid" data-date="2026-08-23">
-          <a href="reviews/2026-maruti-brezza-cng/" class="card-media">
-            <span class="tag">CNG Guide</span>
-            <img src="images/news-brezza-cng-hero.jpg" alt="2026 Maruti Brezza CNG, dark studio graphic with underbody tank highlight and 26.90 km/kg mileage badge" loading="lazy" width="1100" height="619">
-          </a>
-          <div class="card-body">
-            <p class="eyebrow">Buying guide</p>
-            <h3><a href="reviews/2026-maruti-brezza-cng/">2026 Maruti Brezza CNG Review: Mileage, Ownership & Is It Worth It?</a></h3>
-            <p>The underbody tank fixes the boot space problem. Here's what the CNG Brezza costs, what mileage to expect, and whether the economics actually work out for you.</p>
-            <div class="card-foot">
-              <div class="mini-gauge"><span class="dot" style="background:var(--ink-soft)"></span> Guide</div>
-              <a class="read-link" href="reviews/2026-maruti-brezza-cng/">Read →</a>
-            </div>
-          </div>
-        </article><article class="card" data-category="suv compact-suv" data-date="2026-08-17">
-          <a href="reviews/2026-maruti-brezza-automatic/" class="card-media">
-            <span class="tag">Automatic Guide</span>
-            <img src="images/brezza-automatic-hero.jpg" alt="2026 Maruti Brezza Automatic, branded graphic with 6-speed torque converter, price, and mileage badges" loading="lazy" width="1100" height="619">
-          </a>
-          <div class="card-body">
-            <p class="eyebrow">Buying guide</p>
-            <h3><a href="reviews/2026-maruti-brezza-automatic/">2026 Maruti Brezza Automatic Review: Is the Torque Converter AT Worth It?</a></h3>
-            <p>What the 6-speed torque converter automatic is actually like to drive, what it costs over the manual, and who it does and doesn't suit.</p>
-            <div class="card-foot">
-              <div class="mini-gauge"><span class="dot" style="background:var(--ink-soft)"></span> Guide</div>
-              <a class="read-link" href="reviews/2026-maruti-brezza-automatic/">Read →</a>
-            </div>
-          </div>
-        </article><article class="card" data-category="suv compact-suv" data-date="2026-08-13">
-          <a href="reviews/2026-maruti-brezza-variants/" class="card-media">
-            <span class="tag">Variants Guide</span>
-            <img src="images/brezza-variants-hero.jpg" alt="Three 2026 Maruti Brezza variants in white, red and grey in a showroom" loading="lazy" width="1100" height="619">
-          </a>
-          <div class="card-body">
-            <p class="eyebrow">Buying guide</p>
-            <h3><a href="reviews/2026-maruti-brezza-variants/">2026 Maruti Brezza Variants Explained: Which One Can You Actually Order?</a></h3>
-            <p>LXi, VXi, ZXi, ZXi+ — and which combinations of turbo, automatic, and CNG you can and can't actually order together.</p>
-            <div class="card-foot">
-              <div class="mini-gauge"><span class="dot" style="background:var(--ink-soft)"></span> Guide</div>
-              <a class="read-link" href="reviews/2026-maruti-brezza-variants/">Read →</a>
-            </div>
-          </div>
-        </article><article class="card" data-category="suv compact-suv" data-date="2026-08-12">
-          <a href="reviews/2026-maruti-brezza-mileage/" class="card-media">
-            <span class="tag">Mileage Guide</span>
-            <img src="images/brezza-mileage-hero.jpg" alt="2026 Maruti Brezza rear three-quarter shot" loading="lazy" width="1100" height="619">
-          </a>
-          <div class="card-body">
-            <p class="eyebrow">Buying guide</p>
-            <h3><a href="reviews/2026-maruti-brezza-mileage/">2026 Maruti Brezza Real-World Mileage: City, Highway &amp; What Owners Actually Get</a></h3>
-            <p>Brezza mileage guide updated with an October turbo owner report, clear test-versus-owner distinctions and separate city and highway context.</p>
-            <div class="card-foot">
-              <div class="mini-gauge"><span class="dot" style="background:var(--ink-soft)"></span> Guide</div>
-              <a class="read-link" href="reviews/2026-maruti-brezza-mileage/">Read →</a>
-            </div>
-          </div>
+      <div class="review-row has-lead" id="guideGrid">
+<!-- CARDS:START -->
+        <article class="card" data-category="electric" data-date="2026-11-18">
+          <a href="/guides/baas-vs-buying-ev-battery-break-even/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Guide</span><img src="/images/thumbs/baas-vs-buying-ev-guide-hero-photo.webp" alt="Electric SUV charging at a highway charging station at sunset" loading="lazy" width="1600" height="900"></a>
+          <div class="card-body"><p class="eyebrow">Guide</p><h3><a href="/guides/baas-vs-buying-ev-battery-break-even/">EV Battery Rental (BaaS) vs Buying Outright: When Does Renting the Battery Cost More?</a></h3><p>BaaS cuts an EV's upfront price but charges per km. The break-even formula, worked examples for five EVs, and the terms to check before you sign.</p><div class="card-foot"><a class="read-link" href="/guides/baas-vs-buying-ev-battery-break-even/">Read →</a></div></div>
         </article>
+        <article class="card" data-category="hatchback sedan suv compact-suv safety" data-date="2026-11-18">
+          <a href="/guides/5-star-bharat-ncap-cars-under-10-lakh/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Guide</span><img src="/images/thumbs/bharat-ncap-cars-under-10-lakh-hero-photo.webp" alt="White hatchback with crash-test dummy in a crash-test laboratory" loading="lazy" width="1600" height="900"></a>
+          <div class="card-body"><p class="eyebrow">Guide</p><h3><a href="/guides/5-star-bharat-ncap-cars-under-10-lakh/">Safest Cars Under ₹10 Lakh: Every 5-Star Bharat NCAP Car, Sorted by Price</a></h3><p>Every car starting under ₹10 lakh with a 5-star Bharat NCAP rating, sorted by price, with adult and child scores and which variants each rating covers.</p><div class="card-foot"><a class="read-link" href="/guides/5-star-bharat-ncap-cars-under-10-lakh/">Read →</a></div></div>
+        </article>
+        <article class="card" data-category="compact-suv suv ownership" data-date="2026-10-16">
+          <a href="/guides/brezza-petrol-vs-cng-break-even/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Guide</span><img src="/images/thumbs/brezza-petrol-vs-cng-guide-hero.webp" alt="Maruti Brezza petrol versus CNG ownership illustration" loading="lazy" width="1600" height="900"></a>
+          <div class="card-body"><p class="eyebrow">Guide</p><h3><a href="/guides/brezza-petrol-vs-cng-break-even/">Brezza Petrol vs CNG: How Many Kilometres Before the Extra Cost Pays Back?</a></h3><p>Calculate Brezza CNG break-even using your quoted price premium, local fuel prices and realistic mileage. Worked examples at 600, 1,200 and 2,000 km a month.</p><div class="card-foot"><a class="read-link" href="/guides/brezza-petrol-vs-cng-break-even/">Read →</a></div></div>
+        </article>
+        <article class="card" data-category="hatchback sedan suv compact-suv electric hybrid luxury" data-date="2026-10-16">
+          <a href="/guides/festive-car-discounts-2026/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Guide</span><img src="/images/thumbs/festive-car-discounts-guide-hero.webp" alt="Festive car buying and discounts illustration" loading="lazy" width="1600" height="900"></a>
+          <div class="card-body"><p class="eyebrow">Guide</p><h3><a href="/guides/festive-car-discounts-2026/">Festive Car Discounts in October 2026: What You Actually Save</a></h3><p>A big festive discount is often several conditional benefits added together. Learn how to compare cash, exchange, insurance and finance before booking.</p><div class="card-foot"><a class="read-link" href="/guides/festive-car-discounts-2026/">Read →</a></div></div>
+        </article>
+        <article class="card" data-category="electric ownership" data-date="2026-10-16">
+          <a href="/articles/ev-claimed-vs-real-world-range/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Article</span><img src="/images/thumbs/ev-real-world-range-guide-hero.webp" alt="Electric vehicle charging and real-world range illustration" loading="lazy" width="1600" height="900"></a>
+          <div class="card-body"><p class="eyebrow">Article</p><h3><a href="/articles/ev-claimed-vs-real-world-range/">Why a 600 km EV Claim Does Not Promise a 600 km Road Trip</a></h3><p>Understand EV range claims, usable battery capacity and charging windows. A simple worked example explains why a 600 km claim is not your next charging stop.</p><div class="card-foot"><a class="read-link" href="/articles/ev-claimed-vs-real-world-range/">Read →</a></div></div>
+        </article>
+        <article class="card" data-category="suv compact-suv ownership" data-date="2026-09-03">
+          <a href="/reviews/2026-maruti-brezza-boot-space/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Guide</span><img src="/images/thumbs/brezza-boot-space-hero.webp" alt="Grey 2026 Maruti Brezza rear view in a dark studio, tailgate and rear bumper fully visible" loading="lazy" width="1100" height="619"></a>
+          <div class="card-body"><p class="eyebrow">Guide</p><h3><a href="/reviews/2026-maruti-brezza-boot-space/">Brezza Boot Space: Why the CNG Keeps All 328 Litres</a></h3><p>The 2026 Brezza has a 328-litre boot on every version, CNG included, thanks to an underbody tank. Plus rear-seat space, ISOFIX and a luggage check.</p><div class="card-foot"><a class="read-link" href="/reviews/2026-maruti-brezza-boot-space/">Read →</a></div></div>
+        </article>
+        <article class="card" data-category="suv compact-suv safety" data-date="2026-09-03">
+          <a href="/reviews/2026-maruti-brezza-safety/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Guide</span><img src="/images/thumbs/brezza-safety-hero.webp" alt="Red 2026 Maruti Brezza photographed front three-quarter in a dark studio, roofline picked out by a single rim light" loading="lazy" width="1100" height="619"></a>
+          <div class="card-body"><p class="eyebrow">Guide</p><h3><a href="/reviews/2026-maruti-brezza-safety/">Brezza Safety Rating: 5-Star Bharat NCAP (30.41/32) Explained</a></h3><p>The 2026 Brezza has a 5-star Bharat NCAP rating: 30.41/32 adult and 43/49 child protection. What the scores mean, how the test works, standard safety kit.</p><div class="card-foot"><a class="read-link" href="/reviews/2026-maruti-brezza-safety/">Read →</a></div></div>
+        </article>
+        <article class="card" data-category="suv compact-suv ownership" data-date="2026-09-03">
+          <a href="/reviews/2026-maruti-brezza-maintenance-cost/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Guide</span><img src="/images/thumbs/brezza-maintenance-hero.webp" alt="2026 Maruti Brezza service and maintenance cost breakdown" loading="lazy" width="1100" height="619"></a>
+          <div class="card-body"><p class="eyebrow">Guide</p><h3><a href="/reviews/2026-maruti-brezza-maintenance-cost/">Maruti Brezza Maintenance Cost: Service Schedule &amp; 5-Year Ownership Expenses</a></h3><p>What five years of Brezza ownership costs: service schedule, typical bills, and the real petrol-vs-CNG and manual-vs-automatic difference.</p><div class="card-foot"><a class="read-link" href="/reviews/2026-maruti-brezza-maintenance-cost/">Read →</a></div></div>
+        </article>
+        <article class="card" data-category="suv compact-suv ownership" data-date="2026-09-03">
+          <a href="/reviews/2026-maruti-brezza-pros-cons/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Buyer’s Brief</span><img src="/images/thumbs/brezza-pros-cons-hero.webp" alt="Pearl white 2026 Maruti Brezza shot from a high rear three-quarter angle in a dark studio, roof and tailgate lit from above" loading="lazy" width="1100" height="619"></a>
+          <div class="card-body"><p class="eyebrow">Buyer’s Brief</p><h3><a href="/reviews/2026-maruti-brezza-pros-cons/">Maruti Brezza Pros and Cons: 5 Drawbacks to Know Before Buying</a></h3><p>The Brezza’s 5 real drawbacks: no turbo automatic, firm ride, no spare tyre, no digital cluster or powered seats, average rear legroom. Plus 5 strengths.</p><div class="card-foot"><a class="read-link" href="/reviews/2026-maruti-brezza-pros-cons/">Read →</a></div></div>
+        </article>
+        <article class="card" data-category="suv compact-suv hybrid" data-date="2026-08-23">
+          <a href="/reviews/2026-maruti-brezza-cng/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Guide</span><img src="/images/thumbs/news-brezza-cng-hero.webp" alt="2026 Maruti Brezza CNG, dark studio graphic with underbody CNG tank highlight, 26.90 km/kg mileage badge, and flamingpiston.com watermark" loading="lazy" width="1100" height="619"></a>
+          <div class="card-body"><p class="eyebrow">Guide</p><h3><a href="/reviews/2026-maruti-brezza-cng/">2026 Maruti Brezza CNG Review: Mileage, Ownership &amp; Is It Worth It?</a></h3><p>The 2026 Brezza CNG finally gets an underbody tank — no more butchered boot. Here's what that actually means, what it costs, and who should buy it.</p><div class="card-foot"><a class="read-link" href="/reviews/2026-maruti-brezza-cng/">Read →</a></div></div>
+        </article>
+        <article class="card" data-category="suv compact-suv" data-date="2026-08-17">
+          <a href="/reviews/2026-maruti-brezza-automatic/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Guide</span><img src="/images/thumbs/brezza-automatic-hero.webp" alt="2026 Maruti Brezza Automatic, branded graphic with 6-speed torque converter, price, and mileage badges" loading="lazy" width="1100" height="619"></a>
+          <div class="card-body"><p class="eyebrow">Guide</p><h3><a href="/reviews/2026-maruti-brezza-automatic/">2026 Maruti Brezza Automatic Review: Is the Torque Converter AT Worth It?</a></h3><p>Brezza automatic review: the 6-speed torque converter costs ₹1.5L more than the manual. Real-world mileage, drive feel and our verdict.</p><div class="card-foot"><a class="read-link" href="/reviews/2026-maruti-brezza-automatic/">Read →</a></div></div>
+        </article>
+        <article class="card" data-category="suv compact-suv" data-date="2026-08-13">
+          <a href="/reviews/2026-maruti-brezza-variants/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Guide</span><img src="/images/thumbs/brezza-variants-hero.webp" alt="Two 2026 Maruti Brezza variants, red and black, driving side by side" loading="lazy" width="1100" height="619"></a>
+          <div class="card-body"><p class="eyebrow">Guide</p><h3><a href="/reviews/2026-maruti-brezza-variants/">2026 Maruti Brezza Variants Explained: Which One Can You Actually Order?</a></h3><p>LXi, VXi, ZXi, ZXi+ — and which turbo, automatic and CNG combinations you can actually order. The constraints other variant guides skip.</p><div class="card-foot"><a class="read-link" href="/reviews/2026-maruti-brezza-variants/">Read →</a></div></div>
+        </article>
+        <article class="card" data-category="suv compact-suv" data-date="2026-08-12">
+          <a href="/reviews/2026-maruti-brezza-mileage/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Guide</span><img src="/images/thumbs/brezza-mileage-hero.webp" alt="2026 Maruti Brezza red, rear three-quarter shot" loading="lazy" width="1100" height="619"></a>
+          <div class="card-body"><p class="eyebrow">Guide</p><h3><a href="/reviews/2026-maruti-brezza-mileage/">2026 Brezza Real-World Mileage: 10–14 km/l City, ~22 Highway</a></h3><p>Owner-reported Brezza mileage: 10–14 km/l in city traffic for the 1.5 petrol, close to the ARAI claim on steady highway runs, plus AT, turbo and CNG.</p><div class="card-foot"><a class="read-link" href="/reviews/2026-maruti-brezza-mileage/">Read →</a></div></div>
+        </article>
+<!-- CARDS:END -->
       </div>
     </div>
   </section>
+  </main>
 
   <footer class="site-footer">
     <div class="wrap">
       <div class="foot-grid">
         <div class="foot-brand">
-          <a href="/" class="logo footer-logo">
-            <img src="images/logo-footer.png" alt="FlamingPiston" class="logo-full" width="660" height="56">
-          </a>
+          <a href="/" class="logo" aria-label="FlamingPiston home"><img src="/assets/brand/flamingpiston_horizontal_cropped_light.svg" alt="FlamingPiston" width="249" height="20" loading="lazy"></a>
           <p>Honest automotive reviews, practical buying advice, and maintenance guides — everything you need before buying your next vehicle.</p>
-          <div class="foot-social">
-            <a href="https://www.instagram.com/flamingpiston_in/" target="_blank" rel="noopener">Instagram</a>
-          </div>
+          <div class="foot-social"><a href="https://www.instagram.com/flamingpiston_in/" target="_blank" rel="noopener">Instagram @flamingpiston_in</a></div>
         </div>
-        <div>
-          <h4>Company</h4>
-          <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="sitemap.html">Sitemap</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Editorial</h4>
-          <ul>
-            <li><a href="editorial-policy.html">Editorial Policy</a></li>
-            <li><a href="review-methodology.html">Review Methodology</a></li>
-            <li><a href="fact-checking-policy.html">Fact-Checking Policy</a></li>
-            <li><a href="corrections-policy.html">Corrections Policy</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Legal</h4>
-          <ul>
-            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="cookie-policy.html">Cookie Policy</a></li>
-            <li><a href="terms.html">Terms of Use</a></li>
-            <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
-            <li><a href="disclaimer.html">Disclaimer</a></li>
-          </ul>
-        </div>
+        <div><h3 class="f-h">Sections</h3><ul><li><a href="/news.html">News</a></li><li><a href="/reviews.html">Reviews</a></li><li><a href="/guides.html">Buying Guides</a></li><li><a href="/comparisons.html">Comparisons</a></li><li><a href="/car-culture.html">Car Culture</a></li></ul></div>
+        <div><h3 class="f-h">Company</h3><ul><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/author-gagan-mishra.html">Gagan Mishra</a></li><li><a href="/sitemap.html">Sitemap</a></li></ul></div>
+        <div><h3 class="f-h">Editorial</h3><ul><li><a href="/editorial-policy.html">Editorial Policy</a></li><li><a href="/review-methodology.html">Review Methodology</a></li><li><a href="/fact-checking-policy.html">Fact-Checking Policy</a></li><li><a href="/corrections-policy.html">Corrections Policy</a></li></ul></div>
+        <div><h3 class="f-h">Legal</h3><ul><li><a href="/privacy-policy.html">Privacy Policy</a></li><li><a href="/cookie-policy.html">Cookie Policy</a></li><li><a href="/terms.html">Terms of Use</a></li><li><a href="/affiliate-disclosure.html">Affiliate Disclosure</a></li><li><a href="/disclaimer.html">Disclaimer</a></li></ul></div>
       </div>
-      <div class="foot-bottom">
-        <span>&copy; 2026 FlamingPiston. All rights reserved.</span>
-        <span><a href="sitemap.html">Sitemap</a></span>
-      </div>
+      <div class="foot-bottom"><span>&copy; 2026 FlamingPiston. All rights reserved.</span><span>New Delhi, India</span></div>
     </div>
   </footer>
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+  
 
-  <button class="back-to-top" id="backToTop" aria-label="Back to top">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-  </button>
+  
 
   <script>
     (function(){
@@ -355,38 +240,6 @@
       applyFilter(initial);
     })();
   </script>
-  <script>
-    (function(){
-      var btn = document.getElementById('menuBtn');
-      var nav = document.getElementById('navCollapse');
-      if(!btn || !nav) return;
-      btn.addEventListener('click', function(){
-        var open = nav.classList.toggle('is-open');
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-        btn.classList.toggle('is-active', open);
-      });
-      nav.querySelectorAll('a').forEach(function(a){
-        a.addEventListener('click', function(){
-          nav.classList.remove('is-open');
-          btn.setAttribute('aria-expanded','false');
-          btn.classList.remove('is-active');
-        });
-      });
-    })();
-  </script>
-  <script>
-    (function(){
-      var topBtn = document.getElementById('backToTop');
-      if(!topBtn) return;
-      window.addEventListener('scroll', function(){
-        topBtn.classList.toggle('is-visible', window.scrollY > 500);
-      });
-      topBtn.addEventListener('click', function(){
-        window.scrollTo({top:0, behavior:'smooth'});
-      });
-    })();
-  </script>
-  <script src="card-dates.js?v=20261115"></script>
-  <script src="site-search.js"></script>
+  <script src="/assets/fp.js?v=20261120" defer></script>
 </body>
 </html>

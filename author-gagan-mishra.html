@@ -12,10 +12,6 @@
   <script async src="/js/analytics.js?v=20260910"></script>
   <meta name="description" content="Articles by Gagan Mishra, founder and lead writer at FlamingPiston.">
   <link rel="alternate" type="application/rss+xml" title="FlamingPiston RSS Feed" href="/feed.xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20261115c">
   <link rel="canonical" href="https://flamingpiston.com/author-gagan-mishra.html">
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Gagan Mishra - Author at FlamingPiston">
@@ -46,47 +42,42 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="site-search.css?v=20261115">
+  <!-- FP:HEAD -->
+  <meta name="theme-color" content="#11252E">
+  <link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/familjen-grotesk-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fp.css?v=20261120">
+  <!-- /FP:HEAD -->
 </head>
-<body>
+<body class="info">
   <a href="#main" class="skip-link">Skip to content</a>
 
-  <div id="fpSearchOverlay" class="fp-search-overlay">
+  <div id="fpSearchOverlay" class="fp-search-overlay" role="dialog" aria-modal="true" aria-label="Search FlamingPiston" aria-hidden="true">
     <div class="fp-search-panel">
-      <div class="fp-search-input-row">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        <input id="fpSearchInput" class="fp-search-input" type="text" placeholder="Search by car name..." autocomplete="off">
-        <button id="fpSearchClose" class="fp-search-close">ESC</button>
+      <div class="fp-search-input-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7.5"/><path d="M20.5 20.5 16.4 16.4"/></svg>
+        <label for="fpSearchInput" class="sr-only">Search</label>
+        <input id="fpSearchInput" class="fp-search-input" type="search" placeholder="Search cars, guides, comparisons" autocomplete="off">
+        <button id="fpSearchClose" class="fp-search-close" type="button">ESC</button>
       </div>
-      <div id="fpSearchResults" class="fp-search-results"></div>
+      <div id="fpSearchResults" class="fp-search-results" aria-live="polite"></div>
+      <div class="fp-search-foot"><span>↑ ↓ to move</span><span>Enter to open</span><span>Esc to close</span></div>
     </div>
   </div>
 
-
-
   <header class="site-header">
     <div class="wrap navbar">
-      <a href="/" class="logo">
-        <img src="images/logo.png" alt="FlamingPiston" class="logo-full" width="660" height="56">
-      </a>
-      <div class="nav-collapse" id="navCollapse">
-        <nav class="main-nav">
-        <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="reviews.html">Reviews</a></li>
-        <li><a href="news.html">News</a></li>
-        <li><a href="guides.html">Guides</a></li>
-        <li><a href="comparisons.html">Comparisons</a></li>
-        <li><a href="about.html" class="active">About</a></li>
-        </ul>
+      <a href="/" class="logo" aria-label="FlamingPiston home"><img src="/assets/brand/flamingpiston_horizontal_cropped_light.svg" alt="FlamingPiston" width="249" height="20"></a>
+      <nav class="main-nav" id="navCollapse" aria-label="Main">
+        <ul><li class="mobile-only"><a href="/">Home</a></li><li><a href="/news.html">News</a></li><li><a href="/reviews.html">Reviews</a></li><li><a href="/guides.html">Buying Guides</a></li><li><a href="/comparisons.html">Comparisons</a></li><li><a href="/car-culture.html">Car Culture</a></li><li><a href="/about.html">About</a></li></ul>
+        <div class="nav-secondary"><a href="/contact.html">Contact</a><a href="/editorial-policy.html">Editorial Policy</a><a href="/review-methodology.html">How We Assess Cars</a><a href="https://www.instagram.com/flamingpiston_in/" rel="noopener">Instagram</a></div>
       </nav>
+      <div class="nav-tools">
+        <button id="fpSearchTrigger" class="fp-search-trigger" type="button" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7.5"/><path d="M20.5 20.5 16.4 16.4"/></svg><span class="label">Search</span><kbd>/</kbd></button>
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navCollapse">
+          <svg class="icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg><svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
       </div>
-            <button id="fpSearchTrigger" class="fp-search-trigger" aria-label="Search">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      </button>
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navCollapse">
-        <svg class="icon-menu" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg><svg class="icon-close" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
     </div>
   </header>
 
@@ -109,73 +100,74 @@
     <h2>Articles by Gagan Mishra</h2>
 
     <!-- AUTHOR-LIST:START -->
-    <p>65 articles, newest first.</p>
+    <p>66 articles, newest first.</p>
     <ul class="author-articles">
-      <li><a href="news-denza-d9-z9-gt-india-launch.html">BYD’s Denza Arrives in India: D9 MPV at ₹90 Lakh, Z9 GT at ₹1.57 Crore</a> <span class="author-article-meta">News &middot; Nov 18, 2026</span></li>
-      <li><a href="guides/baas-vs-buying-ev-battery-break-even/">EV Battery Rental (BaaS) vs Buying Outright: When Does Renting the Battery Cost More?</a> <span class="author-article-meta">Guide &middot; Nov 18, 2026</span></li>
-      <li><a href="news-mahindra-xuv-3xo-cng-bncap.html">Mahindra XUV 3XO CNG Gets a 5-Star Bharat NCAP Rating: How It Compares With the Brezza CNG</a> <span class="author-article-meta">News &middot; Nov 18, 2026</span></li>
-      <li><a href="guides/5-star-bharat-ncap-cars-under-10-lakh/">Safest Cars Under ₹10 Lakh: Every 5-Star Bharat NCAP Car, Sorted by Price</a> <span class="author-article-meta">Guide &middot; Nov 18, 2026</span></li>
-      <li><a href="news-toyota-innova-hycross-facelift-teaser.html">Toyota Innova Hycross Facelift Teased Ahead of 25 November Launch: Should You Wait?</a> <span class="author-article-meta">News &middot; Nov 18, 2026</span></li>
-      <li><a href="reviews/2026-isuzu-v-cross-review/">Isuzu V-Cross 2026: Pickup Practicality, 4WD and Which Variant</a> <span class="author-article-meta">Buyer’s Brief &middot; Oct 23, 2026</span></li>
-      <li><a href="reviews/2026-kia-seltos-review/">Kia Seltos 2026: Which Engine and Variant to Buy</a> <span class="author-article-meta">Buyer’s Brief &middot; Oct 23, 2026</span></li>
-      <li><a href="reviews/2026-mahindra-be6-sporteq-review/">Mahindra BE 6 SPORTEQ: BaaS or Outright Purchase?</a> <span class="author-article-meta">Buyer’s Brief &middot; Oct 23, 2026</span></li>
-      <li><a href="reviews/2026-maruti-swift-review/">Maruti Swift 2026: Mileage, AMT or CNG? Which to Buy</a> <span class="author-article-meta">Buyer’s Brief &middot; Oct 23, 2026</span></li>
-      <li><a href="reviews/2026-skoda-kylaq-review/">Skoda Kylaq 2026: Price, Automatic and Which Variant</a> <span class="author-article-meta">Buyer’s Brief &middot; Oct 23, 2026</span></li>
-      <li><a href="reviews/2026-mahindra-thar-roxx-4x4-review/">Thar Roxx 4x4 2026: Capability or Costly Compromise?</a> <span class="author-article-meta">Buyer’s Brief &middot; Oct 23, 2026</span></li>
-      <li><a href="reviews/2026-volkswagen-virtus-review/">Volkswagen Virtus 2026: 1.0 TSI or 1.5 TSI?</a> <span class="author-article-meta">Buyer’s Brief &middot; Oct 23, 2026</span></li>
-      <li><a href="comparisons/2026-glanza-vs-baleno/">2026 Toyota Glanza vs Maruti Baleno: Compare the Variant, Not Just the Badge</a> <span class="author-article-meta">Comparison &middot; Oct 16, 2026</span></li>
-      <li><a href="guides/brezza-petrol-vs-cng-break-even/">Brezza Petrol vs CNG: How Many Kilometres Before the Extra Cost Pays Back?</a> <span class="author-article-meta">Guide &middot; Oct 16, 2026</span></li>
-      <li><a href="guides/festive-car-discounts-2026/">Festive Car Discounts in October 2026: What You Actually Save</a> <span class="author-article-meta">Guide &middot; Oct 16, 2026</span></li>
-      <li><a href="news-tesla-roadster-reveal-2026.html">Tesla Roadster Finally Takes Flight in Musk’s Demo — Production Is Still Planned for 2028</a> <span class="author-article-meta">News &middot; Oct 16, 2026</span></li>
-      <li><a href="news-toyota-glanza-facelift-2026.html">Toyota Glanza Facelift Launched at ₹6.99 Lakh — Check the Variant Before Chasing ADAS</a> <span class="author-article-meta">News &middot; Oct 16, 2026</span></li>
-      <li><a href="articles/ev-claimed-vs-real-world-range/">Why a 600 km EV Claim Does Not Promise a 600 km Road Trip</a> <span class="author-article-meta">Article &middot; Oct 16, 2026</span></li>
-      <li><a href="news-bmw-7-series-i7-facelift-india.html">BMW 7 Series and i7 Launched in India: Prices Start at ₹1.95 Crore</a> <span class="author-article-meta">News &middot; Sep 10, 2026</span></li>
-      <li><a href="news-maruti-baleno-facelift-launch.html">Maruti Baleno Facelift: The Full Price List Is Out, and the CNG Automatic Has a Catch</a> <span class="author-article-meta">News &middot; Sep 10, 2026</span></li>
-      <li><a href="news-porsche-cayenne-electric-india.html">Porsche Cayenne Electric in India: October Prices and Buying Details</a> <span class="author-article-meta">News &middot; Sep 10, 2026</span></li>
-      <li><a href="reviews/2026-maruti-brezza-boot-space/">Brezza Boot Space: Why the CNG Keeps All 328 Litres</a> <span class="author-article-meta">Guide &middot; Sep 3, 2026</span></li>
-      <li><a href="reviews/2026-maruti-brezza-safety/">Brezza Safety Rating: 5-Star Bharat NCAP (30.41/32) Explained</a> <span class="author-article-meta">Guide &middot; Sep 3, 2026</span></li>
-      <li><a href="reviews/2026-maruti-brezza-turbo-vs-petrol/">Brezza Turbo vs 1.5 Petrol: No Automatic, No CNG on the Turbo</a> <span class="author-article-meta">Guide &middot; Sep 3, 2026</span></li>
-      <li><a href="reviews/2026-maruti-brezza-maintenance-cost/">Maruti Brezza Maintenance Cost: Service Schedule &amp; 5-Year Ownership Expenses</a> <span class="author-article-meta">Guide &middot; Sep 3, 2026</span></li>
-      <li><a href="reviews/2026-maruti-brezza-pros-cons/">Maruti Brezza Pros and Cons: 5 Drawbacks to Know Before Buying</a> <span class="author-article-meta">Buyer’s Brief &middot; Sep 3, 2026</span></li>
-      <li><a href="news-ford-fathom-ev-truck.html">Ford Fathom: America's New Affordable Electric Truck Starts at $28,350, Preorders Open 2027</a> <span class="author-article-meta">News &middot; Aug 27, 2026</span></li>
-      <li><a href="news-mg-hector-tomahawk-launch.html">MG Hector Tomahawk Launched: 517km EV at ₹19.49 Lakh, PHEV at ₹25.69 Lakh — And India's First V2H Car</a> <span class="author-article-meta">News &middot; Aug 27, 2026</span></li>
-      <li><a href="news-slate-truck-ev.html">Slate Truck: The $28,000 Electric Pickup That Lost Its Federal Tax Credit — And Still Plans to Launch</a> <span class="author-article-meta">News &middot; Aug 27, 2026</span></li>
-      <li><a href="news-us-car-prices-aug2026.html">US New Car Prices Hit $49,077 in August 2026 — Tariffs Are Now Your Problem</a> <span class="author-article-meta">News &middot; Aug 27, 2026</span></li>
-      <li><a href="news-audi-q3-india-debut.html">New Audi Q3 India: Launch-Day Preview (16 October 2026)</a> <span class="author-article-meta">News &middot; Aug 25, 2026</span></li>
-      <li><a href="news-kia-sorento-india-launch.html">Kia Sorento Now on Sale in India: Prices Start at ₹27.99 Lakh</a> <span class="author-article-meta">News &middot; Aug 24, 2026</span></li>
-      <li><a href="news-tata-nexon-camo-edition.html">Tata Nexon Camo Edition Launched at ₹9.99 Lakh: New Colours, Bigger Screen &amp; ADAS</a> <span class="author-article-meta">News &middot; Aug 24, 2026</span></li>
-      <li><a href="reviews/2026-maruti-brezza-cng/">2026 Maruti Brezza CNG Review: Mileage, Ownership &amp; Is It Worth It?</a> <span class="author-article-meta">Guide &middot; Aug 23, 2026</span></li>
-      <li><a href="news-mercedes-s-class-2026-india.html">2026 Mercedes-Benz S-Class India Launch: PHEV-Only, 115 km EV Range, Priced from ₹2.20 Crore</a> <span class="author-article-meta">News &middot; Aug 23, 2026</span></li>
-      <li><a href="reviews/bmw-7-series-vs-mercedes-s-class-vs-genesis-g90/">BMW 7 Series vs Mercedes S-Class vs Genesis G90: The Flagship Sedan Fight</a> <span class="author-article-meta">Comparison &middot; Aug 23, 2026</span></li>
-      <li><a href="reviews/bmw-x5-vs-genesis-gv80-vs-volvo-xc90/">BMW X5 vs Genesis GV80 vs Volvo XC90: Three Very Different Answers to the Same Question</a> <span class="author-article-meta">Comparison &middot; Aug 23, 2026</span></li>
-      <li><a href="reviews/range-rover-sport-vs-bmw-x5-vs-mercedes-gle/">Range Rover Sport vs BMW X5 vs Mercedes GLE: The Premium SUV Ladder Explained</a> <span class="author-article-meta">Comparison &middot; Aug 23, 2026</span></li>
-      <li><a href="news-hyundai-tucson-2027.html">2027 Hyundai Tucson Revealed: Art of Steel, Fully Electrified, and Nothing Like What Came Before</a> <span class="author-article-meta">News &middot; Aug 21, 2026</span></li>
-      <li><a href="news-bmw-i5-lwb-india.html">BMW i5 Long Wheelbase Launched in India at ₹79.60 Lakh</a> <span class="author-article-meta">News &middot; Aug 21, 2026</span></li>
-      <li><a href="news-genesis-gv90.html">Genesis GV90 Revealed: Coach Doors, Cinema Cabin, and a Direct Challenge to Rolls-Royce</a> <span class="author-article-meta">News &middot; Aug 21, 2026</span></li>
-      <li><a href="reviews/2026-brezza-vs-fronx/">2026 Maruti Brezza vs Fronx: Which One Should You Buy?</a> <span class="author-article-meta">Comparison &middot; Aug 18, 2026</span></li>
-      <li><a href="news-land-rover-defender-dakar.html">Land Rover Defender Dakar Revealed: A Road-Legal Version of Its Dakar Rally Winner</a> <span class="author-article-meta">News &middot; Aug 18, 2026</span></li>
-      <li><a href="news-skoda-octavia-rs-second-batch.html">Skoda Octavia RS Second Batch: 50 Cars at ₹56.69 Lakh</a> <span class="author-article-meta">News &middot; Aug 18, 2026</span></li>
-      <li><a href="reviews/2026-skoda-slavia-facelift/">Skoda Slavia Facelift 2026: Which Variant to Buy</a> <span class="author-article-meta">Buyer’s Brief &middot; Aug 18, 2026</span></li>
-      <li><a href="reviews/2026-slavia-vs-virtus/">Skoda Slavia Facelift vs Volkswagen Virtus: Which Should You Buy?</a> <span class="author-article-meta">Comparison &middot; Aug 18, 2026</span></li>
-      <li><a href="news-skoda-superb-tdi.html">Skoda Superb TDI Confirmed for India: Pre-Bookings Open, Deliveries in Q2 2027</a> <span class="author-article-meta">News &middot; Aug 18, 2026</span></li>
-      <li><a href="reviews/tata-altroz/">Tata Altroz 2026: Petrol, Diesel or CNG? Which Variant to Buy</a> <span class="author-article-meta">Buyer’s Brief &middot; Aug 18, 2026</span></li>
-      <li><a href="reviews/2026-maruti-brezza-automatic/">2026 Maruti Brezza Automatic Review: Is the Torque Converter AT Worth It?</a> <span class="author-article-meta">Guide &middot; Aug 17, 2026</span></li>
-      <li><a href="news-aston-martin-valen.html">Aston Martin Valen Unveiled: World's Most Powerful Front-Engined Car</a> <span class="author-article-meta">News &middot; Aug 17, 2026</span></li>
-      <li><a href="news-mahindra-be6-sporteq.html">Mahindra BE 6 Sporteq Launched at ₹19.45 Lakh, Triple-Screen Cockpit</a> <span class="author-article-meta">News &middot; Aug 15, 2026</span></li>
-      <li><a href="news-mahindra-scorpio-lifestyler.html">Mahindra Unveils Scorpio Lifestyler Pickup, India Launch Targeted for April 2027</a> <span class="author-article-meta">News &middot; Aug 15, 2026</span></li>
-      <li><a href="reviews/2026-brezza-vs-nexon/">2026 Maruti Brezza vs Tata Nexon: Which Compact SUV Should You Buy?</a> <span class="author-article-meta">Comparison &middot; Aug 14, 2026</span></li>
-      <li><a href="reviews/2026-maruti-brezza-variants/">2026 Maruti Brezza Variants Explained: Which One Can You Actually Order?</a> <span class="author-article-meta">Guide &middot; Aug 13, 2026</span></li>
-      <li><a href="news-bmw-x1-lwb.html">BMW X1 LWB Now on Sale in India from ₹49.90 Lakh</a> <span class="author-article-meta">News &middot; Aug 13, 2026</span></li>
-      <li><a href="news-mg-hector-hawk.html">MG Hector Hawk: Archived August Launch Preview</a> <span class="author-article-meta">News &middot; Aug 13, 2026</span></li>
-      <li><a href="reviews/2026-maruti-brezza-mileage/">2026 Brezza Real-World Mileage: 10–14 km/l City, ~22 Highway</a> <span class="author-article-meta">Guide &middot; Aug 12, 2026</span></li>
-      <li><a href="reviews/2026-maruti-brezza-review/">2026 Maruti Brezza: Price, Which Engine to Buy and Verdict</a> <span class="author-article-meta">Buyer’s Brief &middot; Aug 12, 2026</span></li>
-      <li><a href="news-mahindra-independence-day-2026.html">Mahindra Independence Day 2026: Archived Preview and Follow-up Reports</a> <span class="author-article-meta">News &middot; Aug 12, 2026</span></li>
-      <li><a href="news-mg-couture-editions.html">MG Launches Limited-Run Cyberster &amp; M9 Couture Editions, Just 50 Units Each</a> <span class="author-article-meta">News &middot; Aug 12, 2026</span></li>
-      <li><a href="news-mahindra-scorpio-n-facelift.html">Mahindra Scorpio N Facelift Launched at ₹13.69 Lakh, Gets ADAS and New Z8S Variant</a> <span class="author-article-meta">News &middot; Aug 10, 2026</span></li>
-      <li><a href="news-skoda-slavia-facelift.html">Skoda Slavia Facelift: October Prices Start at ₹9.99 Lakh</a> <span class="author-article-meta">News &middot; Aug 10, 2026</span></li>
-      <li><a href="news-volvo-ex90-india.html">Volvo EX90 Listed in India from ₹1.26 Crore</a> <span class="author-article-meta">News &middot; Aug 10, 2026</span></li>
-      <li><a href="reviews/kia-syros-ev/">Kia Syros EV: Range, Price and Which Trim to Buy</a> <span class="author-article-meta">Buyer’s Brief &middot; Aug 5, 2026</span></li>
-      <li><a href="reviews/toyota-hilux/">Toyota Hilux 2026: What’s Changed, Price and 4x4 Verdict</a> <span class="author-article-meta">Buyer’s Brief &middot; Aug 4, 2026</span></li>
+      <li><a href="/news-denza-d9-z9-gt-india-launch.html">BYD’s Denza Arrives in India: D9 MPV at ₹90 Lakh, Z9 GT at ₹1.57 Crore</a> <span class="author-article-meta">News &middot; Nov 18, 2026</span></li>
+      <li><a href="/guides/baas-vs-buying-ev-battery-break-even/">EV Battery Rental (BaaS) vs Buying Outright: When Does Renting the Battery Cost More?</a> <span class="author-article-meta">Guide &middot; Nov 18, 2026</span></li>
+      <li><a href="/news-mahindra-xuv-3xo-cng-bncap.html">Mahindra XUV 3XO CNG Gets a 5-Star Bharat NCAP Rating: How It Compares With the Brezza CNG</a> <span class="author-article-meta">News &middot; Nov 18, 2026</span></li>
+      <li><a href="/guides/5-star-bharat-ncap-cars-under-10-lakh/">Safest Cars Under ₹10 Lakh: Every 5-Star Bharat NCAP Car, Sorted by Price</a> <span class="author-article-meta">Guide &middot; Nov 18, 2026</span></li>
+      <li><a href="/news-toyota-innova-hycross-facelift-teaser.html">Toyota Innova Hycross Facelift Teased Ahead of 25 November Launch: Should You Wait?</a> <span class="author-article-meta">News &middot; Nov 18, 2026</span></li>
+      <li><a href="/comparisons/brezza-cng-vs-xuv-3xo-cng/">Brezza CNG vs XUV 3XO CNG: Boot Space, Spare Wheel or Power?</a> <span class="author-article-meta">Comparison &middot; Nov 16, 2026</span></li>
+      <li><a href="/reviews/2026-isuzu-v-cross-review/">Isuzu V-Cross 2026: Pickup Practicality, 4WD and Which Variant</a> <span class="author-article-meta">Buyer’s Brief &middot; Oct 23, 2026</span></li>
+      <li><a href="/reviews/2026-kia-seltos-review/">Kia Seltos 2026: Which Engine and Variant to Buy</a> <span class="author-article-meta">Buyer’s Brief &middot; Oct 23, 2026</span></li>
+      <li><a href="/reviews/2026-mahindra-be6-sporteq-review/">Mahindra BE 6 SPORTEQ: BaaS or Outright Purchase?</a> <span class="author-article-meta">Buyer’s Brief &middot; Oct 23, 2026</span></li>
+      <li><a href="/reviews/2026-maruti-swift-review/">Maruti Swift 2026: Mileage, AMT or CNG? Which to Buy</a> <span class="author-article-meta">Buyer’s Brief &middot; Oct 23, 2026</span></li>
+      <li><a href="/reviews/2026-skoda-kylaq-review/">Skoda Kylaq 2026: Price, Automatic and Which Variant</a> <span class="author-article-meta">Buyer’s Brief &middot; Oct 23, 2026</span></li>
+      <li><a href="/reviews/2026-mahindra-thar-roxx-4x4-review/">Thar Roxx 4x4 2026: Capability or Costly Compromise?</a> <span class="author-article-meta">Buyer’s Brief &middot; Oct 23, 2026</span></li>
+      <li><a href="/reviews/2026-volkswagen-virtus-review/">Volkswagen Virtus 2026: 1.0 TSI or 1.5 TSI?</a> <span class="author-article-meta">Buyer’s Brief &middot; Oct 23, 2026</span></li>
+      <li><a href="/comparisons/2026-glanza-vs-baleno/">2026 Toyota Glanza vs Maruti Baleno: Compare the Variant, Not Just the Badge</a> <span class="author-article-meta">Comparison &middot; Oct 16, 2026</span></li>
+      <li><a href="/guides/brezza-petrol-vs-cng-break-even/">Brezza Petrol vs CNG: How Many Kilometres Before the Extra Cost Pays Back?</a> <span class="author-article-meta">Guide &middot; Oct 16, 2026</span></li>
+      <li><a href="/guides/festive-car-discounts-2026/">Festive Car Discounts in October 2026: What You Actually Save</a> <span class="author-article-meta">Guide &middot; Oct 16, 2026</span></li>
+      <li><a href="/news-tesla-roadster-reveal-2026.html">Tesla Roadster Finally Takes Flight in Musk’s Demo — Production Is Still Planned for 2028</a> <span class="author-article-meta">News &middot; Oct 16, 2026</span></li>
+      <li><a href="/news-toyota-glanza-facelift-2026.html">Toyota Glanza Facelift Launched at ₹6.99 Lakh — Check the Variant Before Chasing ADAS</a> <span class="author-article-meta">News &middot; Oct 16, 2026</span></li>
+      <li><a href="/articles/ev-claimed-vs-real-world-range/">Why a 600 km EV Claim Does Not Promise a 600 km Road Trip</a> <span class="author-article-meta">Article &middot; Oct 16, 2026</span></li>
+      <li><a href="/news-bmw-7-series-i7-facelift-india.html">BMW 7 Series and i7 Launched in India: Prices Start at ₹1.95 Crore</a> <span class="author-article-meta">News &middot; Sep 10, 2026</span></li>
+      <li><a href="/news-maruti-baleno-facelift-launch.html">Maruti Baleno Facelift: The Full Price List Is Out, and the CNG Automatic Has a Catch</a> <span class="author-article-meta">News &middot; Sep 10, 2026</span></li>
+      <li><a href="/news-porsche-cayenne-electric-india.html">Porsche Cayenne Electric in India: October Prices and Buying Details</a> <span class="author-article-meta">News &middot; Sep 10, 2026</span></li>
+      <li><a href="/reviews/2026-maruti-brezza-boot-space/">Brezza Boot Space: Why the CNG Keeps All 328 Litres</a> <span class="author-article-meta">Guide &middot; Sep 3, 2026</span></li>
+      <li><a href="/reviews/2026-maruti-brezza-safety/">Brezza Safety Rating: 5-Star Bharat NCAP (30.41/32) Explained</a> <span class="author-article-meta">Guide &middot; Sep 3, 2026</span></li>
+      <li><a href="/reviews/2026-maruti-brezza-turbo-vs-petrol/">Brezza Turbo vs 1.5 Petrol: No Automatic, No CNG on the Turbo</a> <span class="author-article-meta">Guide &middot; Sep 3, 2026</span></li>
+      <li><a href="/reviews/2026-maruti-brezza-maintenance-cost/">Maruti Brezza Maintenance Cost: Service Schedule &amp; 5-Year Ownership Expenses</a> <span class="author-article-meta">Guide &middot; Sep 3, 2026</span></li>
+      <li><a href="/reviews/2026-maruti-brezza-pros-cons/">Maruti Brezza Pros and Cons: 5 Drawbacks to Know Before Buying</a> <span class="author-article-meta">Buyer’s Brief &middot; Sep 3, 2026</span></li>
+      <li><a href="/news-ford-fathom-ev-truck.html">Ford Fathom: America's New Affordable Electric Truck Starts at $28,350, Preorders Open 2027</a> <span class="author-article-meta">News &middot; Aug 27, 2026</span></li>
+      <li><a href="/news-mg-hector-tomahawk-launch.html">MG Hector Tomahawk Launched: 517km EV at ₹19.49 Lakh, PHEV at ₹25.69 Lakh — And India's First V2H Car</a> <span class="author-article-meta">News &middot; Aug 27, 2026</span></li>
+      <li><a href="/news-slate-truck-ev.html">Slate Truck: The $28,000 Electric Pickup That Lost Its Federal Tax Credit — And Still Plans to Launch</a> <span class="author-article-meta">News &middot; Aug 27, 2026</span></li>
+      <li><a href="/news-us-car-prices-aug2026.html">US New Car Prices Hit $49,077 in August 2026 — Tariffs Are Now Your Problem</a> <span class="author-article-meta">News &middot; Aug 27, 2026</span></li>
+      <li><a href="/news-audi-q3-india-debut.html">New Audi Q3 India: Launch-Day Preview (16 October 2026)</a> <span class="author-article-meta">News &middot; Aug 25, 2026</span></li>
+      <li><a href="/news-kia-sorento-india-launch.html">Kia Sorento Now on Sale in India: Prices Start at ₹27.99 Lakh</a> <span class="author-article-meta">News &middot; Aug 24, 2026</span></li>
+      <li><a href="/news-tata-nexon-camo-edition.html">Tata Nexon Camo Edition Launched at ₹9.99 Lakh: New Colours, Bigger Screen &amp; ADAS</a> <span class="author-article-meta">News &middot; Aug 24, 2026</span></li>
+      <li><a href="/reviews/2026-maruti-brezza-cng/">2026 Maruti Brezza CNG Review: Mileage, Ownership &amp; Is It Worth It?</a> <span class="author-article-meta">Guide &middot; Aug 23, 2026</span></li>
+      <li><a href="/news-mercedes-s-class-2026-india.html">2026 Mercedes-Benz S-Class India Launch: PHEV-Only, 115 km EV Range, Priced from ₹2.20 Crore</a> <span class="author-article-meta">News &middot; Aug 23, 2026</span></li>
+      <li><a href="/reviews/bmw-7-series-vs-mercedes-s-class-vs-genesis-g90/">BMW 7 Series vs Mercedes S-Class vs Genesis G90: The Flagship Sedan Fight</a> <span class="author-article-meta">Comparison &middot; Aug 23, 2026</span></li>
+      <li><a href="/reviews/bmw-x5-vs-genesis-gv80-vs-volvo-xc90/">BMW X5 vs Genesis GV80 vs Volvo XC90: Three Very Different Answers to the Same Question</a> <span class="author-article-meta">Comparison &middot; Aug 23, 2026</span></li>
+      <li><a href="/reviews/range-rover-sport-vs-bmw-x5-vs-mercedes-gle/">Range Rover Sport vs BMW X5 vs Mercedes GLE: The Premium SUV Ladder Explained</a> <span class="author-article-meta">Comparison &middot; Aug 23, 2026</span></li>
+      <li><a href="/news-hyundai-tucson-2027.html">2027 Hyundai Tucson Revealed: Art of Steel, Fully Electrified, and Nothing Like What Came Before</a> <span class="author-article-meta">News &middot; Aug 21, 2026</span></li>
+      <li><a href="/news-bmw-i5-lwb-india.html">BMW i5 Long Wheelbase Launched in India at ₹79.60 Lakh</a> <span class="author-article-meta">News &middot; Aug 21, 2026</span></li>
+      <li><a href="/news-genesis-gv90.html">Genesis GV90 Revealed: Coach Doors, Cinema Cabin, and a Direct Challenge to Rolls-Royce</a> <span class="author-article-meta">News &middot; Aug 21, 2026</span></li>
+      <li><a href="/reviews/2026-brezza-vs-fronx/">2026 Maruti Brezza vs Fronx: Which One Should You Buy?</a> <span class="author-article-meta">Comparison &middot; Aug 18, 2026</span></li>
+      <li><a href="/news-land-rover-defender-dakar.html">Land Rover Defender Dakar Revealed: A Road-Legal Version of Its Dakar Rally Winner</a> <span class="author-article-meta">News &middot; Aug 18, 2026</span></li>
+      <li><a href="/news-skoda-octavia-rs-second-batch.html">Skoda Octavia RS Second Batch: 50 Cars at ₹56.69 Lakh</a> <span class="author-article-meta">News &middot; Aug 18, 2026</span></li>
+      <li><a href="/reviews/2026-skoda-slavia-facelift/">Skoda Slavia Facelift 2026: Which Variant to Buy</a> <span class="author-article-meta">Buyer’s Brief &middot; Aug 18, 2026</span></li>
+      <li><a href="/reviews/2026-slavia-vs-virtus/">Skoda Slavia Facelift vs Volkswagen Virtus: Which Should You Buy?</a> <span class="author-article-meta">Comparison &middot; Aug 18, 2026</span></li>
+      <li><a href="/news-skoda-superb-tdi.html">Skoda Superb TDI Confirmed for India: Pre-Bookings Open, Deliveries in Q2 2027</a> <span class="author-article-meta">News &middot; Aug 18, 2026</span></li>
+      <li><a href="/reviews/tata-altroz/">Tata Altroz 2026: Petrol, Diesel or CNG? Which Variant to Buy</a> <span class="author-article-meta">Buyer’s Brief &middot; Aug 18, 2026</span></li>
+      <li><a href="/reviews/2026-maruti-brezza-automatic/">2026 Maruti Brezza Automatic Review: Is the Torque Converter AT Worth It?</a> <span class="author-article-meta">Guide &middot; Aug 17, 2026</span></li>
+      <li><a href="/news-aston-martin-valen.html">Aston Martin Valen Unveiled: World's Most Powerful Front-Engined Car</a> <span class="author-article-meta">News &middot; Aug 17, 2026</span></li>
+      <li><a href="/news-mahindra-be6-sporteq.html">Mahindra BE 6 Sporteq Launched at ₹19.45 Lakh, Triple-Screen Cockpit</a> <span class="author-article-meta">News &middot; Aug 15, 2026</span></li>
+      <li><a href="/news-mahindra-scorpio-lifestyler.html">Mahindra Unveils Scorpio Lifestyler Pickup, India Launch Targeted for April 2027</a> <span class="author-article-meta">News &middot; Aug 15, 2026</span></li>
+      <li><a href="/reviews/2026-brezza-vs-nexon/">2026 Maruti Brezza vs Tata Nexon: Which Compact SUV Should You Buy?</a> <span class="author-article-meta">Comparison &middot; Aug 14, 2026</span></li>
+      <li><a href="/reviews/2026-maruti-brezza-variants/">2026 Maruti Brezza Variants Explained: Which One Can You Actually Order?</a> <span class="author-article-meta">Guide &middot; Aug 13, 2026</span></li>
+      <li><a href="/news-bmw-x1-lwb.html">BMW X1 LWB Now on Sale in India from ₹49.90 Lakh</a> <span class="author-article-meta">News &middot; Aug 13, 2026</span></li>
+      <li><a href="/news-mg-hector-hawk.html">MG Hector Hawk: Archived August Launch Preview</a> <span class="author-article-meta">News &middot; Aug 13, 2026</span></li>
+      <li><a href="/reviews/2026-maruti-brezza-mileage/">2026 Brezza Real-World Mileage: 10–14 km/l City, ~22 Highway</a> <span class="author-article-meta">Guide &middot; Aug 12, 2026</span></li>
+      <li><a href="/reviews/2026-maruti-brezza-review/">2026 Maruti Brezza: Price, Which Engine to Buy and Verdict</a> <span class="author-article-meta">Buyer’s Brief &middot; Aug 12, 2026</span></li>
+      <li><a href="/news-mahindra-independence-day-2026.html">Mahindra Independence Day 2026: Archived Preview and Follow-up Reports</a> <span class="author-article-meta">News &middot; Aug 12, 2026</span></li>
+      <li><a href="/news-mg-couture-editions.html">MG Launches Limited-Run Cyberster &amp; M9 Couture Editions, Just 50 Units Each</a> <span class="author-article-meta">News &middot; Aug 12, 2026</span></li>
+      <li><a href="/news-mahindra-scorpio-n-facelift.html">Mahindra Scorpio N Facelift Launched at ₹13.69 Lakh, Gets ADAS and New Z8S Variant</a> <span class="author-article-meta">News &middot; Aug 10, 2026</span></li>
+      <li><a href="/news-skoda-slavia-facelift.html">Skoda Slavia Facelift: October Prices Start at ₹9.99 Lakh</a> <span class="author-article-meta">News &middot; Aug 10, 2026</span></li>
+      <li><a href="/news-volvo-ex90-india.html">Volvo EX90 Listed in India from ₹1.26 Crore</a> <span class="author-article-meta">News &middot; Aug 10, 2026</span></li>
+      <li><a href="/reviews/kia-syros-ev/">Kia Syros EV: Range, Price and Which Trim to Buy</a> <span class="author-article-meta">Buyer’s Brief &middot; Aug 5, 2026</span></li>
+      <li><a href="/reviews/toyota-hilux/">Toyota Hilux 2026: What’s Changed, Price and 4x4 Verdict</a> <span class="author-article-meta">Buyer’s Brief &middot; Aug 4, 2026</span></li>
     </ul>
 <!-- AUTHOR-LIST:END -->
   </main>
@@ -184,89 +176,19 @@
     <div class="wrap">
       <div class="foot-grid">
         <div class="foot-brand">
-          <a href="/" class="logo footer-logo">
-            <img src="images/logo-footer.png" alt="FlamingPiston" class="logo-full" width="660" height="56">
-          </a>
+          <a href="/" class="logo" aria-label="FlamingPiston home"><img src="/assets/brand/flamingpiston_horizontal_cropped_light.svg" alt="FlamingPiston" width="249" height="20" loading="lazy"></a>
           <p>Honest automotive reviews, practical buying advice, and maintenance guides — everything you need before buying your next vehicle.</p>
-          <div class="foot-social">
-            <a href="https://www.instagram.com/flamingpiston_in/" target="_blank" rel="noopener">Instagram</a>
-          </div>
+          <div class="foot-social"><a href="https://www.instagram.com/flamingpiston_in/" target="_blank" rel="noopener">Instagram @flamingpiston_in</a></div>
         </div>
-
-        <div>
-          <h4>Company</h4>
-          <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="sitemap.html">Sitemap</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4>Editorial</h4>
-          <ul>
-            <li><a href="editorial-policy.html">Editorial Policy</a></li>
-            <li><a href="review-methodology.html">Review Methodology</a></li>
-            <li><a href="fact-checking-policy.html">Fact-Checking Policy</a></li>
-            <li><a href="corrections-policy.html">Corrections Policy</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4>Legal</h4>
-          <ul>
-            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="cookie-policy.html">Cookie Policy</a></li>
-            <li><a href="terms.html">Terms of Use</a></li>
-            <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
-            <li><a href="disclaimer.html">Disclaimer</a></li>
-          </ul>
-        </div>
+        <div><h3 class="f-h">Sections</h3><ul><li><a href="/news.html">News</a></li><li><a href="/reviews.html">Reviews</a></li><li><a href="/guides.html">Buying Guides</a></li><li><a href="/comparisons.html">Comparisons</a></li><li><a href="/car-culture.html">Car Culture</a></li></ul></div>
+        <div><h3 class="f-h">Company</h3><ul><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/author-gagan-mishra.html">Gagan Mishra</a></li><li><a href="/sitemap.html">Sitemap</a></li></ul></div>
+        <div><h3 class="f-h">Editorial</h3><ul><li><a href="/editorial-policy.html">Editorial Policy</a></li><li><a href="/review-methodology.html">Review Methodology</a></li><li><a href="/fact-checking-policy.html">Fact-Checking Policy</a></li><li><a href="/corrections-policy.html">Corrections Policy</a></li></ul></div>
+        <div><h3 class="f-h">Legal</h3><ul><li><a href="/privacy-policy.html">Privacy Policy</a></li><li><a href="/cookie-policy.html">Cookie Policy</a></li><li><a href="/terms.html">Terms of Use</a></li><li><a href="/affiliate-disclosure.html">Affiliate Disclosure</a></li><li><a href="/disclaimer.html">Disclaimer</a></li></ul></div>
       </div>
-
-      <div class="foot-bottom">
-        <span>&copy; 2026 FlamingPiston. All rights reserved.</span>
-        <span><a href="sitemap.html">Sitemap</a></span>
-      </div>
+      <div class="foot-bottom"><span>&copy; 2026 FlamingPiston. All rights reserved.</span><span>New Delhi, India</span></div>
     </div>
   </footer>
-
-
-  <button class="back-to-top" id="backToTop" aria-label="Back to top">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-  </button>
-
-  <script>
-    (function(){
-      var btn = document.getElementById('menuBtn');
-      var nav = document.getElementById('navCollapse');
-      if(!btn || !nav) return;
-      btn.addEventListener('click', function(){
-        var open = nav.classList.toggle('is-open');
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-        btn.classList.toggle('is-active', open);
-      });
-      nav.querySelectorAll('a').forEach(function(a){
-        a.addEventListener('click', function(){
-          nav.classList.remove('is-open');
-          btn.setAttribute('aria-expanded','false');
-          btn.classList.remove('is-active');
-        });
-      });
-    })();
-  </script>
-  <script>
-    (function(){
-      var topBtn = document.getElementById('backToTop');
-      if(!topBtn) return;
-      window.addEventListener('scroll', function(){
-        topBtn.classList.toggle('is-visible', window.scrollY > 500);
-      });
-      topBtn.addEventListener('click', function(){
-        window.scrollTo({top:0, behavior:'smooth'});
-      });
-    })();
-  </script>
-  <script src="site-search.js"></script>
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+  <script src="/assets/fp.js?v=20261120" defer></script>
 </body>
 </html>

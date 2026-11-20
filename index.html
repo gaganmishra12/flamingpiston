@@ -8,24 +8,20 @@
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
   <link rel="icon" href="favicon.ico">
-  <title>FlamingPiston — Know Your Machine</title>
+  <title>FlamingPiston</title>
   <script async src="/js/analytics.js?v=20260910"></script>
   <meta name="description" content="FlamingPiston is a car knowledge hub with honest reviews, buying guides, and maintenance breakdowns — no jargon, no fluff.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20261115c">
   <link rel="alternate" type="application/rss+xml" title="FlamingPiston RSS Feed" href="feed.xml">
 
   <link rel="canonical" href="https://flamingpiston.com/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="FlamingPiston — Know Your Machine">
+  <meta property="og:title" content="FlamingPiston">
   <meta property="og:description" content="FlamingPiston is a car knowledge hub with honest reviews, buying guides, and maintenance breakdowns — no jargon, no fluff.">
   <meta property="og:url" content="https://flamingpiston.com/">
   <meta property="og:image" content="https://flamingpiston.com/images/syros-front.jpg">
   <meta property="og:site_name" content="FlamingPiston">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="FlamingPiston — Know Your Machine">
+  <meta name="twitter:title" content="FlamingPiston">
   <meta name="twitter:description" content="FlamingPiston is a car knowledge hub with honest reviews, buying guides, and maintenance breakdowns — no jargon, no fluff.">
   <meta name="twitter:image" content="https://flamingpiston.com/images/syros-front.jpg">
   <script type="application/ld+json">
@@ -54,285 +50,299 @@
   "url": "https://flamingpiston.com"
 }
   </script>
-  <link rel="stylesheet" href="site-search.css?v=20261115">
+  <!-- FP:HEAD -->
+  <meta name="theme-color" content="#11252E">
+  <link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/familjen-grotesk-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fp.css?v=20261120">
+  <!-- /FP:HEAD -->
 </head>
-<body>
+<body class="home">
   <a href="#main" class="skip-link">Skip to content</a>
 
-  <div id="fpSearchOverlay" class="fp-search-overlay">
+  <div id="fpSearchOverlay" class="fp-search-overlay" role="dialog" aria-modal="true" aria-label="Search FlamingPiston" aria-hidden="true">
     <div class="fp-search-panel">
-      <div class="fp-search-input-row">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        <input id="fpSearchInput" class="fp-search-input" type="text" placeholder="Search by car name..." autocomplete="off">
-        <button id="fpSearchClose" class="fp-search-close">ESC</button>
+      <div class="fp-search-input-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7.5"/><path d="M20.5 20.5 16.4 16.4"/></svg>
+        <label for="fpSearchInput" class="sr-only">Search</label>
+        <input id="fpSearchInput" class="fp-search-input" type="search" placeholder="Search cars, guides, comparisons" autocomplete="off">
+        <button id="fpSearchClose" class="fp-search-close" type="button">ESC</button>
       </div>
-      <div id="fpSearchResults" class="fp-search-results"></div>
+      <div id="fpSearchResults" class="fp-search-results" aria-live="polite"></div>
+      <div class="fp-search-foot"><span>↑ ↓ to move</span><span>Enter to open</span><span>Esc to close</span></div>
     </div>
   </div>
 
-
-
   <header class="site-header">
     <div class="wrap navbar">
-      <a href="/" class="logo">
-        <img src="images/logo.png" alt="FlamingPiston" class="logo-full" width="660" height="56">
-      </a>
-      <div class="nav-collapse" id="navCollapse">
-        <nav class="main-nav">
-        <ul>
-          <li><a href="/" class="active">Home</a></li>
-          <li><a href="reviews.html">Reviews</a></li>
-          <li><a href="news.html">News</a></li>
-        <li><a href="guides.html">Guides</a></li>
-        <li><a href="comparisons.html">Comparisons</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
+      <a href="/" class="logo" aria-label="FlamingPiston home"><img src="/assets/brand/flamingpiston_horizontal_cropped_light.svg" alt="FlamingPiston" width="249" height="20"></a>
+      <nav class="main-nav" id="navCollapse" aria-label="Main">
+        <ul><li class="mobile-only"><a href="/" class="active" aria-current="page">Home</a></li><li><a href="/news.html">News</a></li><li><a href="/reviews.html">Reviews</a></li><li><a href="/guides.html">Buying Guides</a></li><li><a href="/comparisons.html">Comparisons</a></li><li><a href="/car-culture.html">Car Culture</a></li><li><a href="/about.html">About</a></li></ul>
+        <div class="nav-secondary"><a href="/contact.html">Contact</a><a href="/editorial-policy.html">Editorial Policy</a><a href="/review-methodology.html">How We Assess Cars</a><a href="https://www.instagram.com/flamingpiston_in/" rel="noopener">Instagram</a></div>
       </nav>
+      <div class="nav-tools">
+        <button id="fpSearchTrigger" class="fp-search-trigger" type="button" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7.5"/><path d="M20.5 20.5 16.4 16.4"/></svg><span class="label">Search</span><kbd>/</kbd></button>
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navCollapse">
+          <svg class="icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg><svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
       </div>
-            <button id="fpSearchTrigger" class="fp-search-trigger" aria-label="Search">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      </button>
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navCollapse">
-        <svg class="icon-menu" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg><svg class="icon-close" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#18140F" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
     </div>
   </header>
-
   <main id="main">
-  <section class="hero">
-    <div class="hero-grain"></div>
-    <div class="hero-glow"></div>
-    <div class="wrap hero-inner">
-      <div>
-        <p class="eyebrow" style="color:var(--ember)">Car knowledge, unfiltered</p>
-        <h1>KNOW YOUR<br><span class="hl">MACHINE.</span></h1>
-        <p class="lede">Plain-English buying analysis for Indian cars: which variant to buy, what the price list hides, and what it really costs to own. Built for people who want to understand what they’re buying, not sit through a dealership pitch.</p>
-        <div class="hero-actions">
-          <a href="reviews/2026-maruti-brezza-review/" class="btn outline-hero" id="latestReviewCta">Read the latest buyer’s brief →</a>
-          <a href="news.html" class="btn outline-hero">See the latest news</a>
+  <h1 class="sr-only">FlamingPiston</h1>
+  <section class="dark home-lead hero-carousel" id="heroCarousel" aria-roledescription="carousel" aria-label="Top stories" data-interval="7000">
+    <div class="wrap">
+<!-- HERO:START -->
+      <div class="hero-slides" aria-live="off">
+      <article class="lead-story hero-slide is-active" id="heroSlide0" role="group" aria-roledescription="slide" aria-label="1 of 5">
+        <div class="lead-text">
+          <p class="kicker">News · Launch</p>
+          <h2><a href="/news-denza-d9-z9-gt-india-launch.html">BYD’s Denza Arrives in India: D9 MPV at ₹90 Lakh, Z9 GT at ₹1.57 Crore</a></h2>
+          <p class="dek">BYD’s luxury brand Denza has launched the D9 electric MPV at ₹90 lakh and the Z9 GT at ₹1.568 crore. How the D9 compares with the MG M9 and Vellfire.</p>
+          <div class="lead-meta"><span class="by">Gagan Mishra</span><time datetime="2026-11-18">18 Nov 2026</time><span>3 min read</span></div>
         </div>
-      </div>
-
-      <div class="browse-mix-wrap">
-        <div class="hero-visual-ring hero-visual-ring--mix"></div>
-        <div class="hero-visual-glow hero-visual-glow--mix"></div>
-        <div class="browse-card browse-card--big">
-          <p class="eyebrow">Browse by type</p>
-          <h3 class="browse-title">Find Your Lane</h3>
-          <p class="browse-sub">Jump straight to the category you're actually shopping for.</p>
-          <div class="browse-grid">
-            <a href="reviews.html#suv" class="browse-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 16h18M5 16V10l2-4h9l4 5h1a1 1 0 0 1 1 1v4M8 16a2 2 0 1 1-4 0M20 16a2 2 0 1 1-4 0"/></svg>
-              <span>SUV</span>
-            </a>
-            <a href="reviews.html#compact-suv" class="browse-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 16h18M5 16V10l2-4h9l4 5h1a1 1 0 0 1 1 1v4M8 16a2 2 0 1 1-4 0M20 16a2 2 0 1 1-4 0"/></svg>
-              <span>Compact SUV</span>
-            </a>
-            <a href="reviews.html#electric" class="browse-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
-              <span>Electric</span>
-            </a>
-            <a href="reviews.html#pickup" class="browse-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 16h18M5 16V9l3-4h6l4 4h1a1 1 0 0 1 1 1v6M8 16a2 2 0 1 1-4 0M20 16a2 2 0 1 1-4 0"/></svg>
-              <span>Pickup</span>
-            </a>
-            <a href="reviews.html#sedan" class="browse-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 16h18M5 16V11l2-3h9l3 3h1a1 1 0 0 1 1 1v4M8 16a2 2 0 1 1-4 0M18 16a2 2 0 1 1-4 0"/></svg>
-              <span>Sedan</span>
-            </a>
-            <a href="reviews.html#hatchback" class="browse-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 16h16M5 16V11l2-3h7l3 3h1a1 1 0 0 1 1 1v4M8 16a2 2 0 1 1-4 0M18 16a2 2 0 1 1-4 0"/></svg>
-              <span>Hatchback</span>
-            </a>
-            <a href="reviews.html#performance" class="browse-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
-              <span>Performance</span>
-            </a>
-          </div>
-          <a href="reviews.html" class="oc-cta" style="display:block;margin-top:18px;">Browse all buyer’s briefs →</a>
+        <div><a class="lead-media" href="/news-denza-d9-z9-gt-india-launch.html" tabindex="-1" aria-hidden="true"><img src="/images/news-denza-d9-z9-gt-india-launch-photo.jpg" srcset="/images/thumbs/news-denza-d9-z9-gt-india-launch-photo.webp 800w, /images/news-denza-d9-z9-gt-india-launch-photo.jpg 1600w" sizes="(max-width: 860px) 100vw, 60vw" alt="Dark blue Denza D9 electric MPV outside a hotel at dusk" width="1600" height="900" fetchpriority="high"></a>
+        <p class="caption">AI illustration: FlamingPiston</p></div>
+      </article>
+      <article class="lead-story hero-slide" id="heroSlide1" role="group" aria-roledescription="slide" aria-label="2 of 5" aria-hidden="true">
+        <div class="lead-text">
+          <p class="kicker">Guide · Latest</p>
+          <h2><a href="/guides/baas-vs-buying-ev-battery-break-even/" tabindex="-1">EV Battery Rental (BaaS) vs Buying Outright: When Does Renting the Battery Cost More?</a></h2>
+          <p class="dek">BaaS cuts an EV's upfront price but charges per km. The break-even formula, worked examples for five EVs, and the terms to check before you sign.</p>
+          <div class="lead-meta"><span class="by">Gagan Mishra</span><time datetime="2026-11-18">18 Nov 2026</time><span>4 min read</span></div>
         </div>
+        <div><a class="lead-media" href="/guides/baas-vs-buying-ev-battery-break-even/" tabindex="-1" aria-hidden="true"><img data-src="/images/baas-vs-buying-ev-guide-hero-photo.jpg" data-srcset="/images/thumbs/baas-vs-buying-ev-guide-hero-photo.webp 800w, /images/baas-vs-buying-ev-guide-hero-photo.jpg 1600w" sizes="(max-width: 860px) 100vw, 60vw" alt="Electric SUV charging at a highway charging station at sunset" width="1600" height="900" decoding="async"></a>
+        <p class="caption">AI illustration: FlamingPiston</p></div>
+      </article>
+      <article class="lead-story hero-slide" id="heroSlide2" role="group" aria-roledescription="slide" aria-label="3 of 5" aria-hidden="true">
+        <div class="lead-text">
+          <p class="kicker">News · Report</p>
+          <h2><a href="/news-mahindra-xuv-3xo-cng-bncap.html" tabindex="-1">Mahindra XUV 3XO CNG Gets a 5-Star Bharat NCAP Rating: How It Compares With the Brezza CNG</a></h2>
+          <p class="dek">The XUV 3XO CNG scored 29.36/32 for adults and 45/49 for children at Bharat NCAP. How it stacks up against the Brezza CNG on price, boot and mileage.</p>
+          <div class="lead-meta"><span class="by">Gagan Mishra</span><time datetime="2026-11-18">18 Nov 2026</time><span>3 min read</span></div>
+        </div>
+        <div><a class="lead-media" href="/news-mahindra-xuv-3xo-cng-bncap.html" tabindex="-1" aria-hidden="true"><img data-src="/images/news-mahindra-xuv-3xo-cng-bncap-photo.jpg" data-srcset="/images/thumbs/news-mahindra-xuv-3xo-cng-bncap-photo.webp 800w, /images/news-mahindra-xuv-3xo-cng-bncap-photo.jpg 1600w" sizes="(max-width: 860px) 100vw, 60vw" alt="Red Mahindra XUV 3XO compact SUV in a dark studio" width="1600" height="900" decoding="async"></a>
+        <p class="caption">AI illustration: FlamingPiston</p></div>
+      </article>
+      <article class="lead-story hero-slide" id="heroSlide3" role="group" aria-roledescription="slide" aria-label="4 of 5" aria-hidden="true">
+        <div class="lead-text">
+          <p class="kicker">Guide · Latest</p>
+          <h2><a href="/guides/5-star-bharat-ncap-cars-under-10-lakh/" tabindex="-1">Safest Cars Under ₹10 Lakh: Every 5-Star Bharat NCAP Car, Sorted by Price</a></h2>
+          <p class="dek">Every car starting under ₹10 lakh with a 5-star Bharat NCAP rating, sorted by price, with adult and child scores and which variants each rating covers.</p>
+          <div class="lead-meta"><span class="by">Gagan Mishra</span><time datetime="2026-11-18">18 Nov 2026</time><span>4 min read</span></div>
+        </div>
+        <div><a class="lead-media" href="/guides/5-star-bharat-ncap-cars-under-10-lakh/" tabindex="-1" aria-hidden="true"><img data-src="/images/bharat-ncap-cars-under-10-lakh-hero-photo.jpg" data-srcset="/images/thumbs/bharat-ncap-cars-under-10-lakh-hero-photo.webp 800w, /images/bharat-ncap-cars-under-10-lakh-hero-photo.jpg 1600w" sizes="(max-width: 860px) 100vw, 60vw" alt="White hatchback with crash-test dummy in a crash-test laboratory" width="1600" height="900" decoding="async"></a>
+        <p class="caption">AI illustration: FlamingPiston</p></div>
+      </article>
+      <article class="lead-story hero-slide" id="heroSlide4" role="group" aria-roledescription="slide" aria-label="5 of 5" aria-hidden="true">
+        <div class="lead-text">
+          <p class="kicker">News · Reveal</p>
+          <h2><a href="/news-toyota-innova-hycross-facelift-teaser.html" tabindex="-1">Toyota Innova Hycross Facelift Teased Ahead of 25 November Launch: Should You Wait?</a></h2>
+          <p class="dek">Toyota’s teaser confirms new headlamps for the Hycross facelift, launching 25 November. What is confirmed, what is only expected, and who should wait.</p>
+          <div class="lead-meta"><span class="by">Gagan Mishra</span><time datetime="2026-11-18">18 Nov 2026</time><span>3 min read</span></div>
+        </div>
+        <div><a class="lead-media" href="/news-toyota-innova-hycross-facelift-teaser.html" tabindex="-1" aria-hidden="true"><img data-src="/images/news-toyota-innova-hycross-facelift-teaser-photo.jpg" data-srcset="/images/thumbs/news-toyota-innova-hycross-facelift-teaser-photo.webp 800w, /images/news-toyota-innova-hycross-facelift-teaser-photo.jpg 1600w" sizes="(max-width: 860px) 100vw, 60vw" alt="White Toyota Innova Hycross parked under a modern pavilion at dusk" width="1600" height="900" decoding="async"></a>
+        <p class="caption">AI illustration: FlamingPiston</p></div>
+      </article>
       </div>
+      <div class="hero-controls">
+        <div class="hero-tabs" role="tablist" aria-label="Choose a top story"><button class="hero-tab is-active" type="button" role="tab" id="heroTab0" aria-controls="heroSlide0" aria-selected="true" tabindex="0"><span class="ht-bar" aria-hidden="true"><span></span></span><span class="ht-kicker">News · Launch</span><span class="ht-title">BYD’s Denza Arrives in India: D9 MPV at ₹90 Lakh, Z9 GT at ₹1.57 Crore</span></button><button class="hero-tab" type="button" role="tab" id="heroTab1" aria-controls="heroSlide1" aria-selected="false" tabindex="-1"><span class="ht-bar" aria-hidden="true"><span></span></span><span class="ht-kicker">Guide · Latest</span><span class="ht-title">EV Battery Rental (BaaS) vs Buying Outright: When Does Renting the Battery Cost More?</span></button><button class="hero-tab" type="button" role="tab" id="heroTab2" aria-controls="heroSlide2" aria-selected="false" tabindex="-1"><span class="ht-bar" aria-hidden="true"><span></span></span><span class="ht-kicker">News · Report</span><span class="ht-title">Mahindra XUV 3XO CNG Gets a 5-Star Bharat NCAP Rating: How It Compares With the Brezza CNG</span></button><button class="hero-tab" type="button" role="tab" id="heroTab3" aria-controls="heroSlide3" aria-selected="false" tabindex="-1"><span class="ht-bar" aria-hidden="true"><span></span></span><span class="ht-kicker">Guide · Latest</span><span class="ht-title">Safest Cars Under ₹10 Lakh: Every 5-Star Bharat NCAP Car, Sorted by Price</span></button><button class="hero-tab" type="button" role="tab" id="heroTab4" aria-controls="heroSlide4" aria-selected="false" tabindex="-1"><span class="ht-bar" aria-hidden="true"><span></span></span><span class="ht-kicker">News · Reveal</span><span class="ht-title">Toyota Innova Hycross Facelift Teased Ahead of 25 November Launch: Should You Wait?</span></button></div>
+        <button class="hero-pause" type="button" id="heroPause" aria-pressed="false" aria-label="Pause rotation"><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3v14H7zM14 5h3v14h-3z" fill="currentColor"/></svg><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+      </div>
+<!-- HERO:END -->
     </div>
-    <div class="strip-divider"></div>
   </section>
 
-  <section>
+  <section class="band" aria-labelledby="latestTitle">
     <div class="wrap">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Fresh off the lift</p>
-          <h2>Latest</h2>
-        </div>
-        <a href="reviews.html" class="view-all">View all →</a>
-      </div>
-      <div class="review-row" id="latestReviewsRow">
+      <div class="sec-head"><div><p class="kicker">Newest first</p><h2 id="latestTitle">Latest</h2></div><a class="arrow-link" href="/news.html">All news</a></div>
+      <div class="latest-grid" id="latestReviewsRow">
 <!-- LATEST:START -->
-        <article class="card" data-date="2026-11-18">
-          <a href="news-denza-d9-z9-gt-india-launch.html" class="card-media"><span class="tag">News</span><img src="images/news-denza-d9-z9-gt-india-launch-photo.jpg" alt="Dark blue Denza D9 electric MPV outside a hotel at dusk" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">News</p><h3><a href="news-denza-d9-z9-gt-india-launch.html">BYD’s Denza Arrives in India: D9 MPV at ₹90 Lakh, Z9 GT at ₹1.57 Crore</a></h3><p>BYD’s luxury brand Denza has launched the D9 electric MPV at ₹90 lakh and the Z9 GT at ₹1.568 crore. How the D9 compares with the MG M9 and Vellfire.</p><div class="card-foot"><a class="read-link" href="news-denza-d9-z9-gt-india-launch.html">Read →</a></div></div>
-        </article>
-        <article class="card" data-date="2026-11-18">
-          <a href="guides/baas-vs-buying-ev-battery-break-even/" class="card-media"><span class="tag">Guide</span><img src="images/baas-vs-buying-ev-guide-hero-photo.jpg" alt="Electric SUV charging at a highway charging station at sunset" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">Guide</p><h3><a href="guides/baas-vs-buying-ev-battery-break-even/">EV Battery Rental (BaaS) vs Buying Outright: When Does Renting the Battery Cost More?</a></h3><p>BaaS cuts an EV's upfront price but charges per km. The break-even formula, worked examples for five EVs, and the terms to check before you sign.</p><div class="card-foot"><a class="read-link" href="guides/baas-vs-buying-ev-battery-break-even/">Read →</a></div></div>
-        </article>
-        <article class="card" data-date="2026-11-18">
-          <a href="news-mahindra-xuv-3xo-cng-bncap.html" class="card-media"><span class="tag">News</span><img src="images/news-mahindra-xuv-3xo-cng-bncap-photo.jpg" alt="Red Mahindra XUV 3XO compact SUV in a dark studio" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">News</p><h3><a href="news-mahindra-xuv-3xo-cng-bncap.html">Mahindra XUV 3XO CNG Gets a 5-Star Bharat NCAP Rating: How It Compares With the Brezza CNG</a></h3><p>The XUV 3XO CNG scored 29.36/32 for adults and 45/49 for children at Bharat NCAP. How it stacks up against the Brezza CNG on price, boot and mileage.</p><div class="card-foot"><a class="read-link" href="news-mahindra-xuv-3xo-cng-bncap.html">Read →</a></div></div>
-        </article>
-        <article class="card" data-date="2026-11-18">
-          <a href="guides/5-star-bharat-ncap-cars-under-10-lakh/" class="card-media"><span class="tag">Guide</span><img src="images/bharat-ncap-cars-under-10-lakh-hero-photo.jpg" alt="White hatchback with crash-test dummy in a crash-test laboratory" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">Guide</p><h3><a href="guides/5-star-bharat-ncap-cars-under-10-lakh/">Safest Cars Under ₹10 Lakh: Every 5-Star Bharat NCAP Car, Sorted by Price</a></h3><p>Every car starting under ₹10 lakh with a 5-star Bharat NCAP rating, sorted by price, with adult and child scores and which variants each rating covers.</p><div class="card-foot"><a class="read-link" href="guides/5-star-bharat-ncap-cars-under-10-lakh/">Read →</a></div></div>
-        </article>
-        <article class="card" data-date="2026-11-18">
-          <a href="news-toyota-innova-hycross-facelift-teaser.html" class="card-media"><span class="tag">News</span><img src="images/news-toyota-innova-hycross-facelift-teaser-photo.jpg" alt="White Toyota Innova Hycross parked under a modern pavilion at dusk" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">News</p><h3><a href="news-toyota-innova-hycross-facelift-teaser.html">Toyota Innova Hycross Facelift Teased Ahead of 25 November Launch: Should You Wait?</a></h3><p>Toyota’s teaser confirms new headlamps for the Hycross facelift, launching 25 November. What is confirmed, what is only expected, and who should wait.</p><div class="card-foot"><a class="read-link" href="news-toyota-innova-hycross-facelift-teaser.html">Read →</a></div></div>
+        <article class="card" data-date="2026-11-16">
+          <a href="/comparisons/brezza-cng-vs-xuv-3xo-cng/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Comparison</span><img src="/images/thumbs/brezza-cng-vs-xuv-3xo-cng-hero.webp" alt="Brezza CNG vs XUV 3XO CNG: Boot Space, Spare Wheel or Power?" loading="lazy" width="1600" height="900"></a>
+          <div class="card-body"><p class="eyebrow">Comparison</p><h3><a href="/comparisons/brezza-cng-vs-xuv-3xo-cng/">Brezza CNG vs XUV 3XO CNG: Boot Space, Spare Wheel or Power?</a></h3><p>Both cost ₹9.99 lakh in their mid trims. The Brezza CNG keeps a 328 L boot and better mileage; the XUV 3XO CNG has a spare wheel and 200 Nm.</p><div class="card-foot"><a class="read-link" href="/comparisons/brezza-cng-vs-xuv-3xo-cng/">Read →</a></div></div>
         </article>
         <article class="card" data-date="2026-10-23">
-          <a href="reviews/2026-isuzu-v-cross-review/" class="card-media"><span class="tag">Buyer’s Brief</span><img src="images/isuzu-v-cross-review-hero.jpg" alt="Isuzu D-MAX V-Cross editorial review banner" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">Buyer’s Brief</p><h3><a href="reviews/2026-isuzu-v-cross-review/">Isuzu V-Cross 2026: Pickup Practicality, 4WD and Which Variant</a></h3><p>Isuzu D-MAX V-Cross buyer’s brief: price, engines, comfort, safety and practicality from official specs and published drives, plus our variant verdict.</p><div class="card-foot"><a class="read-link" href="reviews/2026-isuzu-v-cross-review/">Read →</a></div></div>
+          <a href="/reviews/2026-isuzu-v-cross-review/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Buyer’s Brief</span><img src="/images/thumbs/isuzu-v-cross-review-hero.webp" alt="Isuzu D-MAX V-Cross editorial review banner" loading="lazy" width="1600" height="900"></a>
+          <div class="card-body"><p class="eyebrow">Buyer’s Brief<span class="seg">Pickup</span></p><h3><a href="/reviews/2026-isuzu-v-cross-review/">Isuzu V-Cross 2026: Pickup Practicality, 4WD and Which Variant</a></h3><p>Isuzu D-MAX V-Cross buyer’s brief: price, engines, comfort, safety and practicality from official specs and published drives, plus our variant verdict.</p><div class="card-foot"><a class="read-link" href="/reviews/2026-isuzu-v-cross-review/">Read →</a></div></div>
         </article>
         <article class="card" data-date="2026-10-23">
-          <a href="reviews/2026-kia-seltos-review/" class="card-media"><span class="tag">Buyer’s Brief</span><img src="images/kia-seltos-review-hero.jpg" alt="Kia Seltos editorial review banner" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">Buyer’s Brief</p><h3><a href="reviews/2026-kia-seltos-review/">Kia Seltos 2026: Which Engine and Variant to Buy</a></h3><p>Kia Seltos buyer’s brief: price, engines, comfort, safety and practicality from official specs and published drives, plus our variant verdict.</p><div class="card-foot"><a class="read-link" href="reviews/2026-kia-seltos-review/">Read →</a></div></div>
+          <a href="/reviews/2026-kia-seltos-review/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Buyer’s Brief</span><img src="/images/thumbs/kia-seltos-review-hero.webp" alt="Kia Seltos editorial review banner" loading="lazy" width="1600" height="900"></a>
+          <div class="card-body"><p class="eyebrow">Buyer’s Brief<span class="seg">SUV</span></p><h3><a href="/reviews/2026-kia-seltos-review/">Kia Seltos 2026: Which Engine and Variant to Buy</a></h3><p>Kia Seltos buyer’s brief: price, engines, comfort, safety and practicality from official specs and published drives, plus our variant verdict.</p><div class="card-foot"><a class="read-link" href="/reviews/2026-kia-seltos-review/">Read →</a></div></div>
         </article>
         <article class="card" data-date="2026-10-23">
-          <a href="reviews/2026-mahindra-be6-sporteq-review/" class="card-media"><span class="tag">Buyer’s Brief</span><img src="images/mahindra-be6-sporteq-review-hero.jpg" alt="Mahindra BE 6 SPORTEQ editorial review banner" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">Buyer’s Brief</p><h3><a href="reviews/2026-mahindra-be6-sporteq-review/">Mahindra BE 6 SPORTEQ: BaaS or Outright Purchase?</a></h3><p>Mahindra BE 6 SPORTEQ buyer’s brief: price, engines, comfort, safety and practicality from official specs and published drives, plus our variant verdict.</p><div class="card-foot"><a class="read-link" href="reviews/2026-mahindra-be6-sporteq-review/">Read →</a></div></div>
+          <a href="/reviews/2026-mahindra-be6-sporteq-review/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Buyer’s Brief</span><img src="/images/thumbs/mahindra-be6-sporteq-review-hero.webp" alt="Mahindra BE 6 SPORTEQ editorial review banner" loading="lazy" width="1600" height="900"></a>
+          <div class="card-body"><p class="eyebrow">Buyer’s Brief<span class="seg">Electric</span></p><h3><a href="/reviews/2026-mahindra-be6-sporteq-review/">Mahindra BE 6 SPORTEQ: BaaS or Outright Purchase?</a></h3><p>Mahindra BE 6 SPORTEQ buyer’s brief: price, engines, comfort, safety and practicality from official specs and published drives, plus our variant verdict.</p><div class="card-foot"><a class="read-link" href="/reviews/2026-mahindra-be6-sporteq-review/">Read →</a></div></div>
         </article>
         <article class="card" data-date="2026-10-23">
-          <a href="reviews/2026-maruti-swift-review/" class="card-media"><span class="tag">Buyer’s Brief</span><img src="images/maruti-swift-review-hero.jpg" alt="Maruti Suzuki Swift editorial review banner" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">Buyer’s Brief</p><h3><a href="reviews/2026-maruti-swift-review/">Maruti Swift 2026: Mileage, AMT or CNG? Which to Buy</a></h3><p>Maruti Suzuki Swift buyer’s brief: price, engines, comfort, safety and practicality from official specs and published drives, plus our variant verdict.</p><div class="card-foot"><a class="read-link" href="reviews/2026-maruti-swift-review/">Read →</a></div></div>
+          <a href="/reviews/2026-maruti-swift-review/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Buyer’s Brief</span><img src="/images/thumbs/maruti-swift-review-hero.webp" alt="Maruti Suzuki Swift editorial review banner" loading="lazy" width="1600" height="900"></a>
+          <div class="card-body"><p class="eyebrow">Buyer’s Brief<span class="seg">Hatchback</span></p><h3><a href="/reviews/2026-maruti-swift-review/">Maruti Swift 2026: Mileage, AMT or CNG? Which to Buy</a></h3><p>Maruti Suzuki Swift buyer’s brief: price, engines, comfort, safety and practicality from official specs and published drives, plus our variant verdict.</p><div class="card-foot"><a class="read-link" href="/reviews/2026-maruti-swift-review/">Read →</a></div></div>
+        </article>
+        <article class="card" data-date="2026-10-23">
+          <a href="/reviews/2026-skoda-kylaq-review/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Buyer’s Brief</span><img src="/images/thumbs/skoda-kylaq-review-hero.webp" alt="Skoda Kylaq editorial review banner" loading="lazy" width="1600" height="900"></a>
+          <div class="card-body"><p class="eyebrow">Buyer’s Brief<span class="seg">Compact SUV</span></p><h3><a href="/reviews/2026-skoda-kylaq-review/">Skoda Kylaq 2026: Price, Automatic and Which Variant</a></h3><p>Skoda Kylaq buyer’s brief: price, engines, comfort, safety and practicality from official specs and published drives, plus our variant verdict.</p><div class="card-foot"><a class="read-link" href="/reviews/2026-skoda-kylaq-review/">Read →</a></div></div>
+        </article>
+        <article class="card" data-date="2026-10-23">
+          <a href="/reviews/2026-mahindra-thar-roxx-4x4-review/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Buyer’s Brief</span><img src="/images/thumbs/mahindra-thar-roxx-review-hero.webp" alt="Mahindra Thar Roxx 4x4 editorial review banner" loading="lazy" width="1600" height="900"></a>
+          <div class="card-body"><p class="eyebrow">Buyer’s Brief<span class="seg">Off-road</span></p><h3><a href="/reviews/2026-mahindra-thar-roxx-4x4-review/">Thar Roxx 4x4 2026: Capability or Costly Compromise?</a></h3><p>Mahindra Thar Roxx 4x4 buyer’s brief: price, engines, comfort, safety and practicality from official specs and published drives, plus our variant verdict.</p><div class="card-foot"><a class="read-link" href="/reviews/2026-mahindra-thar-roxx-4x4-review/">Read →</a></div></div>
+        </article>
+        <article class="card" data-date="2026-10-23">
+          <a href="/reviews/2026-volkswagen-virtus-review/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Buyer’s Brief</span><img src="/images/thumbs/volkswagen-virtus-review-hero.webp" alt="Volkswagen Virtus editorial review banner" loading="lazy" width="1600" height="900"></a>
+          <div class="card-body"><p class="eyebrow">Buyer’s Brief<span class="seg">Sedan</span></p><h3><a href="/reviews/2026-volkswagen-virtus-review/">Volkswagen Virtus 2026: 1.0 TSI or 1.5 TSI?</a></h3><p>Volkswagen Virtus buyer’s brief: price, engines, comfort, safety and practicality from official specs and published drives, plus our variant verdict.</p><div class="card-foot"><a class="read-link" href="/reviews/2026-volkswagen-virtus-review/">Read →</a></div></div>
+        </article>
+        <article class="card" data-date="2026-10-16">
+          <a href="/comparisons/2026-glanza-vs-baleno/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Comparison</span><img src="/images/thumbs/glanza-vs-baleno-comparison-hero.webp" alt="Toyota Glanza and Maruti Baleno comparison illustration" loading="lazy" width="1600" height="900"></a>
+          <div class="card-body"><p class="eyebrow">Comparison</p><h3><a href="/comparisons/2026-glanza-vs-baleno/">2026 Toyota Glanza vs Maruti Baleno: Compare the Variant, Not Just the Badge</a></h3><p>Glanza or Baleno? Compare October launch pricing, CNG automatic choices and equipment priorities without confusing base prices with equivalent variants.</p><div class="card-foot"><a class="read-link" href="/comparisons/2026-glanza-vs-baleno/">Read →</a></div></div>
         </article>
 <!-- LATEST:END -->
       </div>
     </div>
   </section>
 
-  <section class="guides-section">
+  <section class="band band--ivory2" aria-labelledby="guidesTitle">
     <div class="wrap">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">No jargon, promise</p>
-          <h2 style="color:var(--cream)">How We Work</h2>
-        </div>
-        <a href="review-methodology.html" class="view-all" style="border-color:var(--ember);color:var(--cream)">Full methodology →</a>
-      </div>
-      <div class="guide-grid">
-        <a class="guide-card" href="review-methodology.html">
-          <span class="num">01</span>
-          <h3>How every car gets assessed</h3>
-          <span class="arrow">Read methodology →</span>
-        </a>
-        <a class="guide-card" href="editorial-policy.html">
-          <span class="num">02</span>
-          <h3>Our editorial independence policy</h3>
-          <span class="arrow">Read policy →</span>
-        </a>
-        <a class="guide-card" href="fact-checking-policy.html">
-          <span class="num">03</span>
-          <h3>How we fact-check every spec</h3>
-          <span class="arrow">Read policy →</span>
-        </a>
-        <a class="guide-card" href="corrections-policy.html">
-          <span class="num">04</span>
-          <h3>Mistakes happen — here's our fix</h3>
-          <span class="arrow">Read policy →</span>
-        </a>
+      <div class="sec-head"><div><p class="kicker">For Indian car buyers</p><h2 id="guidesTitle">Buying Guides</h2><p class="sec-sub">Running costs, variants, safety ratings and battery rental, worked out with real prices.</p></div><a class="arrow-link" href="/guides.html">All buying guides</a></div>
+      <div class="guide-list">
+<!-- GUIDES:START -->
+        <article class="gcard">
+          <a class="g-media" href="/guides/festive-car-discounts-2026/" tabindex="-1" aria-hidden="true"><img src="/images/thumbs/festive-car-discounts-guide-hero.webp" alt="Festive car buying and discounts illustration" loading="lazy" width="1600" height="900"></a>
+          <div class="g-body"><p class="eyebrow">Guide</p><h3><a href="/guides/festive-car-discounts-2026/">Festive Car Discounts in October 2026: What You Actually Save</a></h3>
+          <p class="meta">16 Oct 2026 · 3 min read</p></div>
+        </article>
+        <article class="gcard">
+          <a class="g-media" href="/reviews/2026-maruti-brezza-boot-space/" tabindex="-1" aria-hidden="true"><img src="/images/thumbs/brezza-boot-space-hero.webp" alt="Grey 2026 Maruti Brezza rear view in a dark studio, tailgate and rear bumper fully visible" loading="lazy" width="1100" height="619"></a>
+          <div class="g-body"><p class="eyebrow">Guide</p><h3><a href="/reviews/2026-maruti-brezza-boot-space/">Brezza Boot Space: Why the CNG Keeps All 328 Litres</a></h3>
+          <p class="meta">3 Sep 2026 · 5 min read</p></div>
+        </article>
+        <article class="gcard">
+          <a class="g-media" href="/reviews/2026-maruti-brezza-safety/" tabindex="-1" aria-hidden="true"><img src="/images/thumbs/brezza-safety-hero.webp" alt="Red 2026 Maruti Brezza photographed front three-quarter in a dark studio, roofline picked out by a single rim light" loading="lazy" width="1100" height="619"></a>
+          <div class="g-body"><p class="eyebrow">Guide</p><h3><a href="/reviews/2026-maruti-brezza-safety/">Brezza Safety Rating: 5-Star Bharat NCAP (30.41/32) Explained</a></h3>
+          <p class="meta">3 Sep 2026 · 5 min read</p></div>
+        </article>
+        <article class="gcard">
+          <a class="g-media" href="/reviews/2026-maruti-brezza-maintenance-cost/" tabindex="-1" aria-hidden="true"><img src="/images/thumbs/brezza-maintenance-hero.webp" alt="2026 Maruti Brezza service and maintenance cost breakdown" loading="lazy" width="1100" height="619"></a>
+          <div class="g-body"><p class="eyebrow">Guide</p><h3><a href="/reviews/2026-maruti-brezza-maintenance-cost/">Maruti Brezza Maintenance Cost: Service Schedule &amp; 5-Year Ownership Expenses</a></h3>
+          <p class="meta">3 Sep 2026 · 5 min read</p></div>
+        </article>
+<!-- GUIDES:END -->
       </div>
     </div>
   </section>
-  <!-- Newsletter signup removed until a provider (e.g. Buttondown/MailerLite) is connected. -->
+
+  <section class="dark band" aria-labelledby="perfTitle">
+    <div class="wrap">
+      <div class="sec-head"><div><p class="kicker">Beyond the ordinary</p><h2 id="perfTitle">Global Performance</h2><p class="sec-sub">Flagships, performance cars and the wider car world, with what each means for India.</p></div><a class="arrow-link" href="/car-culture.html">Car Culture</a></div>
+<!-- PERF:START -->
+      <div class="perf-grid">
+        <div class="perf-lead">
+        <article class="card" data-date="2026-10-16">
+          <a href="/news-tesla-roadster-reveal-2026.html" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">News</span><img src="/images/thumbs/tesla-roadster-news-hero.webp" alt="Tesla Roadster editorial illustration" loading="lazy" width="1600" height="900"></a>
+          <div class="card-body"><p class="eyebrow">News<span class="seg">Reveal</span></p><h3><a href="/news-tesla-roadster-reveal-2026.html">Tesla Roadster Finally Takes Flight in Musk’s Demo — Production Is Still Planned for 2028</a></h3><p>Tesla’s October Roadster reveal brought thruster-assisted stunts and sub-second acceleration claims. Here’s what is confirmed, and what buyers still do not know.</p><div class="card-foot"><a class="read-link" href="/news-tesla-roadster-reveal-2026.html">Read →</a></div></div>
+        </article>
+        </div>
+        <div class="perf-side">
+        <article class="card" data-date="2026-09-10">
+          <a href="/news-bmw-7-series-i7-facelift-india.html" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">News</span><img src="/images/thumbs/news-bmw-7-series-i7-facelift.webp" alt="BMW 7 Series facelift head-on in a dark studio, illuminated kidney grille framed by two vertical strip lights" loading="lazy" width="1100" height="619"></a>
+          <div class="card-body"><p class="eyebrow">News<span class="seg">Launch</span></p><h3><a href="/news-bmw-7-series-i7-facelift-india.html">BMW 7 Series and i7 Launched in India: Prices Start at ₹1.95 Crore</a></h3><p>BMW’s September launch confirmed the 740 and i7 50 at ₹1.95 crore, with the i7 M70 at ₹2.65 crore. Updated 16 October 2026.</p><div class="card-foot"><a class="read-link" href="/news-bmw-7-series-i7-facelift-india.html">Read →</a></div></div>
+        </article>
+        <article class="card" data-date="2026-09-10">
+          <a href="/news-porsche-cayenne-electric-india.html" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">News</span><img src="/images/thumbs/news-porsche-cayenne-electric.webp" alt="Silver Porsche Cayenne Electric shot from above on a diagonal, roof and rear light bar lit from overhead" loading="lazy" width="1100" height="619"></a>
+          <div class="card-body"><p class="eyebrow">News<span class="seg">Report</span></p><h3><a href="/news-porsche-cayenne-electric-india.html">Porsche Cayenne Electric in India: October Prices and Buying Details</a></h3><p>Porsche India lists Cayenne Electric from ₹1.77 crore and Turbo Electric from ₹2.27 crore. Updated pricing context and Launch Control power units.</p><div class="card-foot"><a class="read-link" href="/news-porsche-cayenne-electric-india.html">Read →</a></div></div>
+        </article>
+        </div>
+      </div>
+      <div class="perf-row">
+        <article class="card" data-date="2026-08-27">
+          <a href="/news-ford-fathom-ev-truck.html" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">News</span><img src="/images/thumbs/news-ford-fathom-ev.webp" alt="Ford Fathom electric pickup truck in dark navy, front three-quarter studio shot" loading="lazy" width="1100" height="619"></a>
+          <div class="card-body"><p class="eyebrow">News<span class="seg">Report</span><span class="seg">US market</span></p><h3><a href="/news-ford-fathom-ev-truck.html">Ford Fathom: America's New Affordable Electric Truck Starts at $28,350, Preorders Open 2027</a></h3><p>Ford names its affordable electric truck the Fathom — starting at $28,350 on a new UEV platform, with preorders opening early 2027. Built in America.</p><div class="card-foot"><a class="read-link" href="/news-ford-fathom-ev-truck.html">Read →</a></div></div>
+        </article>
+        <article class="card" data-date="2026-08-27">
+          <a href="/news-slate-truck-ev.html" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">News</span><img src="/images/thumbs/news-slate-truck-ev.webp" alt="Slate electric pickup truck in raw industrial grey, front three-quarter dark studio shot" loading="lazy" width="1100" height="619"></a>
+          <div class="card-body"><p class="eyebrow">News<span class="seg">Report</span><span class="seg">US market</span></p><h3><a href="/news-slate-truck-ev.html">Slate Truck: The $28,000 Electric Pickup That Lost Its Federal Tax Credit — And Still Plans to Launch</a></h3><p>Slate Auto's Bezos-backed electric truck starts at $28,000, but the $7,500 federal credit is gone. 150–240 mile range, production late 2026.</p><div class="card-foot"><a class="read-link" href="/news-slate-truck-ev.html">Read →</a></div></div>
+        </article>
+        <article class="card" data-date="2026-08-23">
+          <a href="/reviews/bmw-7-series-vs-mercedes-s-class-vs-genesis-g90/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Comparison</span><img src="/images/thumbs/news-7series-sclass-g90.webp" alt="BMW 7 Series vs Mercedes S-Class vs Genesis G90 editorial comparison" loading="lazy" width="1100" height="619"></a>
+          <div class="card-body"><p class="eyebrow">Comparison</p><h3><a href="/reviews/bmw-7-series-vs-mercedes-s-class-vs-genesis-g90/">BMW 7 Series vs Mercedes S-Class vs Genesis G90: The Flagship Sedan Fight</a></h3><p>The S-Class sets the standard. The 7 Series drives better. The G90 costs less and gives more. Which flagship sedan is actually right for you?</p><div class="card-foot"><a class="read-link" href="/reviews/bmw-7-series-vs-mercedes-s-class-vs-genesis-g90/">Read →</a></div></div>
+        </article>
+        <article class="card" data-date="2026-08-23">
+          <a href="/reviews/bmw-x5-vs-genesis-gv80-vs-volvo-xc90/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Comparison</span><img src="/images/thumbs/news-bmw-x5-gv80-xc90.webp" alt="BMW X5, Genesis GV80, and Volvo XC90 side by side editorial comparison" loading="lazy" width="1100" height="619"></a>
+          <div class="card-body"><p class="eyebrow">Comparison</p><h3><a href="/reviews/bmw-x5-vs-genesis-gv80-vs-volvo-xc90/">BMW X5 vs Genesis GV80 vs Volvo XC90: Three Very Different Answers to the Same Question</a></h3><p>The BMW X5 drives, the Genesis GV80 overdelivers, the Volvo XC90 reassures. Three answers to one question — and which suits you.</p><div class="card-foot"><a class="read-link" href="/reviews/bmw-x5-vs-genesis-gv80-vs-volvo-xc90/">Read →</a></div></div>
+        </article>
+      </div>
+<!-- PERF:END -->
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="vsTitle">
+    <div class="wrap">
+      <div class="sec-head"><div><p class="kicker">Head to head</p><h2 id="vsTitle">Comparisons</h2></div><a class="arrow-link" href="/comparisons.html">All comparisons</a></div>
+      <div class="vs-grid">
+<!-- VS:START -->
+        <article class="vs-card">
+          <a class="card-media" href="/guides/brezza-petrol-vs-cng-break-even/" tabindex="-1" aria-hidden="true"><img src="/images/thumbs/brezza-petrol-vs-cng-guide-hero.webp" alt="Maruti Brezza petrol versus CNG ownership illustration" loading="lazy" width="1600" height="900"></a>
+          <p class="eyebrow">Comparison</p>
+          <h3 class="vs-names"><a href="/guides/brezza-petrol-vs-cng-break-even/">Brezza Petrol&nbsp;<span class="vs">vs</span> CNG</a></h3>
+          <p class="vs-q">How Many Kilometres Before the Extra Cost Pays Back?</p>
+          <p class="meta">16 Oct 2026</p>
+        </article>
+        <article class="vs-card">
+          <a class="card-media" href="/articles/ev-claimed-vs-real-world-range/" tabindex="-1" aria-hidden="true"><img src="/images/thumbs/ev-real-world-range-guide-hero.webp" alt="Electric vehicle charging and real-world range illustration" loading="lazy" width="1600" height="900"></a>
+          <p class="eyebrow">Comparison</p>
+          <h3 class="vs-names"><a href="/articles/ev-claimed-vs-real-world-range/">Why a 600 km EV Claim Does Not Promise a 600 km Road Trip</a></h3>
+          <p class="vs-q"></p>
+          <p class="meta">16 Oct 2026</p>
+        </article>
+        <article class="vs-card">
+          <a class="card-media" href="/reviews/2026-maruti-brezza-turbo-vs-petrol/" tabindex="-1" aria-hidden="true"><img src="/images/thumbs/brezza-turbo-vs-petrol-hero.webp" alt="2026 Maruti Brezza Turbo vs 1.5 Petrol engine comparison" loading="lazy" width="1100" height="619"></a>
+          <p class="eyebrow">Comparison</p>
+          <h3 class="vs-names"><a href="/reviews/2026-maruti-brezza-turbo-vs-petrol/">Brezza Turbo&nbsp;<span class="vs">vs</span> 1.5 Petrol</a></h3>
+          <p class="vs-q">No Automatic, No CNG on the Turbo</p>
+          <p class="meta">3 Sep 2026</p>
+        </article>
+<!-- VS:END -->
+      </div>
+    </div>
+  </section>
+
+  <section class="dark band band--tight band--deep" aria-labelledby="stdTitle">
+    <div class="wrap standards">
+      <div>
+        <p class="kicker">Editorial standards</p>
+        <h2 id="stdTitle" style="font-size:var(--t-h2);font-weight:700;margin:6px 0 18px">How we work</h2>
+        <ul class="std-list">
+          <li><a href="/review-methodology.html"><span><b>How every car gets assessed</b><span>How We Assess Cars</span></span></a></li>
+          <li><a href="/editorial-policy.html"><span><b>Our editorial independence policy</b><span>Editorial Policy</span></span></a></li>
+          <li><a href="/fact-checking-policy.html"><span><b>How we fact-check every spec</b><span>Fact-Checking Policy</span></span></a></li>
+          <li><a href="/corrections-policy.html"><span><b>Mistakes happen — here’s our fix</b><span>Corrections Policy</span></span></a></li>
+        </ul>
+      </div>
+      <aside class="ig-block" aria-label="Instagram">
+        <p class="kicker">Instagram</p>
+        <p class="handle">@flamingpiston_in</p>
+        <p>Follow FlamingPiston on Instagram.</p>
+        <a class="btn" href="https://www.instagram.com/flamingpiston_in/" target="_blank" rel="noopener">Open Instagram</a>
+      </aside>
+    </div>
+  </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
       <div class="foot-grid">
         <div class="foot-brand">
-          <a href="/" class="logo footer-logo">
-            <img src="images/logo-footer.png" alt="FlamingPiston" class="logo-full" width="660" height="56">
-          </a>
+          <a href="/" class="logo" aria-label="FlamingPiston home"><img src="/assets/brand/flamingpiston_horizontal_cropped_light.svg" alt="FlamingPiston" width="249" height="20" loading="lazy"></a>
           <p>Honest automotive reviews, practical buying advice, and maintenance guides — everything you need before buying your next vehicle.</p>
-          <div class="foot-social">
-            <a href="https://www.instagram.com/flamingpiston_in/" target="_blank" rel="noopener">Instagram</a>
-          </div>
+          <div class="foot-social"><a href="https://www.instagram.com/flamingpiston_in/" target="_blank" rel="noopener">Instagram @flamingpiston_in</a></div>
         </div>
-
-        <div>
-          <h4>Company</h4>
-          <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="sitemap.html">Sitemap</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4>Editorial</h4>
-          <ul>
-            <li><a href="editorial-policy.html">Editorial Policy</a></li>
-            <li><a href="review-methodology.html">Review Methodology</a></li>
-            <li><a href="fact-checking-policy.html">Fact-Checking Policy</a></li>
-            <li><a href="corrections-policy.html">Corrections Policy</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4>Legal</h4>
-          <ul>
-            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="cookie-policy.html">Cookie Policy</a></li>
-            <li><a href="terms.html">Terms of Use</a></li>
-            <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
-            <li><a href="disclaimer.html">Disclaimer</a></li>
-          </ul>
-        </div>
+        <div><h3 class="f-h">Sections</h3><ul><li><a href="/news.html">News</a></li><li><a href="/reviews.html">Reviews</a></li><li><a href="/guides.html">Buying Guides</a></li><li><a href="/comparisons.html">Comparisons</a></li><li><a href="/car-culture.html">Car Culture</a></li></ul></div>
+        <div><h3 class="f-h">Company</h3><ul><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/author-gagan-mishra.html">Gagan Mishra</a></li><li><a href="/sitemap.html">Sitemap</a></li></ul></div>
+        <div><h3 class="f-h">Editorial</h3><ul><li><a href="/editorial-policy.html">Editorial Policy</a></li><li><a href="/review-methodology.html">Review Methodology</a></li><li><a href="/fact-checking-policy.html">Fact-Checking Policy</a></li><li><a href="/corrections-policy.html">Corrections Policy</a></li></ul></div>
+        <div><h3 class="f-h">Legal</h3><ul><li><a href="/privacy-policy.html">Privacy Policy</a></li><li><a href="/cookie-policy.html">Cookie Policy</a></li><li><a href="/terms.html">Terms of Use</a></li><li><a href="/affiliate-disclosure.html">Affiliate Disclosure</a></li><li><a href="/disclaimer.html">Disclaimer</a></li></ul></div>
       </div>
-
-      <div class="foot-bottom">
-        <span>&copy; 2026 FlamingPiston. All rights reserved.</span>
-        <span><a href="sitemap.html">Sitemap</a></span>
-      </div>
+      <div class="foot-bottom"><span>&copy; 2026 FlamingPiston. All rights reserved.</span><span>New Delhi, India</span></div>
     </div>
   </footer>
-
-
-  <button class="back-to-top" id="backToTop" aria-label="Back to top">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-  </button>
-
-  <script>
-    (function(){
-      var btn = document.getElementById('menuBtn');
-      var nav = document.getElementById('navCollapse');
-      if(!btn || !nav) return;
-      btn.addEventListener('click', function(){
-        var open = nav.classList.toggle('is-open');
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-        btn.classList.toggle('is-active', open);
-      });
-      nav.querySelectorAll('a').forEach(function(a){
-        a.addEventListener('click', function(){
-          nav.classList.remove('is-open');
-          btn.setAttribute('aria-expanded','false');
-          btn.classList.remove('is-active');
-        });
-      });
-    })();
-  </script>
-  <script>
-    (function(){
-      var topBtn = document.getElementById('backToTop');
-      if(!topBtn) return;
-      window.addEventListener('scroll', function(){
-        topBtn.classList.toggle('is-visible', window.scrollY > 500);
-      });
-      topBtn.addEventListener('click', function(){
-        window.scrollTo({top:0, behavior:'smooth'});
-      });
-    })();
-  </script>
-  <script src="card-dates.js?v=20261115"></script>
-  <script src="site-search.js"></script>
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+  <script src="/assets/fp.js?v=20261120" defer></script>
 </body>
 </html>

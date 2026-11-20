@@ -1,0 +1,19 @@
+{
+  "_how_to_use": "URLs listed here appear on /car-culture.html and feed the homepage 'Global Performance' block. Add a new global, flagship or enthusiast story by adding its URL (as in the sitemap, without the domain), then run node scripts/build-lists.js. Order does not matter: pages are sorted newest first.",
+  "urls": [
+    "news-aston-martin-valen.html",
+    "news-tesla-roadster-reveal-2026.html",
+    "news-land-rover-defender-dakar.html",
+    "news-genesis-gv90.html",
+    "reviews/bmw-7-series-vs-mercedes-s-class-vs-genesis-g90/",
+    "reviews/range-rover-sport-vs-bmw-x5-vs-mercedes-gle/",
+    "reviews/bmw-x5-vs-genesis-gv80-vs-volvo-xc90/",
+    "news-porsche-cayenne-electric-india.html",
+    "news-bmw-7-series-i7-facelift-india.html",
+    "news-mg-couture-editions.html",
+    "news-skoda-octavia-rs-second-batch.html",
+    "news-hyundai-tucson-2027.html",
+    "news-ford-fathom-ev-truck.html",
+    "news-slate-truck-ev.html"
+  ]
+}
