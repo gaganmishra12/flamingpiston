@@ -1,6 +1,7 @@
 {
   "_how_to_use": "URLs listed here appear on /car-culture.html and feed the homepage 'Global Performance' block. Add a new global, flagship or enthusiast story by adding its URL (as in the sitemap, without the domain), then run node scripts/build-lists.js. Order does not matter: pages are sorted newest first.",
   "urls": [
+    "news-yangwang-altior-reveal.html",
     "news-aston-martin-valen.html",
     "news-tesla-roadster-reveal-2026.html",
     "news-land-rover-defender-dakar.html",
