@@ -105,13 +105,14 @@ body.home img{display:block;max-width:100%}
    its top fading into the banner, so the cars are never trimmed or pushed under the text. The VS badge and its line
    sit in the gap between the cars: --s = the gap's x in the image (0–1), --r = image ratio. */
 .cmp-media{position:absolute;inset:0;container-type:size;--iw:max(100cqw, var(--r,2.4) * 100cqh);--ih:max(100cqh, 100cqw / var(--r,2.4))}
-.cmp-media img{position:absolute;right:0;bottom:0;width:100%;height:100%;object-fit:cover;object-position:100% 100%}
+.cmp-media img{position:absolute;right:0;bottom:0;width:100%;height:100%;object-fit:cover;object-position:100% 50%}
 .cmp-media::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--petrol) 0,rgba(17,37,46,.9) 16%,rgba(17,37,46,.5) 30%,rgba(17,37,46,0) 42%)}
-.cmp-line{position:absolute;z-index:1;left:calc(100cqw - (1 - var(--s,.5)) * var(--iw) - 1px);top:calc(100cqh - var(--ih) * .78);height:calc(var(--ih) * .56);width:2px;background:linear-gradient(180deg,transparent,var(--ember-strong) 30%,var(--ember-strong) 70%,transparent)}
-.cmp-vs{position:absolute;z-index:2;left:calc(100cqw - (1 - var(--s,.5)) * var(--iw));top:calc(100cqh - var(--ih) * .5);transform:translate(-50%,-50%);width:46px;height:46px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:var(--petrol);border:2px solid var(--ember-strong);font:700 italic 16px/1 var(--f-head);color:var(--ivory)}
+.cmp-line{position:absolute;z-index:1;left:calc(100cqw - (1 - var(--s,.5)) * var(--iw) - 1px);top:calc(50cqh - var(--ih) * .28);height:calc(var(--ih) * .56);width:2px;background:linear-gradient(180deg,transparent,var(--ember-strong) 30%,var(--ember-strong) 70%,transparent)}
+.cmp-vs{position:absolute;z-index:2;left:calc(100cqw - (1 - var(--s,.5)) * var(--iw));top:50cqh;transform:translate(-50%,-50%);width:46px;height:46px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:var(--petrol);border:2px solid var(--ember-strong);font:700 italic 16px/1 var(--f-head);color:var(--ivory)}
 @container (max-aspect-ratio: 2.4/1){
   .cmp-media img{height:auto;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 16%);mask-image:linear-gradient(180deg,transparent 0,#000 16%)}
-  .cmp-line,.cmp-vs{--iw:100cqw;--ih:calc(100cqw / var(--r,2.4))}
+  .cmp-line{--iw:100cqw;--ih:calc(100cqw / var(--r,2.4));top:calc(100cqh - var(--ih) * .78)}
+  .cmp-vs{--iw:100cqw;--ih:calc(100cqw / var(--r,2.4));top:calc(100cqh - var(--ih) * .5)}
 }
 .cmp-text{position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:10px;height:100%;max-width:36%;padding:20px 0 26px 30px}
 .cmp-text .fp-label{display:inline-block;padding:4px 7px;background:var(--ember-strong);color:#fff;border-radius:2px}
@@ -122,6 +123,9 @@ body.home img{display:block;max-width:100%}
 .cmp-credit{position:absolute;z-index:2;right:10px;bottom:8px;margin:0;padding:3px 6px;border-radius:2px;background:rgba(17,37,46,.62);font:400 10px/1 var(--f-mono);color:rgba(242,239,232,.85)}
 .ln .fp-head{margin-bottom:0}
 .ln-list{list-style:none;margin:0;padding:0}
+/* Desktop: three stories beside the comparison banner keep both columns ~300px (four made the banner ~400px tall).
+   The fourth shows again when the news list sits under the banner (≤1199px, two columns). */
+@media (min-width:1200px){.ln-list > li:nth-child(n+4){display:none}}
 .ln-item{display:grid;grid-template-columns:148px 1fr;gap:14px;align-items:center;padding:9px 0;border-bottom:1px solid var(--rule);color:var(--ink);text-decoration:none}
 .ln-media{display:block;aspect-ratio:2/1;border-radius:4px;overflow:hidden;background:var(--petrol)}
 .ln-media img{width:100%;height:100%;object-fit:cover}
@@ -297,9 +301,12 @@ body.home main{padding-bottom:0}
 .nu-card--bleed .nu-media::after,.cc-banner--bleed .cc-media::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,var(--petrol) 0,rgba(17,37,46,.9) 16%,rgba(17,37,46,.5) 32%,rgba(17,37,46,0) 46%)}
 .nu-card--bleed .nu-text{grid-area:1 / 1;position:relative;z-index:1;max-width:41%;padding:18px 0 18px 22px}
 .nu-credit{position:absolute;z-index:1;right:10px;bottom:8px;padding:3px 6px;border-radius:2px;background:rgba(17,37,46,.62);font:400 10px/1 var(--f-mono);color:rgba(242,239,232,.85)}
-.cc-banner.cc-banner--bleed{height:auto;display:grid;grid-template:1fr / minmax(0,1fr);align-items:center}
-.cc-banner--bleed .cc-media{grid-area:1 / 1;position:relative;inset:auto;width:100%;aspect-ratio:var(--r,4);-webkit-mask-image:none;mask-image:none}
-.cc-banner--bleed .cc-text{grid-area:1 / 1;height:auto;max-width:44%}
+/* Car Culture keeps the slim 240px band: the 4:1 image is sized to the band's height and anchored right (never cropped
+   on desktop), its left edge fading into the petrol band behind the text. */
+.cc-banner.cc-banner--bleed{height:240px}
+.cc-banner--bleed .cc-media{left:auto;width:auto;max-width:100%;height:100%;aspect-ratio:var(--r,4);-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22%);mask-image:linear-gradient(90deg,transparent 0,#000 22%)}
+.cc-banner--bleed .cc-media img{object-position:100% 50%}
+.cc-banner--bleed .cc-text{max-width:min(46%,480px);gap:9px}
 .cc-banner--bleed .cc-credit{padding:3px 6px;border-radius:2px;background:rgba(17,37,46,.62)}
 .cc-latest{font:600 13px/1.35 var(--f-body);color:var(--on-dark-2);text-decoration:none}
 .cc-latest:hover{color:var(--ivory);text-decoration:underline;text-underline-offset:3px}
@@ -311,11 +318,20 @@ body.home main{padding-bottom:0}
   .nu-card--bleed .nu-status{font-size:12.5px}
 }
 @media (max-width:767px){
-  .nu-card.nu-card--bleed,.cc-banner.cc-banner--bleed{display:flex;flex-direction:column;align-items:stretch}
+  .nu-card.nu-card--bleed{display:flex;flex-direction:column;align-items:stretch}
   .nu-card--bleed .nu-media{aspect-ratio:16/9}
-  .cc-banner--bleed .cc-media{aspect-ratio:2/1}
   .nu-card--bleed .nu-media img,.cc-banner--bleed .cc-media img{object-position:100% 50%}
-  .nu-card--bleed .nu-media::after,.cc-banner--bleed .cc-media::after{background:linear-gradient(0deg,var(--petrol) 0,rgba(17,37,46,0) 24%)}
-  .nu-card--bleed .nu-text,.cc-banner--bleed .cc-text{max-width:none;padding:4px 16px 16px}
+  .nu-card--bleed .nu-media::after{background:linear-gradient(0deg,var(--petrol) 0,rgba(17,37,46,0) 24%)}
+  .nu-card--bleed .nu-text{max-width:none;padding:4px 16px 16px}
   .nu-credit{top:8px;bottom:auto}
+}
+@media (min-width:1024px) and (max-width:1279px){.cc-banner--bleed .cc-text{max-width:38%}}
+/* ≤1023: Car Culture stacks — image on top (2.4:1, right-anchored: the whole car stays in), text below */
+@media (max-width:1023px){
+  .cc-banner.cc-banner--bleed{height:auto}
+  .cc-banner--bleed .cc-media{position:relative;display:block;width:100%;max-width:none;height:auto;aspect-ratio:2.4/1;-webkit-mask-image:none;mask-image:none}
+  .cc-banner--bleed .cc-media img{object-position:92% 50%}
+  .cc-banner--bleed .cc-media::after{background:linear-gradient(0deg,var(--petrol) 0,rgba(17,37,46,0) 26%)}
+  .cc-banner--bleed .cc-text{max-width:none;padding:4px 18px 20px}
+  .cc-banner--bleed .cc-credit{top:8px;bottom:auto}
 }

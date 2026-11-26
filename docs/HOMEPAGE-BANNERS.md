@@ -8,7 +8,7 @@ Five homepage spots use a **banner**: an image made for the layout, with the car
 | Comparison banner | Comparison | `compare` | 2400 × 1000 (2.4:1) | both cars head-on, right ~62% | left 35% dark |
 | New & Upcoming: launch card | news story marked `launch` | `launch` | 2400 × 800 (3:1) | right 55%, ~80% of height | left 45% dark |
 | New & Upcoming: upcoming card | news story marked `upcoming` | `upcoming` | 2400 × 800 (3:1) | right 55%, ~80% of height | left 45% dark |
-| Car Culture banner | story listed in `data/car-culture.json` | `culture` | 3000 × 750 (4:1) | right 45%, ~70% of height | left 55% dark |
+| Car Culture banner | story listed in `data/car-culture.json` | `culture` | 2400 × 800 (3:1), then a vertical `box` crop to ≈4.4:1 | right 45%, between ~17% and ~76% of height | left 33% dark, warm scenery in the middle |
 
 No text, logos or watermark in any banner. The page adds the headline, labels, "VS" badge and credit.
 
@@ -95,15 +95,18 @@ Do NOT add any text, logos, watermark, labels, borders or graphics anywhere in t
 
 Same as **New launch**, with this setting: *"open highway at sunset, warm low sun behind the vehicle, distant city skyline, dark asphalt; a slightly mysterious, teaser mood."* Keep the car facing left in the right 55%.
 
-### Car Culture (`culture`, 3000 × 750)
+### Car Culture (`culture`, 2400 × 800, cropped to ≈4.4:1)
+
+The homepage band is slim (240px), so the build shows a horizontal strip of this image. Add `"box": [0, 0.12, 1, 0.79]` (adjust so the doors/roof and tyres stay inside) to the entry.
 
 ```
 Using the attached image as the reference for the car, create a cinematic ultra-wide banner image.
-Size: 3000 × 750 px (4:1 landscape).
+Size: 2400 × 800 px (3:1 landscape). Keep the whole car between 15% and 78% of the image height (sky above, tarmac below).
 Vehicle: keep the car's design exactly — body shape, colour, wheels, lights (and doors as in the reference).
-Placement: RIGHT 45% of the frame, side three-quarter view, about 70% of the image height, fully inside the frame with clear space above it, wheels fully visible, about 4% from the right edge. Nothing cut off.
+Placement: RIGHT 45% of the frame, side three-quarter view, fully inside the frame, wheels fully visible, about 3% from the right edge. Nothing cut off.
+Middle of the frame (35%–60% of the width): continue the scene towards the text — sunset glow, a distant lit building or landmark, long reflections on the wet ground — soft detail and warm light, not empty darkness.
 Setting: DRAMATIC SETTING (e.g. empty airfield runway / black studio with light tubes / mountain road) at sunset or night, dramatic sky, wet ground with soft reflections.
-Left side: the LEFT 55% must be dark and calm — dark sky and ground with very little detail, darkest at the left edge, for the "Car Culture" title.
+Left side: only the LEFT 33% is dark and calm, darkest at the left edge, for the "Car Culture" title.
 Style: photorealistic, sharp focus on the car, cinematic contrast.
 Do NOT add any text, logos, watermark, labels, borders or graphics anywhere in the image.
 ```

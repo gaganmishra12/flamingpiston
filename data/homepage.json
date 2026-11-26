@@ -49,7 +49,7 @@
       "name": "Denza D9", "status": "Launched at ₹90 lakh · 18 Nov 2026", "credit": "Image: BYD, edited by FlamingPiston" },
     "news-hyundai-tucson-2027.html": { "kind": "upcoming", "src": "images/banners/news-hyundai-tucson-2027.jpg", "subject": [0.525, 0.11, 0.96, 0.87],
       "name": "Hyundai Tucson", "status": "India launch expected in 2027 (not confirmed)", "credit": "Image: Hyundai, edited by FlamingPiston" },
-    "news-tesla-roadster-reveal-2026.html": { "kind": "culture", "src": "images/banners/news-tesla-roadster-reveal-2026.jpg", "subject": [0.585, 0.09, 0.985, 0.8],
+    "news-tesla-roadster-reveal-2026.html": { "kind": "culture", "src": "images/banners/news-tesla-roadster-reveal-2026.jpg", "box": [0, 0.12, 1, 0.79], "subject": [0.53, 0.17, 0.985, 0.76],
       "credit": "AI illustration: FlamingPiston" }
   },
 

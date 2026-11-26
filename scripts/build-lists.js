@@ -423,7 +423,7 @@ between('index.html', 'GUIDES', guides.map((a) => `        <a class="gd-card" hr
         </a>`).join('\n'));
 
 // Car Culture banner (section entry point, links to /car-culture.html). Full-bleed image from the newest culture
-// story that has a 'culture' banner, with a "Latest" link to it; until one exists, the older image in carCulture.image.
+// story that has a 'culture' banner; until one exists, the older image in carCulture.image.
 const cc = HOME.carCulture || {};
 if (cultureA) {
   const b = BANNERS[cultureA.url], c = crop(`banner#${cultureA.url}`);
@@ -433,7 +433,6 @@ if (cultureA) {
           <h2 class="fp-italic" id="cultureTitle">${esc(cc.title || 'Car Culture')}</h2>
           <p>${esc(cc.dek || '')}</p>
           <a class="fp-btn" href="${cc.url || '/car-culture.html'}">Explore Stories${ICON_ARROW}</a>
-          <a class="cc-latest" href="${href(cultureA)}">Latest: ${esc(b.headline || cultureA.title)}</a>
         </div>
         ${b.credit ? `<p class="cc-credit">${esc(b.credit)}</p>` : ''}
       </section>`);

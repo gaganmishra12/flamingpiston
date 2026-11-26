@@ -29,7 +29,7 @@ Homepage slot ratios (keep in step with assets/fp-home.css):
   card  1.78 (16:9)   New & Upcoming cards
   car   1.78 (16:9)   Featured Cars (2.4:1 until Nov 2026: too shallow for SUVs)
   feature            homepage banners ("banners" in homepage.json): used whole, checked against
-                     their kind (hero/compare 2.4:1, launch/upcoming 3:1, culture 4:1)
+                     their kind (hero/compare 2.4:1, launch/upcoming 3:1, culture ≈4.4:1 after a vertical 'box' crop)
   banner              Car Culture banner ("box" crop, cover)
 
 Usage (from the site root, needs Pillow:  pip install pillow):
@@ -44,7 +44,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 OUT = os.path.join(ROOT, 'images', 'home')
 WIDTH = {'hero': 1600, 'thumb': 560, 'car': 760, 'vs': 1600, 'card': 900, 'banner': 1400, 'feature': 1600}
 # Homepage banners (data/homepage.json "banners"): expected ratio, the furthest left the car may start, output width
-BANNER = {'hero': (2.4, 0.38, 1600), 'compare': (2.4, 0.33, 1600), 'launch': (3.0, 0.40, 1400), 'upcoming': (3.0, 0.40, 1400), 'culture': (4.0, 0.45, 2000)}
+BANNER = {'hero': (2.4, 0.38, 1600), 'compare': (2.4, 0.33, 1600), 'launch': (3.0, 0.40, 1400), 'upcoming': (3.0, 0.40, 1400), 'culture': (4.4, 0.45, 2000)}
 RATIOS = {'hero': [1.6], 'thumb': [1.6, 2.0], 'card': [16 / 9], 'car': [16 / 9]}
 SUFFIX = {1.6: '16x10', 2.0: '2x1', 16 / 9: '16x9', 2.4: '12x5'}
 PAD_X, PAD_Y = 0.07, 0.09     # breathing room around the car, as a share of the frame
