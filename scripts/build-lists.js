@@ -250,15 +250,42 @@ function shortDek(a, max = 96) {
   return s.length <= max ? s : '';
 }
 
-// Lead story (static, one only): the pinned article, else the newest article that has a clean hero crop.
-const heroMax = 1;
-const heroList = [];
-for (const u of ((HOME.hero && HOME.hero.pinned) || [])) { const a = byUrl.get(u); if (a && crop(`${u}#hero`)) heroList.push(a); else console.warn(`WARN: pinned hero ${u} not found or has no hero crop`); }
-for (const a of articles) { if (heroList.length >= heroMax) break; if (!heroList.includes(a) && crop(`${a.url}#hero`)) heroList.push(a); }
-heroList.length = Math.min(heroList.length, heroMax);
+// ---- Homepage banners -------------------------------------------------------------------------------
+// Each section shows the newest article of its kind that has a banner in data/homepage.json "banners" (made for the
+// layout: car on the right, dark empty left). A 'pinned' URL overrides. Newer articles without a banner are listed
+// as warnings, and the section keeps the newest one that has a banner, so a badly framed image never goes live.
+const BANNERS = HOME.banners || {};
+const bannerOf = (a, kind) => { const b = a && BANNERS[a.url]; return b && b.kind === kind && crop(`banner#${a.url}`) ? b : null; };
+const missingBanner = [];
+function pickBanner(kind, ok, pinned, section) {
+  if (pinned) {
+    const a = byUrl.get(pinned.replace(/^\//, ''));
+    if (a && bannerOf(a, kind)) return a;
+    console.warn(`WARN: ${section}: pinned ${pinned} not found or has no "${kind}" banner; choosing automatically`);
+  }
+  for (const a of articles) {
+    if (!ok(a) || shown.has(a.url)) continue;
+    if (bannerOf(a, kind)) return a;
+    if ((kind === 'hero' || kind === 'compare' || kind === 'culture') && missingBanner.filter((m) => m.startsWith(section)).length < 3) missingBanner.push(`${section}: ${a.url}`);
+  }
+  return null;
+}
+let cultureUrls = [];
+try { cultureUrls = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/car-culture.json'), 'utf-8')).urls || []; } catch (e) { console.warn('WARN: data/car-culture.json missing or invalid'); }
+const cultureSet = new Set(cultureUrls.map((u) => u.replace(/^\//, '')));
+
+const leadA = pickBanner('hero', (a) => a.type === 'Buyer’s Brief', HOME.hero && HOME.hero.pinned, 'Lead story');
+const heroList = leadA ? [leadA] : [];
+if (!leadA) console.warn('WARN: no Buyer’s Brief has a "hero" banner; the lead story is empty');
 heroList.forEach((a) => shown.add(a.url));
-const cmpA = HOME.comparison && byUrl.get(HOME.comparison.url);
+const cmpA = pickBanner('compare', (a) => a.type === 'Comparison', HOME.comparison && HOME.comparison.pinned, 'Comparison');
 if (cmpA) shown.add(cmpA.url);
+const nuPin = (HOME.newUpcoming && HOME.newUpcoming.pinned) || {};
+const launchA = pickBanner('launch', (a) => a.type === 'News', nuPin.launch, 'New launch');
+if (launchA) shown.add(launchA.url);
+const upcomingA = pickBanner('upcoming', (a) => a.type === 'News', nuPin.upcoming, 'Upcoming');
+if (upcomingA) shown.add(upcomingA.url);
+const cultureA = pickBanner('culture', (a) => cultureSet.has(a.url), HOME.carCulture && HOME.carCulture.pinned, 'Car Culture');
 
 // Three supporting stories: the newest News, Brief/Comparison and Guide not already shown.
 const lanes = [(a) => a.type === 'News', (a) => a.type === 'Buyer’s Brief' || a.type === 'Comparison', (a) => a.type === 'Guide' || a.type === 'Article'];
@@ -266,21 +293,21 @@ const stories = lanes.map((ok) => { const a = articles.find((x) => ok(x) && !sho
 const news = articles.filter((a) => a.type === 'News' && !shown.has(a.url)).slice(0, 4);
 news.forEach((a) => shown.add(a.url));
 
-// Static lead story: a two-part composition, text on the left and a framed, uncropped-looking car image on the right.
-// The hero crop in data/homepage.json is cut at 16:10 so the frame never re-crops the car.
+// Static lead story: a full-width 2.4:1 banner image (car on the right, dark empty left) with the headline over a
+// dark left-to-right gradient. 'pos' keeps the car right-anchored when the frame is narrower than the image.
 function leadStory(a) {
-  const c = crop(`${a.url}#hero`), spec = HOME.images[a.url].hero;
-  const img = cropImg(c, a.alt, 1.6, 'fetchpriority="high" decoding="async"', spec.pos);
+  const c = crop(`banner#${a.url}`), spec = BANNERS[a.url];
+  const img = cropImg(c, a.alt, c.w / c.h, 'fetchpriority="high" decoding="async"', spec.pos || '100% 50%');
   return `      <article class="hl" aria-labelledby="hlTitle">
         <div class="hl-text">
           <p class="fp-label">${esc(label(a))}</p>
-          <h2 id="hlTitle"><a href="${href(a)}">${esc(a.title)}</a></h2>
-          <p class="hl-dek">${esc(a.desc)}</p>
+          <h2 id="hlTitle"><a href="${href(a)}">${esc(spec.headline || a.title)}</a></h2>
+          <p class="hl-dek">${esc(spec.dek || a.desc)}</p>
           <a class="fp-btn" href="${href(a)}">${cta(a)}${ICON_ARROW}</a>
         </div>
-        <figure class="hl-figure">
+        <figure class="hl-figure" style="aspect-ratio:${c.w} / ${c.h}">
           <a class="hl-media" href="${href(a)}" tabindex="-1" aria-hidden="true">${img}</a>
-          ${a.cap ? `<figcaption class="hl-credit">${esc(a.cap)}</figcaption>` : ''}
+          ${(spec.credit || a.cap) ? `<figcaption class="hl-credit">${esc(spec.credit || a.cap)}</figcaption>` : ''}
         </figure>
       </article>`;
 }
@@ -310,7 +337,7 @@ between('index.html', 'FEATURED', featured.map((car) => {
   const c = crop(`car:${car.id}`);
   if (!c) console.warn(`WARN: featured car ${car.id} has no clean image (add "image" in data/cars.json, run make-home-images.py)`);
   return `        <a class="fc" href="${car.url}" title="Ex-showroom, ${esc(car.source)}; checked ${checked(car.checked)}">
-          <span class="fc-media">${c ? cropImg(c, `${car.name} exterior`, 2.4) : `<span class="fp-tile" aria-hidden="true"></span>`}</span>
+          <span class="fc-media">${c ? cropImg(c, `${car.name} exterior`, 16 / 9) : `<span class="fp-tile" aria-hidden="true"></span>`}</span>
           <span class="fc-info"><span class="fc-name">${esc(car.name)}</span><span class="fc-badge">${BODY[car.body] || esc(car.body)}</span><span class="fc-price">${priceText(car)}*${car.note ? ` <span class="fc-note">${esc(car.note)}</span>` : ''}</span></span>
         </a>`;
 }).join('\n'));
@@ -323,12 +350,12 @@ between('index.html', 'CARS-DATA', `  <script type="application/json" id="fpCars
 
 // Comparison banner
 if (cmpA) {
-  const cm = HOME.comparison, P = crop('comparison#image');
+  const cm = BANNERS[cmpA.url], P = crop(`banner#${cmpA.url}`);
   const head = cm.headline || cmpA.title.split(':')[0];
   between('index.html', 'COMPARE', `      <article class="cmp">
-        <div class="cmp-media" aria-hidden="true"${cm.image && cm.image.split ? ` style="--split:${(cm.image.split * 100).toFixed(1)}%"` : ''}>
+        <div class="cmp-media" aria-hidden="true"${P ? ` style="--s:${cm.split || 0.5};--r:${(P.w / P.h).toFixed(3)}"` : ''}>
           ${P ? `<img src="/${P.file}" alt="" width="${P.w}" height="${P.h}" loading="lazy" decoding="async">` : ''}
-          <span class="cmp-vs">VS</span>
+          <span class="cmp-line"></span><span class="cmp-vs">VS</span>
         </div>
         <div class="cmp-text">
           <p class="fp-label">Compare</p>
@@ -338,7 +365,7 @@ if (cmpA) {
         </div>
         ${cm.credit ? `<p class="cmp-credit">${esc(cm.credit)}</p>` : ''}
       </article>`);
-} else { console.warn('WARN: data/homepage.json comparison.url not found'); between('index.html', 'COMPARE', ''); }
+} else { console.warn('WARN: no Comparison has a "compare" banner; the comparison banner is empty'); between('index.html', 'COMPARE', ''); }
 
 // Latest News column
 between('index.html', 'NEWS', news.map((a) => {
@@ -346,15 +373,32 @@ between('index.html', 'NEWS', news.map((a) => {
   return `          <li><a class="ln-item" href="${href(a)}"><span class="ln-media">${c ? cropImg(c, a.alt, 2) : tile(a)}</span><span class="ln-text"><span class="ln-title">${esc(a.title)}</span><span class="ln-meta">${newsKind(a)} · <time datetime="${a.date}">${fmt(a.date)}</time></span></span></a></li>`;
 }).join('\n'));
 
-// New & Upcoming (curated in data/homepage.json: every line comes from the linked story)
-const upItems = ((HOME.newUpcoming && HOME.newUpcoming.items) || []).filter((it) => { if (!byUrl.has(it.url)) { console.warn(`WARN: newUpcoming ${it.url} not found`); return false; } return true; });
-between('index.html', 'UPCOMING', upItems.map((it) => {
+// New & Upcoming: the newest 'launch' and 'upcoming' banners (full-bleed cards). A kind with no banner yet falls back
+// to its curated item in homepage.json "newUpcoming.items" (split card). Every line comes from the linked story.
+const NU_DEFAULT = { launch: { label: 'New launch', link: 'Read the launch story' }, upcoming: { label: 'Upcoming', link: 'What we know' } };
+const legacyItems = ((HOME.newUpcoming && HOME.newUpcoming.items) || []).filter((it) => byUrl.has(it.url));
+function nuBleed(a, kind) {
+  const b = BANNERS[a.url], c = crop(`banner#${a.url}`), d = NU_DEFAULT[kind];
+  return `        <a class="nu-card nu-card--bleed" href="${href(a)}" style="--r:${(c.w / c.h).toFixed(3)}">
+          <span class="nu-media">${cropImg(c, a.alt, c.w / c.h, 'loading="lazy" decoding="async"', b.pos || '100% 50%')}</span>
+          <span class="nu-text"><span class="fp-label nu-tag">${esc(b.label || d.label)}</span><span class="nu-name">${esc(b.name || a.title.split(':')[0])}</span><span class="nu-status">${esc(b.status)}</span><span class="nu-link">${esc(b.link || d.link)}${ICON_ARROW}</span></span>
+          ${b.credit ? `<span class="nu-credit">${esc(b.credit)}</span>` : ''}
+        </a>`;
+}
+function nuLegacy(it) {
   const a = byUrl.get(it.url), c = crop(`upcoming#${it.url}`);
   return `        <a class="nu-card" href="${href(a)}">
           <span class="nu-media">${c ? cropImg(c, a.alt, 16 / 9, 'loading="lazy" decoding="async"', it.image && it.image.pos) : ''}</span>
           <span class="nu-text"><span class="fp-label nu-tag">${esc(it.label)}</span><span class="nu-name">${esc(it.name)}</span><span class="nu-status">${esc(it.status)}</span><span class="nu-link">${esc(it.link || 'Read more')}${ICON_ARROW}</span></span>
         </a>`;
-}).join('\n'));
+}
+const upItems = [];
+for (const [kind, a, idx] of [['launch', launchA, 0], ['upcoming', upcomingA, 1]]) {
+  if (a) { upItems.push(nuBleed(a, kind)); continue; }
+  const it = legacyItems[idx];
+  if (it) { upItems.push(nuLegacy(it)); console.warn(`WARN: New & Upcoming: no "${kind}" banner yet; showing the older card for ${it.url}`); }
+}
+between('index.html', 'UPCOMING', upItems.join('\n'));
 
 // Latest Reviews: the newest buyer's brief not shown above that has a clean photo
 const review = articles.find((a) => a.type === 'Buyer’s Brief' && !shown.has(a.url) && thumbFor(a));
@@ -378,9 +422,24 @@ between('index.html', 'GUIDES', guides.map((a) => `        <a class="gd-card" hr
           <span class="gd-text"><span class="gd-title">${esc(a.title)}</span><span class="gd-dek">${esc(shortDek(a, 110) || a.desc)}</span></span>
         </a>`).join('\n'));
 
-// Car Culture banner (section entry point, links to /car-culture.html)
-const cc = HOME.carCulture || {}, ccImg = crop('culture#banner');
-between('index.html', 'CULTURE', `      <section class="cc-banner" aria-labelledby="cultureTitle">
+// Car Culture banner (section entry point, links to /car-culture.html). Full-bleed image from the newest culture
+// story that has a 'culture' banner, with a "Latest" link to it; until one exists, the older image in carCulture.image.
+const cc = HOME.carCulture || {};
+if (cultureA) {
+  const b = BANNERS[cultureA.url], c = crop(`banner#${cultureA.url}`);
+  between('index.html', 'CULTURE', `      <section class="cc-banner cc-banner--bleed" aria-labelledby="cultureTitle" style="--r:${(c.w / c.h).toFixed(3)}">
+        <span class="cc-media" aria-hidden="true">${cropImg(c, '', c.w / c.h, 'loading="lazy" decoding="async"', b.pos || '100% 50%')}</span>
+        <div class="cc-text">
+          <h2 class="fp-italic" id="cultureTitle">${esc(cc.title || 'Car Culture')}</h2>
+          <p>${esc(cc.dek || '')}</p>
+          <a class="fp-btn" href="${cc.url || '/car-culture.html'}">Explore Stories${ICON_ARROW}</a>
+          <a class="cc-latest" href="${href(cultureA)}">Latest: ${esc(b.headline || cultureA.title)}</a>
+        </div>
+        ${b.credit ? `<p class="cc-credit">${esc(b.credit)}</p>` : ''}
+      </section>`);
+} else {
+  const ccImg = crop('culture#banner');
+  between('index.html', 'CULTURE', `      <section class="cc-banner" aria-labelledby="cultureTitle">
         ${ccImg ? `<span class="cc-media" aria-hidden="true">${cropImg(ccImg, '', 2.6, 'loading="lazy" decoding="async"', cc.image && cc.image.pos)}</span>` : ''}
         <div class="cc-text">
           <h2 class="fp-italic" id="cultureTitle">${esc(cc.title || 'Car Culture')}</h2>
@@ -389,9 +448,9 @@ between('index.html', 'CULTURE', `      <section class="cc-banner" aria-labelled
         </div>
         ${cc.credit ? `<p class="cc-credit">${esc(cc.credit)}</p>` : ''}
       </section>`);
+}
+if (missingBanner.length) console.warn(`NOTE: newer stories without a homepage banner (sections kept the newest that has one):\n  ${missingBanner.join('\n  ')}`);
 
-let cultureUrls = [];
-try { cultureUrls = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/car-culture.json'), 'utf-8')).urls || []; } catch (e) { console.warn('WARN: data/car-culture.json missing or invalid'); }
 const culture = cultureUrls.map((u) => byUrl.get(u.replace(/^\//, ''))).filter(Boolean).sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title));
 const missingCulture = cultureUrls.filter((u) => !byUrl.has(u.replace(/^\//, '')));
 const hero = heroList, latest = news;

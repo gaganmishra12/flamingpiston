@@ -99,7 +99,7 @@ Bold italic Familjen Grotesk (`.fp-italic`, or `font:700 italic …`) is used **
 
 | Element | Font | Size / line-height | Notes |
 |---|---|---|---|
-| Lead headline (`.hl-text h2`) | Head 700 | clamp(28px → 40px) / 1.08, -0.025em | fills the 40% text column, `text-wrap:balance`; 26–32px ≤1199px |
+| Lead headline (`.hl-text h2`) | Head 700 | clamp(28px → 38px) / 1.08, -0.025em | fills the 36% text column, `text-wrap:balance`; 26–32px ≤1199px |
 | Lead dek | Body 400 | 15px / 1.5 (14.5px mobile) | #D6DEDD; shown at every width |
 | Comparison headline | Head 700 italic | clamp(28px → 38px) / 1.05 | |
 | Car Culture title | Head 700 italic | clamp(28px → 38px) / 1.05 | |
@@ -165,12 +165,12 @@ Site scale (`fp.css`): `--s-1` 4 · `--s-2` 8 · `--s-3` 12 · `--s-4` 16 · `--
 
 | Row | Desktop | Ratio / columns |
 |---|---|---|
-| Hero | Static lead story + supporting stories | `67fr / 33fr`; lead = `40fr / 60fr` text \| 16:10 image, height set by the image (no fixed height); stories stretch to match in 3 equal rows |
+| Hero | Static lead story + supporting stories | `67fr / 33fr`; lead = text (40%) over the blurred left edge of a right-anchored image (66%); height = taller of text and image; stories stretch to match in 3 equal rows |
 | Finder | Title · intro · 3 selects · button | `auto · minmax(170px,1.1fr) · 3×1fr · auto`, min-height 84px |
 | Featured Cars | 4 cards | `repeat(4, 1fr)`, gap 20px |
 | Comparison + News | Banner + list | `65fr / 35fr`, gap 32px, rows stretch to equal height (banner min 250px) |
 | New & Upcoming | 2 cards | `repeat(2, 1fr)`; each card `1fr / 1.2fr` text \| 16:9 image, height set by the image |
-| Reviews + Tools | Review card + 2×2 tools | `58fr / 42fr`, gap 32px |
+| Reviews + Tools | Review card + 2×2 tools | `58fr / 42fr`, gap 32px; the tools grid stretches (equal rows) so both columns end on the same line |
 | Guides | 3 cards | `repeat(3, 1fr)` |
 | Car Culture | Banner | 1 column, 240px tall, image right 62% |
 | Footer | Brand + 4 columns | `4fr repeat(4, 2fr)`, gap 32px (from `fp.css`) |
@@ -257,10 +257,10 @@ All homepage cards are whole-card links (or carry a clear link), use hover under
 
 | Component | Class | Spec |
 |---|---|---|
-| Lead story | `article.hl` | **Static, one story, no carousel** (no rotation, dots, pause or slide states). Two-part composition: text column (40%) left — ember label chip, upright headline, dek, primary button — and a framed 16:10 image (radius 4px) right (60%), vertically centred against each other; nothing overlaps. Mono credit on the image, bottom-right. The story is `hero.pinned[0]` in `data/homepage.json`. |
+| Lead story | `article.hl` | **Static, one story, no carousel.** A purpose-made 2.4:1 banner image (car in the right 55%, dark empty left 40%, no text) runs the full width of the lead area, bleeding into the left gutter, at its own aspect ratio, so the car is never cropped on desktop. The headline (36% wide; 37% ≤1199px) sits over the image's empty left side on a petrol gradient (solid → 0 by 46%); soft top/bottom/right fades; no box, no blur. Mobile: image on top (16:10, right-anchored) fading into the text below. Credit from `hero.credit` (falls back to the article caption). Story = `hero.pinned[0]`. |
 | Supporting story | `.hs-item` | Image 42% (16:10, radius 4px) + label/title/short dek; 1px `--rule-dark` dividers; no outlined cards |
-| Vehicle card | `.fc` | 1px #DEDAD2, radius 9px, #FAF8F3; image 2.4:1; name + outlined body-type badge (10.5px uppercase, radius 4px) + price with `*`; dated footnote under the grid; hover: stronger border + soft shadow + 2.5% image zoom |
-| Comparison banner | `.cmp` | Petrol gradient, radius 11px; text left (≤42%); right 62%: **one uncut crop of both cars** at its natural ratio (≈2.9:1), centred, edges masked into the gradient; 4px skewed ember bar and 46px circular "VS" (2px ember ring) at the gap between the cars (`split` in the JSON); credit bottom-right (below the image on mobile) |
+| Vehicle card | `.fc` | 1px #DEDAD2, radius 9px, #FAF8F3; image 16:9 (whole car with breathing room); name + outlined body-type badge (10.5px uppercase, radius 4px) + price with `*`; dated footnote under the grid; hover: stronger border + soft shadow + 2.5% image zoom |
+| Comparison banner | `.cmp` | Radius 11px. Full-bleed 2.4:1 face-off image (both cars head-on in the right 60%, no text), right-anchored, petrol gradient on the left under the text (max 36% wide). When the banner is wider than 2.4:1 the image covers; when it is taller (desktop, stretched to the news column) the image keeps its full width on the bottom and its top fades into the banner, so no car is trimmed (`@container` on `.cmp-media`). A 2px ember line and the 46px "VS" badge sit in the gap between the cars, positioned from `--s` (gap x, 0–1, `comparison.image.split`) and `--r` (image ratio). ≤1199px: banner fixed at 2.4:1. Mobile: image on top (16:10), text below. Credit on a dark chip, bottom-right. |
 | News item | `.ln-item` | 148px thumb (2:1, radius 4px) + title + mono "Kind · date"; 1px `--rule` dividers |
 | New & Upcoming card | `.nu-card` | Petrol, radius 10px; grid: text left, 16:9 image right (7% left-edge fade), no text over the image; label chip ("New launch"/"Upcoming"), italic name, status line, ember link |
 | Review card | `.lr-card` | Light card, radius 10px; image left (≈51%, 16:10 crop), text right: label, title 19px, dek, mono date/read time, "Read the brief" |
@@ -283,7 +283,7 @@ Light cards: 1px #DEDAD2; hover 1px `--rule-strong` + `0 6px 18px rgba(17,37,46,
 
 - **Only clean, text-free crops on the homepage.** Branded social graphics with baked-in headlines are never shown uncropped. Crops are defined in `data/homepage.json` (and `data/cars.json` for cars) and generated by `scripts/make-home-images.py` into `images/home/*.webp` with `data/home-images.json` (width, height, edge colour, `contain` flag).
 - **Two ways to define a crop:** `box` = an exact `[left, top, right, bottom]` crop (used for the lead image, comparison pair and culture banner); `subject` = the car's bounding box, from which the script frames the car itself at every slot ratio it can appear in, with the whole car inside the frame, ~7% side and ~9% top/bottom breathing room and the car slightly below centre. `area` keeps the frame away from baked-in headlines; `erase` paints headline text off a plain studio wall (opencv, used only on XEV 9S, Sierra EV, Yangwang Altior and Denza D9 news graphics). New articles: add a `thumb` with a `subject`.
-- **One ratio per slot, and the crop is cut at that ratio** (so `cover` never re-crops the car): lead 16:10 · supporting stories 16:10 · Latest Review 16:10 · guide cards 16:10 · Latest News 2:1 · New & Upcoming 16:9 · Featured Cars 2.4:1 · comparison pair ≈2.9:1 (natural, contained) · Car Culture banner ≈3.5:1 desktop / 16:9 mobile.
+- **One ratio per slot, and the crop is cut at that ratio** (so `cover` never re-crops the car): lead banner 2.4:1 at its own ratio, never re-cropped on desktop · supporting stories 16:10 · Latest Review 16:10 · guide cards 16:10 · Latest News 2:1 · New & Upcoming 16:9 · Featured Cars 16:9 (was 2.4:1; too shallow for SUVs, cars touched the edges) · comparison banner 2.4:1 (cover / full-width, see §11) · Car Culture banner ≈3.5:1 desktop / 16:9 mobile.
 - **Fit:** `object-fit: cover` only when the crop matches its frame; when the car cannot fit a slot's ratio inside its `area` the script marks the crop `contain` and the page letterboxes it on its own edge colour instead of cutting the car (`cropImg()` also letterboxes any crop <78% or >130% of its frame ratio). Never `object-fit: fill`; never distort. The Nov 2026 audit (`image-framing-audit-*.png` in the refinement screenshots) checked every homepage image at 1440 and 390px.
 - **Loading:** lead image `fetchpriority="high"`; everything else `loading="lazy" decoding="async"`; width/height attributes always set (CLS measured 0).
 - **Provenance:** AI images carry "AI illustration: FlamingPiston" on the image (hero, comparison, culture). Credits come from the article's own photo caption.
@@ -349,3 +349,7 @@ Removed from `fp.css` after a rule-by-rule reference check (a rule was removed o
 | Tools page | Own calculator styling (petrol result panels) inside the global shell | 4/5 |
 | Section headings | Homepage uses `.fp-head` (italic titles, "View all"); other pages use `.page-head` / article headings | 2B/2C |
 | Buttons | Homepage `.fp-btn` (ember) vs site `.btn` (petrol) | 2B/2C |
+
+## 19. Homepage banner images (made for the layout, chosen automatically)
+
+Five spots use a purpose-made banner: lead story (`hero`, 2.4:1), comparison (`compare`, 2.4:1), New & Upcoming launch and upcoming cards (`launch` / `upcoming`, 3:1) and the Car Culture banner (`culture`, 4:1). Car on the right, dark empty left side, no baked-in text. Each spot shows the **newest story of its type with a banner** (`pickBanner()` in `build-lists.js`; `pinned` overrides); a story without one never displaces a good banner, and the build lists newer stories missing one. `make-home-images.py` checks each banner's ratio, that the car starts right of the text zone, and the required `split` / `status`. The full-bleed layouts: `.hl` (§11), `.cmp` (§11), `.nu-card--bleed` and `.cc-banner--bleed` (end of `fp-home.css`): image at its own ratio in one grid cell with the text over a petrol gradient (solid → 0 by ~46%); on phones the image goes on top (16:9 or 16:10, right-anchored) fading into the text. Until a `launch` / `upcoming` / `culture` banner exists, those spots use the older split card / banner. Sizes, data fields, workflow and the five prompt templates: **`docs/HOMEPAGE-BANNERS.md`**.

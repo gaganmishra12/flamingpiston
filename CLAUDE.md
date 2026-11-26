@@ -18,6 +18,7 @@ The approved homepage (26 Nov 2026) is final: masthead with descriptor under the
 
 - Do not redesign, restructure, restyle or add sections to it unless Gagan explicitly asks.
 - Its content updates through `data/homepage.json`, `data/cars.json` and `scripts/build-lists.js`; editing that data is fine, changing its design is not.
+- **Homepage banners:** the lead story, comparison banner, New & Upcoming cards and Car Culture banner each show the newest story of their type that has a banner in `data/homepage.json` "banners" (pins override). When publishing a Buyer's Brief, comparison, launch/upcoming news or Car Culture story, offer the matching banner prompt from `docs/HOMEPAGE-BANNERS.md` and add its entry; the build warns about bad proportions, a car under the text, or newer stories with no banner.
 - After any change to shared files (`fp.css`, `fp.js`, `apply-shell.js`, `build-lists.js`), re-screenshot the homepage and compare it with `docs/design-references/`. Use reduced motion, declined cookies, eager images and wait for image decoding so screenshots are deterministic; the Phase 2A standard was 0 changed pixels at all 8 viewports.
 
 *Homepage = Discovery. Internal pages = Depth.*

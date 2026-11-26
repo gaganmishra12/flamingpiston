@@ -23,12 +23,14 @@ Two ways to describe a crop (fractions of the source image, [left, top, right, b
              with a warning if it is not installed). Use only on plain studio walls.
 
 Homepage slot ratios (keep in step with assets/fp-home.css):
-  hero  1.6  (16:10)  lead story
+  hero  box          lead story: 2.4:1 banner, car on the right, dark empty left for the headline
   thumb 1.6  (16:10)  supporting stories, latest review, guide cards
   thumb 2.0  (2:1)    Latest News list
   card  1.78 (16:9)   New & Upcoming cards
-  car   2.4           Featured Cars
-  vs, banner          comparison and Car Culture banners ("box" crops; shown with contain/cover)
+  car   1.78 (16:9)   Featured Cars (2.4:1 until Nov 2026: too shallow for SUVs)
+  feature            homepage banners ("banners" in homepage.json): used whole, checked against
+                     their kind (hero/compare 2.4:1, launch/upcoming 3:1, culture 4:1)
+  banner              Car Culture banner ("box" crop, cover)
 
 Usage (from the site root, needs Pillow:  pip install pillow):
     python3 scripts/make-home-images.py
@@ -40,10 +42,13 @@ from PIL import Image
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 OUT = os.path.join(ROOT, 'images', 'home')
-WIDTH = {'hero': 1200, 'thumb': 560, 'car': 760, 'vs': 1400, 'card': 900, 'banner': 1400}
-RATIOS = {'hero': [1.6], 'thumb': [1.6, 2.0], 'card': [16 / 9], 'car': [2.4]}
+WIDTH = {'hero': 1600, 'thumb': 560, 'car': 760, 'vs': 1600, 'card': 900, 'banner': 1400, 'feature': 1600}
+# Homepage banners (data/homepage.json "banners"): expected ratio, the furthest left the car may start, output width
+BANNER = {'hero': (2.4, 0.38, 1600), 'compare': (2.4, 0.33, 1600), 'launch': (3.0, 0.40, 1400), 'upcoming': (3.0, 0.40, 1400), 'culture': (4.0, 0.45, 2000)}
+RATIOS = {'hero': [1.6], 'thumb': [1.6, 2.0], 'card': [16 / 9], 'car': [16 / 9]}
 SUFFIX = {1.6: '16x10', 2.0: '2x1', 16 / 9: '16x9', 2.4: '12x5'}
 PAD_X, PAD_Y = 0.07, 0.09     # breathing room around the car, as a share of the frame
+PADS = {'car': (0.09, 0.13)}  # Featured Cars: a little more air, the car is the whole card
 LOWER = 0.04                  # put the car this much (share of frame height) below centre
 QUALITY = 80
 VERSION = 2                   # bump to force every crop to be remade
@@ -56,12 +61,13 @@ def slug(url):
     s = url.strip('/').replace('.html', '').replace('/', '-')
     return s or 'home'
 
-def frame(W, H, subject, area, r):
+def frame(W, H, subject, area, r, pad=(PAD_X, PAD_Y)):
     """Pixel crop box of ratio r around the subject, inside area. Returns (box, fits)."""
     sl, st, sr, sb = subject[0] * W, subject[1] * H, subject[2] * W, subject[3] * H
     al, at, ar, ab = area[0] * W, area[1] * H, area[2] * W, area[3] * H
     sw, sh = sr - sl, sb - st
-    w = max(sw / (1 - 2 * PAD_X), sh / (1 - 2 * PAD_Y) * r)
+    px, py = pad
+    w = max(sw / (1 - 2 * px), sh / (1 - 2 * py) * r)
     w = min(w, ar - al, (ab - at) * r)          # largest frame the area allows
     h = w / r
     fits = w >= sw - 1 and h >= sh - 1
@@ -122,6 +128,10 @@ if cmp.get('image'):
 for item in (home.get('newUpcoming') or {}).get('items', []):
     if item.get('image'):
         add(f'upcoming#{item["url"]}', 'card', item['image'], f'upcoming-{slug(item["url"])}')
+for url, spec in (home.get('banners') or {}).items():
+    if url.startswith('_'):
+        continue
+    jobs.append((f'banner#{url}', 'feature', spec, f'banner-{slug(url)}', None))
 if (home.get('carCulture') or {}).get('image'):
     add('culture#banner', 'banner', home['carCulture']['image'], 'car-culture-banner')
 for car in load('data/cars.json').get('cars', []):
@@ -140,7 +150,7 @@ for key, role, spec, name, ratio in jobs:
         problems.append(f'missing source {spec["src"]} ({key})'); continue
     rel = f'images/home/{name}.webp'
     dst = os.path.join(ROOT, rel)
-    sig = hashlib.md5(json.dumps([VERSION, spec, ratio, WIDTH[role], QUALITY, PAD_X, PAD_Y, LOWER, os.path.getmtime(src)], sort_keys=True).encode()).hexdigest()[:10]
+    sig = hashlib.md5(json.dumps([VERSION, spec, ratio, WIDTH[role], BANNER.get(spec.get('kind'), 0), QUALITY, PADS.get(role, (PAD_X, PAD_Y)), LOWER, os.path.getmtime(src)], sort_keys=True).encode()).hexdigest()[:10]
     old = old_manifest.get(key)
     if old and old.get('sig') == sig and old.get('file') == rel and os.path.exists(dst):
         manifest[key] = old; kept += 1; continue
@@ -148,14 +158,32 @@ for key, role, spec, name, ratio in jobs:
     W, H = im.size
     fits = True
     if ratio:
-        box, fits = frame(W, H, spec['subject'], spec.get('area', [0, 0, 1, 1]), ratio)
+        box, fits = frame(W, H, spec['subject'], spec.get('area', [0, 0, 1, 1]), ratio, PADS.get(role, (PAD_X, PAD_Y)))
         if not fits:
             problems.append(f'{key}: car does not fit a {ratio:.2f} frame inside its area; letterboxed')
     else:
         b = spec.get('box', [0, 0, 1, 1])
         box = (round(b[0] * W), round(b[1] * H), round(b[2] * W), round(b[3] * H))
     crop = im.crop(box)
-    w = min(WIDTH[role], crop.width)
+    width = WIDTH[role]
+    if role == 'feature':                       # homepage banner: check it was made for the layout
+        kind = spec.get('kind')
+        if kind not in BANNER:
+            problems.append(f'{key}: banner "kind" must be one of {", ".join(BANNER)}'); continue
+        want, min_left, width = BANNER[kind]
+        r = crop.width / crop.height
+        if abs(r - want) / want > 0.08:
+            problems.append(f'{key}: banner is {crop.width}x{crop.height} ({r:.2f}:1); a {kind} banner should be {want}:1')
+        sub = spec.get('subject')
+        if not sub:
+            problems.append(f'{key}: add "subject" (the car\'s box) so the layout can be checked')
+        elif sub[0] < min_left - 0.03:
+            problems.append(f'{key}: the car starts at {sub[0]:.2f} of the width; for a {kind} banner it must start right of {min_left:.2f} or the text will cover it')
+        if kind == 'compare' and not spec.get('split'):
+            problems.append(f'{key}: compare banner needs "split" (x of the gap between the cars)')
+        if kind in ('launch', 'upcoming') and not spec.get('status'):
+            problems.append(f'{key}: {kind} banner needs "status" (one dated line from the story)')
+    w = min(width, crop.width)
     h = round(crop.height * w / crop.width)
     # average colour of the left and right edges: used behind letterboxed ('contain') images
     edge = crop.crop((0, 0, 4, crop.height)).resize((1, 1)).getpixel((0, 0))
