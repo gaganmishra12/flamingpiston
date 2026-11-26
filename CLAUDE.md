@@ -14,7 +14,7 @@ If the documentation and the code disagree, trust the code, then fix the documen
 
 ## The homepage is locked
 
-The approved homepage (26 Nov 2026) is final: masthead with descriptor under the logo, navigation, lead carousel, supporting stories, Find Your Next Car, Featured Cars, featured comparison, Latest News, New & Upcoming Cars, Latest Reviews, Buying Tools, Buying & Ownership Guides, Car Culture banner and footer.
+The approved homepage (26 Nov 2026) is final: masthead with descriptor under the logo, navigation, static lead story (text left, 16:10 image right; no carousel since the 26 Nov refinement), supporting stories, Find Your Next Car, Featured Cars, featured comparison, Latest News, New & Upcoming Cars, Latest Reviews, Buying Tools, Buying & Ownership Guides, Car Culture banner and footer.
 
 - Do not redesign, restructure, restyle or add sections to it unless Gagan explicitly asks.
 - Its content updates through `data/homepage.json`, `data/cars.json` and `scripts/build-lists.js`; editing that data is fine, changing its design is not.

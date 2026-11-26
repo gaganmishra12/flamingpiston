@@ -7,17 +7,15 @@
   },
 
   "hero": {
-    "_about": "Lead slides: 'pinned' first, then the newest articles that have a 'hero' crop below, up to 'max'.",
-    "pinned": ["reviews/2026-mahindra-thar-roxx-4x4-review/"],
-    "max": 3
+    "_about": "Static lead story (one only, no rotation): the first 'pinned' article; if it is missing, the newest article that has a 'hero' crop below. Hero crops are cut at 16:10 (ratio 1.6) with the whole car inside the frame.",
+    "pinned": ["reviews/2026-mahindra-thar-roxx-4x4-review/"]
   },
 
   "comparison": {
     "url": "comparisons/tata-sierra-ev-vs-mahindra-be-6/",
     "headline": "Sierra EV vs BE 6",
     "dek": "Both are five-star Bharat NCAP cars that start ₹66,000 apart. Safety detail, price, range, charging and space, compared.",
-    "left":  { "src": "images/tata-sierra-ev-vs-mahindra-be-6-hero.jpg", "box": [0.02, 0.33, 0.50, 0.95], "pos": "50% 60%" },
-    "right": { "src": "images/tata-sierra-ev-vs-mahindra-be-6-hero.jpg", "box": [0.50, 0.33, 0.99, 0.91], "pos": "50% 60%" },
+    "image": { "src": "images/tata-sierra-ev-vs-mahindra-be-6-hero.jpg", "box": [0, 0.33, 1, 0.94], "split": 0.493 },
     "credit": "AI illustration: FlamingPiston (based on Tata Motors and Mahindra images)"
   },
 
@@ -25,9 +23,9 @@
     "_about": "Two cards: one recent India launch and one upcoming car. Every line must come from the linked FlamingPiston story. Say 'expected' unless the date is confirmed.",
     "items": [
       { "url": "news-denza-d9-z9-gt-india-launch.html", "label": "New launch", "name": "Denza D9", "status": "Launched at ₹90 lakh · 18 Nov 2026", "link": "Read the launch story",
-        "image": { "src": "images/news-denza-d9-z9-gt-india-launch-photo.jpg", "box": [0.345, 0.12, 0.97, 0.88] } },
+        "image": { "src": "images/news-denza-d9-z9-gt-india-launch-photo.jpg", "subject": [0.325, 0.24, 0.975, 0.79], "area": [0, 0, 1, 0.95], "erase": [[0, 0.05, 0.345, 0.48]] } },
       { "url": "news-hyundai-tucson-2027.html", "label": "Upcoming", "name": "Hyundai Tucson", "status": "India launch expected in 2027 (not confirmed)", "link": "What we know",
-        "image": { "src": "images/news-hyundai-tucson-2027.jpg", "box": [0, 0.18, 0.61, 0.92] } }
+        "image": { "src": "images/news-hyundai-tucson-2027.jpg", "subject": [0.03, 0.24, 0.61, 0.80], "area": [0, 0, 0.62, 1] } }
     ]
   },
 
@@ -42,59 +40,58 @@
   "featuredCars": ["maruti-brezza", "skoda-kylaq", "kia-seltos", "kia-syros-ev"],
 
   "images": {
+    "_about": "Per article: 'hero' (exact 16:10 'box' for the lead story) and 'thumb' ('subject' = the car's bounding box; scripts/make-home-images.py frames it at every slot ratio). Optional 'area' keeps baked-in headlines out; 'erase' paints headline text off a plain studio wall.",
     "reviews/2026-mahindra-thar-roxx-4x4-review/": {
-      "hero":  { "src": "images/mahindra-thar-roxx-review-hero.jpg", "box": [0.26, 0.08, 1, 0.93], "pos": "55% 60%" },
-      "thumb": { "src": "images/mahindra-thar-roxx-review-hero.jpg", "box": [0.26, 0.2, 1, 0.92] }
+      "hero": { "src": "images/mahindra-thar-roxx-review-hero.jpg", "box": [0.25, 0.11, 0.97, 0.905], "pos": "50% 50%" },
+      "thumb": { "src": "images/mahindra-thar-roxx-review-hero.jpg", "subject": [0.268,  0.24,  0.925,  0.86], "area": [0.25, 0, 1, 0.93] }
     },
     "reviews/2026-mercedes-glc-electric/": {
-      "hero":  { "src": "images/mercedes-glc-electric-hero.jpg", "box": [0.425, 0.05, 1, 0.92], "pos": "40% 60%" },
-      "thumb": { "src": "images/mercedes-glc-electric-exterior.jpg", "box": [0, 0.1, 1, 1] }
+      "thumb": { "src": "images/mercedes-glc-electric-exterior.jpg", "subject": [0.1,  0.11,  0.94,  0.9] }
     },
     "reviews/2026-kia-seltos-review/": {
-      "hero":  { "src": "images/kia-seltos-review-hero.jpg", "box": [0.28, 0.05, 1, 0.92], "pos": "55% 60%" },
-      "thumb": { "src": "images/kia-seltos-review-exterior.jpg", "box": [0, 0.08, 1, 0.82] }
+      "thumb": { "src": "images/kia-seltos-review-exterior.jpg", "subject": [0.17,  0.23,  0.71,  0.68] }
     },
     "reviews/2026-maruti-brezza-review/": {
-      "thumb": { "src": "images/brezza-verdict.jpg", "box": [0, 0.17, 1, 0.9] }
+      "thumb": { "src": "images/brezza-verdict.jpg", "subject": [0.33,  0.26,  0.84,  0.76] }
     },
     "reviews/2026-skoda-kylaq-review/": {
-      "thumb": { "src": "images/skoda-kylaq-review-verdict.jpg", "box": [0, 0.12, 0.9, 1] }
+      "thumb": { "src": "images/skoda-kylaq-review-verdict.jpg", "subject": [0.16,  0.23,  0.82,  0.86] }
     },
     "guides/brezza-petrol-vs-cng-break-even/": {
-      "thumb": { "src": "images/brezza-petrol-vs-cng-guide-hero.jpg", "box": [0, 0.12, 1, 0.94] }
+      "thumb": { "src": "images/brezza-petrol-vs-cng-guide-hero.jpg", "subject": [0.155,  0.25,  0.8,  0.88] }
     },
     "guides/festive-car-discounts-2026/": {
-      "thumb": { "src": "images/festive-car-discounts-guide-hero.jpg", "box": [0, 0.05, 1, 0.95] }
+      "thumb": { "src": "images/festive-car-discounts-guide-hero.jpg", "subject": [0.05,  0.12,  0.95,  0.92] }
     },
     "articles/ev-claimed-vs-real-world-range/": {
-      "thumb": { "src": "images/ev-real-world-range-guide-hero.jpg", "box": [0, 0.1, 1, 1] }
+      "thumb": { "src": "images/ev-real-world-range-guide-hero.jpg", "subject": [0.04,  0.27,  0.7,  0.85] }
     },
     "guides/innova-hycross-facelift-buy-now-or-wait/": {
-      "thumb": { "src": "images/innova-hycross-facelift-buy-or-wait-hero.jpg", "box": [0, 0.2, 0.6, 0.9] }
+      "thumb": { "src": "images/innova-hycross-facelift-buy-or-wait-hero.jpg", "subject": [0.05,  0.23,  0.59,  0.8], "area": [0, 0.08, 0.6, 0.93] }
     },
     "guides/5-star-bharat-ncap-cars-under-10-lakh/": {
-      "thumb": { "src": "images/bharat-ncap-cars-under-10-lakh-hero-photo.jpg", "box": [0, 0.2, 1, 0.92] }
+      "thumb": { "src": "images/bharat-ncap-cars-under-10-lakh-hero-photo.jpg", "subject": [0.18,  0.3,  0.75,  0.77] }
     },
     "guides/baas-vs-buying-ev-battery-break-even/": {
-      "thumb": { "src": "images/baas-vs-buying-ev-guide-hero-photo.jpg", "box": [0, 0.15, 1, 0.95] }
+      "thumb": { "src": "images/baas-vs-buying-ev-guide-hero-photo.jpg", "subject": [0.31,  0.29,  0.91,  0.87] }
     },
     "comparisons/brezza-cng-vs-xuv-3xo-cng/": {
-      "thumb": { "src": "images/brezza-cng-vs-xuv-3xo-cng-hero-v2.jpg", "box": [0.02, 0.33, 0.98, 0.92] }
+      "thumb": { "src": "images/brezza-cng-vs-xuv-3xo-cng-hero-v2.jpg", "subject": [0.065,  0.37,  0.925,  0.77], "area": [0, 0.33, 1, 0.95] }
     },
     "news-mahindra-xev-9s-bharat-ncap.html": {
-      "thumb": { "src": "images/news-mahindra-xev-9s-bharat-ncap.jpg", "box": [0.235, 0.33, 0.99, 0.91] }
+      "thumb": { "src": "images/news-mahindra-xev-9s-bharat-ncap.jpg", "subject": [0.24,  0.215,  0.95,  0.84], "area": [0, 0, 1, 0.95], "erase": [[0, 0.05, 0.30, 0.40]] }
     },
     "news-tata-sierra-ev-bharat-ncap.html": {
-      "thumb": { "src": "images/news-tata-sierra-ev-bharat-ncap.jpg", "box": [0.40, 0.38, 0.99, 0.93] }
+      "thumb": { "src": "images/news-tata-sierra-ev-bharat-ncap.jpg", "subject": [0.29,  0.19,  0.955,  0.82], "area": [0, 0, 1, 0.95], "erase": [[0, 0.10, 0.35, 0.47]] }
     },
     "news-yangwang-altior-reveal.html": {
-      "thumb": { "src": "images/news-yangwang-altior-reveal.jpg", "box": [0.345, 0.34, 0.99, 0.9] }
+      "thumb": { "src": "images/news-yangwang-altior-reveal.jpg", "subject": [0.235,  0.32,  0.98,  0.86], "area": [0, 0, 1, 0.95], "erase": [[0, 0.10, 0.345, 0.465]] }
     },
     "news-honda-november-2026-offers.html": {
-      "thumb": { "src": "images/news-honda-november-2026-offers.jpg", "box": [0.25, 0.04, 0.97, 0.715] }
+      "thumb": { "src": "images/news-honda-november-2026-offers.jpg", "subject": [0.27,  0.08,  0.93,  0.645], "area": [0, 0, 1, 0.67] }
     },
     "news-denza-d9-z9-gt-india-launch.html": {
-      "thumb": { "src": "images/news-denza-d9-z9-gt-india-launch-photo.jpg", "box": [0.345, 0.12, 0.97, 0.88] }
+      "thumb": { "src": "images/news-denza-d9-z9-gt-india-launch-photo.jpg", "subject": [0.325,  0.24,  0.975,  0.79], "area": [0, 0, 1, 0.95], "erase": [[0, 0.05, 0.345, 0.48]] }
     }
   }
 }

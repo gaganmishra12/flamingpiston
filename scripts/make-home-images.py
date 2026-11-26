@@ -1,12 +1,34 @@
-#!/usr/bin/env python3
 """
 make-home-images.py — makes the clean, text-free homepage crops.
 
-Reads data/homepage.json ("images", "comparison") and data/cars.json (car "image"),
-cuts each 'box' ([left, top, right, bottom] as fractions of the source image) out of
-the source photo, resizes it (never upscales) and saves a WebP in images/home/.
-It also writes data/home-images.json, which build-lists.js uses for width/height
-and the letterbox colour.
+Reads data/homepage.json ("images", "comparison", "newUpcoming", "carCulture") and
+data/cars.json (car "image"), cuts a crop out of each source photo, resizes it (never
+upscales) and saves a WebP in images/home/. It also writes data/home-images.json, which
+build-lists.js uses for width/height, the letterbox colour and the file name.
+
+Two ways to describe a crop (fractions of the source image, [left, top, right, bottom]):
+
+  "box":     an exact crop. Used as it is.
+  "subject": the car's bounding box. The script frames it itself, at the aspect ratio of
+             every homepage slot the image can appear in (see RATIOS), keeping the whole
+             car inside the frame with breathing room around it and the car slightly below
+             centre. Optional "area" limits where the frame may go (for example to keep a
+             baked-in headline out); default is the whole image. If the car cannot fit at a
+             ratio inside the area, the frame is made as wide as the car needs and the
+             manifest marks it "contain", so the page letterboxes it on its edge colour
+             instead of cutting the car.
+
+  "erase":   optional list of boxes that contain baked-in headline text next to the car.
+             Bright text pixels inside them are painted out (needs opencv-python; skipped
+             with a warning if it is not installed). Use only on plain studio walls.
+
+Homepage slot ratios (keep in step with assets/fp-home.css):
+  hero  1.6  (16:10)  lead story
+  thumb 1.6  (16:10)  supporting stories, latest review, guide cards
+  thumb 2.0  (2:1)    Latest News list
+  card  1.78 (16:9)   New & Upcoming cards
+  car   2.4           Featured Cars
+  vs, banner          comparison and Car Culture banners ("box" crops; shown with contain/cover)
 
 Usage (from the site root, needs Pillow:  pip install pillow):
     python3 scripts/make-home-images.py
@@ -18,8 +40,13 @@ from PIL import Image
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 OUT = os.path.join(ROOT, 'images', 'home')
-WIDTH = {'hero': 1200, 'thumb': 520, 'car': 760, 'vs': 760, 'card': 760, 'banner': 1400}
-QUALITY = 78
+WIDTH = {'hero': 1200, 'thumb': 560, 'car': 760, 'vs': 1400, 'card': 900, 'banner': 1400}
+RATIOS = {'hero': [1.6], 'thumb': [1.6, 2.0], 'card': [16 / 9], 'car': [2.4]}
+SUFFIX = {1.6: '16x10', 2.0: '2x1', 16 / 9: '16x9', 2.4: '12x5'}
+PAD_X, PAD_Y = 0.07, 0.09     # breathing room around the car, as a share of the frame
+LOWER = 0.04                  # put the car this much (share of frame height) below centre
+QUALITY = 80
+VERSION = 2                   # bump to force every crop to be remade
 
 def load(p):
     with open(os.path.join(ROOT, p), encoding='utf-8') as f:
@@ -29,56 +56,117 @@ def slug(url):
     s = url.strip('/').replace('.html', '').replace('/', '-')
     return s or 'home'
 
-jobs = []   # (key, role, spec)
+def frame(W, H, subject, area, r):
+    """Pixel crop box of ratio r around the subject, inside area. Returns (box, fits)."""
+    sl, st, sr, sb = subject[0] * W, subject[1] * H, subject[2] * W, subject[3] * H
+    al, at, ar, ab = area[0] * W, area[1] * H, area[2] * W, area[3] * H
+    sw, sh = sr - sl, sb - st
+    w = max(sw / (1 - 2 * PAD_X), sh / (1 - 2 * PAD_Y) * r)
+    w = min(w, ar - al, (ab - at) * r)          # largest frame the area allows
+    h = w / r
+    fits = w >= sw - 1 and h >= sh - 1
+    if not fits:                                # car wider/taller than the frame: frame the car, page letterboxes it
+        w, h = max(w, min(sw * 1.04, ar - al)), max(h, min(sh * 1.04, ab - at))
+    cx, cy = (sl + sr) / 2, (st + sb) / 2 - LOWER * h
+    l = min(max(cx - w / 2, al), ar - w)
+    t = min(max(cy - h / 2, at), ab - h)
+    return (round(l), round(t), round(l + w), round(t + h)), fits
+
+_erased = {}
+def source(spec, problems, key):
+    path = os.path.join(ROOT, spec['src'])
+    im = Image.open(path).convert('RGB')
+    if not spec.get('erase'):
+        return im
+    sig = json.dumps([spec['src'], spec['erase']])
+    if sig in _erased:
+        return _erased[sig].copy()
+    try:
+        import cv2, numpy as np
+    except ImportError:
+        problems.append(f'{key}: "erase" needs opencv-python (pip install opencv-python); headline text left in')
+        return im
+    a = cv2.cvtColor(np.array(im), cv2.COLOR_RGB2BGR)
+    H, W = a.shape[:2]
+    mask = np.zeros((H, W), np.uint8)
+    for l, t, r, b in spec['erase']:
+        x0, y0, x1, y1 = int(l * W), int(t * H), int(r * W), int(b * H)
+        hsv = cv2.cvtColor(a[y0:y1, x0:x1], cv2.COLOR_BGR2HSV)
+        hh, ss, vv = hsv[..., 0], hsv[..., 1], hsv[..., 2]
+        text = ((vv > 150) & (ss < 70)) | (((hh < 12) | (hh > 165)) & (ss > 90) & (vv > 90))
+        mask[y0:y1, x0:x1] = text.astype(np.uint8) * 255
+    mask = cv2.dilate(mask, np.ones((7, 7), np.uint8), iterations=2)
+    a = cv2.inpaint(a, mask, 9, cv2.INPAINT_TELEA)
+    out = Image.fromarray(cv2.cvtColor(a, cv2.COLOR_BGR2RGB))
+    _erased[sig] = out
+    return out.copy()
+
+jobs = []   # (key, role, spec, file-name, ratio or None)
+def add(key, role, spec, name):
+    if spec.get('subject'):
+        for r in RATIOS[role]:
+            k = key if len(RATIOS[role]) == 1 else f'{key}@{SUFFIX[r]}'
+            jobs.append((k, role, spec, f'{name}-{SUFFIX[r]}', r))
+    else:
+        jobs.append((key, role, spec, name, None))
+
 home = load('data/homepage.json')
 for url, roles in home.get('images', {}).items():
     if url.startswith('_'):
         continue
     for role, spec in roles.items():
-        jobs.append((f'{url}#{role}', role, spec, f'{slug(url)}-{role}'))
+        add(f'{url}#{role}', role, spec, f'{slug(url)}-{role}')
 cmp = home.get('comparison') or {}
-for side in ('left', 'right'):
-    if cmp.get(side):
-        jobs.append((f'comparison#{side}', 'vs', cmp[side], f'{slug(cmp["url"])}-{side}'))
-for i, item in enumerate((home.get('newUpcoming') or {}).get('items', [])):
+if cmp.get('image'):
+    add('comparison#image', 'vs', cmp['image'], f'{slug(cmp["url"])}-pair')
+for item in (home.get('newUpcoming') or {}).get('items', []):
     if item.get('image'):
-        jobs.append((f'upcoming#{item["url"]}', 'card', item['image'], f'upcoming-{slug(item["url"])}'))
+        add(f'upcoming#{item["url"]}', 'card', item['image'], f'upcoming-{slug(item["url"])}')
 if (home.get('carCulture') or {}).get('image'):
-    jobs.append(('culture#banner', 'banner', home['carCulture']['image'], 'car-culture-banner'))
+    add('culture#banner', 'banner', home['carCulture']['image'], 'car-culture-banner')
 for car in load('data/cars.json').get('cars', []):
     if car.get('image'):
-        jobs.append((f'car:{car["id"]}', 'car', car['image'], f'car-{car["id"]}'))
+        add(f'car:{car["id"]}', 'car', car['image'], f'car-{car["id"]}')
 
+try:
+    old_manifest = load('data/home-images.json')
+except Exception:
+    old_manifest = {}
 os.makedirs(OUT, exist_ok=True)
 manifest, made, kept, problems = {}, 0, 0, []
-for key, role, spec, name in jobs:
+for key, role, spec, name, ratio in jobs:
     src = os.path.join(ROOT, spec['src'])
     if not os.path.exists(src):
         problems.append(f'missing source {spec["src"]} ({key})'); continue
-    box = spec.get('box', [0, 0, 1, 1])
-    sig = hashlib.md5(json.dumps([spec['src'], box, WIDTH[role], QUALITY, os.path.getmtime(src)]).encode()).hexdigest()[:10]
     rel = f'images/home/{name}.webp'
     dst = os.path.join(ROOT, rel)
-    im = Image.open(src).convert('RGB')
+    sig = hashlib.md5(json.dumps([VERSION, spec, ratio, WIDTH[role], QUALITY, PAD_X, PAD_Y, LOWER, os.path.getmtime(src)], sort_keys=True).encode()).hexdigest()[:10]
+    old = old_manifest.get(key)
+    if old and old.get('sig') == sig and old.get('file') == rel and os.path.exists(dst):
+        manifest[key] = old; kept += 1; continue
+    im = source(spec, problems, key)
     W, H = im.size
-    crop = im.crop((round(box[0] * W), round(box[1] * H), round(box[2] * W), round(box[3] * H)))
+    fits = True
+    if ratio:
+        box, fits = frame(W, H, spec['subject'], spec.get('area', [0, 0, 1, 1]), ratio)
+        if not fits:
+            problems.append(f'{key}: car does not fit a {ratio:.2f} frame inside its area; letterboxed')
+    else:
+        b = spec.get('box', [0, 0, 1, 1])
+        box = (round(b[0] * W), round(b[1] * H), round(b[2] * W), round(b[3] * H))
+    crop = im.crop(box)
     w = min(WIDTH[role], crop.width)
     h = round(crop.height * w / crop.width)
     # average colour of the left and right edges: used behind letterboxed ('contain') images
     edge = crop.crop((0, 0, 4, crop.height)).resize((1, 1)).getpixel((0, 0))
     edge2 = crop.crop((crop.width - 4, 0, crop.width, crop.height)).resize((1, 1)).getpixel((0, 0))
     bg = '#%02x%02x%02x' % tuple((a + b) // 2 for a, b in zip(edge, edge2))
-    old = None
-    try:
-        old = load('data/home-images.json').get(key)
-    except Exception:
-        pass
-    if old and old.get('sig') == sig and os.path.exists(dst):
-        kept += 1
-    else:
-        crop.resize((w, h), Image.LANCZOS).save(dst, 'WEBP', quality=QUALITY, method=6)
-        made += 1
-    manifest[key] = {'file': rel, 'w': w, 'h': h, 'bg': bg, 'sig': sig}
+    crop.resize((w, h), Image.LANCZOS).save(dst, 'WEBP', quality=QUALITY, method=6)
+    made += 1
+    entry = {'file': rel, 'w': w, 'h': h, 'bg': bg, 'sig': sig}
+    if not fits:
+        entry['contain'] = True
+    manifest[key] = entry
 
 with open(os.path.join(ROOT, 'data', 'home-images.json'), 'w', encoding='utf-8') as f:
     json.dump(dict(sorted(manifest.items())), f, indent=1)
@@ -90,4 +178,4 @@ for n in stale:
 print(f'Homepage images: {made} made, {kept} unchanged, {len(stale)} old removed.')
 for p in problems:
     print('WARN:', p)
-sys.exit(1 if problems else 0)
+sys.exit(1 if [p for p in problems if p.startswith('missing')] else 0)

@@ -19,8 +19,8 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
-const V = '20261126b';                       // fp.css / fp.js — bump after editing them
-const VH = '20261126b';                      // homepage-only assets (fp-home.css / fp-home.js)
+const V = '20261126c';                       // fp.css / fp.js — bump after editing them
+const VH = '20261126c';                      // homepage-only assets (fp-home.css / fp-home.js)
 const SKIP_DIRS = new Set(['site', 'scripts', 'images', 'js', 'assets', '.git', 'node_modules', 'design-preview']);
 const args = process.argv.slice(2);
 const DRY = args.includes('--dry-run');
@@ -102,7 +102,7 @@ function header(cur) {
   const drawer = HOME_NAV.map((it) => DD[it[1]] ? `<li class="dr-group"><span${it[1] === cur ? ' class="is-active"' : ''}>${it[0]}</span><ul>${ddList(it[1])}</ul></li>` : `<li><a href="${it[1]}"${it[2] === cur ? ' aria-current="page"' : ''}>${it[0]}</a></li>`).join('');
   return `<header class="site-header fp-masthead">
     <div class="fp-container mh-row">
-      <a href="/" class="mh-brand" aria-label="FlamingPiston home"><img src="/assets/brand/flamingpiston_horizontal_cropped_light.svg" alt="FlamingPiston" width="260" height="21"><span class="mh-desc" aria-hidden="true">Cars <span>/</span> Reviews <span>/</span> Buying Guides <span>/</span> Explainers</span></a>
+      <a href="/" class="mh-brand" aria-label="FlamingPiston home"><img src="/assets/brand/flamingpiston_horizontal_cropped_light.svg" alt="FlamingPiston" width="260" height="21"><span class="mh-desc" aria-hidden="true">Cars <span>/</span> Reviews <span>/</span> Buying Guides</span></a>
       <nav class="mh-nav" aria-label="Main"><ul>${items}</ul></nav>
       <div class="mh-tools">
         <button id="fpSearchTrigger" class="mh-icon" type="button" aria-label="Search (press /)">${ICON_SEARCH}</button>

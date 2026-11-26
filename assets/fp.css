@@ -119,16 +119,20 @@ p{margin:0}
 
 /* ---------- 5b. Masthead — global header (approved homepage design, promoted site-wide in Phase 2A) ----------
    Markup: header() in scripts/apply-shell.js. Behaviour: section 1 of assets/fp.js.
-   Single row: logo + descriptor | centred nav with Cars/Tools dropdowns | search. Nav moves to the drawer ≤1279px. */
-.mh-row{display:flex;align-items:center;gap:24px;height:68px}
-.mh-brand{display:flex;flex-direction:column;gap:6px;flex:none;text-decoration:none;line-height:0}
-.mh-brand img{width:clamp(190px,17vw,260px);height:auto}
-.mh-desc{display:block;font:500 9.5px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-2);white-space:nowrap}
-.mh-desc span{margin:0 .35em;color:var(--teal);opacity:.75}
-.mh-nav{flex:1;display:flex;justify-content:center;align-self:stretch}
+   Single row: brand lockup on the left | ONE right-aligned group of nav + search (no flexible spacer between them).
+   Nav moves to the drawer ≤1279px.
+   Brand lockup: the descriptor is sized and positioned from --logo-w, so it stays under the "F" of the wordmark
+   and inside its width at every logo size. 0.1509 = x of the F's baseline-left corner in the SVG viewBox (180.5/1196);
+   0.0385 sizes the descriptor so it ends just inside the wordmark's right edge. */
+.mh-row{display:flex;align-items:center;gap:0;height:68px}
+.mh-brand{--logo-w:clamp(200px,17vw,260px);display:flex;flex-direction:column;gap:calc(var(--logo-w)*.026);flex:none;text-decoration:none;line-height:0}
+.mh-brand img{width:var(--logo-w);height:auto}
+.mh-desc{display:block;width:max-content;margin-left:calc(var(--logo-w)*.1509);max-width:calc(var(--logo-w)*.849);font:500 calc(var(--logo-w)*.0385)/1 var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--teal);opacity:.86;white-space:nowrap}
+.mh-desc span{margin:0 .3em;opacity:.6}
+.mh-nav{flex:none;display:flex;align-self:stretch;margin-left:auto;padding-left:24px}
 .mh-nav ul{list-style:none;margin:0;padding:0}
-.mh-nav > ul{display:flex;gap:clamp(16px,1.9vw,30px);align-items:stretch}
-.mh-tools{display:flex;align-items:center;gap:4px;flex:none}
+.mh-nav > ul{display:flex;gap:26px;align-items:stretch}
+.mh-tools{display:flex;align-items:center;gap:4px;flex:none;margin-left:17px}   /* 17px + the 44px button's 11px inset = 28px visible from the last nav item to the search glyph */
 .mh-icon{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;background:transparent;border:0;border-radius:4px;color:var(--ivory);cursor:pointer}
 .mh-icon svg{width:22px;height:22px}
 .mh-icon:hover{background:rgba(137,180,181,.12)}
@@ -163,11 +167,10 @@ body.drawer-open{overflow:hidden}
 @media (max-width:1279px){
   .mh-burger{display:inline-flex}
   .mh-nav{display:none}
+  .mh-tools{margin-left:auto}
 }
 @media (max-width:767px){
-  .mh-row{height:60px;gap:12px}
-  .mh-brand img{width:190px}
-  .mh-desc{font-size:8.5px;letter-spacing:.1em}
+  .mh-row{height:60px}
 }
 
 /* ---------- 6. Search overlay ---------- */

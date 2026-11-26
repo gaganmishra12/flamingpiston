@@ -15,7 +15,7 @@
 | `assets/fp.css` | Whole site: fonts, **all tokens**, base, **`.fp-container` width system**, **global masthead (§5b)**, search overlay, buttons, cards, listings, articles, info pages, **global footer (§14)** | 49 KB |
 | `assets/fp-home.css` | Homepage sections only (loaded after `fp.css`): hero, finder, cards, banners, section headings, italic headline font | 23 KB |
 | `assets/fp.js` | Whole site: **masthead dropdowns + drawer (§1)**, back-to-top, card dates/"New", letterboxing, table scroll, listing filters, FAQ/note detection, search overlay | 13 KB |
-| `assets/fp-home.js` | Homepage only: lead carousel, car finder | 7 KB |
+| `assets/fp-home.js` | Homepage only: car finder (the lead story is static) | 7 KB |
 | `assets/fp-tools.js` | `/tools.html` only: four calculators | 4 KB |
 
 Cache-busting query strings are set by `scripts/apply-shell.js`: `V = '20261126b'` (fp.css / fp.js) and `VH = '20261126b'` (fp-home.css / fp-home.js). Bump the relevant one whenever a file changes.
@@ -53,7 +53,7 @@ Cache-busting query strings are set by `scripts/apply-shell.js`: `V = '20261126b
 
 | Token | Value | Use |
 |---|---|---|
-| `--ember-strong` | #C4513F | Interactive ember: primary buttons, nav underline, active carousel dot, label chips, VS ring (4.9:1 with white) |
+| `--ember-strong` | #C4513F | Interactive ember: primary buttons, nav underline, label chips, VS ring (4.9:1 with white) |
 | `--ember-strong-hover` | #A9432F | Hover for `--ember-strong` buttons |
 | `--ember-label` | #E0715F | Small ember labels/links on petrol (5.0:1) |
 | `--petrol-panel` | #16303A | Middle stop of finder / comparison gradients |
@@ -67,7 +67,7 @@ Cache-busting query strings are set by `scripts/apply-shell.js`: `V = '20261126b
 | Value | Where |
 |---|---|
 | #1C3A45, #21434E | End stops of the finder / comparison gradients |
-| rgba(242,239,232,.55) | Finder field border; inactive carousel dots |
+| rgba(242,239,232,.55) | Finder field border |
 | rgba(242,239,232,.7–.75) | Photo credits on images |
 | #fff | Text on ember buttons and label chips |
 
@@ -99,8 +99,8 @@ Bold italic Familjen Grotesk (`.fp-italic`, or `font:700 italic …`) is used **
 
 | Element | Font | Size / line-height | Notes |
 |---|---|---|---|
-| Hero headline (`.hl-text h2`) | Head 700 | clamp(30px → 44px) / 1.06, -0.025em | max-width 440px, `text-wrap:balance` |
-| Hero dek | Body 400 | 15px / 1.45 | max-width 380px, #D6DEDD; hidden < 1200px |
+| Lead headline (`.hl-text h2`) | Head 700 | clamp(28px → 40px) / 1.08, -0.025em | fills the 40% text column, `text-wrap:balance`; 26–32px ≤1199px |
+| Lead dek | Body 400 | 15px / 1.5 (14.5px mobile) | #D6DEDD; shown at every width |
 | Comparison headline | Head 700 italic | clamp(28px → 38px) / 1.05 | |
 | Car Culture title | Head 700 italic | clamp(28px → 38px) / 1.05 | |
 | Finder title | Head 700 italic | clamp(24px → 30px) / 1 | |
@@ -117,7 +117,7 @@ Bold italic Familjen Grotesk (`.fp-italic`, or `font:700 italic …`) is used **
 | Descriptions / deks | Body 400 | 12.5–14.5px / 1.35–1.45 | |
 | Price | Body 400 | 13.5px / 1.35 | |
 | Category label (`.fp-label`) | Body 700 | 11px / 1.2, +0.08em, uppercase | `--ember-text` on ivory, `--ember-label` on petrol; chip version white on `--ember-strong` |
-| Header descriptor | Body 500 | 9.5px, +0.14em, uppercase | `--on-dark-2`; slashes teal |
+| Header descriptor | Body 500 | `--logo-w` × 0.0385 (≈7.7–10px), +0.12em, uppercase | `--teal` at 86%; slashes at 60% of that. See §6 brand lockup |
 | Metadata | Mono 400 | 11.5px / 1–1.3 | `--ink-3` |
 | Photo credit | Mono 400 | 10–10.5px | ivory at ~72% |
 
@@ -165,14 +165,14 @@ Site scale (`fp.css`): `--s-1` 4 · `--s-2` 8 · `--s-3` 12 · `--s-4` 16 · `--
 
 | Row | Desktop | Ratio / columns |
 |---|---|---|
-| Hero | Lead + supporting stories | `67fr / 33fr`, fixed 360px tall |
+| Hero | Static lead story + supporting stories | `67fr / 33fr`; lead = `40fr / 60fr` text \| 16:10 image, height set by the image (no fixed height); stories stretch to match in 3 equal rows |
 | Finder | Title · intro · 3 selects · button | `auto · minmax(170px,1.1fr) · 3×1fr · auto`, min-height 84px |
 | Featured Cars | 4 cards | `repeat(4, 1fr)`, gap 20px |
 | Comparison + News | Banner + list | `65fr / 35fr`, gap 32px, rows stretch to equal height (banner min 250px) |
-| New & Upcoming | 2 cards | `repeat(2, 1fr)`, 150px tall |
+| New & Upcoming | 2 cards | `repeat(2, 1fr)`; each card `1fr / 1.2fr` text \| 16:9 image, height set by the image |
 | Reviews + Tools | Review card + 2×2 tools | `58fr / 42fr`, gap 32px |
 | Guides | 3 cards | `repeat(3, 1fr)` |
-| Car Culture | Banner | 1 column, 210px tall |
+| Car Culture | Banner | 1 column, 240px tall, image right 62% |
 | Footer | Brand + 4 columns | `4fr repeat(4, 2fr)`, gap 32px (from `fp.css`) |
 
 ## 5. Breakpoints (max-width)
@@ -186,9 +186,9 @@ Site scale (`fp.css`): `--s-1` 4 · `--s-2` 8 · `--s-3` 12 · `--s-4` 16 · `--
 | ≥ 1440 | Full layout; content capped at 1440px |
 | ≤ 1439 | Finder gap tightens; supporting-story deks hidden |
 | ≤ 1279 | Nav moves into the drawer; hamburger appears; finder intro hidden; guide cards stack image over text |
-| ≤ 1199 | Hero dek hidden; comparison and Latest News stack (news becomes 2 columns); banner fixed 250px |
-| ≤ 1023 | Hero becomes one column, supporting stories become a 3-up row; finder 3 columns with full-width title/button; Featured Cars 2×2; Reviews and Tools stack |
-| ≤ 767 | Mobile: 60px header; hero image on top (16:10) with text beneath; stories as list; finder 2 columns (budget full width); comparison image below text; one-column news, guides, New & Upcoming; tool cards stack icon over text; culture image on top |
+| ≤ 1199 | Hero becomes one column: lead story full width (`44fr / 56fr` text \| image), supporting stories a 3-up row; comparison and Latest News stack (news becomes 2 columns); banner fixed 250px |
+| ≤ 1023 | New & Upcoming one column (image column max 440px); finder 3 columns with full-width title/button; Featured Cars 2×2; Reviews and Tools stack |
+| ≤ 767 | Mobile: 60px header; lead image on top (16:10) with text beneath, no overlap; stories as list; finder 2 columns (budget full width); comparison image below text (credit below the image); one-column news, guides; New & Upcoming image on top (16:9); tool cards stack icon over text; culture image on top |
 | ≤ 389 | Featured Cars one column |
 
 Page *content* in `fp.css` (listings, articles, info pages) still uses its earlier set (999/899/599/479 and the footer's 999/479). These are content breakpoints, left unchanged in Phase 2A on purpose; align them while redesigning those layouts in 2B/2C/5.
@@ -198,10 +198,17 @@ Page *content* in `fp.css` (listings, articles, info pages) still uses its earli
 Markup: `header(cur)` in `scripts/apply-shell.js`, written into every page. CSS: `fp.css` §5b. Behaviour: `fp.js` §1 (no homepage-only JavaScript involved).
 
 - **One row**, 68px (60px on mobile), deep petrol, 1px `--rule-dark` bottom border, `position: sticky`.
-- **Left:** cropped light logo SVG (`/assets/brand/flamingpiston_horizontal_cropped_light.svg`), width clamp(190px, 17vw, 260px); descriptor underneath: "CARS / REVIEWS / BUYING GUIDES / EXPLAINERS".
-- **Centre:** nav — Home · News · Cars ▾ · Reviews · Compare · Buying Guides · Tools ▾ · Car Culture. Inter 600 14.5px, ivory. Gap clamp(16px, 1.9vw, 30px).
+- **Layout:** brand lockup on the left edge of the shared container; **nav and search form one right-aligned group** (`.mh-nav{margin-left:auto}`; `.mh-row` has no gap and no flexible spacer between nav and search). Nav items and the search icon share the same vertical centre (34px in the 68px bar).
+- **Brand lockup (left):** cropped light logo SVG (`/assets/brand/flamingpiston_horizontal_cropped_light.svg`) at `--logo-w: clamp(200px, 17vw, 260px)` (set on `.mh-brand`). Descriptor underneath reads exactly **"CARS / REVIEWS / BUYING GUIDES"**. Everything in the lockup is derived from `--logo-w`, so it scales with the logo and has no fixed-pixel offsets:
+  - starts directly under the **F** of FLAMINGPISTON, not under the ember double-slash: `margin-left: calc(var(--logo-w) * .1509)` (the F's baseline-left corner is at x 180.5 of the SVG's 1196-wide viewBox);
+  - stays inside the wordmark: font-size `calc(var(--logo-w) * .0385)` with +0.12em tracking ends the line just inside the wordmark's right edge; `max-width: calc(var(--logo-w) * .849)` as a guard;
+  - gap below the wordmark `calc(var(--logo-w) * .026)` (5–7px);
+  - colour muted teal (`--teal` at 86% opacity; the slashes at 60% of that), Inter 500, uppercase.
+  - Do not change the SVG or its proportions; if the logo file changes, re-measure the F offset.
+- **Nav (right group):** Home · News · Cars ▾ · Reviews · Compare · Buying Guides · Tools ▾ · Car Culture. Inter 600 14.5px, ivory. **26px between items.** `.mh-nav` has `padding-left: 24px` so it never touches the lockup.
+- **Search:** `.mh-tools{margin-left:17px}`; with the 44px button's 11px inset this puts **28px** between the end of "Car Culture" and the search glyph. Below 1280px the nav is hidden and `.mh-tools` takes `margin-left:auto`.
 - **Active / hover state:** 3px `--ember-strong` underline at the bottom of the bar, scaling in from 0 (0.2s).
-- **Right:** search icon button (44×44) opening the shared search overlay; hamburger shown **only below 1280px**.
+- **Search button** (44×44) opens the shared search overlay; hamburger shown **only below 1280px**.
 - **Dropdowns (Cars, Tools):** petrol panel, 2px ember top border, min-width 240px, shadow `0 12px 28px rgba(0,0,0,.25)`; items 14px `--on-dark-2`, hover `--petrol-3` + ivory. Open on click, hover (hover devices), ArrowDown; close on Esc, outside click, focus leaving. Chevron rotates 180° when open.
 - **Drawer (<1280px):** right-side panel max 380px, petrol, overlay rgba(8,18,22,.55); main items Familjen 600 20px; Cars/Tools as grouped sub-lists; secondary links (About, Contact, Gagan Mishra, policies, methodology, Instagram). Focus moves to close button; Tab is trapped; Esc closes; body scroll locked.
 - **Active state** comes from the page's editorial type, not its folder (`sectionOf()` in `apply-shell.js`): News stories → News; Buyer's Briefs (`/reviews/…`) → Reviews; comparisons (including those under `/reviews/`) → Compare; guides and explainers (including Brezza guides under `/reviews/` and "x-vs-y" guides) → Buying Guides; `tools.html` → the **Tools** dropdown button (class `is-active`, permanent ember underline, "(current section)" for screen readers); listing pages → their own item; about, contact, author, policies, legal, sitemap and 404 → none.
@@ -250,16 +257,16 @@ All homepage cards are whole-card links (or carry a clear link), use hover under
 
 | Component | Class | Spec |
 |---|---|---|
-| Lead hero slide | `.hl-slide` | Image area right 66% with left mask fade (transparent → black at 30%) + petrol gradient overlay; text column left (max ~470px + gutter); ember label chip; upright headline; dek; primary button; mono credit bottom-right. Carousel dots (8px; active 20px ember pill) + pause button. |
-| Supporting story | `.hs-item` | Image 42% (2:1, radius 4px) + label/title/short dek; 1px `--rule-dark` dividers; no outlined cards |
+| Lead story | `article.hl` | **Static, one story, no carousel** (no rotation, dots, pause or slide states). Two-part composition: text column (40%) left — ember label chip, upright headline, dek, primary button — and a framed 16:10 image (radius 4px) right (60%), vertically centred against each other; nothing overlaps. Mono credit on the image, bottom-right. The story is `hero.pinned[0]` in `data/homepage.json`. |
+| Supporting story | `.hs-item` | Image 42% (16:10, radius 4px) + label/title/short dek; 1px `--rule-dark` dividers; no outlined cards |
 | Vehicle card | `.fc` | 1px #DEDAD2, radius 9px, #FAF8F3; image 2.4:1; name + outlined body-type badge (10.5px uppercase, radius 4px) + price with `*`; dated footnote under the grid; hover: stronger border + soft shadow + 2.5% image zoom |
-| Comparison banner | `.cmp` | Petrol gradient, radius 11px; text left (≤42%); two cars right (62%) clipped on a diagonal with a 6px skewed ember bar and a 46px circular "VS" (2px ember ring); credit bottom-right |
-| News item | `.ln-item` | 148px thumb (2.3:1, radius 4px) + title + mono "Kind · date"; 1px `--rule` dividers |
-| New & Upcoming card | `.nu-card` | Petrol, radius 10px, 150px tall; image right 62% with left fade; label chip ("New launch"/"Upcoming"), italic name, status line, ember link |
-| Review card | `.lr-card` | Light card, radius 10px; image left (≈51%), text right: label, title 19px, dek, mono date/read time, "Read the brief" |
+| Comparison banner | `.cmp` | Petrol gradient, radius 11px; text left (≤42%); right 62%: **one uncut crop of both cars** at its natural ratio (≈2.9:1), centred, edges masked into the gradient; 4px skewed ember bar and 46px circular "VS" (2px ember ring) at the gap between the cars (`split` in the JSON); credit bottom-right (below the image on mobile) |
+| News item | `.ln-item` | 148px thumb (2:1, radius 4px) + title + mono "Kind · date"; 1px `--rule` dividers |
+| New & Upcoming card | `.nu-card` | Petrol, radius 10px; grid: text left, 16:9 image right (7% left-edge fade), no text over the image; label chip ("New launch"/"Upcoming"), italic name, status line, ember link |
+| Review card | `.lr-card` | Light card, radius 10px; image left (≈51%, 16:10 crop), text right: label, title 19px, dek, mono date/read time, "Read the brief" |
 | Tool card | `.tl-card` | Light card, radius 10px, min-height 104px; 44px circular outlined icon + title + one-line description |
-| Guide card | `.gd-card` | Light card, radius 10px, 10px padding; image 40% (1.5:1, radius 6px) + title + dek |
-| Culture banner | `.cc-banner` | Petrol, radius 12px, 210px; image right 72% with left fade; italic title, dek, primary button, credit |
+| Guide card | `.gd-card` | Light card, radius 10px, 10px padding; image 40% (16:10, radius 6px) + title + dek |
+| Culture banner | `.cc-banner` | Petrol, radius 12px, 240px; image right 62% with a 20% left fade (frame ≈3.5:1 so the whole car stays in view; 16:9 image on top on mobile); italic title, dek, primary button, credit |
 | Fallback tile | `.fp-tile` | Petrol-2 → petrol gradient with two ember slashes and a mono type label; used when an article has no clean image |
 | Category label | `.fp-label` | See §3; chip form on images and dark cards |
 | Site article card | `.card` (fp.css §9) | 16:9 image, eyebrow, title, 3-line dek, mono date; used on listing pages and Read Next — to be restyled in Phase 2B |
@@ -274,10 +281,11 @@ Light cards: 1px #DEDAD2; hover 1px `--rule-strong` + `0 6px 18px rgba(17,37,46,
 
 ## 12. Images
 
-- **Only clean, text-free crops on the homepage.** Branded social graphics with baked-in headlines are never shown uncropped. Crops are defined in `data/homepage.json` (and `data/cars.json` for cars) as `box: [left, top, right, bottom]` fractions, generated by `scripts/make-home-images.py` into `images/home/*.webp` with `data/home-images.json` (width, height, edge colour).
-- **Aspect ratios:** hero image area ≈1.72:1 (right 66% of a 360px band) · supporting story 2:1 · vehicle card 2.4:1 (chosen over 3:1 so no roof, wheel or bumper is cut) · news thumb 2.3:1 · New & Upcoming ≈1.4:1 area · review ≈1.5:1 (16:9 on mobile) · guide 1.5:1 · culture ≈2.6:1 · mobile hero 16:10.
-- **Fit:** `object-fit: cover` with per-image `object-position` (`pos` in the JSON). If a crop is much narrower than its frame (ratio < 78% of the frame) it is letterboxed with `object-fit: contain` on its own edge colour. Never `object-fit: fill`; never distort.
-- **Loading:** first hero slide `fetchpriority="high"`; everything else `loading="lazy" decoding="async"`; width/height attributes always set (CLS measured 0).
+- **Only clean, text-free crops on the homepage.** Branded social graphics with baked-in headlines are never shown uncropped. Crops are defined in `data/homepage.json` (and `data/cars.json` for cars) and generated by `scripts/make-home-images.py` into `images/home/*.webp` with `data/home-images.json` (width, height, edge colour, `contain` flag).
+- **Two ways to define a crop:** `box` = an exact `[left, top, right, bottom]` crop (used for the lead image, comparison pair and culture banner); `subject` = the car's bounding box, from which the script frames the car itself at every slot ratio it can appear in, with the whole car inside the frame, ~7% side and ~9% top/bottom breathing room and the car slightly below centre. `area` keeps the frame away from baked-in headlines; `erase` paints headline text off a plain studio wall (opencv, used only on XEV 9S, Sierra EV, Yangwang Altior and Denza D9 news graphics). New articles: add a `thumb` with a `subject`.
+- **One ratio per slot, and the crop is cut at that ratio** (so `cover` never re-crops the car): lead 16:10 · supporting stories 16:10 · Latest Review 16:10 · guide cards 16:10 · Latest News 2:1 · New & Upcoming 16:9 · Featured Cars 2.4:1 · comparison pair ≈2.9:1 (natural, contained) · Car Culture banner ≈3.5:1 desktop / 16:9 mobile.
+- **Fit:** `object-fit: cover` only when the crop matches its frame; when the car cannot fit a slot's ratio inside its `area` the script marks the crop `contain` and the page letterboxes it on its own edge colour instead of cutting the car (`cropImg()` also letterboxes any crop <78% or >130% of its frame ratio). Never `object-fit: fill`; never distort. The Nov 2026 audit (`image-framing-audit-*.png` in the refinement screenshots) checked every homepage image at 1440 and 390px.
+- **Loading:** lead image `fetchpriority="high"`; everything else `loading="lazy" decoding="async"`; width/height attributes always set (CLS measured 0).
 - **Provenance:** AI images carry "AI illustration: FlamingPiston" on the image (hero, comparison, culture). Credits come from the article's own photo caption.
 - **Fallback:** `.fp-tile` when no clean image exists; `build-lists.js` prints which stories need one.
 
@@ -285,14 +293,14 @@ Light cards: 1px #DEDAD2; hover 1px `--rule-strong` + `0 6px 18px rgba(17,37,46,
 
 - Focus: `:focus-visible` 2px outline — ember on ivory (site default), **teal** inside the header, footer, dark panels and homepage cards (offset 2–3px).
 - Hover: title underline (3–5px offset), card border/shadow lift, image zoom 2.5–3% over 0.4s, button darkening.
-- Carousel: 8s interval; pauses on hover, focus, hidden tab and the pause button; arrow keys, Home/End, swipe; **never auto-rotates with `prefers-reduced-motion`** (all transitions also disabled site-wide by `fp.css` §16).
+- No carousel: the lead story is static (removed in the Nov 2026 refinement). All transitions are disabled with `prefers-reduced-motion` (`fp.css` §16).
 - Easing: `--ease: cubic-bezier(.2,.7,.2,1)`.
 
 ## 14. Accessibility requirements
 
 - Contrast: all text tokens above meet WCAG AA at their sizes (ratios noted in §2). Ember text on ivory must use `--ember-text`; ember on petrol uses `--ember-label`; white on ember uses `--ember-strong`.
 - One `<h1>` per page (homepage: visually hidden).
-- Semantic landmarks; skip link to `#main`; carousels use `aria-roledescription`, tabs and live labels; dropdowns use `aria-expanded`/`aria-controls`; drawer is `role=dialog aria-modal=true`.
+- Semantic landmarks; skip link to `#main`; dropdowns use `aria-expanded`/`aria-controls`; drawer is `role=dialog aria-modal=true`.
 - Touch targets ≥ 44px (icon buttons, nav, fields, mobile "View all" links). Tiny inline links (Instagram in the footer) are the known exception.
 - Alt text on every content image; decorative images inside links that duplicate a headline are `aria-hidden` and `tabindex=-1`.
 - No horizontal overflow at any viewport (checked programmatically at 2560, 1920, 1536, 1440, 1280, 1024, 768 and 390px).
@@ -301,12 +309,12 @@ Light cards: 1px #DEDAD2; hover 1px `--rule-strong` + `0 6px 18px rgba(17,37,46,
 
 | Component | Desktop ≥1280 | Laptop 1024–1279 | Tablet 768–1023 | Mobile <768 |
 |---|---|---|---|---|
-| Header | Full nav, no hamburger | Drawer + search | Drawer + search | 60px, logo 190px |
-| Hero | 67/33, 360px | Same, dek hidden <1200 | Lead full width, stories 3-up | Image on top, text below, stories list |
+| Header | Logo left; nav + search right-aligned group | Drawer + search | Drawer + search | 60px, logo 200px |
+| Hero | 67/33; lead 40/60 text \| image | Lead full width (44/56) <1200, stories 3-up | Lead full width, stories 3-up | Image on top, text below, stories list |
 | Finder | One row | Title + 3 selects + button, intro hidden | 3 columns, title/button full width | 2 columns, budget full width |
 | Featured Cars | 4-up | 4-up | 2×2 | 2×2 (1-up ≤389) |
 | Comparison + News | Side by side, equal height | Stacked <1200, news 2 columns | Stacked | Image under text; news 1 column |
-| New & Upcoming | 2-up | 2-up | 2-up | 1-up |
+| New & Upcoming | 2-up | 2-up | 1-up, text \| image | 1-up, image on top |
 | Reviews + Tools | 58/42 | 58/42 | Stacked | Review image on top; tools 2×2 stacked icons |
 | Guides | 3-up, image beside text | 3-up, image above text | 3-up | 1-up, image beside text |
 | Car Culture | Banner | Banner | Banner | Image on top, text below |
@@ -320,7 +328,7 @@ Light cards: 1px #DEDAD2; hover 1px `--rule-strong` + `0 6px 18px rgba(17,37,46,
 | Masthead drawer (≤1279px) | `fp.js` §1b | Opens from `#fpMenuBtn`; focus to close button; Tab/Shift+Tab trapped; Esc closes and returns focus; body scroll locked (`body.drawer-open`); links close it |
 | Search overlay | `fp.js` §7 | `#fpSearchTrigger` (masthead icon) and the `/` key on every page |
 | Back-to-top, card dates, letterboxing, tables, listing filters, article helpers | `fp.js` §2–6b | unchanged |
-| Lead carousel, car finder | `fp-home.js` | homepage only |
+| Car finder | `fp-home.js` | homepage only |
 | Calculators | `fp-tools.js` | tools page only |
 
 Retired in Phase 2A (confirmed unreferenced by every page, template, script and data file): the old mobile menu (`#menuBtn` / `#navCollapse`), the previous homepage hero carousel (`#heroCarousel`) and the `#latestReviewsRow` sorter.

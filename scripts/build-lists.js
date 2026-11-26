@@ -2,7 +2,7 @@
 //
 // build-lists.js — rebuilds every automatic list on the site from the article pages.
 //
-//   index.html          HERO     lead slides (data/homepage.json "hero") + 3 supporting stories
+//   index.html          HERO     static lead story (data/homepage.json "hero") + 3 supporting stories
 //                       FEATURED featured cars (data/cars.json, ids in data/homepage.json)
 //                       CARS-DATA  catalogue for the Find Your Next Car panel
 //                       COMPARE  comparison banner (data/homepage.json "comparison")
@@ -233,25 +233,29 @@ const ICON_ARROW = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 
 const label = (a) => a.type === 'News' ? `News · ${newsKind(a)}` : (a.type === 'Article' ? 'Explainer' : a.type);
 const cta = (a) => ({ 'Buyer’s Brief': 'Read the brief', Comparison: 'Read the comparison', Guide: 'Read the guide', Article: 'Read the explainer', News: 'Read the story' })[a.type] || 'Read more';
 const crop = (key) => CROPS[key] || null;
-// <img> for a clean crop. 'box' is the aspect ratio of the frame it sits in; if the crop is
-// much narrower than the frame it is letterboxed (object-fit: contain) on its own edge colour.
+// <img> for a clean crop. 'box' is the aspect ratio of the frame it sits in. Crops are cut at the
+// frame's ratio by make-home-images.py; a crop it could not fit (marked "contain"), or one much
+// narrower or wider than the frame, is letterboxed (object-fit: contain) on its own edge colour
+// rather than cut.
 function cropImg(c, alt, box, attrs = 'loading="lazy" decoding="async"', pos) {
-  const ratio = c.w / c.h, contain = ratio < box * 0.78;
+  const ratio = c.w / c.h, contain = !!c.contain || ratio < box * 0.78 || ratio > box * 1.3;
   const style = [contain ? `background:${c.bg}` : '', pos ? `object-position:${pos}` : ''].filter(Boolean).join(';');
   return `<img src="/${c.file}" alt="${esc(alt)}" width="${c.w}" height="${c.h}"${contain ? ' class="is-contain"' : ''}${style ? ` style="${style}"` : ''} ${attrs}>`;
 }
 const tile = (a) => `<span class="fp-tile" aria-hidden="true"><span>${esc(a.type === 'Article' ? 'Explainer' : a.type)}</span></span>`;
-const thumbFor = (a) => crop(`${a.url}#thumb`);
+// Thumbnail crops exist at two slot ratios: '16x10' (stories, review, guides) and '2x1' (Latest News).
+const thumbFor = (a, r = '16x10') => crop(`${a.url}#thumb@${r}`);
 function shortDek(a, max = 96) {
   const s = (a.desc.match(/^.+?[.!?](?=\s|$)/) || [a.desc])[0].trim();
   return s.length <= max ? s : '';
 }
 
-// Lead slides: pinned first, then the newest articles that have a clean hero crop.
-const heroMax = (HOME.hero && HOME.hero.max) || 3;
+// Lead story (static, one only): the pinned article, else the newest article that has a clean hero crop.
+const heroMax = 1;
 const heroList = [];
 for (const u of ((HOME.hero && HOME.hero.pinned) || [])) { const a = byUrl.get(u); if (a && crop(`${u}#hero`)) heroList.push(a); else console.warn(`WARN: pinned hero ${u} not found or has no hero crop`); }
 for (const a of articles) { if (heroList.length >= heroMax) break; if (!heroList.includes(a) && crop(`${a.url}#hero`)) heroList.push(a); }
+heroList.length = Math.min(heroList.length, heroMax);
 heroList.forEach((a) => shown.add(a.url));
 const cmpA = HOME.comparison && byUrl.get(HOME.comparison.url);
 if (cmpA) shown.add(cmpA.url);
@@ -262,20 +266,23 @@ const stories = lanes.map((ok) => { const a = articles.find((x) => ok(x) && !sho
 const news = articles.filter((a) => a.type === 'News' && !shown.has(a.url)).slice(0, 4);
 news.forEach((a) => shown.add(a.url));
 
-function heroSlide(a, i, n) {
+// Static lead story: a two-part composition, text on the left and a framed, uncropped-looking car image on the right.
+// The hero crop in data/homepage.json is cut at 16:10 so the frame never re-crops the car.
+function leadStory(a) {
   const c = crop(`${a.url}#hero`), spec = HOME.images[a.url].hero;
-  const first = i === 0;
-  const img = cropImg(c, a.alt, 1.72, first ? 'fetchpriority="high" decoding="async"' : 'loading="lazy" decoding="async"', spec.pos);
-  return `        <article class="hl-slide${first ? ' is-active' : ''}" id="hlSlide${i}" role="group" aria-roledescription="slide" aria-label="${i + 1} of ${n}"${first ? '' : ' aria-hidden="true"'}>
+  const img = cropImg(c, a.alt, 1.6, 'fetchpriority="high" decoding="async"', spec.pos);
+  return `      <article class="hl" aria-labelledby="hlTitle">
+        <div class="hl-text">
+          <p class="fp-label">${esc(label(a))}</p>
+          <h2 id="hlTitle"><a href="${href(a)}">${esc(a.title)}</a></h2>
+          <p class="hl-dek">${esc(a.desc)}</p>
+          <a class="fp-btn" href="${href(a)}">${cta(a)}${ICON_ARROW}</a>
+        </div>
+        <figure class="hl-figure">
           <a class="hl-media" href="${href(a)}" tabindex="-1" aria-hidden="true">${img}</a>
-          <div class="hl-text">
-            <p class="fp-label">${esc(label(a))}</p>
-            <h2><a href="${href(a)}"${first ? '' : ' tabindex="-1"'}>${esc(a.title)}</a></h2>
-            <p class="hl-dek">${esc(a.desc)}</p>
-            <a class="fp-btn" href="${href(a)}"${first ? '' : ' tabindex="-1"'}>${cta(a)}${ICON_ARROW}</a>
-          </div>
-          ${a.cap ? `<p class="hl-credit">${esc(a.cap)}</p>` : ''}
-        </article>`;
+          ${a.cap ? `<figcaption class="hl-credit">${esc(a.cap)}</figcaption>` : ''}
+        </figure>
+      </article>`;
 }
 function storyRow(a) {
   const c = thumbFor(a); if (!c) noClean.add(a.url);
@@ -284,20 +291,11 @@ function storyRow(a) {
   const head = split ? a.title.slice(0, i) : a.title;
   const dek = split ? a.title.slice(i + 1).trim() : shortDek(a, 80);
   return `        <article class="hs-item">
-          <a class="hs-media" href="${href(a)}" tabindex="-1" aria-hidden="true">${c ? cropImg(c, a.alt, 2) : tile(a)}</a>
+          <a class="hs-media" href="${href(a)}" tabindex="-1" aria-hidden="true">${c ? cropImg(c, a.alt, 1.6) : tile(a)}</a>
           <div class="hs-text"><p class="fp-label">${esc(label(a))}</p><h3><a href="${href(a)}"${split ? ` title="${esc(a.title)}"` : ''}>${esc(head)}</a></h3>${dek ? `<p>${esc(dek)}</p>` : ''}</div>
         </article>`;
 }
-const dots = heroList.length > 1 ? `
-        <div class="hl-controls">
-          <div class="hl-dots" role="tablist" aria-label="Choose a lead story">${heroList.map((a, i) => `<button type="button" role="tab" id="hlDot${i}" aria-controls="hlSlide${i}" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}" aria-label="${esc(a.title)}"></button>`).join('')}</div>
-          <button class="hl-pause" type="button" id="hlPause" aria-pressed="false" aria-label="Pause rotation"><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3v14H7zM14 5h3v14h-3z" fill="currentColor"/></svg><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
-        </div>` : '';
-between('index.html', 'HERO', `      <div class="hl" id="fpLead" aria-roledescription="carousel" aria-label="Lead stories" data-interval="8000">
-        <div class="hl-slides">
-${heroList.map((a, i) => heroSlide(a, i, heroList.length)).join('\n')}
-        </div>${dots}
-      </div>
+between('index.html', 'HERO', `${heroList.length ? leadStory(heroList[0]) : ''}
       <div class="hs" aria-label="More top stories">
 ${stories.map(storyRow).join('\n')}
       </div>`);
@@ -325,12 +323,11 @@ between('index.html', 'CARS-DATA', `  <script type="application/json" id="fpCars
 
 // Comparison banner
 if (cmpA) {
-  const cm = HOME.comparison, L = crop('comparison#left'), R = crop('comparison#right');
+  const cm = HOME.comparison, P = crop('comparison#image');
   const head = cm.headline || cmpA.title.split(':')[0];
   between('index.html', 'COMPARE', `      <article class="cmp">
-        <div class="cmp-media" aria-hidden="true">
-          <span class="cmp-car cmp-l">${L ? cropImg(L, '', 1, 'loading="lazy" decoding="async"', cm.left.pos) : ''}</span>
-          <span class="cmp-car cmp-r">${R ? cropImg(R, '', 1, 'loading="lazy" decoding="async"', cm.right.pos) : ''}</span>
+        <div class="cmp-media" aria-hidden="true"${cm.image && cm.image.split ? ` style="--split:${(cm.image.split * 100).toFixed(1)}%"` : ''}>
+          ${P ? `<img src="/${P.file}" alt="" width="${P.w}" height="${P.h}" loading="lazy" decoding="async">` : ''}
           <span class="cmp-vs">VS</span>
         </div>
         <div class="cmp-text">
@@ -345,8 +342,8 @@ if (cmpA) {
 
 // Latest News column
 between('index.html', 'NEWS', news.map((a) => {
-  const c = thumbFor(a); if (!c) noClean.add(a.url);
-  return `          <li><a class="ln-item" href="${href(a)}"><span class="ln-media">${c ? cropImg(c, a.alt, 2.3) : tile(a)}</span><span class="ln-text"><span class="ln-title">${esc(a.title)}</span><span class="ln-meta">${newsKind(a)} · <time datetime="${a.date}">${fmt(a.date)}</time></span></span></a></li>`;
+  const c = thumbFor(a, '2x1'); if (!c) noClean.add(a.url);
+  return `          <li><a class="ln-item" href="${href(a)}"><span class="ln-media">${c ? cropImg(c, a.alt, 2) : tile(a)}</span><span class="ln-text"><span class="ln-title">${esc(a.title)}</span><span class="ln-meta">${newsKind(a)} · <time datetime="${a.date}">${fmt(a.date)}</time></span></span></a></li>`;
 }).join('\n'));
 
 // New & Upcoming (curated in data/homepage.json: every line comes from the linked story)
@@ -354,7 +351,7 @@ const upItems = ((HOME.newUpcoming && HOME.newUpcoming.items) || []).filter((it)
 between('index.html', 'UPCOMING', upItems.map((it) => {
   const a = byUrl.get(it.url), c = crop(`upcoming#${it.url}`);
   return `        <a class="nu-card" href="${href(a)}">
-          <span class="nu-media">${c ? cropImg(c, a.alt, 1.4, 'loading="lazy" decoding="async"', it.image && it.image.pos) : ''}</span>
+          <span class="nu-media">${c ? cropImg(c, a.alt, 16 / 9, 'loading="lazy" decoding="async"', it.image && it.image.pos) : ''}</span>
           <span class="nu-text"><span class="fp-label nu-tag">${esc(it.label)}</span><span class="nu-name">${esc(it.name)}</span><span class="nu-status">${esc(it.status)}</span><span class="nu-link">${esc(it.link || 'Read more')}${ICON_ARROW}</span></span>
         </a>`;
 }).join('\n'));
@@ -363,7 +360,7 @@ between('index.html', 'UPCOMING', upItems.map((it) => {
 const review = articles.find((a) => a.type === 'Buyer’s Brief' && !shown.has(a.url) && thumbFor(a));
 if (review) shown.add(review.url);
 between('index.html', 'REVIEW', review ? `        <article class="lr-card">
-          <a class="lr-media" href="${href(review)}" tabindex="-1" aria-hidden="true">${cropImg(thumbFor(review), review.alt, 1.5)}</a>
+          <a class="lr-media" href="${href(review)}" tabindex="-1" aria-hidden="true">${cropImg(thumbFor(review), review.alt, 1.6)}</a>
           <div class="lr-text">
             <p class="fp-label">${esc(label(review))}</p>
             <h3><a href="${href(review)}">${esc(review.title)}</a></h3>
@@ -377,7 +374,7 @@ between('index.html', 'REVIEW', review ? `        <article class="lr-card">
 const guides = articles.filter((a) => (a.type === 'Guide' || a.type === 'Article') && !shown.has(a.url) && thumbFor(a)).slice(0, 3);
 guides.forEach((a) => shown.add(a.url));
 between('index.html', 'GUIDES', guides.map((a) => `        <a class="gd-card" href="${href(a)}">
-          <span class="gd-media">${cropImg(thumbFor(a), a.alt, 1.9)}</span>
+          <span class="gd-media">${cropImg(thumbFor(a), a.alt, 1.6)}</span>
           <span class="gd-text"><span class="gd-title">${esc(a.title)}</span><span class="gd-dek">${esc(shortDek(a, 110) || a.desc)}</span></span>
         </a>`).join('\n'));
 

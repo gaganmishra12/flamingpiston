@@ -66,7 +66,7 @@ Hero image provenance: 58 of 73 article heroes are captioned "AI illustration: F
 | Masthead (single row, dropdowns, drawer) | Every page (`apply-shell.js` + `fp.css` §5b + `fp.js` §1) | ✅ since Phase 2A; active item by content type |
 | Global footer | Every page | ✅ since Phase 2A |
 | Site search overlay (`/` shortcut) | All pages (`fp.js` + `search-index.json`) | ✅ (no results page) |
-| Lead carousel | Homepage (`fp-home.js`) | ✅ |
+| Static lead story (no carousel, Nov 2026 refinement) | Homepage (`build-lists.js`) | ✅ |
 | Car finder (budget/body/fuel over 13 cars) | Homepage | 🟡 works; small catalogue, no Cars directory to land on |
 | Featured Cars (dated prices) | Homepage | ✅ |
 | Listing filters (chips + URL hash) | Reviews, Guides, Comparisons, News | ✅ (old styling) |
