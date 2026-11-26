@@ -12,6 +12,26 @@ Five homepage spots use a **banner**: an image made for the layout, with the car
 
 No text, logos or watermark in any banner. The page adds the headline, labels, "VS" badge and credit.
 
+## Every homepage section updates itself
+
+After `sh scripts/update-site.sh`, each section shows the newest articles of its kind (by `datePublished`), and a story appears only once on the page:
+
+| Section | Shows |
+|---|---|
+| Lead story | newest Buyer's Brief **with a `hero` banner** |
+| Supporting stories (3, beside the lead) | newest News · newest Buyer's Brief or Comparison · newest Guide or Explainer |
+| Comparison banner | newest Comparison **with a `compare` banner** |
+| Latest News | the next newest News stories |
+| New & Upcoming | newest stories with a `launch` / `upcoming` banner |
+| Latest Reviews | the next newest Buyer's Brief |
+| Buying & Ownership Guides | the next 3 newest Guides / Explainers |
+| Car Culture banner | newest Car Culture story **with a `culture` banner** |
+| Featured Cars | the cars listed in `featuredCars` (by hand) |
+
+So a brand-new Buyer's Brief without a banner still appears straight away (as a supporting story), and takes over the lead once its banner is added.
+
+**Thumbnails:** list sections use a clean, text-free thumbnail from `"images"` in `data/homepage.json` (`"thumb": { "src", "subject", optional "area" / "erase" }`). A new story without one still appears, with a plain FlamingPiston tile, and the script's `Tip:` line names it. Add its `thumb` and run the script again.
+
 ## Publishing a story with a banner (3 steps)
 
 1. **Make the image** from the official manufacturer photo with the template below (Car Culture may be a fully AI illustration, credited as such).
@@ -35,10 +55,10 @@ No text, logos or watermark in any banner. The page adds the headline, labels, "
 Then run, from the site root:
 
 ```
-python3 scripts/make-home-images.py
-node scripts/build-lists.js
-node scripts/apply-shell.js
+sh scripts/update-site.sh
 ```
+
+(It runs make-home-images.py, reindex.js, build-lists.js and apply-shell.js in order.)
 
 ## What the build does for you
 

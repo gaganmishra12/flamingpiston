@@ -400,11 +400,13 @@ for (const [kind, a, idx] of [['launch', launchA, 0], ['upcoming', upcomingA, 1]
 }
 between('index.html', 'UPCOMING', upItems.join('\n'));
 
-// Latest Reviews: the newest buyer's brief not shown above that has a clean photo
-const review = articles.find((a) => a.type === 'Buyer’s Brief' && !shown.has(a.url) && thumbFor(a));
+// Latest Reviews: the newest buyer's brief not shown above
+// (newest first, with or without a clean photo: a story with none shows the brand tile and is listed in the Tip below)
+const review = articles.find((a) => a.type === 'Buyer’s Brief' && !shown.has(a.url));
+if (review && !thumbFor(review)) noClean.add(review.url);
 if (review) shown.add(review.url);
 between('index.html', 'REVIEW', review ? `        <article class="lr-card">
-          <a class="lr-media" href="${href(review)}" tabindex="-1" aria-hidden="true">${cropImg(thumbFor(review), review.alt, 1.6)}</a>
+          <a class="lr-media" href="${href(review)}" tabindex="-1" aria-hidden="true">${thumbFor(review) ? cropImg(thumbFor(review), review.alt, 1.6) : tile(review)}</a>
           <div class="lr-text">
             <p class="fp-label">${esc(label(review))}</p>
             <h3><a href="${href(review)}">${esc(review.title)}</a></h3>
@@ -414,11 +416,12 @@ between('index.html', 'REVIEW', review ? `        <article class="lr-card">
           </div>
         </article>` : '');
 
-// Buying & Ownership Guides: 3 newest guides not shown above that have a clean photo
-const guides = articles.filter((a) => (a.type === 'Guide' || a.type === 'Article') && !shown.has(a.url) && thumbFor(a)).slice(0, 3);
+// Buying & Ownership Guides: the 3 newest guides not shown above
+const guides = articles.filter((a) => (a.type === 'Guide' || a.type === 'Article') && !shown.has(a.url)).slice(0, 3);
+guides.forEach((a) => { if (!thumbFor(a)) noClean.add(a.url); });
 guides.forEach((a) => shown.add(a.url));
 between('index.html', 'GUIDES', guides.map((a) => `        <a class="gd-card" href="${href(a)}">
-          <span class="gd-media">${cropImg(thumbFor(a), a.alt, 1.6)}</span>
+          <span class="gd-media">${thumbFor(a) ? cropImg(thumbFor(a), a.alt, 1.6) : tile(a)}</span>
           <span class="gd-text"><span class="gd-title">${esc(a.title)}</span><span class="gd-dek">${esc(shortDek(a, 110) || a.desc)}</span></span>
         </a>`).join('\n'));
 

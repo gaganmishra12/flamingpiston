@@ -103,6 +103,9 @@
     "news-honda-november-2026-offers.html": {
       "thumb": { "src": "images/news-honda-november-2026-offers.jpg", "subject": [0.27, 0.08, 0.93, 0.645], "area": [0, 0, 1, 0.67] }
     },
+    "reviews/2026-isuzu-v-cross-review/": {
+      "thumb": { "src": "images/isuzu-v-cross-review-hero.jpg", "subject": [0.27, 0.22, 0.94, 0.86], "area": [0, 0, 1, 0.95], "erase": [[0, 0.1, 0.32, 0.46]] }
+    },
     "news-mahindra-xuv-3xo-cng-bncap.html": {
       "thumb": { "src": "images/news-mahindra-xuv-3xo-cng-bncap-photo.jpg", "subject": [0.31, 0.18, 0.97, 0.82], "area": [0, 0, 1, 0.95], "erase": [[0, 0.12, 0.31, 0.47], [0.31, 0.12, 0.40, 0.37], [0.31, 0.37, 0.345, 0.44]] }
     },

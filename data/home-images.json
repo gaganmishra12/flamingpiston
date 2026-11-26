@@ -255,6 +255,20 @@
   "bg": "#392b23",
   "sig": "eda4c02eb1"
  },
+ "reviews/2026-isuzu-v-cross-review/#thumb@16x10": {
+  "file": "images/home/reviews-2026-isuzu-v-cross-review-thumb-16x10.webp",
+  "w": 560,
+  "h": 350,
+  "bg": "#62574b",
+  "sig": "7b9b8c86d1"
+ },
+ "reviews/2026-isuzu-v-cross-review/#thumb@2x1": {
+  "file": "images/home/reviews-2026-isuzu-v-cross-review-thumb-2x1.webp",
+  "w": 560,
+  "h": 280,
+  "bg": "#5f5549",
+  "sig": "616dd8c530"
+ },
  "reviews/2026-kia-seltos-review/#thumb@16x10": {
   "file": "images/home/reviews-2026-kia-seltos-review-thumb-16x10.webp",
   "w": 560,
