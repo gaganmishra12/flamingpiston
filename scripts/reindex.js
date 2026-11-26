@@ -197,6 +197,7 @@ function generateSitemap(articles) {
     { loc: '/reviews.html', lastmod: new Date().toISOString().split('T')[0], freq: 'daily', priority: '0.9' },
     { loc: '/news.html', lastmod: new Date().toISOString().split('T')[0], freq: 'daily', priority: '0.7' },
     { loc: '/car-culture.html', lastmod: new Date().toISOString().split('T')[0], freq: 'weekly', priority: '0.6' },
+    { loc: '/tools.html', lastmod: '2026-11-26', freq: 'monthly', priority: '0.6' },
     { loc: '/about.html', lastmod: '2026-08-04', freq: 'yearly', priority: '0.5' },
     { loc: '/contact.html', lastmod: '2026-08-04', freq: 'yearly', priority: '0.4' },
     { loc: '/editorial-policy.html', lastmod: '2026-08-04', freq: 'yearly', priority: '0.3' },

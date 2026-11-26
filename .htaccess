@@ -23,8 +23,18 @@ Redirect 301 /news-bmw-i5-lwb.html /news-bmw-i5-lwb-india.html
 RedirectMatch 301 ^/site/(.*)$ /$1
 
 
-# Working files that should never be served
-RedirectMatch 404 ^/(templates|scripts)/
+# Internal project files that must never be served (Phase 2A, Nov 2026).
+# Hostinger's Git deploy copies the whole repository, so these are blocked here. They return the
+# normal 404 page. robots.txt and noindex are NOT access control; these rules are.
+#   templates/ scripts/  working files (since Aug 2026)
+#   docs/                internal documentation and design-reference screenshots
+#   data/                homepage/catalogue source files (the pages embed what they need)
+#   *.md                 CLAUDE.md, README.md, notes
+#   *.py, *.sh, *.log    tooling
+#   .git* and other dot-files
+RedirectMatch 404 ^/(templates|scripts|docs|data)(/|$)
+RedirectMatch 404 (?i)\.(md|markdown|py|sh|log)$
+RedirectMatch 404 ^/\.(?!well-known/)
 
 # Custom not-found page (redesign, Nov 2026)
 ErrorDocument 404 /404.html

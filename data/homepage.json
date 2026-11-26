@@ -1,0 +1,100 @@
+{
+  "_about": "Homepage curation. build-lists.js reads this file. The homepage only shows clean, text-free crops made by scripts/make-home-images.py from the boxes below (box = [left, top, right, bottom] as fractions of the source image). Social/branded graphics with baked-in headlines are never used uncropped. Articles without a clean image here get a plain brand tile instead.",
+
+  "exclude": {
+    "_about": "Stories never shown on the homepage (e.g. pre-launch pieces waiting for the accuracy-gate rewrite).",
+    "urls": ["guides/innova-hycross-facelift-buy-now-or-wait/", "news-toyota-innova-hycross-facelift-teaser.html"]
+  },
+
+  "hero": {
+    "_about": "Lead slides: 'pinned' first, then the newest articles that have a 'hero' crop below, up to 'max'.",
+    "pinned": ["reviews/2026-mahindra-thar-roxx-4x4-review/"],
+    "max": 3
+  },
+
+  "comparison": {
+    "url": "comparisons/tata-sierra-ev-vs-mahindra-be-6/",
+    "headline": "Sierra EV vs BE 6",
+    "dek": "Both are five-star Bharat NCAP cars that start ₹66,000 apart. Safety detail, price, range, charging and space, compared.",
+    "left":  { "src": "images/tata-sierra-ev-vs-mahindra-be-6-hero.jpg", "box": [0.02, 0.33, 0.50, 0.95], "pos": "50% 60%" },
+    "right": { "src": "images/tata-sierra-ev-vs-mahindra-be-6-hero.jpg", "box": [0.50, 0.33, 0.99, 0.91], "pos": "50% 60%" },
+    "credit": "AI illustration: FlamingPiston (based on Tata Motors and Mahindra images)"
+  },
+
+  "newUpcoming": {
+    "_about": "Two cards: one recent India launch and one upcoming car. Every line must come from the linked FlamingPiston story. Say 'expected' unless the date is confirmed.",
+    "items": [
+      { "url": "news-denza-d9-z9-gt-india-launch.html", "label": "New launch", "name": "Denza D9", "status": "Launched at ₹90 lakh · 18 Nov 2026", "link": "Read the launch story",
+        "image": { "src": "images/news-denza-d9-z9-gt-india-launch-photo.jpg", "box": [0.345, 0.12, 0.97, 0.88] } },
+      { "url": "news-hyundai-tucson-2027.html", "label": "Upcoming", "name": "Hyundai Tucson", "status": "India launch expected in 2027 (not confirmed)", "link": "What we know",
+        "image": { "src": "images/news-hyundai-tucson-2027.jpg", "box": [0, 0.18, 0.61, 0.92] } }
+    ]
+  },
+
+  "carCulture": {
+    "title": "Car Culture",
+    "dek": "Performance, design, innovation and the machines that define automotive history.",
+    "url": "/car-culture.html",
+    "image": { "src": "images/tesla-roadster-news-hero.jpg", "box": [0, 0.05, 1, 0.93], "pos": "60% 60%" },
+    "credit": "AI illustration: FlamingPiston"
+  },
+
+  "featuredCars": ["maruti-brezza", "skoda-kylaq", "kia-seltos", "kia-syros-ev"],
+
+  "images": {
+    "reviews/2026-mahindra-thar-roxx-4x4-review/": {
+      "hero":  { "src": "images/mahindra-thar-roxx-review-hero.jpg", "box": [0.26, 0.08, 1, 0.93], "pos": "55% 60%" },
+      "thumb": { "src": "images/mahindra-thar-roxx-review-hero.jpg", "box": [0.26, 0.2, 1, 0.92] }
+    },
+    "reviews/2026-mercedes-glc-electric/": {
+      "hero":  { "src": "images/mercedes-glc-electric-hero.jpg", "box": [0.425, 0.05, 1, 0.92], "pos": "40% 60%" },
+      "thumb": { "src": "images/mercedes-glc-electric-exterior.jpg", "box": [0, 0.1, 1, 1] }
+    },
+    "reviews/2026-kia-seltos-review/": {
+      "hero":  { "src": "images/kia-seltos-review-hero.jpg", "box": [0.28, 0.05, 1, 0.92], "pos": "55% 60%" },
+      "thumb": { "src": "images/kia-seltos-review-exterior.jpg", "box": [0, 0.08, 1, 0.82] }
+    },
+    "reviews/2026-maruti-brezza-review/": {
+      "thumb": { "src": "images/brezza-verdict.jpg", "box": [0, 0.17, 1, 0.9] }
+    },
+    "reviews/2026-skoda-kylaq-review/": {
+      "thumb": { "src": "images/skoda-kylaq-review-verdict.jpg", "box": [0, 0.12, 0.9, 1] }
+    },
+    "guides/brezza-petrol-vs-cng-break-even/": {
+      "thumb": { "src": "images/brezza-petrol-vs-cng-guide-hero.jpg", "box": [0, 0.12, 1, 0.94] }
+    },
+    "guides/festive-car-discounts-2026/": {
+      "thumb": { "src": "images/festive-car-discounts-guide-hero.jpg", "box": [0, 0.05, 1, 0.95] }
+    },
+    "articles/ev-claimed-vs-real-world-range/": {
+      "thumb": { "src": "images/ev-real-world-range-guide-hero.jpg", "box": [0, 0.1, 1, 1] }
+    },
+    "guides/innova-hycross-facelift-buy-now-or-wait/": {
+      "thumb": { "src": "images/innova-hycross-facelift-buy-or-wait-hero.jpg", "box": [0, 0.2, 0.6, 0.9] }
+    },
+    "guides/5-star-bharat-ncap-cars-under-10-lakh/": {
+      "thumb": { "src": "images/bharat-ncap-cars-under-10-lakh-hero-photo.jpg", "box": [0, 0.2, 1, 0.92] }
+    },
+    "guides/baas-vs-buying-ev-battery-break-even/": {
+      "thumb": { "src": "images/baas-vs-buying-ev-guide-hero-photo.jpg", "box": [0, 0.15, 1, 0.95] }
+    },
+    "comparisons/brezza-cng-vs-xuv-3xo-cng/": {
+      "thumb": { "src": "images/brezza-cng-vs-xuv-3xo-cng-hero-v2.jpg", "box": [0.02, 0.33, 0.98, 0.92] }
+    },
+    "news-mahindra-xev-9s-bharat-ncap.html": {
+      "thumb": { "src": "images/news-mahindra-xev-9s-bharat-ncap.jpg", "box": [0.235, 0.33, 0.99, 0.91] }
+    },
+    "news-tata-sierra-ev-bharat-ncap.html": {
+      "thumb": { "src": "images/news-tata-sierra-ev-bharat-ncap.jpg", "box": [0.40, 0.38, 0.99, 0.93] }
+    },
+    "news-yangwang-altior-reveal.html": {
+      "thumb": { "src": "images/news-yangwang-altior-reveal.jpg", "box": [0.345, 0.34, 0.99, 0.9] }
+    },
+    "news-honda-november-2026-offers.html": {
+      "thumb": { "src": "images/news-honda-november-2026-offers.jpg", "box": [0.25, 0.04, 0.97, 0.715] }
+    },
+    "news-denza-d9-z9-gt-india-launch.html": {
+      "thumb": { "src": "images/news-denza-d9-z9-gt-india-launch-photo.jpg", "box": [0.345, 0.12, 0.97, 0.88] }
+    }
+  }
+}

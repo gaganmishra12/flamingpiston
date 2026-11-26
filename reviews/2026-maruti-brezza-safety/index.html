@@ -104,7 +104,7 @@
   <link rel="preload" href="/images/brezza-safety-hero.jpg" as="image" fetchpriority="high">
   <link rel="preload" href="/assets/fonts/familjen-grotesk-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/fp.css?v=20261120c">
+  <link rel="stylesheet" href="/assets/fp.css?v=20261126b">
   <!-- /FP:HEAD -->
 </head>
 <body class="article">
@@ -122,18 +122,20 @@
     </div>
   </div>
 
-  <header class="site-header">
-    <div class="wrap navbar">
-      <a href="/" class="logo" aria-label="FlamingPiston home"><img src="/assets/brand/flamingpiston_horizontal_cropped_light.svg" alt="FlamingPiston" width="249" height="20"></a>
-      <nav class="main-nav" id="navCollapse" aria-label="Main">
-        <ul><li class="mobile-only"><a href="/">Home</a></li><li><a href="/news.html">News</a></li><li><a href="/reviews.html">Reviews</a></li><li><a href="/guides.html" class="active" aria-current="page">Buying Guides</a></li><li><a href="/comparisons.html">Comparisons</a></li><li><a href="/car-culture.html">Car Culture</a></li><li><a href="/about.html">About</a></li></ul>
-        <div class="nav-secondary"><a href="/contact.html">Contact</a><a href="/editorial-policy.html">Editorial Policy</a><a href="/review-methodology.html">How We Assess Cars</a><a href="https://www.instagram.com/flamingpiston_in/" rel="noopener">Instagram</a></div>
-      </nav>
-      <div class="nav-tools">
-        <button id="fpSearchTrigger" class="fp-search-trigger" type="button" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7.5"/><path d="M20.5 20.5 16.4 16.4"/></svg><span class="label">Search</span><kbd>/</kbd></button>
-        <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navCollapse">
-          <svg class="icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg><svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-        </button>
+  <header class="site-header fp-masthead">
+    <div class="fp-container mh-row">
+      <a href="/" class="mh-brand" aria-label="FlamingPiston home"><img src="/assets/brand/flamingpiston_horizontal_cropped_light.svg" alt="FlamingPiston" width="260" height="21"><span class="mh-desc" aria-hidden="true">Cars <span>/</span> Reviews <span>/</span> Buying Guides <span>/</span> Explainers</span></a>
+      <nav class="mh-nav" aria-label="Main"><ul><li><a href="/">Home</a></li><li><a href="/news.html">News</a></li><li class="has-dd"><button type="button" class="mh-dd-btn" aria-expanded="false" aria-controls="dd-cars">Cars<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="mh-dd" id="dd-cars"><li><a href="/#featured-cars">Featured cars</a></li><li><a href="/#fpFinder">Find your next car</a></li><li><a href="/reviews.html#suv">SUVs</a></li><li><a href="/reviews.html#hatchback">Hatchbacks</a></li><li><a href="/reviews.html#sedan">Sedans</a></li><li><a href="/reviews.html#pickup">Pickups</a></li><li><a href="/reviews.html#electric">Electric cars</a></li></ul></li><li><a href="/reviews.html">Reviews</a></li><li><a href="/comparisons.html">Compare</a></li><li><a href="/guides.html" class="active" aria-current="page">Buying Guides</a></li><li class="has-dd"><button type="button" class="mh-dd-btn" aria-expanded="false" aria-controls="dd-tools">Tools<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="mh-dd" id="dd-tools"><li><a href="/tools.html#emi">EMI calculator</a></li><li><a href="/tools.html#fuel">Fuel cost calculator</a></li><li><a href="/tools.html#cng">Petrol vs CNG calculator</a></li><li><a href="/tools.html#ownership">Ownership cost calculator</a></li><li><a href="/#fpFinder">Car finder</a></li></ul></li><li><a href="/car-culture.html">Car Culture</a></li></ul></nav>
+      <div class="mh-tools">
+        <button id="fpSearchTrigger" class="mh-icon" type="button" aria-label="Search (press /)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7.5"/><path d="M20.5 20.5 16.4 16.4"/></svg></button>
+        <button id="fpMenuBtn" class="mh-icon mh-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="fpDrawer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      </div>
+    </div>
+    <div class="mh-drawer" id="fpDrawer" hidden>
+      <div class="mh-drawer-panel" role="dialog" aria-modal="true" aria-label="Menu">
+        <button class="mh-icon mh-close" type="button" id="fpMenuClose" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+        <ul class="dr-main"><li><a href="/">Home</a></li><li><a href="/news.html">News</a></li><li class="dr-group"><span>Cars</span><ul><li><a href="/#featured-cars">Featured cars</a></li><li><a href="/#fpFinder">Find your next car</a></li><li><a href="/reviews.html#suv">SUVs</a></li><li><a href="/reviews.html#hatchback">Hatchbacks</a></li><li><a href="/reviews.html#sedan">Sedans</a></li><li><a href="/reviews.html#pickup">Pickups</a></li><li><a href="/reviews.html#electric">Electric cars</a></li></ul></li><li><a href="/reviews.html">Reviews</a></li><li><a href="/comparisons.html">Compare</a></li><li><a href="/guides.html" aria-current="page">Buying Guides</a></li><li class="dr-group"><span>Tools</span><ul><li><a href="/tools.html#emi">EMI calculator</a></li><li><a href="/tools.html#fuel">Fuel cost calculator</a></li><li><a href="/tools.html#cng">Petrol vs CNG calculator</a></li><li><a href="/tools.html#ownership">Ownership cost calculator</a></li><li><a href="/#fpFinder">Car finder</a></li></ul></li><li><a href="/car-culture.html">Car Culture</a></li></ul>
+        <ul class="dr-secondary"><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/author-gagan-mishra.html">Gagan Mishra</a></li><li><a href="/editorial-policy.html">Editorial Policy</a></li><li><a href="/review-methodology.html">Review Methodology</a></li><li><a href="/fact-checking-policy.html">Fact-Checking Policy</a></li><li><a href="/corrections-policy.html">Corrections Policy</a></li><li><a href="https://www.instagram.com/flamingpiston_in/" rel="noopener">Instagram @flamingpiston_in</a></li></ul>
       </div>
     </div>
   </header>
@@ -316,15 +318,15 @@
     </article>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer fp-footer">
     <div class="wrap">
       <div class="foot-grid">
         <div class="foot-brand">
           <a href="/" class="logo" aria-label="FlamingPiston home"><img src="/assets/brand/flamingpiston_horizontal_cropped_light.svg" alt="FlamingPiston" width="249" height="20" loading="lazy"></a>
-          <p>Honest automotive reviews, practical buying advice, and maintenance guides — everything you need before buying your next vehicle.</p>
+          <p>Car news, buyer’s briefs, comparisons and buying guides for India.</p>
           <div class="foot-social"><a href="https://www.instagram.com/flamingpiston_in/" target="_blank" rel="noopener">Instagram @flamingpiston_in</a></div>
         </div>
-        <div><h3 class="f-h">Sections</h3><ul><li><a href="/news.html">News</a></li><li><a href="/reviews.html">Reviews</a></li><li><a href="/guides.html">Buying Guides</a></li><li><a href="/comparisons.html">Comparisons</a></li><li><a href="/car-culture.html">Car Culture</a></li></ul></div>
+        <div><h3 class="f-h">Sections</h3><ul><li><a href="/news.html">News</a></li><li><a href="/reviews.html">Reviews</a></li><li><a href="/guides.html">Buying Guides</a></li><li><a href="/comparisons.html">Comparisons</a></li><li><a href="/tools.html">Tools</a></li><li><a href="/car-culture.html">Car Culture</a></li></ul></div>
         <div><h3 class="f-h">Company</h3><ul><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li><li><a href="/author-gagan-mishra.html">Gagan Mishra</a></li><li><a href="/sitemap.html">Sitemap</a></li></ul></div>
         <div><h3 class="f-h">Editorial</h3><ul><li><a href="/editorial-policy.html">Editorial Policy</a></li><li><a href="/review-methodology.html">Review Methodology</a></li><li><a href="/fact-checking-policy.html">Fact-Checking Policy</a></li><li><a href="/corrections-policy.html">Corrections Policy</a></li></ul></div>
         <div><h3 class="f-h">Legal</h3><ul><li><a href="/privacy-policy.html">Privacy Policy</a></li><li><a href="/cookie-policy.html">Cookie Policy</a></li><li><a href="/terms.html">Terms of Use</a></li><li><a href="/affiliate-disclosure.html">Affiliate Disclosure</a></li><li><a href="/disclaimer.html">Disclaimer</a></li></ul></div>
@@ -346,6 +348,6 @@
       });
     })();
   </script>
-  <script src="/assets/fp.js?v=20261120c" defer></script>
+  <script src="/assets/fp.js?v=20261126b" defer></script>
 </body>
 </html>

@@ -1,28 +1,59 @@
-/* FlamingPiston — site behaviour
-   Replaces the per-page menu / back-to-top snippets and extends card-dates.js + site-search.js.
-   Keeps every existing ID (menuBtn, navCollapse, backToTop, fpSearch*, latestReviewsRow) so the
-   production scripts keep working during a staged rollout. No dependencies, about 6.5 KB minified. */
+/* FlamingPiston — site behaviour (every page)
+   Masthead dropdowns + drawer, back-to-top, card dates, letterboxing, tables, listing filters, article
+   helpers and search. Homepage-only behaviour (carousel, car finder) is in fp-home.js. No dependencies. */
 (function () {
   'use strict';
   var doc = document, root = doc.documentElement.getAttribute('data-root') || '/';
   var $ = function (s, c) { return (c || doc).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || doc).querySelectorAll(s)); };
 
-  /* ---------- 1. Mobile menu ---------- */
-  var btn = $('#menuBtn'), nav = $('#navCollapse');
-  function setMenu(open) {
-    if (!btn || !nav) return;
-    if (open) { var hb = btn.closest('.site-header'); if (hb) nav.style.setProperty('--menu-top', Math.max(0, hb.getBoundingClientRect().bottom) + 'px'); }
-    nav.classList.toggle('is-open', open);
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    doc.body.classList.toggle('nav-open', open);
+  /* ---------- 1. Masthead: Cars / Tools dropdowns (global header, Phase 2A) ---------- */
+  var dds = $$('.mh-dd-btn');
+  function closeAll(except) {
+    dds.forEach(function (b) { if (b !== except) { b.setAttribute('aria-expanded', 'false'); $('#' + b.getAttribute('aria-controls')).classList.remove('is-open'); } });
   }
-  if (btn && nav) {
-    btn.addEventListener('click', function () { setMenu(!nav.classList.contains('is-open')); });
-    $$('a', nav).forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
-    doc.addEventListener('keydown', function (e) { if (e.key === 'Escape' && nav.classList.contains('is-open')) { setMenu(false); btn.focus(); } });
-    window.matchMedia('(min-width:1100px)').addEventListener('change', function (m) { if (m.matches) setMenu(false); });
+  dds.forEach(function (b) {
+    var menu = $('#' + b.getAttribute('aria-controls')), li = b.parentNode, t;
+    function set(open) { b.setAttribute('aria-expanded', open ? 'true' : 'false'); menu.classList.toggle('is-open', open); }
+    var hoverAt = 0;
+    b.addEventListener('click', function () { if (Date.now() - hoverAt < 600) { hoverAt = 0; return; } var open = b.getAttribute('aria-expanded') !== 'true'; closeAll(b); set(open); if (open) { var f = $('a', menu); if (f && b.dataset.kb) f.focus(); } b.dataset.kb = ''; });
+    b.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') { b.dataset.kb = '1'; hoverAt = 0; if (e.key === 'ArrowDown') { e.preventDefault(); if (b.getAttribute('aria-expanded') === 'true') { var f = $('a', menu); if (f) f.focus(); } else b.click(); } } });
+    li.addEventListener('mouseenter', function () { if (window.matchMedia('(hover: hover)').matches) { clearTimeout(t); if (b.getAttribute('aria-expanded') !== 'true') hoverAt = Date.now(); closeAll(b); set(true); } });
+    li.addEventListener('mouseleave', function () { hoverAt = 0; if (window.matchMedia('(hover: hover)').matches) { t = setTimeout(function () { set(false); }, 150); } });
+    menu.addEventListener('keydown', function (e) {
+      var links = $$('a', menu), i = links.indexOf(doc.activeElement);
+      if (e.key === 'ArrowDown') { e.preventDefault(); (links[i + 1] || links[0]).focus(); }
+      if (e.key === 'ArrowUp') { e.preventDefault(); (links[i - 1] || links[links.length - 1]).focus(); }
+    });
+    li.addEventListener('focusout', function (e) { if (!li.contains(e.relatedTarget)) set(false); });
+  });
+  doc.addEventListener('click', function (e) { if (!e.target.closest || !e.target.closest('.has-dd')) closeAll(); });
+  doc.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    var open = dds.filter(function (b) { return b.getAttribute('aria-expanded') === 'true'; })[0];
+    if (open) { closeAll(); open.focus(); }
+  });
+
+  /* ---------- 1b. Masthead: menu drawer (≤1279px) ---------- */
+  var mhMenuBtn = $('#fpMenuBtn'), mhDrawer = $('#fpDrawer'), mhCloseBtn = $('#fpMenuClose');
+  if (mhMenuBtn && mhDrawer) {
+    var setMhDrawer = function (open) {
+      mhDrawer.hidden = !open;
+      mhMenuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      doc.body.classList.toggle('drawer-open', open);
+      if (open) mhCloseBtn.focus(); else mhMenuBtn.focus();
+    };
+    mhMenuBtn.addEventListener('click', function () { setMhDrawer(true); });
+    mhCloseBtn.addEventListener('click', function () { setMhDrawer(false); });
+    mhDrawer.addEventListener('click', function (e) { if (e.target === mhDrawer) setMhDrawer(false); });
+    $$('a', mhDrawer).forEach(function (a) { a.addEventListener('click', function () { mhDrawer.hidden = true; doc.body.classList.remove('drawer-open'); mhMenuBtn.setAttribute('aria-expanded', 'false'); }); });
+    mhDrawer.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { setMhDrawer(false); return; }
+      if (e.key !== 'Tab') return;
+      var f = $$('a, button', mhDrawer), first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && doc.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && doc.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
   }
 
   /* ---------- 2. Back to top ---------- */
@@ -56,14 +87,9 @@
     foot.insertBefore(t, foot.firstChild);
     if (l.isNew) { var n = doc.createElement('span'); n.className = 'card-new'; n.textContent = 'New'; foot.insertBefore(n, foot.firstChild); }
   });
-  var latest = $('#latestReviewsRow');
-  if (latest) {
-    $$('.card[data-date]', latest).sort(function (a, b) { return b.getAttribute('data-date').localeCompare(a.getAttribute('data-date')); })
-      .forEach(function (c) { latest.appendChild(c); });
-  }
 
   /* ---------- 4. Images: letterbox anything that is not ~16:9 instead of cropping baked-in text ---------- */
-  $$('.card-media img, .lead-media img, .g-media img, main.content > .hero-image').forEach(function (img) {
+  $$('.card-media img, main.content > .hero-image').forEach(function (img) {
     function check(w, h) { if (w && h && Math.abs(w / h - 16 / 9) > 0.04) img.classList.add('is-letterbox'); }
     var w = +img.getAttribute('width'), h = +img.getAttribute('height');
     if (w && h) check(w, h); else if (img.complete) check(img.naturalWidth, img.naturalHeight);
@@ -99,66 +125,6 @@
     var b = n.nextSibling; while (b && b.nodeType === 3 && !b.textContent.trim()) b = b.nextSibling;
     if (b && b.tagName === 'BR') { p.classList.add('qa'); b.classList.add('qa-br'); }
   });
-
-  /* ---------- 8. Homepage hero carousel ----------
-     Auto-advances every data-interval ms (timed by the progress-bar animation, so pausing freezes the timer too).
-     Pauses on hover, keyboard focus, hidden tab and the pause button; never auto-plays with reduced motion. */
-  var hero = $('#heroCarousel');
-  if (hero) {
-    var slides = $$('.hero-slide', hero), tabs = $$('.hero-tab', hero), pauseBtn = $('#heroPause', hero), cur = 0;
-    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches, userPaused = reduce, hovering = false, focused = false;
-    hero.style.setProperty('--hero-interval', (+hero.getAttribute('data-interval') || 7000) + 'ms');
-    function state() {
-      var paused = userPaused || hovering || focused || doc.hidden;
-      hero.classList.toggle('is-paused', paused && !userPaused);
-      hero.classList.toggle('is-stopped', userPaused);
-      if (pauseBtn) { pauseBtn.setAttribute('aria-pressed', userPaused ? 'true' : 'false'); pauseBtn.setAttribute('aria-label', userPaused ? 'Play rotation' : 'Pause rotation'); }
-    }
-    /* slides 2+ ship with data-src so they don't compete with the first image on page load */
-    function loadImg(img) {
-      if (!img || !img.getAttribute('data-src')) return;
-      if (img.getAttribute('data-srcset')) { img.srcset = img.getAttribute('data-srcset'); img.removeAttribute('data-srcset'); }
-      img.src = img.getAttribute('data-src'); img.removeAttribute('data-src');
-    }
-    window.addEventListener('load', function () { setTimeout(function () { loadImg($('img', slides[1])); }, 1500); });
-    function show(i, focusTab) {
-      i = (i + slides.length) % slides.length;
-      slides.forEach(function (s, k) {
-        var on = k === i; s.classList.toggle('is-active', on); s.setAttribute('aria-hidden', on ? 'false' : 'true');
-        $$('a', s).forEach(function (a) { if (!a.classList.contains('lead-media')) a.tabIndex = on ? 0 : -1; });
-        if (on) loadImg($('img', s));
-      });
-      tabs.forEach(function (t, k) {
-        var on = k === i; t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1;
-        t.classList.remove('is-active'); if (on) { void t.offsetWidth; t.classList.add('is-active'); }
-      });
-      loadImg($('img', slides[(i + 1) % slides.length]));   /* warm the next image */
-      cur = i; if (focusTab) tabs[i].focus();
-    }
-    tabs.forEach(function (t, k) {
-      t.addEventListener('click', function () { show(k); });
-      $('.ht-bar span', t).addEventListener('animationend', function () { if (t.classList.contains('is-active')) show(cur + 1); });
-      t.addEventListener('keydown', function (e) {
-        if (e.key === 'ArrowRight') { e.preventDefault(); show(cur + 1, true); }
-        else if (e.key === 'ArrowLeft') { e.preventDefault(); show(cur - 1, true); }
-        else if (e.key === 'Home') { e.preventDefault(); show(0, true); }
-        else if (e.key === 'End') { e.preventDefault(); show(slides.length - 1, true); }
-      });
-    });
-    if (pauseBtn) pauseBtn.addEventListener('click', function () { userPaused = !userPaused; state(); });
-    hero.addEventListener('mouseenter', function () { hovering = true; state(); });
-    hero.addEventListener('mouseleave', function () { hovering = false; state(); });
-    hero.addEventListener('focusin', function () { focused = true; state(); });
-    hero.addEventListener('focusout', function (e) { if (!hero.contains(e.relatedTarget)) { focused = false; state(); } });
-    doc.addEventListener('visibilitychange', state);
-    var x0 = null;   /* swipe on touch screens */
-    hero.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
-    hero.addEventListener('touchend', function (e) {
-      if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; x0 = null;
-      if (Math.abs(dx) > 45) show(cur + (dx < 0 ? 1 : -1));
-    });
-    state();
-  }
 
   /* ---------- 7. Search (same scoring as site-search.js; adds loading + type label + footer hints) ---------- */
   var overlay = $('#fpSearchOverlay'), input = $('#fpSearchInput'), results = $('#fpSearchResults'), trig = $('#fpSearchTrigger'), closeBtn = $('#fpSearchClose');

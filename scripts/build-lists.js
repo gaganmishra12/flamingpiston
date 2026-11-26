@@ -2,11 +2,16 @@
 //
 // build-lists.js — rebuilds every automatic list on the site from the article pages.
 //
-//   index.html          HERO     5 newest articles (rotating hero)
-//                       LATEST   the next 9
-//                       GUIDES   4 newest buying guides / explainers not already shown above
-//                       PERF     Global Performance: newest stories from data/car-culture.json
-//                       VS       3 newest comparisons not already shown above
+//   index.html          HERO     lead slides (data/homepage.json "hero") + 3 supporting stories
+//                       FEATURED featured cars (data/cars.json, ids in data/homepage.json)
+//                       CARS-DATA  catalogue for the Find Your Next Car panel
+//                       COMPARE  comparison banner (data/homepage.json "comparison")
+//                       NEWS     4 newest news stories not shown above
+//                       UPCOMING new launch + upcoming cards (data/homepage.json "newUpcoming")
+//                       REVIEW   newest buyer's brief not shown above, with a clean photo
+//                       GUIDES   3 newest guides not shown above, with clean photos
+//                       CULTURE  Car Culture banner (data/homepage.json "carCulture")
+//                       Photos only from clean crops (scripts/make-home-images.py).
 //   news.html, reviews.html, guides.html, comparisons.html
 //                       every card between CARDS markers, newest first, plus the article count
 //                       (news.html also gets Launch / Reveal / Report / Preview / Archive labels and filters)
@@ -24,7 +29,6 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
-const HERO_COUNT = 5, LATEST_COUNT = 9, GUIDE_COUNT = 4, VS_COUNT = 3;
 const SKIP_DIRS = new Set(['site', 'templates', 'scripts', 'images', 'js', 'assets', 'data', '.git', 'node_modules', 'design-preview']);
 
 function walk(dir, out = []) {
@@ -150,50 +154,6 @@ function card(a, extra = '') {
           <div class="card-body"><p class="eyebrow">${eyebrow(a)}</p><h3><a href="${href(a)}">${esc(a.title)}</a></h3><p>${esc(a.desc)}</p><div class="card-foot"><a class="read-link" href="${href(a)}">Read →</a></div></div>
         </article>`;
 }
-function heroSlide(a, i, n) {
-  // Only the first slide's image loads with the page; fp.js loads the others just before they are shown.
-  const img = i === 0 ? 'fetchpriority="high"' : 'decoding="async"';
-  const srcAttr = i === 0 ? 'src' : 'data-src';
-  return `      <article class="lead-story hero-slide${i === 0 ? ' is-active' : ''}" id="heroSlide${i}" role="group" aria-roledescription="slide" aria-label="${i + 1} of ${n}"${i === 0 ? '' : ' aria-hidden="true"'}>
-        <div class="lead-text">
-          <p class="kicker">${kicker(a)}</p>
-          <h2><a href="${href(a)}"${i === 0 ? '' : ' tabindex="-1"'}>${esc(a.title)}</a></h2>
-          <p class="dek">${esc(a.desc)}</p>
-          <div class="lead-meta"><span class="by">Gagan Mishra</span><time datetime="${a.date}">${fmtShort(a.date)}</time>${a.rt ? `<span>${a.rt} min read</span>` : ''}</div>
-        </div>
-        <div><a class="lead-media" href="${href(a)}" tabindex="-1" aria-hidden="true"><img ${srcAttr}="${src(a)}"${thumb(a) !== src(a) ? ` ${i === 0 ? 'srcset' : 'data-srcset'}="${thumb(a)} 800w, ${src(a)} ${(imageSize(path.join(ROOT, a.img)) || [1600])[0]}w" sizes="(max-width: 860px) 100vw, 60vw"` : ''} alt="${esc(a.alt)}"${dims(a)} ${img}></a>
-        <p class="caption">${esc(a.cap)}</p></div>
-      </article>`;
-}
-function heroBlock(list) {
-  const tabs = list.map((a, i) => `<button class="hero-tab${i === 0 ? ' is-active' : ''}" type="button" role="tab" id="heroTab${i}" aria-controls="heroSlide${i}" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}"><span class="ht-bar" aria-hidden="true"><span></span></span><span class="ht-kicker">${kicker(a)}</span><span class="ht-title">${esc(a.title)}</span></button>`).join('');
-  return `      <div class="hero-slides" aria-live="off">
-${list.map((a, i) => heroSlide(a, i, list.length)).join('\n')}
-      </div>
-      <div class="hero-controls">
-        <div class="hero-tabs" role="tablist" aria-label="Choose a top story">${tabs}</div>
-        <button class="hero-pause" type="button" id="heroPause" aria-pressed="false" aria-label="Pause rotation"><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3v14H7zM14 5h3v14h-3z" fill="currentColor"/></svg><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
-      </div>`;
-}
-function guideCard(a) {
-  return `        <article class="gcard">
-          <a class="g-media" href="${href(a)}" tabindex="-1" aria-hidden="true"><img src="${thumb(a)}" alt="${esc(a.alt)}" loading="lazy"${dims(a)}></a>
-          <div class="g-body"><p class="eyebrow">${a.type === 'Article' ? 'Explainer' : esc(a.type)}</p><h3><a href="${href(a)}">${esc(a.title)}</a></h3>
-          <p class="meta">${fmtShort(a.date)}${a.rt ? ` · ${a.rt} min read` : ''}</p></div>
-        </article>`;
-}
-function vsCard(a) {
-  const [head, ...rest] = a.title.split(':');
-  const parts = head.replace(/^\d{4}\s+/, '').split(/\s+vs\s+/i);
-  const names = parts.map(esc).join('&nbsp;<span class="vs">vs</span> ');
-  return `        <article class="vs-card">
-          <a class="card-media" href="${href(a)}" tabindex="-1" aria-hidden="true"><img src="${thumb(a)}" alt="${esc(a.alt)}" loading="lazy"${dims(a)}></a>
-          <p class="eyebrow">Comparison</p>
-          <h3 class="vs-names"><a href="${href(a)}">${names}</a></h3>
-          <p class="vs-q">${esc(rest.join(':').trim())}</p>
-          <p class="meta">${fmtShort(a.date)}</p>
-        </article>`;
-}
 
 // ---- file helpers ----------------------------------------------------------------------------
 const pages = {};
@@ -259,34 +219,185 @@ between('news.html', 'NEWS-FILTERS', `        <a class="chip is-active" href="#a
   Object.keys(KN).filter((k) => kinds[k]).map((k) => `<a class="chip" href="#${k}" data-kind-filter="${k}">${KN[k]}<span class="n">${kinds[k]}</span></a>`).join(''));
 
 // ---- homepage ----------------------------------------------------------------------------------
-const hero = articles.slice(0, HERO_COUNT);
-const latest = articles.slice(HERO_COUNT, HERO_COUNT + LATEST_COUNT);
-const shown = new Set([...hero, ...latest].map((a) => a.url));
-const guides = articles.filter((a) => !shown.has(a.url) && sectionOf(a) === 'guides').slice(0, GUIDE_COUNT);
+// Layout (Phase 1 redesign): HERO (lead slides + three supporting stories), FEATURED cars,
+// COMPARE banner + NEWS column, then text-led rows: VS, BRIEFS, GUIDES, PERF.
+// Photography comes ONLY from the clean crops in data/home-images.json (made by
+// scripts/make-home-images.py from data/homepage.json), never from branded social graphics.
+const readJSON = (p, fallback) => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf-8')); } catch (e) { return fallback; } };
+const HOME = readJSON('data/homepage.json', {});
+const CROPS = readJSON('data/home-images.json', {});
+const CARS = (readJSON('data/cars.json', {}).cars || []);
+const noClean = new Set();
+const shown = new Set(((HOME.exclude && HOME.exclude.urls) || []));
+const ICON_ARROW = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const label = (a) => a.type === 'News' ? `News · ${newsKind(a)}` : (a.type === 'Article' ? 'Explainer' : a.type);
+const cta = (a) => ({ 'Buyer’s Brief': 'Read the brief', Comparison: 'Read the comparison', Guide: 'Read the guide', Article: 'Read the explainer', News: 'Read the story' })[a.type] || 'Read more';
+const crop = (key) => CROPS[key] || null;
+// <img> for a clean crop. 'box' is the aspect ratio of the frame it sits in; if the crop is
+// much narrower than the frame it is letterboxed (object-fit: contain) on its own edge colour.
+function cropImg(c, alt, box, attrs = 'loading="lazy" decoding="async"', pos) {
+  const ratio = c.w / c.h, contain = ratio < box * 0.78;
+  const style = [contain ? `background:${c.bg}` : '', pos ? `object-position:${pos}` : ''].filter(Boolean).join(';');
+  return `<img src="/${c.file}" alt="${esc(alt)}" width="${c.w}" height="${c.h}"${contain ? ' class="is-contain"' : ''}${style ? ` style="${style}"` : ''} ${attrs}>`;
+}
+const tile = (a) => `<span class="fp-tile" aria-hidden="true"><span>${esc(a.type === 'Article' ? 'Explainer' : a.type)}</span></span>`;
+const thumbFor = (a) => crop(`${a.url}#thumb`);
+function shortDek(a, max = 96) {
+  const s = (a.desc.match(/^.+?[.!?](?=\s|$)/) || [a.desc])[0].trim();
+  return s.length <= max ? s : '';
+}
+
+// Lead slides: pinned first, then the newest articles that have a clean hero crop.
+const heroMax = (HOME.hero && HOME.hero.max) || 3;
+const heroList = [];
+for (const u of ((HOME.hero && HOME.hero.pinned) || [])) { const a = byUrl.get(u); if (a && crop(`${u}#hero`)) heroList.push(a); else console.warn(`WARN: pinned hero ${u} not found or has no hero crop`); }
+for (const a of articles) { if (heroList.length >= heroMax) break; if (!heroList.includes(a) && crop(`${a.url}#hero`)) heroList.push(a); }
+heroList.forEach((a) => shown.add(a.url));
+const cmpA = HOME.comparison && byUrl.get(HOME.comparison.url);
+if (cmpA) shown.add(cmpA.url);
+
+// Three supporting stories: the newest News, Brief/Comparison and Guide not already shown.
+const lanes = [(a) => a.type === 'News', (a) => a.type === 'Buyer’s Brief' || a.type === 'Comparison', (a) => a.type === 'Guide' || a.type === 'Article'];
+const stories = lanes.map((ok) => { const a = articles.find((x) => ok(x) && !shown.has(x.url)); if (a) shown.add(a.url); return a; }).filter(Boolean);
+const news = articles.filter((a) => a.type === 'News' && !shown.has(a.url)).slice(0, 4);
+news.forEach((a) => shown.add(a.url));
+
+function heroSlide(a, i, n) {
+  const c = crop(`${a.url}#hero`), spec = HOME.images[a.url].hero;
+  const first = i === 0;
+  const img = cropImg(c, a.alt, 1.72, first ? 'fetchpriority="high" decoding="async"' : 'loading="lazy" decoding="async"', spec.pos);
+  return `        <article class="hl-slide${first ? ' is-active' : ''}" id="hlSlide${i}" role="group" aria-roledescription="slide" aria-label="${i + 1} of ${n}"${first ? '' : ' aria-hidden="true"'}>
+          <a class="hl-media" href="${href(a)}" tabindex="-1" aria-hidden="true">${img}</a>
+          <div class="hl-text">
+            <p class="fp-label">${esc(label(a))}</p>
+            <h2><a href="${href(a)}"${first ? '' : ' tabindex="-1"'}>${esc(a.title)}</a></h2>
+            <p class="hl-dek">${esc(a.desc)}</p>
+            <a class="fp-btn" href="${href(a)}"${first ? '' : ' tabindex="-1"'}>${cta(a)}${ICON_ARROW}</a>
+          </div>
+          ${a.cap ? `<p class="hl-credit">${esc(a.cap)}</p>` : ''}
+        </article>`;
+}
+function storyRow(a) {
+  const c = thumbFor(a); if (!c) noClean.add(a.url);
+  // Long headlines: the part before the colon is the headline, the rest becomes the short description.
+  const i = a.title.indexOf(':'), split = i >= 18 && a.title.length > 62;
+  const head = split ? a.title.slice(0, i) : a.title;
+  const dek = split ? a.title.slice(i + 1).trim() : shortDek(a, 80);
+  return `        <article class="hs-item">
+          <a class="hs-media" href="${href(a)}" tabindex="-1" aria-hidden="true">${c ? cropImg(c, a.alt, 2) : tile(a)}</a>
+          <div class="hs-text"><p class="fp-label">${esc(label(a))}</p><h3><a href="${href(a)}"${split ? ` title="${esc(a.title)}"` : ''}>${esc(head)}</a></h3>${dek ? `<p>${esc(dek)}</p>` : ''}</div>
+        </article>`;
+}
+const dots = heroList.length > 1 ? `
+        <div class="hl-controls">
+          <div class="hl-dots" role="tablist" aria-label="Choose a lead story">${heroList.map((a, i) => `<button type="button" role="tab" id="hlDot${i}" aria-controls="hlSlide${i}" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}" aria-label="${esc(a.title)}"></button>`).join('')}</div>
+          <button class="hl-pause" type="button" id="hlPause" aria-pressed="false" aria-label="Pause rotation"><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3v14H7zM14 5h3v14h-3z" fill="currentColor"/></svg><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></button>
+        </div>` : '';
+between('index.html', 'HERO', `      <div class="hl" id="fpLead" aria-roledescription="carousel" aria-label="Lead stories" data-interval="8000">
+        <div class="hl-slides">
+${heroList.map((a, i) => heroSlide(a, i, heroList.length)).join('\n')}
+        </div>${dots}
+      </div>
+      <div class="hs" aria-label="More top stories">
+${stories.map(storyRow).join('\n')}
+      </div>`);
+
+// Featured cars (from data/cars.json; prices are the dated ranges stated in each brief)
+const lakh = (n) => n.toFixed(2);
+const priceText = (c) => c.min === c.max ? `₹${lakh(c.min)} Lakh` : `₹${lakh(c.min)} – ${lakh(c.max)} Lakh`;
+const checked = (d) => { const [y, m, dd] = d.split('-'); return `${dd ? +dd + ' ' : ''}${MONTHS[+m - 1]} ${y}`; };
+const BODY = { suv: 'SUV', hatchback: 'Hatchback', sedan: 'Sedan', mpv: 'MPV', pickup: 'Pickup' };
+const featured = (HOME.featuredCars || []).map((id) => CARS.find((c) => c.id === id)).filter(Boolean);
+between('index.html', 'FEATURED', featured.map((car) => {
+  const c = crop(`car:${car.id}`);
+  if (!c) console.warn(`WARN: featured car ${car.id} has no clean image (add "image" in data/cars.json, run make-home-images.py)`);
+  return `        <a class="fc" href="${car.url}" title="Ex-showroom, ${esc(car.source)}; checked ${checked(car.checked)}">
+          <span class="fc-media">${c ? cropImg(c, `${car.name} exterior`, 2.4) : `<span class="fp-tile" aria-hidden="true"></span>`}</span>
+          <span class="fc-info"><span class="fc-name">${esc(car.name)}</span><span class="fc-badge">${BODY[car.body] || esc(car.body)}</span><span class="fc-price">${priceText(car)}*${car.note ? ` <span class="fc-note">${esc(car.note)}</span>` : ''}</span></span>
+        </a>`;
+}).join('\n'));
+const latestCheck = featured.map((c) => c.checked).sort().pop();
+pages['index.html'] = read('index.html').replace(/(<p class="fc-foot" data-fp-checked>)[\s\S]*?(<\/p>)/, (m, a, b) =>
+  `${a}*Ex-showroom price ranges as stated in each FlamingPiston buyer’s brief, last checked ${latestCheck ? checked(latestCheck) : ''}. Prices change often, so confirm with a dealer.${b}`);
+
+// Finder data: the same catalogue, embedded so the finder works without extra requests
+between('index.html', 'CARS-DATA', `  <script type="application/json" id="fpCars">${JSON.stringify(CARS.map((c) => ({ n: c.name, u: c.url, b: c.body, f: c.fuels, lo: c.min, hi: c.max, note: c.note || '', d: checked(c.checked) }))).replace(/</g, '\\u003c')}</script>`);
+
+// Comparison banner
+if (cmpA) {
+  const cm = HOME.comparison, L = crop('comparison#left'), R = crop('comparison#right');
+  const head = cm.headline || cmpA.title.split(':')[0];
+  between('index.html', 'COMPARE', `      <article class="cmp">
+        <div class="cmp-media" aria-hidden="true">
+          <span class="cmp-car cmp-l">${L ? cropImg(L, '', 1, 'loading="lazy" decoding="async"', cm.left.pos) : ''}</span>
+          <span class="cmp-car cmp-r">${R ? cropImg(R, '', 1, 'loading="lazy" decoding="async"', cm.right.pos) : ''}</span>
+          <span class="cmp-vs">VS</span>
+        </div>
+        <div class="cmp-text">
+          <p class="fp-label">Compare</p>
+          <h2><a href="${href(cmpA)}">${esc(head)}</a></h2>
+          <p>${esc(cm.dek || cmpA.desc)}</p>
+          <a class="fp-btn" href="${href(cmpA)}">Read the comparison${ICON_ARROW}</a>
+        </div>
+        ${cm.credit ? `<p class="cmp-credit">${esc(cm.credit)}</p>` : ''}
+      </article>`);
+} else { console.warn('WARN: data/homepage.json comparison.url not found'); between('index.html', 'COMPARE', ''); }
+
+// Latest News column
+between('index.html', 'NEWS', news.map((a) => {
+  const c = thumbFor(a); if (!c) noClean.add(a.url);
+  return `          <li><a class="ln-item" href="${href(a)}"><span class="ln-media">${c ? cropImg(c, a.alt, 2.3) : tile(a)}</span><span class="ln-text"><span class="ln-title">${esc(a.title)}</span><span class="ln-meta">${newsKind(a)} · <time datetime="${a.date}">${fmt(a.date)}</time></span></span></a></li>`;
+}).join('\n'));
+
+// New & Upcoming (curated in data/homepage.json: every line comes from the linked story)
+const upItems = ((HOME.newUpcoming && HOME.newUpcoming.items) || []).filter((it) => { if (!byUrl.has(it.url)) { console.warn(`WARN: newUpcoming ${it.url} not found`); return false; } return true; });
+between('index.html', 'UPCOMING', upItems.map((it) => {
+  const a = byUrl.get(it.url), c = crop(`upcoming#${it.url}`);
+  return `        <a class="nu-card" href="${href(a)}">
+          <span class="nu-media">${c ? cropImg(c, a.alt, 1.4, 'loading="lazy" decoding="async"', it.image && it.image.pos) : ''}</span>
+          <span class="nu-text"><span class="fp-label nu-tag">${esc(it.label)}</span><span class="nu-name">${esc(it.name)}</span><span class="nu-status">${esc(it.status)}</span><span class="nu-link">${esc(it.link || 'Read more')}${ICON_ARROW}</span></span>
+        </a>`;
+}).join('\n'));
+
+// Latest Reviews: the newest buyer's brief not shown above that has a clean photo
+const review = articles.find((a) => a.type === 'Buyer’s Brief' && !shown.has(a.url) && thumbFor(a));
+if (review) shown.add(review.url);
+between('index.html', 'REVIEW', review ? `        <article class="lr-card">
+          <a class="lr-media" href="${href(review)}" tabindex="-1" aria-hidden="true">${cropImg(thumbFor(review), review.alt, 1.5)}</a>
+          <div class="lr-text">
+            <p class="fp-label">${esc(label(review))}</p>
+            <h3><a href="${href(review)}">${esc(review.title)}</a></h3>
+            <p class="lr-dek">${esc(review.desc)}</p>
+            <p class="lr-meta"><time datetime="${review.date}">${fmt(review.date)}</time>${review.rt ? ` · ${review.rt} min read` : ''}</p>
+            <a class="fp-textlink" href="${href(review)}">Read the brief${ICON_ARROW}</a>
+          </div>
+        </article>` : '');
+
+// Buying & Ownership Guides: 3 newest guides not shown above that have a clean photo
+const guides = articles.filter((a) => (a.type === 'Guide' || a.type === 'Article') && !shown.has(a.url) && thumbFor(a)).slice(0, 3);
 guides.forEach((a) => shown.add(a.url));
-const vs = articles.filter((a) => !shown.has(a.url) && sectionOf(a) === 'comparisons').slice(0, VS_COUNT);
-vs.forEach((a) => shown.add(a.url));
+between('index.html', 'GUIDES', guides.map((a) => `        <a class="gd-card" href="${href(a)}">
+          <span class="gd-media">${cropImg(thumbFor(a), a.alt, 1.9)}</span>
+          <span class="gd-text"><span class="gd-title">${esc(a.title)}</span><span class="gd-dek">${esc(shortDek(a, 110) || a.desc)}</span></span>
+        </a>`).join('\n'));
+
+// Car Culture banner (section entry point, links to /car-culture.html)
+const cc = HOME.carCulture || {}, ccImg = crop('culture#banner');
+between('index.html', 'CULTURE', `      <section class="cc-banner" aria-labelledby="cultureTitle">
+        ${ccImg ? `<span class="cc-media" aria-hidden="true">${cropImg(ccImg, '', 2.6, 'loading="lazy" decoding="async"', cc.image && cc.image.pos)}</span>` : ''}
+        <div class="cc-text">
+          <h2 class="fp-italic" id="cultureTitle">${esc(cc.title || 'Car Culture')}</h2>
+          <p>${esc(cc.dek || '')}</p>
+          <a class="fp-btn" href="${cc.url || '/car-culture.html'}">Explore Stories${ICON_ARROW}</a>
+        </div>
+        ${cc.credit ? `<p class="cc-credit">${esc(cc.credit)}</p>` : ''}
+      </section>`);
+
 let cultureUrls = [];
 try { cultureUrls = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/car-culture.json'), 'utf-8')).urls || []; } catch (e) { console.warn('WARN: data/car-culture.json missing or invalid'); }
 const culture = cultureUrls.map((u) => byUrl.get(u.replace(/^\//, ''))).filter(Boolean).sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title));
 const missingCulture = cultureUrls.filter((u) => !byUrl.has(u.replace(/^\//, '')));
-const perf = culture.filter((a) => !shown.has(a.url)).slice(0, 7);
-
-between('index.html', 'HERO', heroBlock(hero));
-between('index.html', 'LATEST', latest.map((a) => card(a)).join('\n'));
-between('index.html', 'GUIDES', guides.map(guideCard).join('\n'));
-between('index.html', 'VS', vs.map(vsCard).join('\n'));
-between('index.html', 'PERF', perf.length ? `      <div class="perf-grid">
-        <div class="perf-lead">
-${card(perf[0])}
-        </div>
-        <div class="perf-side">
-${perf.slice(1, 3).map((a) => card(a)).join('\n')}
-        </div>
-      </div>${perf.length > 3 ? `
-      <div class="perf-row">
-${perf.slice(3, 7).map((a) => card(a)).join('\n')}
-      </div>` : ''}` : '');
+const hero = heroList, latest = news;
 
 // ---- car culture page ----------------------------------------------------------------------------
 between('car-culture.html', 'CARDS', culture.map((a) => card(a)).join('\n'));
@@ -304,7 +415,8 @@ ${articles.map((a) => `      <li><a href="${href(a)}">${esc(a.title)}</a> <span 
     </ul>`);
 
 for (const [f, html] of Object.entries(pages)) fs.writeFileSync(path.join(ROOT, f), html, 'utf-8');
-console.log(`Homepage: hero ${hero.length}, latest ${latest.length}, guides ${guides.length}, global performance ${perf.length}, comparisons ${vs.length}.`);
+console.log(`Homepage: lead ${hero.length}, stories ${stories.length}, featured cars ${featured.length}, news ${latest.length}, new & upcoming ${upItems.length}, review ${review ? 1 : 0}, guides ${guides.length}.`);
+if (noClean.size) console.log(`Tip: no clean homepage image for:\n  ${[...noClean].join('\n  ')}\n  (they show a plain brand tile; add a "thumb" crop in data/homepage.json, run python3 scripts/make-home-images.py, then this script again)`);
 console.log(`Sections: news ${lists.news.length}, reviews ${lists.reviews.length}, guides ${lists.guides.length}, comparisons ${lists.comparisons.length}. Car Culture ${culture.length}. Author page ${articles.length}.`);
 if (missingThumbs.size) console.log(`Tip: ${missingThumbs.size} image(s) have no thumbnail yet; run  python3 scripts/make-thumbs.py  then this script again.`);
 if (added.length) console.log(`Newly added to sections:\n  ${added.join('\n  ')}`);

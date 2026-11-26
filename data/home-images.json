@@ -1,0 +1,205 @@
+{
+ "articles/ev-claimed-vs-real-world-range/#thumb": {
+  "file": "images/home/articles-ev-claimed-vs-real-world-range-thumb.webp",
+  "w": 520,
+  "h": 263,
+  "bg": "#827362",
+  "sig": "f8a3ce5e29"
+ },
+ "car:kia-seltos": {
+  "file": "images/home/car-kia-seltos.webp",
+  "w": 760,
+  "h": 316,
+  "bg": "#484a45",
+  "sig": "ca6a7b8fa4"
+ },
+ "car:kia-syros-ev": {
+  "file": "images/home/car-kia-syros-ev.webp",
+  "w": 760,
+  "h": 316,
+  "bg": "#827a6f",
+  "sig": "1075e5007a"
+ },
+ "car:maruti-brezza": {
+  "file": "images/home/car-maruti-brezza.webp",
+  "w": 760,
+  "h": 312,
+  "bg": "#979080",
+  "sig": "c181163cad"
+ },
+ "car:skoda-kylaq": {
+  "file": "images/home/car-skoda-kylaq.webp",
+  "w": 760,
+  "h": 316,
+  "bg": "#464c52",
+  "sig": "2bedac619e"
+ },
+ "comparison#left": {
+  "file": "images/home/comparisons-tata-sierra-ev-vs-mahindra-be-6-left.webp",
+  "w": 760,
+  "h": 552,
+  "bg": "#1f363c",
+  "sig": "bc3f966c8b"
+ },
+ "comparison#right": {
+  "file": "images/home/comparisons-tata-sierra-ev-vs-mahindra-be-6-right.webp",
+  "w": 760,
+  "h": 506,
+  "bg": "#1d373e",
+  "sig": "7930804ba3"
+ },
+ "comparisons/brezza-cng-vs-xuv-3xo-cng/#thumb": {
+  "file": "images/home/comparisons-brezza-cng-vs-xuv-3xo-cng-thumb.webp",
+  "w": 520,
+  "h": 180,
+  "bg": "#1a343c",
+  "sig": "2199fd1cb3"
+ },
+ "culture#banner": {
+  "file": "images/home/car-culture-banner.webp",
+  "w": 1400,
+  "h": 693,
+  "bg": "#5f3d30",
+  "sig": "d325733492"
+ },
+ "guides/5-star-bharat-ncap-cars-under-10-lakh/#thumb": {
+  "file": "images/home/guides-5-star-bharat-ncap-cars-under-10-lakh-thumb.webp",
+  "w": 520,
+  "h": 211,
+  "bg": "#655c4a",
+  "sig": "6548bce38a"
+ },
+ "guides/baas-vs-buying-ev-battery-break-even/#thumb": {
+  "file": "images/home/guides-baas-vs-buying-ev-battery-break-even-thumb.webp",
+  "w": 520,
+  "h": 234,
+  "bg": "#564e43",
+  "sig": "abc33664c0"
+ },
+ "guides/brezza-petrol-vs-cng-break-even/#thumb": {
+  "file": "images/home/guides-brezza-petrol-vs-cng-break-even-thumb.webp",
+  "w": 520,
+  "h": 240,
+  "bg": "#9d8f77",
+  "sig": "0ded7f3823"
+ },
+ "guides/festive-car-discounts-2026/#thumb": {
+  "file": "images/home/guides-festive-car-discounts-2026-thumb.webp",
+  "w": 520,
+  "h": 263,
+  "bg": "#64493a",
+  "sig": "a25f3b278e"
+ },
+ "guides/innova-hycross-facelift-buy-now-or-wait/#thumb": {
+  "file": "images/home/guides-innova-hycross-facelift-buy-now-or-wait-thumb.webp",
+  "w": 520,
+  "h": 341,
+  "bg": "#18383d",
+  "sig": "3b0233bb4a"
+ },
+ "news-denza-d9-z9-gt-india-launch.html#thumb": {
+  "file": "images/home/news-denza-d9-z9-gt-india-launch-thumb.webp",
+  "w": 520,
+  "h": 356,
+  "bg": "#403126",
+  "sig": "0053e9f754"
+ },
+ "news-honda-november-2026-offers.html#thumb": {
+  "file": "images/home/news-honda-november-2026-offers-thumb.webp",
+  "w": 520,
+  "h": 274,
+  "bg": "#172f37",
+  "sig": "d482325c2e"
+ },
+ "news-mahindra-xev-9s-bharat-ncap.html#thumb": {
+  "file": "images/home/news-mahindra-xev-9s-bharat-ncap-thumb.webp",
+  "w": 520,
+  "h": 225,
+  "bg": "#282828",
+  "sig": "9fe9b9804c"
+ },
+ "news-tata-sierra-ev-bharat-ncap.html#thumb": {
+  "file": "images/home/news-tata-sierra-ev-bharat-ncap-thumb.webp",
+  "w": 520,
+  "h": 273,
+  "bg": "#29292b",
+  "sig": "adf06bfa99"
+ },
+ "news-yangwang-altior-reveal.html#thumb": {
+  "file": "images/home/news-yangwang-altior-reveal-thumb.webp",
+  "w": 520,
+  "h": 254,
+  "bg": "#453127",
+  "sig": "b07c0b4b68"
+ },
+ "reviews/2026-kia-seltos-review/#hero": {
+  "file": "images/home/reviews-2026-kia-seltos-review-hero.webp",
+  "w": 1152,
+  "h": 783,
+  "bg": "#5e4b35",
+  "sig": "f94f8ceb15"
+ },
+ "reviews/2026-kia-seltos-review/#thumb": {
+  "file": "images/home/reviews-2026-kia-seltos-review-thumb.webp",
+  "w": 520,
+  "h": 216,
+  "bg": "#484a45",
+  "sig": "148e374b58"
+ },
+ "reviews/2026-mahindra-thar-roxx-4x4-review/#hero": {
+  "file": "images/home/reviews-2026-mahindra-thar-roxx-4x4-review-hero.webp",
+  "w": 1184,
+  "h": 765,
+  "bg": "#554434",
+  "sig": "db82077d26"
+ },
+ "reviews/2026-mahindra-thar-roxx-4x4-review/#thumb": {
+  "file": "images/home/reviews-2026-mahindra-thar-roxx-4x4-review-thumb.webp",
+  "w": 520,
+  "h": 285,
+  "bg": "#4e3f30",
+  "sig": "8a5915faca"
+ },
+ "reviews/2026-maruti-brezza-review/#thumb": {
+  "file": "images/home/reviews-2026-maruti-brezza-review-thumb.webp",
+  "w": 520,
+  "h": 214,
+  "bg": "#979080",
+  "sig": "38821ab12e"
+ },
+ "reviews/2026-mercedes-glc-electric/#hero": {
+  "file": "images/home/reviews-2026-mercedes-glc-electric-hero.webp",
+  "w": 920,
+  "h": 783,
+  "bg": "#4e443a",
+  "sig": "6b4a040707"
+ },
+ "reviews/2026-mercedes-glc-electric/#thumb": {
+  "file": "images/home/reviews-2026-mercedes-glc-electric-thumb.webp",
+  "w": 520,
+  "h": 263,
+  "bg": "#605747",
+  "sig": "f6d1af69ea"
+ },
+ "reviews/2026-skoda-kylaq-review/#thumb": {
+  "file": "images/home/reviews-2026-skoda-kylaq-review-thumb.webp",
+  "w": 520,
+  "h": 286,
+  "bg": "#5a4942",
+  "sig": "1e89d81539"
+ },
+ "upcoming#news-denza-d9-z9-gt-india-launch.html": {
+  "file": "images/home/upcoming-news-denza-d9-z9-gt-india-launch.webp",
+  "w": 760,
+  "h": 520,
+  "bg": "#403126",
+  "sig": "4479e3225e"
+ },
+ "upcoming#news-hyundai-tucson-2027.html": {
+  "file": "images/home/upcoming-news-hyundai-tucson-2027.webp",
+  "w": 671,
+  "h": 458,
+  "bg": "#897b69",
+  "sig": "56418d2743"
+ }
+}
