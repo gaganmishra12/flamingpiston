@@ -49,7 +49,7 @@
   <link rel="preload" href="/assets/fonts/familjen-grotesk-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/fp.css?v=20261128w1140">
-  <link rel="stylesheet" href="/assets/fp-listings.css?v=20261127p">
+  <link rel="stylesheet" href="/assets/fp-listings.css?v=20261128rv">
   <!-- /FP:HEAD -->
 </head>
 <body class="listing">
@@ -84,92 +84,84 @@
       </div>
     </div>
   </header>
-  <main id="main" class="paired-features">
+  <main id="main" class="reviews-showroom" data-filter="all">
 
-  <section class="page-head page-head--compact" aria-labelledby="pageTitle"><div class="wrap">
-      <div class="ph-title"><h1 id="pageTitle">Car Reviews</h1></div>
-      <p class="lede">Buyer’s Briefs: one car per page — prices, variants, safety and who it suits, built from official specs and published tests. Weighing two cars? See <a href="comparisons.html">Comparisons</a>.</p>
+  <section class="rv-head" aria-labelledby="pageTitle"><div class="wrap">
+      <h1 id="pageTitle">Car Reviews</h1>
+      <p class="rv-lede">Buyer’s Briefs: one car per page — prices, variants, safety and who it suits, built from official specs and published tests. Weighing two cars? See <a href="comparisons.html">Comparisons</a>.</p>
+      <nav class="rv-tabs" id="filterChips" aria-label="Filter reviews by type">
+<!-- REVIEW-TABS:START -->
+        <a class="rv-tab" href="#all" data-filter="all" aria-current="true">All<span class="n">13</span></a><a class="rv-tab" href="#hatchback" data-filter="hatchback">Hatchback<span class="n">2</span></a><a class="rv-tab" href="#sedan" data-filter="sedan">Sedan<span class="n">2</span></a><a class="rv-tab" href="#suv" data-filter="suv">SUV<span class="n">7</span></a><a class="rv-tab" href="#compact-suv" data-filter="compact-suv">Compact SUV<span class="n">3</span></a><a class="rv-tab" href="#pickup" data-filter="pickup">Pickup<span class="n">2</span></a><a class="rv-tab" href="#electric" data-filter="electric">Electric<span class="n">3</span></a><a class="rv-tab" href="#off-road" data-filter="off-road">Off-road<span class="n">2</span></a><a class="rv-tab" href="#luxury" data-filter="luxury">Luxury<span class="n">1</span></a>
+<!-- REVIEW-TABS:END -->
+      </nav>
   </div></section>
 
-  <section>
-    <div class="wrap">
-      <div class="chip-row" id="filterChips">
-        <a class="chip is-active" href="#all" data-filter="all">All</a>
-        <a class="chip" href="#hatchback" data-filter="hatchback">Hatchback</a>
-        <a class="chip" href="#sedan" data-filter="sedan">Sedan</a>
-        <a class="chip" href="#suv" data-filter="suv">SUV</a>
-        <a class="chip" href="#compact-suv" data-filter="compact-suv">Compact SUV</a>
-        <a class="chip" href="#pickup" data-filter="pickup">Pickup</a>
-        <a class="chip" href="#electric" data-filter="electric">Electric</a>
-        <a class="chip" href="#hybrid" data-filter="hybrid">Hybrid</a>
-        <a class="chip" href="#off-road" data-filter="off-road">Off-road</a>
-        <a class="chip" href="#performance" data-filter="performance">Performance</a>
-        <a class="chip" href="#luxury" data-filter="luxury">Luxury</a>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <p id="filterEmpty" class="filter-empty" hidden>No reviews in this category yet — check back soon, or <a href="news.html">browse the latest news</a>.</p>
-      <div class="editorial-grid" id="reviewGrid">
+  <section class="rv-list"><div class="wrap">
+      <div id="reviewGrid">
 <!-- CARDS:START -->
-        <article class="card" data-category="electric luxury" data-date="2026-11-20">
-          <a href="/reviews/2026-mercedes-glc-electric/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Buyer’s Brief</span><img src="/images/thumbs/mercedes-glc-electric-hero.webp" alt="Blue Mercedes-Benz GLC Electric parked outside a modern stone house at sunset, with the headline GLC Electric, 2026 Buyer’s Brief" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">Buyer’s Brief<time datetime="2026-11-20">20 Nov 2026</time></p><h3><a href="/reviews/2026-mercedes-glc-electric/">Mercedes GLC Electric at ₹78.50 Lakh: 6 Catches to Know</a></h3><p>Mercedes GLC Electric buyer’s brief: ₹78.50 lakh, 94 kWh, 711 km claimed, just ₹1.5 lakh over the petrol GLC, and what India’s car leaves out.</p><div class="card-foot"><a class="read-link" href="/reviews/2026-mercedes-glc-electric/">Read →</a></div></div>
+        <article class="card rv-lead" data-category="electric luxury suv" data-date="2026-11-20">
+          <a href="/reviews/2026-mercedes-glc-electric/" class="rv-media" tabindex="-1" aria-hidden="true"><img src="/images/home/reviews-2026-mercedes-glc-electric-story-16x9.webp" alt="Mercedes-Benz GLC Electric, exterior" width="1200" height="675" fetchpriority="high" decoding="async"></a>
+          <div class="rv-lead-text"><p class="rv-label">Latest Buyer’s Brief · SUV · Electric</p><h2><a href="/reviews/2026-mercedes-glc-electric/">Mercedes GLC Electric at ₹78.50 Lakh: 6 Catches to Know</a></h2><p class="rv-dek">Mercedes GLC Electric buyer’s brief: ₹78.50 lakh, 94 kWh, 711 km claimed, just ₹1.5 lakh over the petrol GLC, and what India’s car leaves out.</p><div class="rv-facts"><span class="rv-price">₹78.50 lakh*</span><span class="rv-score" title="Spec Score: average of eight on-paper ratings (see Review Methodology)"><b>8.4</b><span>/10</span></span><time class="rv-meta" datetime="2026-11-20">20 Nov 2026</time></div><p class="rv-src">Price: Mercedes-Benz India, ex-showroom, checked 20 Nov 2026</p></div>
         </article>
-        <article class="card" data-category="pickup" data-date="2026-10-23">
-          <a href="/reviews/2026-isuzu-v-cross-review/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Buyer’s Brief</span><img src="/images/thumbs/isuzu-v-cross-review-hero.webp" alt="Isuzu D-MAX V-Cross editorial review banner" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">Buyer’s Brief<time datetime="2026-10-23">23 Oct 2026</time></p><h3><a href="/reviews/2026-isuzu-v-cross-review/">Isuzu V-Cross 2026: Pickup Practicality, 4WD and Which Variant</a></h3><p>Isuzu D-Max V-Cross buyer’s brief, November 2026: ₹25.50–30.28 lakh, now 4x4-only, bigger screen and 360 camera on Z Prestige. Specification-led.</p><div class="card-foot"><a class="read-link" href="/reviews/2026-isuzu-v-cross-review/">Read →</a></div></div>
+        <div class="rv-grid">
+        <article class="card rv-card rv-dup" data-category="electric luxury suv" data-date="2026-11-20">
+          <a href="/reviews/2026-mercedes-glc-electric/" class="rv-media" tabindex="-1" aria-hidden="true"><img src="/images/home/reviews-2026-mercedes-glc-electric-thumb-16x10.webp" alt="Mercedes-Benz GLC Electric, exterior" width="560" height="350" loading="lazy" decoding="async"></a>
+          <div class="rv-body"><div class="rv-top"><p class="rv-label">SUV · Electric</p><span class="rv-score" title="Spec Score: average of eight on-paper ratings (see Review Methodology)"><b>8.4</b><span>/10</span></span></div><h3><a href="/reviews/2026-mercedes-glc-electric/">Mercedes GLC Electric at ₹78.50 Lakh: 6 Catches to Know</a></h3><div class="rv-foot"><span class="rv-price">₹78.50 lakh*</span><time class="rv-meta" datetime="2026-11-20">20 Nov 2026</time></div><p class="rv-src">Price: Mercedes-Benz India, ex-showroom, checked 20 Nov 2026</p></div>
         </article>
-        <article class="card" data-category="suv" data-date="2026-10-23">
-          <a href="/reviews/2026-kia-seltos-review/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Buyer’s Brief</span><img src="/images/thumbs/kia-seltos-review-hero.webp" alt="Green second-generation Kia Seltos parked outside a modern building at sunset, with the headline Kia Seltos, 2026 Buying Review" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">Buyer’s Brief<time datetime="2026-10-23">23 Oct 2026</time></p><h3><a href="/reviews/2026-kia-seltos-review/">Kia Seltos 2026: Which Engine and Variant to Buy</a></h3><p>Kia Seltos buyer’s brief, updated November 2026: ₹11.25 lakh start, turbo-petrol now DCT-only, five-star Bharat NCAP. Specification-led, not a road test.</p><div class="card-foot"><a class="read-link" href="/reviews/2026-kia-seltos-review/">Read →</a></div></div>
+        <article class="card rv-card" data-category="pickup" data-date="2026-10-23">
+          <a href="/reviews/2026-isuzu-v-cross-review/" class="rv-media" tabindex="-1" aria-hidden="true"><img src="/images/home/reviews-2026-isuzu-v-cross-review-thumb-16x10.webp" alt="Isuzu V-Cross, exterior" width="560" height="350" loading="lazy" decoding="async"></a>
+          <div class="rv-body"><div class="rv-top"><p class="rv-label">Pickup · Diesel</p><span class="rv-score" title="Spec Score: average of eight on-paper ratings (see Review Methodology)"><b>7.0</b><span>/10</span></span></div><h3><a href="/reviews/2026-isuzu-v-cross-review/">Isuzu V-Cross 2026: Pickup Practicality, 4WD and Which Variant</a></h3><div class="rv-foot"><span class="rv-price">₹25.50–30.28 lakh*</span><time class="rv-meta" datetime="2026-10-23">23 Oct 2026</time></div><p class="rv-src">Price: Autocar India launch price list, ex-showroom, checked Feb 2026</p></div>
         </article>
-        <article class="card" data-category="electric" data-date="2026-10-23">
-          <a href="/reviews/2026-mahindra-be6-sporteq-review/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Buyer’s Brief</span><img src="/images/thumbs/mahindra-be6-sporteq-review-hero.webp" alt="Mahindra BE 6 SPORTEQ editorial review banner" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">Buyer’s Brief<time datetime="2026-10-23">23 Oct 2026</time></p><h3><a href="/reviews/2026-mahindra-be6-sporteq-review/">Mahindra BE 6 SPORTEQ: BaaS or Outright Purchase?</a></h3><p>Mahindra BE 6 SPORTEQ buyer’s brief, November 2026: ₹19.45–26.95 lakh or ₹11.45 lakh with BaaS, three batteries. Specification-led, not a road test.</p><div class="card-foot"><a class="read-link" href="/reviews/2026-mahindra-be6-sporteq-review/">Read →</a></div></div>
+        <article class="card rv-card" data-category="suv" data-date="2026-10-23">
+          <a href="/reviews/2026-kia-seltos-review/" class="rv-media" tabindex="-1" aria-hidden="true"><img src="/images/home/reviews-2026-kia-seltos-review-thumb-16x10.webp" alt="Kia Seltos, exterior" width="560" height="350" loading="lazy" decoding="async"></a>
+          <div class="rv-body"><div class="rv-top"><p class="rv-label">SUV · Petrol · Diesel</p><span class="rv-score" title="Spec Score: average of eight on-paper ratings (see Review Methodology)"><b>8.1</b><span>/10</span></span></div><h3><a href="/reviews/2026-kia-seltos-review/">Kia Seltos 2026: Which Engine and Variant to Buy</a></h3><div class="rv-foot"><span class="rv-price">₹11.25–21.57 lakh*</span><time class="rv-meta" datetime="2026-10-23">23 Oct 2026</time></div><p class="rv-src">Price: Kia India trim-entry prices, ex-showroom, checked 21 Nov 2026</p></div>
         </article>
-        <article class="card" data-category="off-road" data-date="2026-10-23">
-          <a href="/reviews/2026-mahindra-thar-roxx-4x4-review/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Buyer’s Brief</span><img src="/images/thumbs/mahindra-thar-roxx-review-hero.webp" alt="Mahindra Thar Roxx 4x4 editorial review banner" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">Buyer’s Brief<time datetime="2026-10-23">23 Oct 2026</time></p><h3><a href="/reviews/2026-mahindra-thar-roxx-4x4-review/">Thar Roxx 4x4 2026: Capability or Costly Compromise?</a></h3><p>Mahindra Thar Roxx 4x4 buyer’s brief, November 2026: diesel 4x4 from ₹19.42 lakh, five-star Bharat NCAP, which trim to buy. Specification-led.</p><div class="card-foot"><a class="read-link" href="/reviews/2026-mahindra-thar-roxx-4x4-review/">Read →</a></div></div>
+        <article class="card rv-card" data-category="electric suv" data-date="2026-10-23">
+          <a href="/reviews/2026-mahindra-be6-sporteq-review/" class="rv-media" tabindex="-1" aria-hidden="true"><img src="/images/home/reviews-2026-mahindra-be6-sporteq-review-thumb-16x10.webp" alt="Mahindra BE 6, exterior" width="560" height="350" loading="lazy" decoding="async"></a>
+          <div class="rv-body"><div class="rv-top"><p class="rv-label">SUV · Electric</p><span class="rv-score" title="Spec Score: average of eight on-paper ratings (see Review Methodology)"><b>7.9</b><span>/10</span></span></div><h3><a href="/reviews/2026-mahindra-be6-sporteq-review/">Mahindra BE 6 SPORTEQ: BaaS or Outright Purchase?</a></h3><div class="rv-foot"><span class="rv-price">₹19.45–26.95 lakh*</span><time class="rv-meta" datetime="2026-10-23">23 Oct 2026</time></div><p class="rv-src">Price: Mahindra, ex-showroom, checked 15 Aug 2026</p></div>
         </article>
-        <article class="card" data-category="hatchback" data-date="2026-10-23">
-          <a href="/reviews/2026-maruti-swift-review/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Buyer’s Brief</span><img src="/images/thumbs/maruti-swift-review-hero.webp" alt="Maruti Suzuki Swift editorial review banner" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">Buyer’s Brief<time datetime="2026-10-23">23 Oct 2026</time></p><h3><a href="/reviews/2026-maruti-swift-review/">Maruti Swift 2026: Mileage, AMT or CNG? Which to Buy</a></h3><p>Maruti Swift buyer’s brief, updated November 2026: ₹5.84–8.89 lakh, six airbags standard, new CNG AMT. Specification-led, not a road test.</p><div class="card-foot"><a class="read-link" href="/reviews/2026-maruti-swift-review/">Read →</a></div></div>
+        <article class="card rv-card" data-category="off-road suv" data-date="2026-10-23">
+          <a href="/reviews/2026-mahindra-thar-roxx-4x4-review/" class="rv-media" tabindex="-1" aria-hidden="true"><img src="/images/home/reviews-2026-mahindra-thar-roxx-4x4-review-thumb-16x10.webp" alt="Mahindra Thar Roxx 4x4, exterior" width="560" height="350" loading="lazy" decoding="async"></a>
+          <div class="rv-body"><div class="rv-top"><p class="rv-label">SUV · Diesel</p><span class="rv-score" title="Spec Score: average of eight on-paper ratings (see Review Methodology)"><b>8.0</b><span>/10</span></span></div><h3><a href="/reviews/2026-mahindra-thar-roxx-4x4-review/">Thar Roxx 4x4 2026: Capability or Costly Compromise?</a></h3><div class="rv-foot"><span class="rv-price">₹19.42–23.52 lakh*</span><time class="rv-meta" datetime="2026-10-23">23 Oct 2026</time></div><p class="rv-src">Price: CarDekho, ex-showroom, checked Nov 2026</p></div>
         </article>
-        <article class="card" data-category="compact-suv" data-date="2026-10-23">
-          <a href="/reviews/2026-skoda-kylaq-review/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Buyer’s Brief</span><img src="/images/thumbs/skoda-kylaq-review-hero.webp" alt="Skoda Kylaq editorial review banner" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">Buyer’s Brief<time datetime="2026-10-23">23 Oct 2026</time></p><h3><a href="/reviews/2026-skoda-kylaq-review/">Skoda Kylaq 2026: Price, Automatic and Which Variant</a></h3><p>Skoda Kylaq buyer’s brief, updated November 2026: ₹7.59–13.09 lakh, new Sportline trim, five-star Bharat NCAP. Specification-led, not a road test.</p><div class="card-foot"><a class="read-link" href="/reviews/2026-skoda-kylaq-review/">Read →</a></div></div>
+        <article class="card rv-card" data-category="hatchback" data-date="2026-10-23">
+          <a href="/reviews/2026-maruti-swift-review/" class="rv-media" tabindex="-1" aria-hidden="true"><img src="/images/home/reviews-2026-maruti-swift-review-thumb-16x10.webp" alt="Maruti Suzuki Swift, exterior" width="560" height="350" loading="lazy" decoding="async"></a>
+          <div class="rv-body"><div class="rv-top"><p class="rv-label">Hatchback · Petrol · CNG</p><span class="rv-score" title="Spec Score: average of eight on-paper ratings (see Review Methodology)"><b>7.5</b><span>/10</span></span></div><h3><a href="/reviews/2026-maruti-swift-review/">Maruti Swift 2026: Mileage, AMT or CNG? Which to Buy</a></h3><div class="rv-foot"><span class="rv-price">₹5.84–8.89 lakh*</span><time class="rv-meta" datetime="2026-10-23">23 Oct 2026</time></div><p class="rv-src">Price: CarWale and CarDekho, ex-showroom, checked Nov 2026</p></div>
         </article>
-        <article class="card" data-category="sedan" data-date="2026-10-23">
-          <a href="/reviews/2026-volkswagen-virtus-review/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Buyer’s Brief</span><img src="/images/thumbs/volkswagen-virtus-review-hero.webp" alt="Volkswagen Virtus editorial review banner" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">Buyer’s Brief<time datetime="2026-10-23">23 Oct 2026</time></p><h3><a href="/reviews/2026-volkswagen-virtus-review/">Volkswagen Virtus 2026: 1.0 TSI or 1.5 TSI?</a></h3><p>VW Virtus buyer’s brief, updated November 2026: ₹10.71–19.20 lakh, five-star Global NCAP, facelift due in December. Specification-led, not a road test.</p><div class="card-foot"><a class="read-link" href="/reviews/2026-volkswagen-virtus-review/">Read →</a></div></div>
+        <article class="card rv-card" data-category="compact-suv suv" data-date="2026-10-23">
+          <a href="/reviews/2026-skoda-kylaq-review/" class="rv-media" tabindex="-1" aria-hidden="true"><img src="/images/home/reviews-2026-skoda-kylaq-review-thumb-16x10.webp" alt="Skoda Kylaq, exterior" width="560" height="350" loading="lazy" decoding="async"></a>
+          <div class="rv-body"><div class="rv-top"><p class="rv-label">SUV · Petrol</p><span class="rv-score" title="Spec Score: average of eight on-paper ratings (see Review Methodology)"><b>7.8</b><span>/10</span></span></div><h3><a href="/reviews/2026-skoda-kylaq-review/">Skoda Kylaq 2026: Price, Automatic and Which Variant</a></h3><div class="rv-foot"><span class="rv-price">₹7.59–13.09 lakh*</span><time class="rv-meta" datetime="2026-10-23">23 Oct 2026</time></div><p class="rv-src">Price: CarWale and CarDekho, ex-showroom, checked Nov 2026</p></div>
         </article>
-        <article class="card" data-category="sedan" data-date="2026-08-18">
-          <a href="/reviews/2026-skoda-slavia-facelift/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Buyer’s Brief</span><img src="/images/thumbs/skoda-slavia-facelift-hero-v2.webp" alt="Blue Skoda Slavia parked outside a modern stone house at sunset, with the headline Skoda Slavia, 2026 Buyer’s Brief" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">Buyer’s Brief<time datetime="2026-08-18">18 Aug 2026</time></p><h3><a href="/reviews/2026-skoda-slavia-facelift/">Skoda Slavia Facelift 2026: Which Variant to Buy</a></h3><p>Slavia facelift buyer’s brief: ₹10.00–18.84 lakh, new eight-speed automatic, 360-degree camera and rear-seat massage. Specification-based, not a road test.</p><div class="card-foot"><a class="read-link" href="/reviews/2026-skoda-slavia-facelift/">Read →</a></div></div>
+        <article class="card rv-card" data-category="sedan" data-date="2026-10-23">
+          <a href="/reviews/2026-volkswagen-virtus-review/" class="rv-media" tabindex="-1" aria-hidden="true"><img src="/images/home/reviews-2026-volkswagen-virtus-review-thumb-16x10.webp" alt="Volkswagen Virtus, exterior" width="560" height="350" loading="lazy" decoding="async"></a>
+          <div class="rv-body"><div class="rv-top"><p class="rv-label">Sedan · Petrol</p><span class="rv-score" title="Spec Score: average of eight on-paper ratings (see Review Methodology)"><b>8.0</b><span>/10</span></span></div><h3><a href="/reviews/2026-volkswagen-virtus-review/">Volkswagen Virtus 2026: 1.0 TSI or 1.5 TSI?</a></h3><div class="rv-foot"><span class="rv-price">₹10.71–19.20 lakh*</span><time class="rv-meta" datetime="2026-10-23">23 Oct 2026</time></div><p class="rv-src">Price: CarWale and CarDekho, ex-showroom, checked Nov 2026</p></div>
         </article>
-        <article class="card" data-category="hatchback" data-date="2026-08-18">
-          <a href="/reviews/tata-altroz/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Buyer’s Brief</span><img src="/images/thumbs/tata-altroz-hero-v2.webp" alt="Champagne Tata Altroz parked outside a modern stone house at sunset, with the headline Tata Altroz, 2026 Buyer’s Brief" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">Buyer’s Brief<time datetime="2026-08-18">18 Aug 2026</time></p><h3><a href="/reviews/tata-altroz/">Tata Altroz 2026: Petrol, Diesel or CNG? Which Variant to Buy</a></h3><p>Tata Altroz 2026: prices from ₹6.00 to ₹10.90 lakh, every variant, petrol vs diesel vs CNG, claimed mileage, boot space and its five-star Bharat NCAP rating.</p><div class="card-foot"><a class="read-link" href="/reviews/tata-altroz/">Read →</a></div></div>
+        <article class="card rv-card" data-category="sedan" data-date="2026-08-18">
+          <a href="/reviews/2026-skoda-slavia-facelift/" class="rv-media" tabindex="-1" aria-hidden="true"><img src="/images/home/reviews-2026-skoda-slavia-facelift-thumb-16x10.webp" alt="Skoda Slavia, exterior" width="560" height="350" loading="lazy" decoding="async"></a>
+          <div class="rv-body"><div class="rv-top"><p class="rv-label">Sedan · Petrol</p><span class="rv-score" title="Spec Score: average of eight on-paper ratings (see Review Methodology)"><b>7.9</b><span>/10</span></span></div><h3><a href="/reviews/2026-skoda-slavia-facelift/">Skoda Slavia Facelift 2026: Which Variant to Buy</a></h3><div class="rv-foot"><span class="rv-price">₹10–18.84 lakh*</span><time class="rv-meta" datetime="2026-08-18">18 Aug 2026</time></div><p class="rv-src">Price: FlamingPiston Slavia brief (updated 21 Nov 2026), ex-showroom, checked 21 Nov 2026</p></div>
         </article>
-        <article class="card" data-category="suv compact-suv" data-date="2026-08-12">
-          <a href="/reviews/2026-maruti-brezza-review/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Buyer’s Brief</span><img src="/images/thumbs/maruti-brezza-review-hero.webp" alt="Red Maruti Suzuki Brezza driving on a coastal road, with the headline Brezza, 2026 Buyer’s Brief" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">Buyer’s Brief<time datetime="2026-08-12">12 Aug 2026</time></p><h3><a href="/reviews/2026-maruti-brezza-review/">2026 Maruti Brezza: Price, Which Engine to Buy and Verdict</a></h3><p>Maruti Brezza review, updated 23 November 2026: ₹7.55–13.76 lakh, which engine to buy, new 1.0 turbo, 5-star Bharat NCAP for petrol versions, and our verdict.</p><div class="card-foot"><a class="read-link" href="/reviews/2026-maruti-brezza-review/">Read →</a></div></div>
+        <article class="card rv-card" data-category="hatchback" data-date="2026-08-18">
+          <a href="/reviews/tata-altroz/" class="rv-media" tabindex="-1" aria-hidden="true"><img src="/images/home/reviews-tata-altroz-thumb-16x10.webp" alt="Tata Altroz, exterior" width="560" height="350" loading="lazy" decoding="async"></a>
+          <div class="rv-body"><div class="rv-top"><p class="rv-label">Hatchback · Petrol · Diesel · CNG</p><span class="rv-score" title="Spec Score: average of eight on-paper ratings (see Review Methodology)"><b>7.9</b><span>/10</span></span></div><h3><a href="/reviews/tata-altroz/">Tata Altroz 2026: Petrol, Diesel or CNG? Which Variant to Buy</a></h3><div class="rv-foot"><span class="rv-price">₹6–10.90 lakh*</span><time class="rv-meta" datetime="2026-08-18">18 Aug 2026</time></div><p class="rv-src">Price: CarWale and CarDekho, ex-showroom, checked Nov 2026</p></div>
         </article>
-        <article class="card" data-category="electric suv compact-suv" data-date="2026-08-05">
-          <a href="/reviews/kia-syros-ev/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Buyer’s Brief</span><img src="/images/thumbs/kia-syros-ev-review-hero.webp" alt="Silver Kia Syros EV charging outside a modern concrete house, with the headline Syros EV, 2026 Buyer’s Brief" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">Buyer’s Brief<time datetime="2026-08-05">5 Aug 2026</time></p><h3><a href="/reviews/kia-syros-ev/">Kia Syros EV: Range, Price and Which Trim to Buy</a></h3><p>Kia Syros EV 2026: ₹13.50–20.00 lakh, 42 or 51.4 kWh battery, 526 km claimed range vs about 400 km in Autocar India’s test, and which trim to buy.</p><div class="card-foot"><a class="read-link" href="/reviews/kia-syros-ev/">Read →</a></div></div>
+        <article class="card rv-card" data-category="suv compact-suv" data-date="2026-08-12">
+          <a href="/reviews/2026-maruti-brezza-review/" class="rv-media" tabindex="-1" aria-hidden="true"><img src="/images/home/reviews-2026-maruti-brezza-review-thumb-16x10.webp" alt="Maruti Suzuki Brezza, exterior" width="560" height="350" loading="lazy" decoding="async"></a>
+          <div class="rv-body"><div class="rv-top"><p class="rv-label">SUV · Petrol · CNG</p><span class="rv-score" title="Spec Score: average of eight on-paper ratings (see Review Methodology)"><b>8.3</b><span>/10</span></span></div><h3><a href="/reviews/2026-maruti-brezza-review/">2026 Maruti Brezza: Price, Which Engine to Buy and Verdict</a></h3><div class="rv-foot"><span class="rv-price">₹7.55–13.76 lakh*</span><time class="rv-meta" datetime="2026-08-12">12 Aug 2026</time></div><p class="rv-src">Price: CarDekho, ex-showroom, checked 23 Nov 2026</p></div>
         </article>
-        <article class="card" data-category="pickup off-road" data-date="2026-08-04">
-          <a href="/reviews/toyota-hilux/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Buyer’s Brief</span><img src="/images/thumbs/toyota-hilux-review-hero.webp" alt="Orange Toyota Hilux driving off-road beside a lake, with the headline Hilux, 2026 Buyer’s Brief" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">Buyer’s Brief<time datetime="2026-08-04">4 Aug 2026</time></p><h3><a href="/reviews/toyota-hilux/">Toyota Hilux 2026: What’s Changed, Price and 4x4 Verdict</a></h3><p>New ninth-generation Toyota Hilux buyer’s brief, November 2026: ₹31.99–36.89 lakh, first 4x2 version, same 2.8 diesel. Specification-led.</p><div class="card-foot"><a class="read-link" href="/reviews/toyota-hilux/">Read →</a></div></div>
+        <article class="card rv-card" data-category="electric suv compact-suv" data-date="2026-08-05">
+          <a href="/reviews/kia-syros-ev/" class="rv-media" tabindex="-1" aria-hidden="true"><img src="/images/home/reviews-kia-syros-ev-thumb-16x10.webp" alt="Kia Syros EV, exterior" width="560" height="350" loading="lazy" decoding="async"></a>
+          <div class="rv-body"><div class="rv-top"><p class="rv-label">SUV · Electric</p><span class="rv-score" title="Spec Score: average of eight on-paper ratings (see Review Methodology)"><b>8.6</b><span>/10</span></span></div><h3><a href="/reviews/kia-syros-ev/">Kia Syros EV: Range, Price and Which Trim to Buy</a></h3><div class="rv-foot"><span class="rv-price">₹13.50–20 lakh*</span><time class="rv-meta" datetime="2026-08-05">5 Aug 2026</time></div><p class="rv-src">Price: Kia India trim prices, ex-showroom, checked 21 Nov 2026</p></div>
         </article>
+        <article class="card rv-card" data-category="pickup off-road" data-date="2026-08-04">
+          <a href="/reviews/toyota-hilux/" class="rv-media" tabindex="-1" aria-hidden="true"><img src="/images/home/reviews-toyota-hilux-thumb-16x10.webp" alt="Toyota Hilux, exterior" width="560" height="350" loading="lazy" decoding="async"></a>
+          <div class="rv-body"><div class="rv-top"><p class="rv-label">Pickup · Diesel</p><span class="rv-score" title="Spec Score: average of eight on-paper ratings (see Review Methodology)"><b>7.6</b><span>/10</span></span></div><h3><a href="/reviews/toyota-hilux/">Toyota Hilux 2026: What’s Changed, Price and 4x4 Verdict</a></h3><div class="rv-foot"><span class="rv-price">₹31.99–36.89 lakh*</span><time class="rv-meta" datetime="2026-08-04">4 Aug 2026</time></div><p class="rv-src">Price: Toyota launch prices and CarWale, ex-showroom, checked Nov 2026</p></div>
+        </article>
+        </div>
 <!-- CARDS:END -->
       </div>
-    </div>
-  </section>
+      <p id="filterEmpty" class="rv-empty" hidden>No reviews in this category yet — check back soon, or <a href="news.html">browse the latest news</a>.</p>
+      <p class="rv-note">*Ex-showroom price ranges; each card names its price source and the date it was last checked. Spec Score is the average of eight on-paper ratings from official specifications and published tests, not our own driving; see the <a href="/review-methodology.html">Review Methodology</a>.</p>
+  </div></section>
   </main>
 
   <footer class="site-footer fp-footer">
@@ -196,62 +188,33 @@
 
   <script>
     (function(){
-      /* Auto-sort by publish date, newest first — matches the homepage's
-         Latest Reviews behavior. New cards just need a data-date attribute. */
-      var grid = document.getElementById('reviewGrid');
-      if (grid) {
-        var sortable = Array.prototype.slice.call(grid.querySelectorAll('.card[data-date]'));
-        sortable.sort(function(a, b){
-          return new Date(b.getAttribute('data-date')) - new Date(a.getAttribute('data-date'));
+      /* Reviews filter (Phase 2B showroom). Tabs and counts are generated by scripts/build-lists.js; this only
+         shows the matching cards. The lead panel shows under "All"; its copy in the grid shows when filtered.
+         Old links (#suv, #sedan …) keep working; an unknown hash falls back to All. */
+      var main = document.getElementById('main');
+      var tabs = [].slice.call(document.querySelectorAll('#filterChips .rv-tab'));
+      var cards = [].slice.call(document.querySelectorAll('#reviewGrid .rv-grid .card'));
+      var empty = document.getElementById('filterEmpty');
+      function apply(cat){
+        if (!tabs.some(function(t){ return t.getAttribute('data-filter') === cat; })) cat = 'all';
+        main.setAttribute('data-filter', cat);
+        var n = 0;
+        cards.forEach(function(c){
+          var show = cat === 'all' || (' ' + c.getAttribute('data-category') + ' ').indexOf(' ' + cat + ' ') > -1;
+          c.hidden = !show; if (show) n++;
         });
-        sortable.forEach(function(card){ grid.appendChild(card); });
+        empty.hidden = n > 0;
+        tabs.forEach(function(t){ if (t.getAttribute('data-filter') === cat) t.setAttribute('aria-current', 'true'); else t.removeAttribute('aria-current'); });
       }
-
-      var chips = document.querySelectorAll('#filterChips .chip');
-      var cards = document.querySelectorAll('#reviewGrid .card');
-      var emptyMsg = document.getElementById('filterEmpty');
-
-      /* Only show a category chip once a review actually exists in it —
-         keeps buyers from hitting a dead "nothing here" click. Add a
-         matching data-category to a new card and its chip reappears
-         automatically, no other change needed. */
-      var presentCats = {};
-      cards.forEach(function(card){
-        (card.getAttribute('data-category') || '').split(' ').forEach(function(c){
-          if (c) presentCats[c] = true;
-        });
-      });
-      chips.forEach(function(chip){
-        var f = chip.getAttribute('data-filter');
-        if (f !== 'all' && !presentCats[f]) chip.style.display = 'none';
-      });
-
-      function applyFilter(cat){
-        cat = cat || 'all';
-        var visibleCount = 0;
-        cards.forEach(function(card){
-          var cardCats = (card.getAttribute('data-category') || '').split(' ');
-          var show = cat === 'all' || cardCats.indexOf(cat) !== -1 || cardCats.indexOf('all') !== -1;
-          card.style.display = show ? '' : 'none';
-          if (show) visibleCount++;
-        });
-        emptyMsg.hidden = visibleCount > 0;
-        chips.forEach(function(chip){
-          chip.classList.toggle('is-active', chip.getAttribute('data-filter') === cat);
-        });
-      }
-
-      chips.forEach(function(chip){
-        chip.addEventListener('click', function(e){
+      tabs.forEach(function(t){
+        t.addEventListener('click', function(e){
           e.preventDefault();
-          var cat = chip.getAttribute('data-filter');
-          history.replaceState(null, '', cat === 'all' ? '#' : '#' + cat);
-          applyFilter(cat);
+          var cat = t.getAttribute('data-filter');
+          history.replaceState(null, '', cat === 'all' ? location.pathname : '#' + cat);
+          apply(cat);
         });
       });
-
-      var initial = (window.location.hash || '').replace('#','').toLowerCase() || 'all';
-      applyFilter(initial);
+      apply((location.hash || '').slice(1).toLowerCase() || 'all');
     })();
   </script>
   <script src="/assets/fp.js?v=20261128w1140" defer></script>

@@ -490,8 +490,13 @@
    "description": "Maruti Swift buyer’s brief, updated November 2026: ₹5.84–8.89 lakh, six airbags standard, new CNG AMT. Specification-led, not a road test.",
    "image": "/images/maruti-swift-review-hero.jpg",
    "imageCredit": "AI illustration: FlamingPiston",
-   "thumbnail": null,
-   "focal": null,
+   "thumbnail": "/images/home/reviews-2026-maruti-swift-review-thumb-16x10.webp",
+   "focal": [
+    0.23,
+    0.24,
+    0.95,
+    0.79
+   ],
    "banner": null,
    "vehicles": [
     "maruti-swift"
@@ -541,8 +546,13 @@
    "description": "VW Virtus buyer’s brief, updated November 2026: ₹10.71–19.20 lakh, five-star Global NCAP, facelift due in December. Specification-led, not a road test.",
    "image": "/images/volkswagen-virtus-review-hero.jpg",
    "imageCredit": "AI illustration: FlamingPiston",
-   "thumbnail": null,
-   "focal": null,
+   "thumbnail": "/images/home/reviews-2026-volkswagen-virtus-review-thumb-16x10.webp",
+   "focal": [
+    0.3,
+    0.32,
+    0.94,
+    0.82
+   ],
    "banner": null,
    "vehicles": [
     "volkswagen-virtus"
@@ -1311,8 +1321,13 @@
    "description": "Slavia facelift buyer’s brief: ₹10.00–18.84 lakh, new eight-speed automatic, 360-degree camera and rear-seat massage. Specification-based, not a road test.",
    "image": "/images/skoda-slavia-facelift-hero-v2.jpg",
    "imageCredit": "Image: Skoda Auto India, edited by FlamingPiston",
-   "thumbnail": null,
-   "focal": null,
+   "thumbnail": "/images/home/reviews-2026-skoda-slavia-facelift-thumb-16x10.webp",
+   "focal": [
+    0.42,
+    0.36,
+    0.94,
+    0.8
+   ],
    "banner": null,
    "vehicles": [
     "skoda-slavia"
@@ -1355,8 +1370,13 @@
    "description": "Tata Altroz 2026: prices from ₹6.00 to ₹10.90 lakh, every variant, petrol vs diesel vs CNG, claimed mileage, boot space and its five-star Bharat NCAP rating.",
    "image": "/images/tata-altroz-hero-v2.jpg",
    "imageCredit": "Image: Tata Motors, edited by FlamingPiston",
-   "thumbnail": null,
-   "focal": null,
+   "thumbnail": "/images/home/reviews-tata-altroz-thumb-16x10.webp",
+   "focal": [
+    0.4,
+    0.3,
+    0.92,
+    0.77
+   ],
    "banner": null,
    "vehicles": [
     "tata-altroz"
@@ -1700,8 +1720,13 @@
    "description": "Kia Syros EV 2026: ₹13.50–20.00 lakh, 42 or 51.4 kWh battery, 526 km claimed range vs about 400 km in Autocar India’s test, and which trim to buy.",
    "image": "/images/kia-syros-ev-review-hero.jpg",
    "imageCredit": "Image: Kia India, edited by FlamingPiston",
-   "thumbnail": null,
-   "focal": null,
+   "thumbnail": "/images/home/reviews-kia-syros-ev-thumb-16x10.webp",
+   "focal": [
+    0.44,
+    0.22,
+    0.92,
+    0.73
+   ],
    "banner": null,
    "vehicles": [
     "kia-syros-ev"
@@ -1723,8 +1748,13 @@
    "description": "New ninth-generation Toyota Hilux buyer’s brief, November 2026: ₹31.99–36.89 lakh, first 4x2 version, same 2.8 diesel. Specification-led.",
    "image": "/images/toyota-hilux-review-hero.jpg",
    "imageCredit": "Image: Toyota Kirloskar Motor (digitally modified visual), edited by FlamingPiston",
-   "thumbnail": null,
-   "focal": null,
+   "thumbnail": "/images/home/reviews-toyota-hilux-thumb-16x10.webp",
+   "focal": [
+    0.44,
+    0.28,
+    0.97,
+    0.84
+   ],
    "banner": null,
    "vehicles": [
     "toyota-hilux"

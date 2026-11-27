@@ -236,6 +236,57 @@ ${buf.join('\n')}
   return out.join('\n');
 }
 
+// Reviews page: showroom (Phase 2B, design A, approved 27 Nov 2026). The newest brief leads in a petrol panel (shown
+// only under "All"); every brief is also a card in the grid (the lead's copy, .rv-dup, is hidden under "All").
+// Price, body and fuel come from data/cars.json (matched on the review URL) with its source and checked date;
+// the Spec Score is read from the brief's own "Spec Score (average)" table row. Missing data is simply left out.
+const RV_BODY = { suv: 'SUV', hatchback: 'Hatchback', sedan: 'Sedan', pickup: 'Pickup', mpv: 'MPV' };
+const RV_FUEL = { petrol: 'Petrol', diesel: 'Diesel', cng: 'CNG', electric: 'Electric', hybrid: 'Hybrid' };
+const RV_TABS = [['all', 'All'], ['hatchback', 'Hatchback'], ['sedan', 'Sedan'], ['suv', 'SUV'], ['compact-suv', 'Compact SUV'], ['pickup', 'Pickup'], ['electric', 'Electric'], ['hybrid', 'Hybrid'], ['off-road', 'Off-road'], ['performance', 'Performance'], ['luxury', 'Luxury']];
+const rvLakh = (n) => n.toFixed(2).replace(/\.00$/, '');
+function rvFacts(a) {
+  const car = CARS.find((c) => c.url === href(a));
+  let score = '';
+  try { score = (fs.readFileSync(path.join(ROOT, a.rel), 'utf-8').match(/Spec Score \(average\)<\/td>\s*<td>\s*([\d.]+)\s*\/\s*10/) || [])[1] || ''; } catch (e) { /* no score */ }
+  // Alt for the clean crop: its own "alt" in data/homepage.json, else the car's name (the article's alt may describe
+  // a headline banner that the crop does not show).
+  const spec = (HOME.images && HOME.images[a.url] && HOME.images[a.url].thumb) || {};
+  const alt = spec.alt || (car ? `${car.name}, exterior` : a.alt);
+  if (!car) return { score, alt, label: '', price: '', source: '' };
+  return {
+    score, alt, body: car.body,
+    label: [RV_BODY[car.body] || '', (car.fuels || []).map((f) => RV_FUEL[f] || f).join(' · ')].filter(Boolean).join(' · '),
+    price: car.min == null ? '' : `₹${rvLakh(car.min)}${car.max != null && car.max !== car.min ? `–${rvLakh(car.max)}` : ''} lakh`,
+    source: car.source ? `Price: ${car.source}, checked ${checked(car.checked)}` : '',
+  };
+}
+const rvScore = (s) => s ? `<span class="rv-score" title="Spec Score: average of eight on-paper ratings (see Review Methodology)"><b>${s}</b><span>/10</span></span>` : '';
+function rvCard(a, f, cat, dup) {
+  const c = thumbFor(a);
+  const img = c ? cropImg(c, f.alt, 1.6) : `<img src="${thumb(a)}" alt="${esc(a.alt)}" loading="lazy"${dims(a)}>`;
+  return `        <article class="card rv-card${dup ? ' rv-dup' : ''}" data-category="${cat}" data-date="${a.date}">
+          <a href="${href(a)}" class="rv-media" tabindex="-1" aria-hidden="true">${img}</a>
+          <div class="rv-body"><div class="rv-top"><p class="rv-label">${esc(f.label || a.type)}</p>${rvScore(f.score)}</div><h3><a href="${href(a)}">${esc(a.title)}</a></h3><div class="rv-foot">${f.price ? `<span class="rv-price">${f.price}*</span>` : ''}<time class="rv-meta" datetime="${a.date}">${fmtShort(a.date)}</time></div>${f.source ? `<p class="rv-src">${esc(f.source)}</p>` : ''}</div>
+        </article>`;
+}
+function reviewShowroom(list, catOf) {
+  const rows = list.map((a) => { const f = rvFacts(a); const cat = [...new Set([...catOf(a).split(' '), f.body].filter(Boolean))].join(' '); return { a, f, cat }; });
+  const out = [];
+  if (rows.length) {
+    const { a, f, cat } = rows[0];
+    const story = crop(`${a.url}#story`);   // clean 16:9 crop from data/home-images.json, never the headline banner
+    const img = story ? cropImg(story, f.alt, 1.6, 'fetchpriority="high" decoding="async"') : `<img src="${thumb(a)}" alt="${esc(a.alt)}"${dims(a)} fetchpriority="high">`;
+    out.push(`        <article class="card rv-lead" data-category="${cat}" data-date="${a.date}">
+          <a href="${href(a)}" class="rv-media" tabindex="-1" aria-hidden="true">${img}</a>
+          <div class="rv-lead-text"><p class="rv-label">Latest Buyer’s Brief${f.label ? ` · ${esc(f.label)}` : ''}</p><h2><a href="${href(a)}">${esc(a.title)}</a></h2><p class="rv-dek">${esc(a.desc)}</p><div class="rv-facts">${f.price ? `<span class="rv-price">${f.price}*</span>` : ''}${rvScore(f.score)}<time class="rv-meta" datetime="${a.date}">${fmtShort(a.date)}</time></div>${f.source ? `<p class="rv-src">${esc(f.source)}</p>` : ''}</div>
+        </article>`);
+  }
+  out.push(`        <div class="rv-grid">\n${rows.map((r, i) => rvCard(r.a, r.f, r.cat, i === 0)).join('\n')}\n        </div>`);
+  const count = (k) => rows.filter((r) => k === 'all' || r.cat.split(' ').includes(k)).length;
+  const tabs = RV_TABS.filter(([k]) => count(k)).map(([k, t]) => `<a class="rv-tab" href="#${k}" data-filter="${k}"${k === 'all' ? ' aria-current="true"' : ''}>${t}<span class="n">${count(k)}</span></a>`).join('');
+  return { cards: out.join('\n'), tabs: `        ${tabs}` };
+}
+
 // ---- file helpers ----------------------------------------------------------------------------
 const pages = {};
 const read = (f) => (pages[f] = pages[f] || fs.readFileSync(path.join(ROOT, f), 'utf-8'));
@@ -278,7 +329,7 @@ for (const [sec, f] of Object.entries(SECTIONS)) {
     if (cat !== undefined) cats.set(u, cat);
   }
 }
-const lists = { news: [], reviews: [], guides: [], comparisons: [] }; const added = [];
+const lists = { news: [], reviews: [], guides: [], comparisons: [] }; const added = []; let reviewsCatOf = null;
 for (const a of articles) {
   let sec = placed.get(a.url) || sectionOf(a); if (!sec) continue;
   if (!placed.has(a.url)) added.push(`${a.url} -> ${SECTIONS[sec]}`);
@@ -287,6 +338,7 @@ for (const a of articles) {
 for (const [sec, f] of Object.entries(SECTIONS)) {
   const catOf = (a) => esc(cats.has(a.url) ? cats.get(a.url) : chips(a));
   if (sec === 'news') { between(f, 'CARDS', newsWire(lists.news, catOf)); setCount(f, lists.news.length); continue; }
+  if (sec === 'reviews') { reviewsCatOf = catOf; continue; }   // built below, once the crop and cars.json helpers exist
   const items = lists[sec].map((a) => card(a, ` data-category="${catOf(a)}"`, esc(a.type)));
   between(f, 'CARDS', items.join('\n'));
   setCount(f, items.length);
@@ -495,6 +547,7 @@ latestShown.forEach((a) => used.add(a.url));
 const lakh = (n) => n.toFixed(2);
 const priceText = (c) => c.min === c.max ? `₹${lakh(c.min)} Lakh` : `₹${lakh(c.min)} – ${lakh(c.max)} Lakh`;
 const checked = (d) => { const [y, m, dd] = d.split('-'); return `${dd ? +dd + ' ' : ''}${MONTHS[+m - 1]} ${y}`; };
+{ const rv = reviewShowroom(lists.reviews, reviewsCatOf); between('reviews.html', 'CARDS', rv.cards); between('reviews.html', 'REVIEW-TABS', rv.tabs); }
 const BODY = { suv: 'SUV', hatchback: 'Hatchback', sedan: 'Sedan', mpv: 'MPV', pickup: 'Pickup' };
 const featured = (HOME.featuredCars || []).map((id) => CARS.find((c) => c.id === id)).filter(Boolean);
 between('index.html', 'FEATURED', featured.map((car) => {

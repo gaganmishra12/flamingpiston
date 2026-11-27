@@ -9,6 +9,7 @@ FlamingPiston is a static site: pages change only when the site is **rebuilt and
    `"news-example.html": { "thumb": { "src": "images/news-example.jpg", "subject": [0.2, 0.25, 0.9, 0.85] } }`
    (`subject` = the car's box as fractions of the image; optional `"area"` keeps a baked-in headline out of the frame, `"erase"` paints headline text off a plain studio wall). Without a thumbnail the story still appears everywhere, with a plain FlamingPiston tile.
    News listing: if a story's image has a headline printed on it, add `"cardImage": "tile"` to its entry in `data/articles.json` so the News page shows the plain FlamingPiston tile instead.
+   Reviews listing: a Buyer's Brief shows its price, body and fuel only if `data/cars.json` has an entry whose `url` is the brief's URL (with `source` and `checked`), and its Spec Score only if the brief has a "Spec Score (average)" table row. Its card photo is the clean `thumb` crop above (add `"alt"` to the thumb spec to describe it; otherwise the car's name is used).
 3. **Run, from the site root:**
    ```
    sh scripts/update-site.sh

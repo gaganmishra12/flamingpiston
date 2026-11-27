@@ -327,28 +327,28 @@
   "w": 952,
   "h": 535,
   "bg": "#06252d",
-  "sig": "53489eca6e"
+  "sig": "b31601136f"
  },
  "guides/innova-hycross-facelift-buy-now-or-wait/#thumb@16x10": {
   "file": "images/home/guides-innova-hycross-facelift-buy-now-or-wait-thumb-16x10.webp",
   "w": 560,
   "h": 350,
   "bg": "#072730",
-  "sig": "3c3e731898"
+  "sig": "5633a46d7c"
  },
  "guides/innova-hycross-facelift-buy-now-or-wait/#thumb@16x9": {
   "file": "images/home/guides-innova-hycross-facelift-buy-now-or-wait-thumb-16x9.webp",
   "w": 560,
   "h": 315,
   "bg": "#06252d",
-  "sig": "3ac8aeb451"
+  "sig": "35bb60d753"
  },
  "guides/innova-hycross-facelift-buy-now-or-wait/#thumb@2x1": {
   "file": "images/home/guides-innova-hycross-facelift-buy-now-or-wait-thumb-2x1.webp",
   "w": 560,
   "h": 280,
   "bg": "#04222b",
-  "sig": "e3e148a2fe"
+  "sig": "aa52e68f4f"
  },
  "news-bmw-7-series-i7-facelift-india.html#story": {
   "file": "images/home/news-bmw-7-series-i7-facelift-india-story-16x9.webp",
@@ -772,6 +772,34 @@
   "bg": "#857867",
   "sig": "b27a873921"
  },
+ "reviews/2026-maruti-swift-review/#story": {
+  "file": "images/home/reviews-2026-maruti-swift-review-story-16x9.webp",
+  "w": 1200,
+  "h": 674,
+  "bg": "#5d5241",
+  "sig": "7c108528cf"
+ },
+ "reviews/2026-maruti-swift-review/#thumb@16x10": {
+  "file": "images/home/reviews-2026-maruti-swift-review-thumb-16x10.webp",
+  "w": 560,
+  "h": 350,
+  "bg": "#5f5443",
+  "sig": "b08ca6617a"
+ },
+ "reviews/2026-maruti-swift-review/#thumb@16x9": {
+  "file": "images/home/reviews-2026-maruti-swift-review-thumb-16x9.webp",
+  "w": 560,
+  "h": 315,
+  "bg": "#5d5241",
+  "sig": "ecfdd5d3ee"
+ },
+ "reviews/2026-maruti-swift-review/#thumb@2x1": {
+  "file": "images/home/reviews-2026-maruti-swift-review-thumb-2x1.webp",
+  "w": 560,
+  "h": 280,
+  "bg": "#5a4f3e",
+  "sig": "f709b42995"
+ },
  "reviews/2026-mercedes-glc-electric/#story": {
   "file": "images/home/reviews-2026-mercedes-glc-electric-story-16x9.webp",
   "w": 1200,
@@ -834,6 +862,146 @@
   "h": 280,
   "bg": "#59463e",
   "sig": "11cfe26f11"
+ },
+ "reviews/2026-skoda-slavia-facelift/#story": {
+  "file": "images/home/reviews-2026-skoda-slavia-facelift-story-16x9.webp",
+  "w": 960,
+  "h": 540,
+  "bg": "#5c4d40",
+  "sig": "1b56d3c2e1"
+ },
+ "reviews/2026-skoda-slavia-facelift/#thumb@16x10": {
+  "file": "images/home/reviews-2026-skoda-slavia-facelift-thumb-16x10.webp",
+  "w": 560,
+  "h": 350,
+  "bg": "#5e5042",
+  "sig": "243d05e3de"
+ },
+ "reviews/2026-skoda-slavia-facelift/#thumb@16x9": {
+  "file": "images/home/reviews-2026-skoda-slavia-facelift-thumb-16x9.webp",
+  "w": 560,
+  "h": 315,
+  "bg": "#5c4d40",
+  "sig": "7574b33d33"
+ },
+ "reviews/2026-skoda-slavia-facelift/#thumb@2x1": {
+  "file": "images/home/reviews-2026-skoda-slavia-facelift-thumb-2x1.webp",
+  "w": 560,
+  "h": 280,
+  "bg": "#5a4b3d",
+  "sig": "8e99aa23ca"
+ },
+ "reviews/2026-volkswagen-virtus-review/#story": {
+  "file": "images/home/reviews-2026-volkswagen-virtus-review-story-16x9.webp",
+  "w": 1128,
+  "h": 635,
+  "bg": "#ac9a83",
+  "sig": "2d5bf1d658"
+ },
+ "reviews/2026-volkswagen-virtus-review/#thumb@16x10": {
+  "file": "images/home/reviews-2026-volkswagen-virtus-review-thumb-16x10.webp",
+  "w": 560,
+  "h": 350,
+  "bg": "#ab9b86",
+  "sig": "c161ff72dd"
+ },
+ "reviews/2026-volkswagen-virtus-review/#thumb@16x9": {
+  "file": "images/home/reviews-2026-volkswagen-virtus-review-thumb-16x9.webp",
+  "w": 560,
+  "h": 315,
+  "bg": "#ac9a83",
+  "sig": "d016cecad3"
+ },
+ "reviews/2026-volkswagen-virtus-review/#thumb@2x1": {
+  "file": "images/home/reviews-2026-volkswagen-virtus-review-thumb-2x1.webp",
+  "w": 560,
+  "h": 280,
+  "bg": "#ab9980",
+  "sig": "f56dee541e"
+ },
+ "reviews/kia-syros-ev/#story": {
+  "file": "images/home/reviews-kia-syros-ev-story-16x9.webp",
+  "w": 996,
+  "h": 560,
+  "bg": "#53514a",
+  "sig": "52f05895c6"
+ },
+ "reviews/kia-syros-ev/#thumb@16x10": {
+  "file": "images/home/reviews-kia-syros-ev-thumb-16x10.webp",
+  "w": 560,
+  "h": 350,
+  "bg": "#757066",
+  "sig": "7f0947c3e8"
+ },
+ "reviews/kia-syros-ev/#thumb@16x9": {
+  "file": "images/home/reviews-kia-syros-ev-thumb-16x9.webp",
+  "w": 560,
+  "h": 315,
+  "bg": "#53514a",
+  "sig": "a14db59739"
+ },
+ "reviews/kia-syros-ev/#thumb@2x1": {
+  "file": "images/home/reviews-kia-syros-ev-thumb-2x1.webp",
+  "w": 560,
+  "h": 280,
+  "bg": "#514f48",
+  "sig": "460bae0de0"
+ },
+ "reviews/tata-altroz/#story": {
+  "file": "images/home/reviews-tata-altroz-story-16x9.webp",
+  "w": 967,
+  "h": 544,
+  "bg": "#5f5246",
+  "sig": "cdcb52fcf9"
+ },
+ "reviews/tata-altroz/#thumb@16x10": {
+  "file": "images/home/reviews-tata-altroz-thumb-16x10.webp",
+  "w": 560,
+  "h": 350,
+  "bg": "#635548",
+  "sig": "e61af36cc3"
+ },
+ "reviews/tata-altroz/#thumb@16x9": {
+  "file": "images/home/reviews-tata-altroz-thumb-16x9.webp",
+  "w": 560,
+  "h": 315,
+  "bg": "#5f5246",
+  "sig": "c7e8108959"
+ },
+ "reviews/tata-altroz/#thumb@2x1": {
+  "file": "images/home/reviews-tata-altroz-thumb-2x1.webp",
+  "w": 560,
+  "h": 280,
+  "bg": "#615245",
+  "sig": "779ee10508"
+ },
+ "reviews/toyota-hilux/#story": {
+  "file": "images/home/reviews-toyota-hilux-story-16x9.webp",
+  "w": 1024,
+  "h": 576,
+  "bg": "#9ca09d",
+  "sig": "5c4cc34f84"
+ },
+ "reviews/toyota-hilux/#thumb@16x10": {
+  "file": "images/home/reviews-toyota-hilux-thumb-16x10.webp",
+  "w": 560,
+  "h": 350,
+  "bg": "#a2a6a3",
+  "sig": "37551b9ab0"
+ },
+ "reviews/toyota-hilux/#thumb@16x9": {
+  "file": "images/home/reviews-toyota-hilux-thumb-16x9.webp",
+  "w": 560,
+  "h": 315,
+  "bg": "#9ca09d",
+  "sig": "f44defaede"
+ },
+ "reviews/toyota-hilux/#thumb@2x1": {
+  "file": "images/home/reviews-toyota-hilux-thumb-2x1.webp",
+  "w": 560,
+  "h": 280,
+  "bg": "#9ca09c",
+  "sig": "9b9edf6f47"
  },
  "upcoming#news-denza-d9-z9-gt-india-launch.html": {
   "file": "images/home/upcoming-news-denza-d9-z9-gt-india-launch-16x9.webp",
