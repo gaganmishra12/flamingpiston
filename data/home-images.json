@@ -603,6 +603,70 @@
   "bg": "#4e3e36",
   "sig": "3f35e182d4"
  },
+ "reviews/2026-brezza-vs-fronx/#story": {
+  "file": "images/home/reviews-2026-brezza-vs-fronx-story-16x9.webp",
+  "w": 1000,
+  "h": 280,
+  "bg": "#080807",
+  "sig": "248fa65f0d",
+  "contain": true
+ },
+ "reviews/2026-brezza-vs-fronx/#thumb@16x10": {
+  "file": "images/home/reviews-2026-brezza-vs-fronx-thumb-16x10.webp",
+  "w": 560,
+  "h": 157,
+  "bg": "#080807",
+  "sig": "125e75e94f",
+  "contain": true
+ },
+ "reviews/2026-brezza-vs-fronx/#thumb@16x9": {
+  "file": "images/home/reviews-2026-brezza-vs-fronx-thumb-16x9.webp",
+  "w": 560,
+  "h": 157,
+  "bg": "#080807",
+  "sig": "bf7b4332d8",
+  "contain": true
+ },
+ "reviews/2026-brezza-vs-fronx/#thumb@2x1": {
+  "file": "images/home/reviews-2026-brezza-vs-fronx-thumb-2x1.webp",
+  "w": 560,
+  "h": 157,
+  "bg": "#080807",
+  "sig": "626fa565bc",
+  "contain": true
+ },
+ "reviews/2026-brezza-vs-nexon/#story": {
+  "file": "images/home/reviews-2026-brezza-vs-nexon-story-16x9.webp",
+  "w": 790,
+  "h": 209,
+  "bg": "#1c1215",
+  "sig": "68bec8f478",
+  "contain": true
+ },
+ "reviews/2026-brezza-vs-nexon/#thumb@16x10": {
+  "file": "images/home/reviews-2026-brezza-vs-nexon-thumb-16x10.webp",
+  "w": 560,
+  "h": 148,
+  "bg": "#1c1215",
+  "sig": "4d04dc9882",
+  "contain": true
+ },
+ "reviews/2026-brezza-vs-nexon/#thumb@16x9": {
+  "file": "images/home/reviews-2026-brezza-vs-nexon-thumb-16x9.webp",
+  "w": 560,
+  "h": 148,
+  "bg": "#1c1215",
+  "sig": "2e49bf7bce",
+  "contain": true
+ },
+ "reviews/2026-brezza-vs-nexon/#thumb@2x1": {
+  "file": "images/home/reviews-2026-brezza-vs-nexon-thumb-2x1.webp",
+  "w": 560,
+  "h": 148,
+  "bg": "#1c1215",
+  "sig": "bffeb4f035",
+  "contain": true
+ },
  "reviews/2026-isuzu-v-cross-review/#story": {
   "file": "images/home/reviews-2026-isuzu-v-cross-review-story-16x9.webp",
   "w": 1200,
@@ -891,6 +955,38 @@
   "bg": "#5a4b3d",
   "sig": "8e99aa23ca"
  },
+ "reviews/2026-slavia-vs-virtus/#story": {
+  "file": "images/home/reviews-2026-slavia-vs-virtus-story-16x9.webp",
+  "w": 1100,
+  "h": 378,
+  "bg": "#2a3036",
+  "sig": "6b5549bb4b",
+  "contain": true
+ },
+ "reviews/2026-slavia-vs-virtus/#thumb@16x10": {
+  "file": "images/home/reviews-2026-slavia-vs-virtus-thumb-16x10.webp",
+  "w": 560,
+  "h": 192,
+  "bg": "#2a3036",
+  "sig": "a13c7d295d",
+  "contain": true
+ },
+ "reviews/2026-slavia-vs-virtus/#thumb@16x9": {
+  "file": "images/home/reviews-2026-slavia-vs-virtus-thumb-16x9.webp",
+  "w": 560,
+  "h": 192,
+  "bg": "#2a3036",
+  "sig": "359d7e4898",
+  "contain": true
+ },
+ "reviews/2026-slavia-vs-virtus/#thumb@2x1": {
+  "file": "images/home/reviews-2026-slavia-vs-virtus-thumb-2x1.webp",
+  "w": 560,
+  "h": 192,
+  "bg": "#2a3036",
+  "sig": "4bc923a4b0",
+  "contain": true
+ },
  "reviews/2026-volkswagen-virtus-review/#story": {
   "file": "images/home/reviews-2026-volkswagen-virtus-review-story-16x9.webp",
   "w": 1128,
@@ -919,6 +1015,62 @@
   "bg": "#ab9980",
   "sig": "f56dee541e"
  },
+ "reviews/bmw-7-series-vs-mercedes-s-class-vs-genesis-g90/#story": {
+  "file": "images/home/reviews-bmw-7-series-vs-mercedes-s-class-vs-genesis-g90-story-16x9.webp",
+  "w": 781,
+  "h": 439,
+  "bg": "#8b7053",
+  "sig": "34ce95b220"
+ },
+ "reviews/bmw-7-series-vs-mercedes-s-class-vs-genesis-g90/#thumb@16x10": {
+  "file": "images/home/reviews-bmw-7-series-vs-mercedes-s-class-vs-genesis-g90-thumb-16x10.webp",
+  "w": 560,
+  "h": 350,
+  "bg": "#8a7155",
+  "sig": "ccf8acb33c"
+ },
+ "reviews/bmw-7-series-vs-mercedes-s-class-vs-genesis-g90/#thumb@16x9": {
+  "file": "images/home/reviews-bmw-7-series-vs-mercedes-s-class-vs-genesis-g90-thumb-16x9.webp",
+  "w": 560,
+  "h": 315,
+  "bg": "#8b7053",
+  "sig": "c0e228aec4"
+ },
+ "reviews/bmw-7-series-vs-mercedes-s-class-vs-genesis-g90/#thumb@2x1": {
+  "file": "images/home/reviews-bmw-7-series-vs-mercedes-s-class-vs-genesis-g90-thumb-2x1.webp",
+  "w": 560,
+  "h": 280,
+  "bg": "#8b6f50",
+  "sig": "ca2a346016"
+ },
+ "reviews/bmw-x5-vs-genesis-gv80-vs-volvo-xc90/#story": {
+  "file": "images/home/reviews-bmw-x5-vs-genesis-gv80-vs-volvo-xc90-story-16x9.webp",
+  "w": 748,
+  "h": 421,
+  "bg": "#232c31",
+  "sig": "214d276d98"
+ },
+ "reviews/bmw-x5-vs-genesis-gv80-vs-volvo-xc90/#thumb@16x10": {
+  "file": "images/home/reviews-bmw-x5-vs-genesis-gv80-vs-volvo-xc90-thumb-16x10.webp",
+  "w": 560,
+  "h": 350,
+  "bg": "#222b30",
+  "sig": "6d5f7ff39d"
+ },
+ "reviews/bmw-x5-vs-genesis-gv80-vs-volvo-xc90/#thumb@16x9": {
+  "file": "images/home/reviews-bmw-x5-vs-genesis-gv80-vs-volvo-xc90-thumb-16x9.webp",
+  "w": 560,
+  "h": 315,
+  "bg": "#232c31",
+  "sig": "c38f0a48d7"
+ },
+ "reviews/bmw-x5-vs-genesis-gv80-vs-volvo-xc90/#thumb@2x1": {
+  "file": "images/home/reviews-bmw-x5-vs-genesis-gv80-vs-volvo-xc90-thumb-2x1.webp",
+  "w": 560,
+  "h": 280,
+  "bg": "#242e33",
+  "sig": "9ae6309722"
+ },
  "reviews/kia-syros-ev/#story": {
   "file": "images/home/reviews-kia-syros-ev-story-16x9.webp",
   "w": 996,
@@ -946,6 +1098,34 @@
   "h": 280,
   "bg": "#514f48",
   "sig": "460bae0de0"
+ },
+ "reviews/range-rover-sport-vs-bmw-x5-vs-mercedes-gle/#story": {
+  "file": "images/home/reviews-range-rover-sport-vs-bmw-x5-vs-mercedes-gle-story-16x9.webp",
+  "w": 759,
+  "h": 427,
+  "bg": "#262b30",
+  "sig": "ff4427a69e"
+ },
+ "reviews/range-rover-sport-vs-bmw-x5-vs-mercedes-gle/#thumb@16x10": {
+  "file": "images/home/reviews-range-rover-sport-vs-bmw-x5-vs-mercedes-gle-thumb-16x10.webp",
+  "w": 560,
+  "h": 350,
+  "bg": "#252a2f",
+  "sig": "90d845564e"
+ },
+ "reviews/range-rover-sport-vs-bmw-x5-vs-mercedes-gle/#thumb@16x9": {
+  "file": "images/home/reviews-range-rover-sport-vs-bmw-x5-vs-mercedes-gle-thumb-16x9.webp",
+  "w": 560,
+  "h": 315,
+  "bg": "#262b30",
+  "sig": "6f8c539142"
+ },
+ "reviews/range-rover-sport-vs-bmw-x5-vs-mercedes-gle/#thumb@2x1": {
+  "file": "images/home/reviews-range-rover-sport-vs-bmw-x5-vs-mercedes-gle-thumb-2x1.webp",
+  "w": 560,
+  "h": 280,
+  "bg": "#262c31",
+  "sig": "a76162524a"
  },
  "reviews/tata-altroz/#story": {
   "file": "images/home/reviews-tata-altroz-story-16x9.webp",

@@ -39,7 +39,7 @@
   <link rel="preload" href="/assets/fonts/familjen-grotesk-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/fp.css?v=20261128w1140">
-  <link rel="stylesheet" href="/assets/fp-listings.css?v=20261128rv">
+  <link rel="stylesheet" href="/assets/fp-listings.css?v=20261128cv">
   <!-- /FP:HEAD -->
 </head>
 <body class="listing">
@@ -74,80 +74,71 @@
       </div>
     </div>
   </header>
-  <main id="main" class="paired-features">
+  <main id="main" class="showroom compare-showroom" data-filter="all">
 
-  <section class="page-head page-head--compact" aria-labelledby="pageTitle"><div class="wrap">
-      <div class="ph-title"><h1 id="pageTitle">Car Comparisons</h1></div>
-      <p class="lede">Head-to-head pages for buyers deciding between shortlisted cars — price, mileage, safety and features side by side. For a single car, see <a href="reviews.html">Reviews</a>.</p>
+  <section class="rv-head" aria-labelledby="pageTitle"><div class="wrap">
+      <h1 id="pageTitle">Car Comparisons</h1>
+      <p class="rv-lede">Head-to-head pages for buyers deciding between shortlisted cars — price, mileage, safety and features side by side. For a single car, see <a href="reviews.html">Reviews</a>.</p>
+      <nav class="rv-tabs" id="filterChips" aria-label="Filter comparisons by type">
+<!-- COMPARE-TABS:START -->
+        <a class="rv-tab" href="#all" data-filter="all" aria-current="true">All<span class="n">10</span></a><a class="rv-tab" href="#hatchback" data-filter="hatchback">Hatchback<span class="n">1</span></a><a class="rv-tab" href="#sedan" data-filter="sedan">Sedan<span class="n">2</span></a><a class="rv-tab" href="#suv" data-filter="suv">SUV<span class="n">6</span></a><a class="rv-tab" href="#compact-suv" data-filter="compact-suv">Compact SUV<span class="n">4</span></a><a class="rv-tab" href="#electric" data-filter="electric">Electric<span class="n">1</span></a><a class="rv-tab" href="#luxury" data-filter="luxury">Luxury<span class="n">3</span></a>
+<!-- COMPARE-TABS:END -->
+      </nav>
   </div></section>
 
-  <section>
-    <div class="wrap">
-      <div class="chip-row" id="filterChips">
-        <a class="chip is-active" href="#all" data-filter="all">All</a>
-        <a class="chip" href="#hatchback" data-filter="hatchback">Hatchback</a>
-        <a class="chip" href="#sedan" data-filter="sedan">Sedan</a>
-        <a class="chip" href="#suv" data-filter="suv">SUV</a>
-        <a class="chip" href="#compact-suv" data-filter="compact-suv">Compact SUV</a>
-        <a class="chip" href="#pickup" data-filter="pickup">Pickup</a>
-        <a class="chip" href="#electric" data-filter="electric">Electric</a>
-        <a class="chip" href="#hybrid" data-filter="hybrid">Hybrid</a>
-        <a class="chip" href="#off-road" data-filter="off-road">Off-road</a>
-        <a class="chip" href="#performance" data-filter="performance">Performance</a>
-        <a class="chip" href="#luxury" data-filter="luxury">Luxury</a>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <p id="filterEmpty" class="filter-empty" hidden>No comparisons in this category yet — check back soon, or <a href="news.html">browse the latest news</a>.</p>
-      <div class="editorial-grid" id="comparisonGrid">
+  <section class="rv-list"><div class="wrap">
+      <div id="comparisonGrid">
 <!-- CARDS:START -->
-        <article class="card" data-category="electric" data-date="2026-11-22">
-          <a href="/comparisons/tata-sierra-ev-vs-mahindra-be-6/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Comparison</span><img src="/images/thumbs/tata-sierra-ev-vs-mahindra-be-6-hero.webp" alt="Grey-green Tata Sierra EV and red Mahindra BE 6 on a wet dark studio floor, with the headline Sierra EV vs BE 6 and the line Both 5-Star. Which One to Buy?" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">Comparison<time datetime="2026-11-22">22 Nov 2026</time></p><h3><a href="/comparisons/tata-sierra-ev-vs-mahindra-be-6/">Tata Sierra EV vs Mahindra BE 6: Both 5-Star, Which One to Buy?</a></h3><p>Both have five-star Bharat NCAP ratings and start ₹66,000 apart. Tata Sierra EV vs Mahindra BE 6 on safety detail, prices, range, charging and space.</p><div class="card-foot"><a class="read-link" href="/comparisons/tata-sierra-ev-vs-mahindra-be-6/">Read →</a></div></div>
+        <article class="card rv-lead" data-category="electric" data-date="2026-11-22">
+          <a href="/comparisons/tata-sierra-ev-vs-mahindra-be-6/" class="rv-media" tabindex="-1" aria-hidden="true"><img src="/images/home/comparisons-tata-sierra-ev-vs-mahindra-be-6-story-16x9.webp" alt="Tata Sierra EV vs Mahindra BE 6" width="1200" height="675" fetchpriority="high" decoding="async"></a>
+          <div class="rv-lead-text"><p class="rv-label">Latest comparison · Head-to-head</p><p class="rv-names">Tata Sierra EV<i>vs</i>Mahindra BE 6</p><h2><a href="/comparisons/tata-sierra-ev-vs-mahindra-be-6/">Tata Sierra EV vs Mahindra BE 6: Both 5-Star, Which One to Buy?</a></h2><p class="rv-dek">Both have five-star Bharat NCAP ratings and start ₹66,000 apart. Tata Sierra EV vs Mahindra BE 6 on safety detail, prices, range, charging and space.</p><div class="rv-facts"><time class="rv-meta" datetime="2026-11-22">22 Nov 2026</time></div></div>
         </article>
-        <article class="card" data-category="suv compact-suv" data-date="2026-11-16">
-          <a href="/comparisons/brezza-cng-vs-xuv-3xo-cng/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Comparison</span><img src="/images/thumbs/brezza-cng-vs-xuv-3xo-cng-hero-v2.webp" alt="Red Maruti Brezza and red Mahindra XUV 3XO facing each other on a wet studio floor, headline Brezza CNG vs XUV 3XO CNG" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">Comparison<time datetime="2026-11-16">16 Nov 2026</time></p><h3><a href="/comparisons/brezza-cng-vs-xuv-3xo-cng/">Brezza CNG vs XUV 3XO CNG: Boot Space, Spare Wheel or Power?</a></h3><p>Both cost ₹9.99 lakh in their mid trims. The Brezza CNG keeps a 328 L boot and better mileage; the XUV 3XO CNG has a spare wheel and 200 Nm.</p><div class="card-foot"><a class="read-link" href="/comparisons/brezza-cng-vs-xuv-3xo-cng/">Read →</a></div></div>
+        <div class="rv-grid">
+        <article class="card rv-card rv-dup" data-category="electric" data-date="2026-11-22">
+          <a href="/comparisons/tata-sierra-ev-vs-mahindra-be-6/" class="rv-media" tabindex="-1" aria-hidden="true"><img src="/images/home/comparisons-tata-sierra-ev-vs-mahindra-be-6-thumb-16x10.webp" alt="Tata Sierra EV vs Mahindra BE 6" width="560" height="350" loading="lazy" decoding="async"></a>
+          <div class="rv-body"><div class="rv-top"><p class="rv-label">Head-to-head</p></div><p class="rv-vs"><span>Tata Sierra EV</span><i>vs</i><span>Mahindra BE 6</span></p><h3><a href="/comparisons/tata-sierra-ev-vs-mahindra-be-6/">Tata Sierra EV vs Mahindra BE 6: Both 5-Star, Which One to Buy?</a></h3><div class="rv-foot"><time class="rv-meta" datetime="2026-11-22">22 Nov 2026</time><span class="rv-meta">2 cars</span></div></div>
         </article>
-        <article class="card" data-category="hatchback" data-date="2026-10-16">
-          <a href="/comparisons/2026-glanza-vs-baleno/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Comparison</span><img src="/images/thumbs/glanza-vs-baleno-comparison-hero.webp" alt="Toyota Glanza and Maruti Baleno comparison illustration" loading="lazy" width="1600" height="900"></a>
-          <div class="card-body"><p class="eyebrow">Comparison<time datetime="2026-10-16">16 Oct 2026</time></p><h3><a href="/comparisons/2026-glanza-vs-baleno/">2026 Toyota Glanza vs Maruti Baleno: Compare the Variant, Not Just the Badge</a></h3><p>Glanza or Baleno? Compare October launch pricing, CNG automatic choices and equipment priorities without confusing base prices with equivalent variants.</p><div class="card-foot"><a class="read-link" href="/comparisons/2026-glanza-vs-baleno/">Read →</a></div></div>
+        <article class="card rv-card" data-category="suv compact-suv" data-date="2026-11-16">
+          <a href="/comparisons/brezza-cng-vs-xuv-3xo-cng/" class="rv-media" tabindex="-1" aria-hidden="true"><img src="/images/home/comparisons-brezza-cng-vs-xuv-3xo-cng-thumb-16x10.webp" alt="Brezza CNG vs XUV 3XO CNG" width="560" height="218" class="is-contain" style="background:#213f47" loading="lazy" decoding="async"></a>
+          <div class="rv-body"><div class="rv-top"><p class="rv-label">Head-to-head</p></div><p class="rv-vs"><span>Brezza CNG</span><i>vs</i><span>XUV 3XO CNG</span></p><h3><a href="/comparisons/brezza-cng-vs-xuv-3xo-cng/">Brezza CNG vs XUV 3XO CNG: Boot Space, Spare Wheel or Power?</a></h3><div class="rv-foot"><time class="rv-meta" datetime="2026-11-16">16 Nov 2026</time><span class="rv-meta">2 cars</span></div></div>
         </article>
-        <article class="card" data-category="suv compact-suv" data-date="2026-09-03">
-          <a href="/reviews/2026-maruti-brezza-turbo-vs-petrol/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Guide</span><img src="/images/thumbs/brezza-turbo-vs-petrol-hero.webp" alt="2026 Maruti Brezza Turbo vs 1.5 Petrol engine comparison" loading="lazy" width="1100" height="619"></a>
-          <div class="card-body"><p class="eyebrow">Guide<time datetime="2026-09-03">3 Sep 2026</time></p><h3><a href="/reviews/2026-maruti-brezza-turbo-vs-petrol/">Brezza Turbo vs 1.5 Petrol (2026): Which Engine Should You Buy?</a></h3><p>Brezza 1.0 turbo vs 1.5 petrol: 170 vs 139 Nm, prices, mileage and cost per km. The turbo is cheaper but manual-only; only the 1.5 has AT and CNG.</p><div class="card-foot"><a class="read-link" href="/reviews/2026-maruti-brezza-turbo-vs-petrol/">Read →</a></div></div>
+        <article class="card rv-card" data-category="hatchback" data-date="2026-10-16">
+          <a href="/comparisons/2026-glanza-vs-baleno/" class="rv-media" tabindex="-1" aria-hidden="true"><img src="/images/home/comparisons-2026-glanza-vs-baleno-thumb-16x10.webp" alt="Toyota Glanza vs Maruti Baleno" width="560" height="214" class="is-contain" style="background:#6c5b49" loading="lazy" decoding="async"></a>
+          <div class="rv-body"><div class="rv-top"><p class="rv-label">Head-to-head</p></div><p class="rv-vs"><span>Toyota Glanza</span><i>vs</i><span>Maruti Baleno</span></p><h3><a href="/comparisons/2026-glanza-vs-baleno/">2026 Toyota Glanza vs Maruti Baleno: Compare the Variant, Not Just the Badge</a></h3><div class="rv-foot"><time class="rv-meta" datetime="2026-10-16">16 Oct 2026</time><span class="rv-meta">2 cars</span></div></div>
         </article>
-        <article class="card" data-category="sedan luxury" data-date="2026-08-23">
-          <a href="/reviews/bmw-7-series-vs-mercedes-s-class-vs-genesis-g90/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Comparison</span><img src="/images/thumbs/news-7series-sclass-g90.webp" alt="BMW 7 Series vs Mercedes S-Class vs Genesis G90 editorial comparison" loading="lazy" width="1100" height="619"></a>
-          <div class="card-body"><p class="eyebrow">Comparison<time datetime="2026-08-23">23 Aug 2026</time></p><h3><a href="/reviews/bmw-7-series-vs-mercedes-s-class-vs-genesis-g90/">BMW 7 Series vs Mercedes S-Class vs Genesis G90: The Flagship Sedan Fight</a></h3><p>The S-Class sets the standard. The 7 Series drives better. The G90 costs less and gives more. Which flagship sedan is actually right for you?</p><div class="card-foot"><a class="read-link" href="/reviews/bmw-7-series-vs-mercedes-s-class-vs-genesis-g90/">Read →</a></div></div>
+        <article class="card rv-card" data-category="suv compact-suv" data-date="2026-09-03">
+          <a href="/reviews/2026-maruti-brezza-turbo-vs-petrol/" class="rv-media" tabindex="-1" aria-hidden="true"><img src="/images/home/reviews-2026-maruti-brezza-turbo-vs-petrol-thumb-16x10.webp" alt="Brezza Turbo vs 1.5 Petrol" width="560" height="311" class="is-contain" style="background:#867766" loading="lazy" decoding="async"></a>
+          <div class="rv-body"><div class="rv-top"><p class="rv-label">Engine choice</p></div><p class="rv-vs"><span>Brezza Turbo</span><i>vs</i><span>1.5 Petrol</span></p><h3><a href="/reviews/2026-maruti-brezza-turbo-vs-petrol/">Brezza Turbo vs 1.5 Petrol (2026): Which Engine Should You Buy?</a></h3><div class="rv-foot"><time class="rv-meta" datetime="2026-09-03">3 Sep 2026</time><span class="rv-meta">2 cars</span></div></div>
         </article>
-        <article class="card" data-category="suv luxury" data-date="2026-08-23">
-          <a href="/reviews/bmw-x5-vs-genesis-gv80-vs-volvo-xc90/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Comparison</span><img src="/images/thumbs/news-bmw-x5-gv80-xc90.webp" alt="BMW X5, Genesis GV80, and Volvo XC90 side by side editorial comparison" loading="lazy" width="1100" height="619"></a>
-          <div class="card-body"><p class="eyebrow">Comparison<time datetime="2026-08-23">23 Aug 2026</time></p><h3><a href="/reviews/bmw-x5-vs-genesis-gv80-vs-volvo-xc90/">BMW X5 vs Genesis GV80 vs Volvo XC90: Three Very Different Answers to the Same Question</a></h3><p>The BMW X5 drives, the Genesis GV80 overdelivers, the Volvo XC90 reassures. Three answers to one question — and which suits you.</p><div class="card-foot"><a class="read-link" href="/reviews/bmw-x5-vs-genesis-gv80-vs-volvo-xc90/">Read →</a></div></div>
+        <article class="card rv-card" data-category="sedan luxury" data-date="2026-08-23">
+          <a href="/reviews/bmw-7-series-vs-mercedes-s-class-vs-genesis-g90/" class="rv-media" tabindex="-1" aria-hidden="true"><img src="/images/home/reviews-bmw-7-series-vs-mercedes-s-class-vs-genesis-g90-thumb-16x10.webp" alt="BMW 7 Series vs Mercedes S-Class vs Genesis G90" width="560" height="350" loading="lazy" decoding="async"></a>
+          <div class="rv-body"><div class="rv-top"><p class="rv-label">Three-way</p></div><p class="rv-vs"><span>BMW 7 Series</span><i>vs</i><span>Mercedes S-Class</span><i>vs</i><span>Genesis G90</span></p><h3><a href="/reviews/bmw-7-series-vs-mercedes-s-class-vs-genesis-g90/">BMW 7 Series vs Mercedes S-Class vs Genesis G90: The Flagship Sedan Fight</a></h3><div class="rv-foot"><time class="rv-meta" datetime="2026-08-23">23 Aug 2026</time><span class="rv-meta">3 cars</span></div></div>
         </article>
-        <article class="card" data-category="suv luxury" data-date="2026-08-23">
-          <a href="/reviews/range-rover-sport-vs-bmw-x5-vs-mercedes-gle/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Comparison</span><img src="/images/thumbs/news-rr-sport-x5-gle.webp" alt="Range Rover Sport, BMW X5, and Mercedes GLE comparison editorial" loading="lazy" width="1100" height="619"></a>
-          <div class="card-body"><p class="eyebrow">Comparison<time datetime="2026-08-23">23 Aug 2026</time></p><h3><a href="/reviews/range-rover-sport-vs-bmw-x5-vs-mercedes-gle/">Range Rover Sport vs BMW X5 vs Mercedes GLE: The Premium SUV Ladder Explained</a></h3><p>The Range Rover Sport costs more than the BMW X5 and Mercedes GLE. Here's whether that premium is actually justified — and which one is right for you.</p><div class="card-foot"><a class="read-link" href="/reviews/range-rover-sport-vs-bmw-x5-vs-mercedes-gle/">Read →</a></div></div>
+        <article class="card rv-card" data-category="suv luxury" data-date="2026-08-23">
+          <a href="/reviews/bmw-x5-vs-genesis-gv80-vs-volvo-xc90/" class="rv-media" tabindex="-1" aria-hidden="true"><img src="/images/home/reviews-bmw-x5-vs-genesis-gv80-vs-volvo-xc90-thumb-16x10.webp" alt="BMW X5 vs Genesis GV80 vs Volvo XC90" width="560" height="350" loading="lazy" decoding="async"></a>
+          <div class="rv-body"><div class="rv-top"><p class="rv-label">Three-way</p></div><p class="rv-vs"><span>BMW X5</span><i>vs</i><span>Genesis GV80</span><i>vs</i><span>Volvo XC90</span></p><h3><a href="/reviews/bmw-x5-vs-genesis-gv80-vs-volvo-xc90/">BMW X5 vs Genesis GV80 vs Volvo XC90: Three Very Different Answers to the Same Question</a></h3><div class="rv-foot"><time class="rv-meta" datetime="2026-08-23">23 Aug 2026</time><span class="rv-meta">3 cars</span></div></div>
         </article>
-        <article class="card" data-category="suv compact-suv" data-date="2026-08-18">
-          <a href="/reviews/2026-brezza-vs-fronx/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Comparison</span><img src="/images/thumbs/brezza-vs-fronx-hero.webp" alt="Maruti Brezza vs Fronx, side by side" loading="lazy" width="1000" height="562"></a>
-          <div class="card-body"><p class="eyebrow">Comparison<time datetime="2026-08-18">18 Aug 2026</time></p><h3><a href="/reviews/2026-brezza-vs-fronx/">2026 Maruti Brezza vs Fronx: Which One Should You Buy?</a></h3><p>Brezza vs Fronx: ₹7.55–13.76 lakh vs ₹6.95–12.08 lakh. Turbo AT and a spare wheel only on the Fronx; more space and a 5-star rating on the Brezza.</p><div class="card-foot"><a class="read-link" href="/reviews/2026-brezza-vs-fronx/">Read →</a></div></div>
+        <article class="card rv-card" data-category="suv luxury" data-date="2026-08-23">
+          <a href="/reviews/range-rover-sport-vs-bmw-x5-vs-mercedes-gle/" class="rv-media" tabindex="-1" aria-hidden="true"><img src="/images/home/reviews-range-rover-sport-vs-bmw-x5-vs-mercedes-gle-thumb-16x10.webp" alt="Range Rover Sport vs BMW X5 vs Mercedes GLE" width="560" height="350" loading="lazy" decoding="async"></a>
+          <div class="rv-body"><div class="rv-top"><p class="rv-label">Three-way</p></div><p class="rv-vs"><span>Range Rover Sport</span><i>vs</i><span>BMW X5</span><i>vs</i><span>Mercedes GLE</span></p><h3><a href="/reviews/range-rover-sport-vs-bmw-x5-vs-mercedes-gle/">Range Rover Sport vs BMW X5 vs Mercedes GLE: The Premium SUV Ladder Explained</a></h3><div class="rv-foot"><time class="rv-meta" datetime="2026-08-23">23 Aug 2026</time><span class="rv-meta">3 cars</span></div></div>
         </article>
-        <article class="card" data-category="sedan" data-date="2026-08-18">
-          <a href="/reviews/2026-slavia-vs-virtus/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Comparison</span><img src="/images/thumbs/slavia-vs-virtus-hero.webp" alt="Skoda Slavia facelift in grey and Volkswagen Virtus in black, side by side studio shot, 'Slavia vs Virtus: Same Platform. Different Character.'" loading="lazy" width="1100" height="619"></a>
-          <div class="card-body"><p class="eyebrow">Comparison<time datetime="2026-08-18">18 Aug 2026</time></p><h3><a href="/reviews/2026-slavia-vs-virtus/">Skoda Slavia Facelift vs Volkswagen Virtus: Which Should You Buy?</a></h3><p>Slavia versus Virtus buying comparison, updated with confirmed October Slavia pricing. Compare equivalent transmissions, equipment and dealer quotes.</p><div class="card-foot"><a class="read-link" href="/reviews/2026-slavia-vs-virtus/">Read →</a></div></div>
+        <article class="card rv-card" data-category="suv compact-suv" data-date="2026-08-18">
+          <a href="/reviews/2026-brezza-vs-fronx/" class="rv-media" tabindex="-1" aria-hidden="true"><img src="/images/home/reviews-2026-brezza-vs-fronx-thumb-16x10.webp" alt="Maruti Brezza vs Fronx" width="560" height="157" class="is-contain" style="background:#080807" loading="lazy" decoding="async"></a>
+          <div class="rv-body"><div class="rv-top"><p class="rv-label">Head-to-head</p></div><p class="rv-vs"><span>Maruti Brezza</span><i>vs</i><span>Fronx</span></p><h3><a href="/reviews/2026-brezza-vs-fronx/">2026 Maruti Brezza vs Fronx: Which One Should You Buy?</a></h3><div class="rv-foot"><time class="rv-meta" datetime="2026-08-18">18 Aug 2026</time><span class="rv-meta">2 cars</span></div></div>
         </article>
-        <article class="card" data-category="suv compact-suv" data-date="2026-08-14">
-          <a href="/reviews/2026-brezza-vs-nexon/" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">Comparison</span><img src="/images/brezza-vs-nexon-hero.jpg" alt="Maruti Brezza vs Tata Nexon, side by side" loading="lazy" width="800" height="450"></a>
-          <div class="card-body"><p class="eyebrow">Comparison<time datetime="2026-08-14">14 Aug 2026</time></p><h3><a href="/reviews/2026-brezza-vs-nexon/">2026 Maruti Brezza vs Tata Nexon: Price, Mileage, Safety and Which to Buy</a></h3><p>Maruti Brezza vs Tata Nexon, variant by variant: prices, engines, claimed and tested mileage, boot space, Bharat NCAP coverage and who should buy which.</p><div class="card-foot"><a class="read-link" href="/reviews/2026-brezza-vs-nexon/">Read →</a></div></div>
+        <article class="card rv-card" data-category="sedan" data-date="2026-08-18">
+          <a href="/reviews/2026-slavia-vs-virtus/" class="rv-media" tabindex="-1" aria-hidden="true"><img src="/images/home/reviews-2026-slavia-vs-virtus-thumb-16x10.webp" alt="Skoda Slavia Facelift vs Volkswagen Virtus" width="560" height="192" class="is-contain" style="background:#2a3036" loading="lazy" decoding="async"></a>
+          <div class="rv-body"><div class="rv-top"><p class="rv-label">Head-to-head</p></div><p class="rv-vs"><span>Skoda Slavia Facelift</span><i>vs</i><span>Volkswagen Virtus</span></p><h3><a href="/reviews/2026-slavia-vs-virtus/">Skoda Slavia Facelift vs Volkswagen Virtus: Which Should You Buy?</a></h3><div class="rv-foot"><time class="rv-meta" datetime="2026-08-18">18 Aug 2026</time><span class="rv-meta">2 cars</span></div></div>
         </article>
+        <article class="card rv-card" data-category="suv compact-suv" data-date="2026-08-14">
+          <a href="/reviews/2026-brezza-vs-nexon/" class="rv-media" tabindex="-1" aria-hidden="true"><img src="/images/home/reviews-2026-brezza-vs-nexon-thumb-16x10.webp" alt="Maruti Brezza vs Tata Nexon" width="560" height="148" class="is-contain" style="background:#1c1215" loading="lazy" decoding="async"></a>
+          <div class="rv-body"><div class="rv-top"><p class="rv-label">Head-to-head</p></div><p class="rv-vs"><span>Maruti Brezza</span><i>vs</i><span>Tata Nexon</span></p><h3><a href="/reviews/2026-brezza-vs-nexon/">2026 Maruti Brezza vs Tata Nexon: Price, Mileage, Safety and Which to Buy</a></h3><div class="rv-foot"><time class="rv-meta" datetime="2026-08-14">14 Aug 2026</time><span class="rv-meta">2 cars</span></div></div>
+        </article>
+        </div>
 <!-- CARDS:END -->
       </div>
-    </div>
-  </section>
+      <p id="filterEmpty" class="rv-empty" hidden>No comparisons in this category yet — check back soon, or <a href="news.html">browse the latest news</a>.</p>
+  </div></section>
   </main>
 
   <footer class="site-footer fp-footer">
@@ -173,60 +164,33 @@
 
   <script>
     (function(){
-      var grid = document.getElementById('comparisonGrid');
-      if (grid) {
-        var sortable = Array.prototype.slice.call(grid.querySelectorAll('.card[data-date]'));
-        sortable.sort(function(a, b){
-          return new Date(b.getAttribute('data-date')) - new Date(a.getAttribute('data-date'));
+      /* Compare filter (Phase 2B showroom, same as Reviews). Tabs and counts are generated by scripts/build-lists.js; this only
+         shows the matching cards. The lead panel shows under "All"; its copy in the grid shows when filtered.
+         Old links (#suv, #sedan …) keep working; an unknown hash falls back to All. */
+      var main = document.getElementById('main');
+      var tabs = [].slice.call(document.querySelectorAll('#filterChips .rv-tab'));
+      var cards = [].slice.call(document.querySelectorAll('#comparisonGrid .rv-grid .card'));
+      var empty = document.getElementById('filterEmpty');
+      function apply(cat){
+        if (!tabs.some(function(t){ return t.getAttribute('data-filter') === cat; })) cat = 'all';
+        main.setAttribute('data-filter', cat);
+        var n = 0;
+        cards.forEach(function(c){
+          var show = cat === 'all' || (' ' + c.getAttribute('data-category') + ' ').indexOf(' ' + cat + ' ') > -1;
+          c.hidden = !show; if (show) n++;
         });
-        sortable.forEach(function(card){ grid.appendChild(card); });
+        empty.hidden = n > 0;
+        tabs.forEach(function(t){ if (t.getAttribute('data-filter') === cat) t.setAttribute('aria-current', 'true'); else t.removeAttribute('aria-current'); });
       }
-
-      var chips = document.querySelectorAll('#filterChips .chip');
-      var cards = document.querySelectorAll('#comparisonGrid .card');
-      var emptyMsg = document.getElementById('filterEmpty');
-
-      /* Only show a category chip once a comparison actually exists in it —
-         keeps buyers from hitting a dead "nothing here" click. Add a
-         matching data-category to a new card and its chip reappears
-         automatically, no other change needed. */
-      var presentCats = {};
-      cards.forEach(function(card){
-        (card.getAttribute('data-category') || '').split(' ').forEach(function(c){
-          if (c) presentCats[c] = true;
-        });
-      });
-      chips.forEach(function(chip){
-        var f = chip.getAttribute('data-filter');
-        if (f !== 'all' && !presentCats[f]) chip.style.display = 'none';
-      });
-
-      function applyFilter(cat){
-        cat = cat || 'all';
-        var visibleCount = 0;
-        cards.forEach(function(card){
-          var cardCats = (card.getAttribute('data-category') || '').split(' ');
-          var show = cat === 'all' || cardCats.indexOf(cat) !== -1 || cardCats.indexOf('all') !== -1;
-          card.style.display = show ? '' : 'none';
-          if (show) visibleCount++;
-        });
-        emptyMsg.hidden = visibleCount > 0;
-        chips.forEach(function(chip){
-          chip.classList.toggle('is-active', chip.getAttribute('data-filter') === cat);
-        });
-      }
-
-      chips.forEach(function(chip){
-        chip.addEventListener('click', function(e){
+      tabs.forEach(function(t){
+        t.addEventListener('click', function(e){
           e.preventDefault();
-          var cat = chip.getAttribute('data-filter');
-          history.replaceState(null, '', cat === 'all' ? '#' : '#' + cat);
-          applyFilter(cat);
+          var cat = t.getAttribute('data-filter');
+          history.replaceState(null, '', cat === 'all' ? location.pathname : '#' + cat);
+          apply(cat);
         });
       });
-
-      var initial = (window.location.hash || '').replace('#','').toLowerCase() || 'all';
-      applyFilter(initial);
+      apply((location.hash || '').slice(1).toLowerCase() || 'all');
     })();
   </script>
   <script src="/assets/fp.js?v=20261128w1140" defer></script>

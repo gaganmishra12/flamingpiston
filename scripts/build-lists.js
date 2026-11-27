@@ -236,7 +236,7 @@ ${buf.join('\n')}
   return out.join('\n');
 }
 
-// Reviews page: showroom (Phase 2B, design A, approved 27 Nov 2026). The newest brief leads in a petrol panel (shown
+// Reviews page: showroom (Phase 2B, design A, approved 27 Nov 2026; markup from showroom(), shared with the Compare page). The newest brief leads in a petrol panel (shown
 // only under "All"); every brief is also a card in the grid (the lead's copy, .rv-dup, is hidden under "All").
 // Price, body and fuel come from data/cars.json (matched on the review URL) with its source and checked date;
 // the Spec Score is read from the brief's own "Spec Score (average)" table row. Missing data is simply left out.
@@ -261,24 +261,40 @@ function rvFacts(a) {
   };
 }
 const rvScore = (s) => s ? `<span class="rv-score" title="Spec Score: average of eight on-paper ratings (see Review Methodology)"><b>${s}</b><span>/10</span></span>` : '';
+// Compare page (Phase 2B, design A, approved 28 Nov 2026): same showroom layout; the contenders come from the headline
+// ("A vs B vs C: …"), the label says what kind of comparison it is.
+function cmpFacts(a) {
+  const vs = a.title.split(':')[0].replace(/^20\d\d /, '').replace(/ \(20\d\d\)/, '').split(/ vs /i).map((x) => x.trim());
+  const spec = (HOME.images && HOME.images[a.url] && HOME.images[a.url].thumb) || {};
+  const engine = vs.length === 2 && /^(1\.\d )?(turbo|petrol|diesel|cng)$/i.test(vs[1]);
+  return { vs: vs.length > 1 ? vs : [], alt: spec.alt || (vs.length > 1 ? vs.join(' vs ') : a.alt),
+    label: vs.length > 2 ? 'Three-way' : engine ? 'Engine choice' : 'Head-to-head' };
+}
+const rvVs = (f) => f.vs && f.vs.length ? `<p class="rv-vs">${f.vs.map((v) => `<span>${esc(v)}</span>`).join('<i>vs</i>')}</p>` : '';
 function rvCard(a, f, cat, dup) {
   const c = thumbFor(a);
   const img = c ? cropImg(c, f.alt, 1.6) : `<img src="${thumb(a)}" alt="${esc(a.alt)}" loading="lazy"${dims(a)}>`;
+  const foot = f.vs ? `<time class="rv-meta" datetime="${a.date}">${fmtShort(a.date)}</time>${f.vs.length ? `<span class="rv-meta">${f.vs.length} cars</span>` : ''}`
+    : `${f.price ? `<span class="rv-price">${f.price}*</span>` : ''}<time class="rv-meta" datetime="${a.date}">${fmtShort(a.date)}</time>`;
   return `        <article class="card rv-card${dup ? ' rv-dup' : ''}" data-category="${cat}" data-date="${a.date}">
           <a href="${href(a)}" class="rv-media" tabindex="-1" aria-hidden="true">${img}</a>
-          <div class="rv-body"><div class="rv-top"><p class="rv-label">${esc(f.label || a.type)}</p>${rvScore(f.score)}</div><h3><a href="${href(a)}">${esc(a.title)}</a></h3><div class="rv-foot">${f.price ? `<span class="rv-price">${f.price}*</span>` : ''}<time class="rv-meta" datetime="${a.date}">${fmtShort(a.date)}</time></div>${f.source ? `<p class="rv-src">${esc(f.source)}</p>` : ''}</div>
+          <div class="rv-body"><div class="rv-top"><p class="rv-label">${esc(f.label || a.type)}</p>${rvScore(f.score)}</div>${rvVs(f)}<h3><a href="${href(a)}">${esc(a.title)}</a></h3><div class="rv-foot">${foot}</div>${f.source ? `<p class="rv-src">${esc(f.source)}</p>` : ''}</div>
         </article>`;
 }
-function reviewShowroom(list, catOf) {
-  const rows = list.map((a) => { const f = rvFacts(a); const cat = [...new Set([...catOf(a).split(' '), f.body].filter(Boolean))].join(' '); return { a, f, cat }; });
+// kind: 'review' (Reviews page) or 'compare' (Compare page).
+function showroom(list, catOf, kind) {
+  const rows = list.map((a) => { const f = kind === 'compare' ? cmpFacts(a) : rvFacts(a); const cat = [...new Set([...catOf(a).split(' '), f.body].filter(Boolean))].join(' '); return { a, f, cat }; });
   const out = [];
   if (rows.length) {
     const { a, f, cat } = rows[0];
     const story = crop(`${a.url}#story`);   // clean 16:9 crop from data/home-images.json, never the headline banner
     const img = story ? cropImg(story, f.alt, 1.6, 'fetchpriority="high" decoding="async"') : `<img src="${thumb(a)}" alt="${esc(a.alt)}"${dims(a)} fetchpriority="high">`;
+    const text = kind === 'compare'
+      ? `<p class="rv-label">Latest comparison · ${esc(f.label)}</p>${f.vs.length ? `<p class="rv-names">${f.vs.map(esc).join('<i>vs</i>')}</p>` : ''}<h2><a href="${href(a)}">${esc(a.title)}</a></h2><p class="rv-dek">${esc(a.desc)}</p><div class="rv-facts"><time class="rv-meta" datetime="${a.date}">${fmtShort(a.date)}</time></div>`
+      : `<p class="rv-label">Latest Buyer’s Brief${f.label ? ` · ${esc(f.label)}` : ''}</p><h2><a href="${href(a)}">${esc(a.title)}</a></h2><p class="rv-dek">${esc(a.desc)}</p><div class="rv-facts">${f.price ? `<span class="rv-price">${f.price}*</span>` : ''}${rvScore(f.score)}<time class="rv-meta" datetime="${a.date}">${fmtShort(a.date)}</time></div>${f.source ? `<p class="rv-src">${esc(f.source)}</p>` : ''}`;
     out.push(`        <article class="card rv-lead" data-category="${cat}" data-date="${a.date}">
           <a href="${href(a)}" class="rv-media" tabindex="-1" aria-hidden="true">${img}</a>
-          <div class="rv-lead-text"><p class="rv-label">Latest Buyer’s Brief${f.label ? ` · ${esc(f.label)}` : ''}</p><h2><a href="${href(a)}">${esc(a.title)}</a></h2><p class="rv-dek">${esc(a.desc)}</p><div class="rv-facts">${f.price ? `<span class="rv-price">${f.price}*</span>` : ''}${rvScore(f.score)}<time class="rv-meta" datetime="${a.date}">${fmtShort(a.date)}</time></div>${f.source ? `<p class="rv-src">${esc(f.source)}</p>` : ''}</div>
+          <div class="rv-lead-text">${text}</div>
         </article>`);
   }
   out.push(`        <div class="rv-grid">\n${rows.map((r, i) => rvCard(r.a, r.f, r.cat, i === 0)).join('\n')}\n        </div>`);
@@ -329,7 +345,7 @@ for (const [sec, f] of Object.entries(SECTIONS)) {
     if (cat !== undefined) cats.set(u, cat);
   }
 }
-const lists = { news: [], reviews: [], guides: [], comparisons: [] }; const added = []; let reviewsCatOf = null;
+const lists = { news: [], reviews: [], guides: [], comparisons: [] }; const added = []; let reviewsCatOf = null, compareCatOf = null;
 for (const a of articles) {
   let sec = placed.get(a.url) || sectionOf(a); if (!sec) continue;
   if (!placed.has(a.url)) added.push(`${a.url} -> ${SECTIONS[sec]}`);
@@ -339,6 +355,7 @@ for (const [sec, f] of Object.entries(SECTIONS)) {
   const catOf = (a) => esc(cats.has(a.url) ? cats.get(a.url) : chips(a));
   if (sec === 'news') { between(f, 'CARDS', newsWire(lists.news, catOf)); setCount(f, lists.news.length); continue; }
   if (sec === 'reviews') { reviewsCatOf = catOf; continue; }   // built below, once the crop and cars.json helpers exist
+  if (sec === 'comparisons') { compareCatOf = catOf; continue; }
   const items = lists[sec].map((a) => card(a, ` data-category="${catOf(a)}"`, esc(a.type)));
   between(f, 'CARDS', items.join('\n'));
   setCount(f, items.length);
@@ -547,7 +564,8 @@ latestShown.forEach((a) => used.add(a.url));
 const lakh = (n) => n.toFixed(2);
 const priceText = (c) => c.min === c.max ? `₹${lakh(c.min)} Lakh` : `₹${lakh(c.min)} – ${lakh(c.max)} Lakh`;
 const checked = (d) => { const [y, m, dd] = d.split('-'); return `${dd ? +dd + ' ' : ''}${MONTHS[+m - 1]} ${y}`; };
-{ const rv = reviewShowroom(lists.reviews, reviewsCatOf); between('reviews.html', 'CARDS', rv.cards); between('reviews.html', 'REVIEW-TABS', rv.tabs); }
+{ const rv = showroom(lists.reviews, reviewsCatOf, 'review'); between('reviews.html', 'CARDS', rv.cards); between('reviews.html', 'REVIEW-TABS', rv.tabs); }
+{ const cv = showroom(lists.comparisons, compareCatOf, 'compare'); between('comparisons.html', 'CARDS', cv.cards); between('comparisons.html', 'COMPARE-TABS', cv.tabs); }
 const BODY = { suv: 'SUV', hatchback: 'Hatchback', sedan: 'Sedan', mpv: 'MPV', pickup: 'Pickup' };
 const featured = (HOME.featuredCars || []).map((id) => CARS.find((c) => c.id === id)).filter(Boolean);
 between('index.html', 'FEATURED', featured.map((car) => {

@@ -79,6 +79,12 @@
     "reviews/toyota-hilux/": {
       "thumb": { "src": "images/toyota-hilux-review-hero.jpg", "subject": [0.44, 0.28, 0.97, 0.84], "area": [0.36, 0, 1, 0.92] }
     },
+    "reviews/bmw-7-series-vs-mercedes-s-class-vs-genesis-g90/": { "thumb": { "src": "images/news-7series-sclass-g90.jpg", "subject": [0.04, 0.44, 0.7, 0.74], "area": [0, 0, 0.71, 1] } },
+    "reviews/bmw-x5-vs-genesis-gv80-vs-volvo-xc90/": { "thumb": { "src": "images/news-bmw-x5-gv80-xc90.jpg", "subject": [0.03, 0.32, 0.67, 0.63], "area": [0, 0, 0.68, 1] } },
+    "reviews/range-rover-sport-vs-bmw-x5-vs-mercedes-gle/": { "thumb": { "src": "images/news-rr-sport-x5-gle.jpg", "subject": [0.06, 0.46, 0.68, 0.71], "area": [0, 0, 0.69, 1] } },
+    "reviews/2026-brezza-vs-fronx/": { "thumb": { "src": "images/brezza-vs-fronx-hero.jpg", "subject": [0.02, 0.475, 0.99, 0.96], "area": [0, 0.472, 1, 0.97] } },
+    "reviews/2026-slavia-vs-virtus/": { "thumb": { "src": "images/slavia-vs-virtus-hero.jpg", "subject": [0.01, 0.38, 0.98, 0.9], "area": [0, 0.34, 1, 0.95] } },
+    "reviews/2026-brezza-vs-nexon/": { "thumb": { "src": "images/brezza-vs-nexon-hero.jpg", "subject": [0.03, 0.42, 0.98, 0.85], "area": [0, 0.39, 1, 0.855] } },
     "reviews/2026-mercedes-glc-electric/": {
       "thumb": { "src": "images/mercedes-glc-electric-exterior.jpg", "subject": [0.1, 0.11, 0.94, 0.9] },
       "tall": { "src": "images/mercedes-glc-electric-square.webp", "subject": [0.289, 0.437, 0.732, 0.691], "alt": "Red Mercedes-Benz GLC Electric parked on a concrete driveway in front of a modern house", "credit": "Image: Mercedes-Benz video still, extended with AI (AI illustration): FlamingPiston" }
