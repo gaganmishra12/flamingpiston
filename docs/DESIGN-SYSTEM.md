@@ -274,6 +274,7 @@ All homepage cards are whole-card links (or carry a clear link), use hover under
 | Culture banner | `.cc-banner` | The only immersive band after the lead story. Petrol, radius 12px, 240px; image right 62% with a 20% left fade (frame ≈3.5:1 so the whole car stays in view; 16:9 image on top on mobile); italic title, dek, primary button, credit |
 | Fallback tile | `.fp-tile` | Petrol-2 → petrol gradient with two ember slashes and a mono type label; used when an article has no clean image |
 | Category label | `.fp-label` | See §3; chip form on images and dark cards |
+| News timeline | `.nw-wire`, `.nw-lead`, `.nw-day`, `.nw-date`, `.nw-items`, `.nw-tile` (fp-listings.css) | News page only (Phase 2B design B, approved 27 Nov 2026). Newest story as a dark split panel (58% photo \| 42% text, radius 10px, italic 28–34px headline, 4-line dek; stacked ≤1023). Then one group per publication day (only days with stories): 2px petrol rule, a date line above its stories (32px day + mono weekday · year; 28px on phones), full-width rows of label + 23px title + dek (62ch) with a 248px 16:9 photo on the right, hairline dividers. ≤767: 112px photos, 18px titles, no dek. Images with a baked-in headline (registry `cardImage: "tile"`) show `.nw-tile`. Filter tabs hide other kinds and empty days. Markup: `build-lists.js` `newsWire()`. |
 | Site article card | `.card` (fp.css §9) | 16:9 image, eyebrow, title, 3-line dek, mono date; used on listing pages and Read Next — to be restyled in Phase 2B |
 
 ### Corner radii
@@ -343,6 +344,10 @@ Retired in Phase 2A (confirmed unreferenced by every page, template, script and 
 Removed from `fp.css` after a rule-by-rule reference check (a rule was removed only if every selector in it needs a class or id that appears in no HTML page, template, publishing script, JavaScript or data file): 176 rules (≈15 KB) — the old header (`.navbar`, `.main-nav`, `.menu-btn`, `.nav-tools`, `.mobile-only`, `.nav-secondary`, `.fp-search-trigger`), the previous homepage sections (lead block, latest grid, guide cards, performance band, head-to-head cards, standards, Instagram block), the previous hero carousel and its `heroFill` animation, and three leftovers (`.band--deep`, `.band--deep .ig-block`, `.vs-names .vs`). One unused rule (`.fp-head--rule`) was removed from `fp-home.css`.
 
 **Kept on purpose** (unreferenced today, but generic components that may be meant for Phases 2B/2C/5 — decide then): `.mono`, `.arrow-link` family, `.band--tight`, `.band--ivory2`, `.band--petrol2`, `.sec-head` family, `.card--row` / `.list-rail` card variants, `.listing-note`, `.review-meta`, `.rating-badge`, `.info-head`, `.about-sec`, `.contact-card .mail`, `.concept-note`, and `.answer` (the word appears in article text, so it cannot be ruled out statically). The `.logo` rules stay: the footer logo uses them.
+
+### Retired on 27 Nov 2026 (Phase 2B, News)
+
+The old News list rules (`.news-listing …`, 12 rules in `fp-listings.css`) were removed: `news-listing` appeared only in `news.html` and that CSS, and the page now uses `.news-wire`. `fp-listings.css` now also declares the real Familjen Grotesk 700 italic (listing pages used a synthesised italic for their page titles before).
 
 ### Retired on 27 Nov 2026 (homepage refinement)
 

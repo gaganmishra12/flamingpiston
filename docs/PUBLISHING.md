@@ -8,6 +8,7 @@ FlamingPiston is a static site: pages change only when the site is **rebuilt and
 2. **Add its clean homepage thumbnail** (the newest story becomes the large Latest Stories photo, so this matters) under `"images"` in `data/homepage.json`:
    `"news-example.html": { "thumb": { "src": "images/news-example.jpg", "subject": [0.2, 0.25, 0.9, 0.85] } }`
    (`subject` = the car's box as fractions of the image; optional `"area"` keeps a baked-in headline out of the frame, `"erase"` paints headline text off a plain studio wall). Without a thumbnail the story still appears everywhere, with a plain FlamingPiston tile.
+   News listing: if a story's image has a headline printed on it, add `"cardImage": "tile"` to its entry in `data/articles.json` so the News page shows the plain FlamingPiston tile instead.
 3. **Run, from the site root:**
    ```
    sh scripts/update-site.sh

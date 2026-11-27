@@ -38,7 +38,6 @@ main .editorial-grid>.card:nth-child(n){grid-column:1}
 .culture-cover .editorial-grid .card:first-child .card-body{padding:16px}
 .card:first-child .card-media{height:auto}}
 /* News page: newsroom timeline (Phase 2B design B, approved 27 Nov 2026). Markup: build-lists.js newsWire(). */
-.news-wire .page-head--compact .ph-count{font-size:13px}
 .nw-wire{margin-bottom:clamp(48px,5vw,72px)}
 .nw-wire .card .eyebrow{font:700 12px/1.2 var(--f-body);letter-spacing:.06em;gap:10px}
 .nw-wire .card .eyebrow time{font:400 12.5px/1.2 var(--f-mono);letter-spacing:0;text-transform:none;color:var(--ink-3)}
@@ -57,22 +56,23 @@ main .editorial-grid>.card:nth-child(n){grid-column:1}
 .nw-lead:hover h2 a{background-size:100% 2px}
 .nw-lead .card-body>p.nw-dek{font-size:16.5px;color:var(--on-dark-dek);-webkit-line-clamp:4}
 /* day groups */
-.nw-day{display:grid;grid-template-columns:150px minmax(0,1fr);gap:0 32px;border-top:2px solid var(--petrol);padding-top:18px;margin-top:30px}
+.nw-day{border-top:2px solid var(--petrol);padding-top:16px;margin-top:32px}
 .nw-wire>.nw-lead+.nw-day,.nw-wire>.nw-lead[hidden]+.nw-day{margin-top:0}
-.nw-date{position:sticky;top:calc(var(--nav-h) + 16px);align-self:start;margin:0}
-.nw-date b{display:block;font:700 44px/1 var(--f-head);letter-spacing:-.03em;color:var(--ink)}
-.nw-date span{display:block;margin-top:6px;font:500 12.5px/1.4 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.nw-date{margin:0 0 18px}
+.nw-date time{display:flex;align-items:baseline;gap:12px}
+.nw-date b{font:700 32px/1 var(--f-head);letter-spacing:-.03em;color:var(--ink)}
+.nw-date span{font:500 12.5px/1.4 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
 .nw-items>.card{display:grid;grid-template-columns:minmax(0,1fr) 248px;gap:28px;align-items:start;padding-bottom:22px;margin-bottom:22px;border-bottom:1px solid var(--rule)}
 .nw-items>.card:not(:has(~.card:not([hidden]))){border-bottom:0;margin-bottom:0;padding-bottom:0}
 .nw-items .card-media{grid-column:2;grid-row:1;border-radius:6px}
 .nw-items .card-body{grid-column:1;grid-row:1;padding:0;gap:8px}
+.nw-items .card .eyebrow time{display:none}  /* the day heading already gives the date */
 .nw-items .card-body h3{font:700 23px/1.2 var(--f-head);letter-spacing:-.02em}
 .nw-items .card-body>p.nw-dek{font-size:16px;line-height:1.55;max-width:62ch}
 @media (max-width:1023px){.nw-lead{grid-template-columns:1fr}.nw-lead .card-media{aspect-ratio:16/9;height:auto;min-height:0}
-.nw-day{grid-template-columns:110px minmax(0,1fr);gap:0 24px}.nw-items>.card{grid-template-columns:minmax(0,1fr) 200px;gap:20px}}
+.nw-items>.card{grid-template-columns:minmax(0,1fr) 200px;gap:20px}}
 @media (max-width:767px){.nw-lead .card-body{padding:20px}.nw-lead h2{font-size:26px}
-.nw-day{grid-template-columns:1fr;padding-top:14px;margin-top:24px}
-.nw-date{position:static;display:block;margin-bottom:14px}.nw-date time{display:flex;align-items:baseline;gap:10px}.nw-date b{font-size:28px}.nw-date span{margin:0}
+.nw-day{padding-top:14px;margin-top:24px}.nw-date{margin-bottom:14px}.nw-date time{gap:10px}.nw-date b{font-size:28px}
 .nw-items>.card{grid-template-columns:minmax(0,1fr) 112px;gap:14px;padding-bottom:16px;margin-bottom:16px}
 .nw-items .card-body h3{font-size:18px}.nw-items .card-body>p.nw-dek{display:none}}
 /* Intro links on the dark petrol page heads (were --ink on petrol, i.e. invisible). */

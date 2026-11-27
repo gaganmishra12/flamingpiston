@@ -200,7 +200,7 @@ function apply(rel) {
   if (rel === 'index.html') head = head.replace('<link rel="stylesheet" href="/assets/fp.css', `<link rel="preload" href="/assets/fonts/familjen-grotesk-latin-700-italic.woff2" as="font" type="font/woff2" crossorigin>\n  <link rel="stylesheet" href="/assets/fp.css`)
     .replace('  <!-- /FP:HEAD -->', `  <link rel="stylesheet" href="/assets/fp-home.css?v=${VH}">\n  <!-- /FP:HEAD -->`);
   if (['news.html', 'reviews.html', 'guides.html', 'comparisons.html', 'car-culture.html'].includes(rel)) {
-    head = head.replace('  <!-- /FP:HEAD -->', '  <link rel="stylesheet" href="/assets/fp-listings.css?v=20261127n">\n  <!-- /FP:HEAD -->');
+    head = head.replace('  <!-- /FP:HEAD -->', '  <link rel="stylesheet" href="/assets/fp-listings.css?v=20261127p">\n  <!-- /FP:HEAD -->');
   }
   h = h.replace(/\s*<\/head>/, `\n  ${head}\n</head>`);
 
