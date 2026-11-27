@@ -59,7 +59,7 @@
   --wide:1120px; --read:720px;   /* article inner widths (unchanged) */
 
   /* shared width system (approved homepage, promoted site-wide in Phase 2A) */
-  --content-max-width:1440px;
+  --content-max-width:1320px;
   --page-gutter:clamp(16px,2.6vw,40px);
   --section-gap:24px;
   --card-gap:20px;
@@ -74,10 +74,11 @@
   --card-border:#DEDAD2;         /* light card border */
   --on-dark-dek:#D6DEDD;         /* descriptive text on petrol */
   --gutter:clamp(16px,4vw,40px);
-  --nav-h:68px;                  /* masthead height (60px ≤767px) */
+  --nav-h:76px;                  /* masthead height (60px ≤767px) */
   --radius:2px;
   --ease:cubic-bezier(.2,.7,.2,1);
 }
+@media (min-width:768px) and (max-width:1023px){:root{--nav-h:68px}}
 @media (max-width:767px){:root{--nav-h:60px}}
 
 /* ---------- 3. Base ---------- */
@@ -124,7 +125,7 @@ p{margin:0}
    Brand lockup: the descriptor is sized and positioned from --logo-w, so it stays under the "F" of the wordmark
    and inside its width at every logo size. 0.1509 = x of the F's baseline-left corner in the SVG viewBox (180.5/1196);
    0.0385 sizes the descriptor so it ends just inside the wordmark's right edge. */
-.mh-row{display:flex;align-items:center;gap:0;height:68px}
+.mh-row{display:flex;align-items:center;gap:0;height:var(--nav-h)}
 .mh-brand{--logo-w:clamp(200px,17vw,260px);display:flex;flex-direction:column;gap:calc(var(--logo-w)*.026);flex:none;text-decoration:none;line-height:0}
 .mh-brand img{width:var(--logo-w);height:auto}
 .mh-desc{display:block;width:max-content;margin-left:calc(var(--logo-w)*.1509);max-width:calc(var(--logo-w)*.849);font:500 calc(var(--logo-w)*.0385)/1 var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--teal);opacity:.86;white-space:nowrap}
@@ -139,7 +140,7 @@ p{margin:0}
 .mh-icon:focus-visible,.mh-nav a:focus-visible,.mh-dd-btn:focus-visible,.mh-brand:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
 .mh-burger{display:none}
 .mh-nav li{position:relative;display:flex}
-.mh-nav a,.mh-dd-btn{display:flex;align-items:center;gap:5px;padding:0;font:600 14.5px/1 var(--f-body);color:var(--ivory);text-decoration:none;background:none;border:0;cursor:pointer;position:relative;white-space:nowrap}
+.mh-nav a,.mh-dd-btn{display:flex;align-items:center;gap:5px;padding:0;font:600 15.5px/1 var(--f-body);color:var(--ivory);text-decoration:none;background:none;border:0;cursor:pointer;position:relative;white-space:nowrap}
 .mh-nav > ul > li > a::after{content:"";position:absolute;left:-4px;right:-4px;bottom:0;height:3px;background:var(--ember-strong);transform:scaleX(0);transition:transform .2s var(--ease)}
 .mh-nav > ul > li > a:hover::after,.mh-nav > ul > li > a[aria-current="page"]::after{transform:scaleX(1)}
 .mh-nav > ul > li > .mh-dd-btn.is-active::after{content:"";position:absolute;left:-4px;right:-4px;bottom:0;height:3px;background:var(--ember-strong)}   /* section with no page of its own (Tools, Cars) */
@@ -170,7 +171,6 @@ body.drawer-open{overflow:hidden}
   .mh-tools{margin-left:auto}
 }
 @media (max-width:767px){
-  .mh-row{height:60px}
 }
 
 /* ---------- 6. Search overlay ---------- */

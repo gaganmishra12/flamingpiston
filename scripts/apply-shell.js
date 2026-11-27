@@ -19,8 +19,8 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
-const V = '20261126c';                       // fp.css / fp.js — bump after editing them
-const VH = '20261127i';                      // homepage-only assets (fp-home.css / fp-home.js)
+const V = '20261127v6';                       // fp.css / fp.js — bump after editing them
+const VH = '20261127v6';                      // homepage-only assets (fp-home.css / fp-home.js)
 const SKIP_DIRS = new Set(['site', 'scripts', 'images', 'js', 'assets', '.git', 'node_modules', 'design-preview']);
 const args = process.argv.slice(2);
 const DRY = args.includes('--dry-run');
