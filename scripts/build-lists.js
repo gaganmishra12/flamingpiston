@@ -193,10 +193,12 @@ function thumb(a) {
 function dims(a) { const s = a.img ? imageSize(path.join(ROOT, a.img)) : null; return s ? ` width="${s[0]}" height="${s[1]}"` : ''; }
 
 // ---- markup ----------------------------------------------------------------------------------
-function card(a, extra = '') {
+function card(a, extra = '', label = eyebrow(a)) {
+  const storyCrop = 'images/home/' + path.parse(a.url.replace(/\/$/, '')).name + '-story-16x9.webp';
+  const photo = fs.existsSync(path.join(ROOT, storyCrop)) ? '/' + storyCrop : thumb(a);
   return `        <article class="card"${extra} data-date="${a.date}">
-          <a href="${href(a)}" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">${esc(a.type)}</span><img src="${thumb(a)}" alt="${esc(a.alt)}" loading="lazy"${dims(a)}></a>
-          <div class="card-body"><p class="eyebrow">${eyebrow(a)}</p><h3><a href="${href(a)}">${esc(a.title)}</a></h3><p>${esc(a.desc)}</p><div class="card-foot"><a class="read-link" href="${href(a)}">Read →</a></div></div>
+          <a href="${href(a)}" class="card-media" tabindex="-1" aria-hidden="true"><span class="tag">${esc(a.type)}</span><img src="${photo}" alt="${esc(a.alt)}" loading="lazy"${dims(a)}></a>
+          <div class="card-body"><p class="eyebrow">${label}<time datetime="${a.date}">${fmtShort(a.date)}</time></p><h3><a href="${href(a)}">${esc(a.title)}</a></h3><p>${esc(a.desc)}</p><div class="card-foot"><a class="read-link" href="${href(a)}">Read →</a></div></div>
         </article>`;
 }
 
@@ -252,7 +254,7 @@ for (const [sec, f] of Object.entries(SECTIONS)) {
   const items = lists[sec].map((a) => {
     const cat = cats.has(a.url) ? cats.get(a.url) : chips(a);
     const kind = sec === 'news' ? ` data-kind="${newsKind(a).toLowerCase()}"` : '';
-    return card(a, ` data-category="${esc(cat)}"${kind}`);
+    return card(a, ` data-category="${esc(cat)}"${kind}`, sec === 'news' ? newsKind(a) : esc(a.type));
   });
   between(f, 'CARDS', items.join('\n'));
   setCount(f, items.length);
