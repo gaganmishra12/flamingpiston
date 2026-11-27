@@ -558,8 +558,15 @@ const isBrief = (a) => a.type === 'Buyer’s Brief';
 const review = articles.find((a) => featurable(a) && isBrief(a) && !used.has(a.url)) || articles.find((a) => featurable(a) && isBrief(a) && a !== leadA);
 if (review && !thumbFor(review)) noClean.add(review.url);
 if (review) used.add(review.url);
-between('index.html', 'REVIEW', review ? `        <article class="lr-card">
-          <a class="lr-media" href="${href(review)}" tabindex="-1" aria-hidden="true">${thumbFor(review) ? cropImg(thumbFor(review), review.alt, 1.6) : tile(review)}</a>
+// Optional "tall" photo (data/homepage.json images[url].tall, a 6:7 crop): fills the card's full height on desktop,
+// so the dek can stay; its "credit" is shown under the card. Without one the 16:10 thumb is used.
+const reviewTall = review && crop(`${review.url}#tall`);
+const reviewTallSpec = review && HOME.images && HOME.images[review.url] && HOME.images[review.url].tall;
+const reviewMedia = !review ? '' : reviewTall
+  ? `<img src="/${reviewTall.file}" alt="${esc(reviewTallSpec.alt || review.alt)}" width="${reviewTall.w}" height="${reviewTall.h}" loading="lazy" decoding="async">`
+  : (thumbFor(review) ? cropImg(thumbFor(review), review.alt, 1.6) : tile(review));
+between('index.html', 'REVIEW', review ? `        <article class="lr-card${reviewTall ? ' lr-card--tall' : ''}">
+          <a class="lr-media" href="${href(review)}" tabindex="-1" aria-hidden="true">${reviewMedia}</a>
           <div class="lr-text">
             <p class="fp-label">${esc(label(review))}</p>
             <h3><a href="${href(review)}">${esc(review.title)}</a></h3>
@@ -567,7 +574,8 @@ between('index.html', 'REVIEW', review ? `        <article class="lr-card">
             ${review.desc ? `<p class="lr-dek">${esc(shortDek(review, 130) || review.desc)}</p>` : ''}
             <a class="fp-textlink" href="${href(review)}">Read the Brief${ICON_ARROW}</a>
           </div>
-        </article>` : '');
+        </article>${reviewTall && reviewTallSpec.credit ? `
+        <p class="lr-credit">${esc(reviewTallSpec.credit)}</p>` : ''}` : '');
 
 // Buying & Ownership Guides: the 3 newest featurable guides not already on the page; compact cards (image + label + headline)
 const isGuide = (a) => a.type === 'Guide' || a.type === 'Article';

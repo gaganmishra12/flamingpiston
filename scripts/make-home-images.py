@@ -29,6 +29,7 @@ Homepage slot ratios (keep in step with assets/fp-home.css):
   thumb 1.78 (16:9)   Latest Stories rows (560px)
   story 1.78 (16:9)   Latest Stories lead story (1200px, same "thumb" spec)
   card  1.78 (16:9)   New & Upcoming (older split cards, newUpcoming.items)
+  tall  0.86 (6:7)    Latest Reviews, optional: a squarish photo that fills the card's full height (desktop)
   bthumb             compact thumbnails cut from a homepage banner's "subject": comparison pair 16:10,
                      New & Upcoming launch / upcoming 16:9 (27 Nov 2026 refinement: no full-bleed banners there)
   car   1.78 (16:9)   Featured Cars (2.4:1 until Nov 2026: too shallow for SUVs)
@@ -46,12 +47,12 @@ from PIL import Image
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 OUT = os.path.join(ROOT, 'images', 'home')
-WIDTH = {'hero': 1600, 'thumb': 560, 'story': 1200, 'bthumb': 760, 'car': 760, 'vs': 1600, 'card': 900, 'banner': 1400, 'feature': 1600}
+WIDTH = {'hero': 1600, 'thumb': 560, 'tall': 720, 'story': 1200, 'bthumb': 760, 'car': 760, 'vs': 1600, 'card': 900, 'banner': 1400, 'feature': 1600}
 # Homepage banners (data/homepage.json "banners"): expected ratio, the furthest left the car may start, output width
 BANNER = {'hero': (2.4, 0.38, 1600), 'compare': (2.4, 0.33, 1600), 'launch': (3.0, 0.40, 1400), 'upcoming': (3.0, 0.40, 1400), 'culture': (4.4, 0.45, 2000)}
-RATIOS = {'hero': [1.6], 'thumb': [1.6, 2.0, 16 / 9], 'story': [16 / 9], 'card': [16 / 9], 'car': [16 / 9]}
+RATIOS = {'hero': [1.6], 'tall': [6 / 7], 'thumb': [1.6, 2.0, 16 / 9], 'story': [16 / 9], 'card': [16 / 9], 'car': [16 / 9]}
 BTHUMB = {'compare': 1.6, 'launch': 16 / 9, 'upcoming': 16 / 9}   # banner kind -> compact thumbnail ratio
-SUFFIX = {1.6: '16x10', 2.0: '2x1', 16 / 9: '16x9', 2.4: '12x5'}
+SUFFIX = {1.6: '16x10', 2.0: '2x1', 16 / 9: '16x9', 2.4: '12x5', 6 / 7: '6x7'}
 PAD_X, PAD_Y = 0.07, 0.09     # breathing room around the car, as a share of the frame
 PADS = {'car': (0.09, 0.13)}  # Featured Cars: a little more air, the car is the whole card
 LOWER = 0.04                  # put the car this much (share of frame height) below centre
