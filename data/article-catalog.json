@@ -1373,7 +1373,7 @@
    "thumbnail": "/images/home/reviews-2026-brezza-vs-fronx-thumb-16x10.webp",
    "focal": [
     0.02,
-    0.475,
+    0.41,
     0.99,
     0.96
    ],
@@ -1480,8 +1480,8 @@
    "imageCredit": "AI illustration: FlamingPiston",
    "thumbnail": "/images/home/news-aston-martin-valen-thumb-16x10.webp",
    "focal": [
-    0.43,
-    0.48,
+    0.3,
+    0.42,
     0.97,
     0.88
    ],
@@ -1575,7 +1575,7 @@
    "thumbnail": "/images/home/reviews-2026-brezza-vs-nexon-thumb-16x10.webp",
    "focal": [
     0.03,
-    0.42,
+    0.32,
     0.98,
     0.85
    ],

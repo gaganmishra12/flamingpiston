@@ -21,6 +21,15 @@ Two ways to describe a crop (fractions of the source image, [left, top, right, b
   "erase":   optional list of boxes that contain baked-in headline text next to the car.
              Bright text pixels inside them are painted out (needs opencv-python; skipped
              with a warning if it is not installed). Use only on plain studio walls.
+  "eraseAll": true with "erase": also paints out coloured headline text (red, orange, blue…) and
+             logos, with a stronger fill; for posters with big titles. The car is never painted:
+             "keep" (list of boxes, default [subject]) marks what must stay untouched.
+             "clear" (list of boxes) is painted out whole, not just its bright pixels: for faint
+             outlines, icon frames and thin watermarks on a plain dark backdrop.
+  "fill":    true: when the car does not fit the ratio inside the area, the frame is still built
+             around the whole car and the few missing pixels at its edges are filled by stretching
+             the photo's own edge, softly blurred, instead of letterboxing. The photo then fills
+             the card (Phase 2B listings). Use with "erase" on the full image rather than a narrow area.
 
 Homepage slot ratios (keep in step with assets/fp-home.css):
   hero  box          lead story: 2.4:1 banner, car on the right, dark empty left for the headline
@@ -57,7 +66,7 @@ PAD_X, PAD_Y = 0.07, 0.09     # breathing room around the car, as a share of the
 PADS = {'car': (0.09, 0.13)}  # Featured Cars: a little more air, the car is the whole card
 LOWER = 0.04                  # put the car this much (share of frame height) below centre
 QUALITY = 80
-VERSION = 2                   # bump to force every crop to be remade
+VERSION = 3                   # bump to force every crop to be remade
 
 def load(p):
     with open(os.path.join(ROOT, p), encoding='utf-8') as f:
@@ -90,7 +99,7 @@ def source(spec, problems, key):
     im = Image.open(path).convert('RGB')
     if not spec.get('erase'):
         return im
-    sig = json.dumps([spec['src'], spec['erase']])
+    sig = json.dumps([spec["src"], spec["erase"], spec.get("eraseAll"), spec.get("keep", [spec["subject"]]), spec.get("clear")])
     if sig in _erased:
         return _erased[sig].copy()
     try:
@@ -101,17 +110,58 @@ def source(spec, problems, key):
     a = cv2.cvtColor(np.array(im), cv2.COLOR_RGB2BGR)
     H, W = a.shape[:2]
     mask = np.zeros((H, W), np.uint8)
+    every = spec.get('eraseAll')    # also coloured (orange, blue…) headline text; for posters with big titles
     for l, t, r, b in spec['erase']:
         x0, y0, x1, y1 = int(l * W), int(t * H), int(r * W), int(b * H)
         hsv = cv2.cvtColor(a[y0:y1, x0:x1], cv2.COLOR_BGR2HSV)
         hh, ss, vv = hsv[..., 0], hsv[..., 1], hsv[..., 2]
-        text = ((vv > 150) & (ss < 70)) | (((hh < 12) | (hh > 165)) & (ss > 90) & (vv > 90))
+        if every:                   # light or coloured pixels, or anything that stands out from its local backdrop
+            g = cv2.cvtColor(a[y0:y1, x0:x1], cv2.COLOR_BGR2GRAY)
+            back = cv2.medianBlur(cv2.copyMakeBorder(g, 30, 30, 30, 30, cv2.BORDER_REFLECT), 61)[30:-30, 30:-30]
+            text = ((vv > 120) & (ss < 80)) | ((ss > 110) & (vv > 110)) | (cv2.absdiff(g, back) > 18)
+        else:
+            text = ((vv > 150) & (ss < 70)) | (((hh < 12) | (hh > 165)) & (ss > 90) & (vv > 90))
         mask[y0:y1, x0:x1] = text.astype(np.uint8) * 255
-    mask = cv2.dilate(mask, np.ones((7, 7), np.uint8), iterations=2)
-    a = cv2.inpaint(a, mask, 9, cv2.INPAINT_TELEA)
+    if every:
+        for l, t, r, b in spec.get('clear', []):
+            mask[int(t * H):int(b * H), int(l * W):int(r * W)] = 255
+        # never paint over the car itself
+        for s in spec.get('keep', [spec['subject']]):
+            mask[int(s[1] * H):int(s[3] * H), int(s[0] * W):int(s[2] * W)] = 0
+        mask = cv2.dilate(mask, np.ones((5, 5), np.uint8), iterations=3)
+        a = cv2.inpaint(a, mask, 15, cv2.INPAINT_NS)
+    else:
+        mask = cv2.dilate(mask, np.ones((7, 7), np.uint8), iterations=2)
+        a = cv2.inpaint(a, mask, 9, cv2.INPAINT_TELEA)
     out = Image.fromarray(cv2.cvtColor(a, cv2.COLOR_BGR2RGB))
     _erased[sig] = out
     return out.copy()
+
+def filled(im, spec, r):
+    """Frame of ratio r around the whole car when it is wider (or taller) than the area allows: the frame is taken
+    from the area and any part outside it is filled by stretching the area's own edge pixels, softly blurred, so the
+    photo fills the slot instead of being letterboxed. Used only with "fill": true (small gaps on plain backdrops)."""
+    import cv2, numpy as np
+    W, H = im.size
+    al, at, ar, ab = [round(v * d) for v, d in zip(spec.get('area', [0, 0, 1, 1]), (W, H, W, H))]
+    sl, st, sr, sb = [v * d for v, d in zip(spec['subject'], (W, H, W, H))]
+    fw = max((sr - sl) * 1.04, (sb - st) * 1.08 * r)
+    fw = max(fw, min(ar - al, (ab - at) * r))           # never smaller than the largest frame the area holds
+    fh = fw / r
+    cx, cy = (sl + sr) / 2, (st + sb) / 2
+    l = cx - fw / 2 if fw > ar - al else min(max(cx - fw / 2, al), ar - fw)
+    t = ab - fh if fh > ab - at else min(max(cy - fh / 2, at), ab - fh)   # too tall: pad the backdrop above, not the floor
+    l, t, fw, fh = round(l), round(t), round(fw), round(fh)
+    sub = cv2.cvtColor(np.array(im.crop((al, at, ar, ab))), cv2.COLOR_RGB2BGR)
+    pl, pt, pr, pb = max(0, al - l), max(0, at - t), max(0, l + fw - ar), max(0, t + fh - ab)
+    ext = cv2.copyMakeBorder(sub, pt, pb, pl, pr, cv2.BORDER_REPLICATE)
+    blur = cv2.GaussianBlur(ext, (0, 0), max(6, fw * 0.02))
+    m = np.zeros(ext.shape[:2], np.float32); m[pt:pt + sub.shape[0], pl:pl + sub.shape[1]] = 1
+    m = cv2.GaussianBlur(m, (0, 0), max(3, fw * 0.006))[..., None]
+    out = (ext * m + blur * (1 - m)).astype(np.uint8)
+    x0, y0 = l - al + pl, t - at + pt
+    out = out[y0:y0 + fh, x0:x0 + fw]
+    return Image.fromarray(cv2.cvtColor(out, cv2.COLOR_BGR2RGB))
 
 jobs = []   # (key, role, spec, file-name, ratio or None)
 def add(key, role, spec, name):
@@ -171,12 +221,15 @@ for key, role, spec, name, ratio in jobs:
     fits = True
     if ratio:
         box, fits = frame(W, H, spec['subject'], spec.get('area', [0, 0, 1, 1]), ratio, PADS.get(role, (PAD_X, PAD_Y)))
-        if not fits:
+        if not fits and not spec.get('fill'):
             problems.append(f'{key}: car does not fit a {ratio:.2f} frame inside its area; letterboxed')
     else:
         b = spec.get('box', [0, 0, 1, 1])
         box = (round(b[0] * W), round(b[1] * H), round(b[2] * W), round(b[3] * H))
-    crop = im.crop(box)
+    if ratio and not fits and spec.get('fill'):
+        crop, fits = filled(im, spec, ratio), True
+    else:
+        crop = im.crop(box)
     width = WIDTH[role]
     if role == 'feature':                       # homepage banner: check it was made for the layout
         kinds = spec.get('kind') if isinstance(spec.get('kind'), list) else [spec.get('kind')]

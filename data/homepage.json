@@ -82,25 +82,25 @@
     "reviews/bmw-7-series-vs-mercedes-s-class-vs-genesis-g90/": { "thumb": { "src": "images/news-7series-sclass-g90.jpg", "subject": [0.04, 0.44, 0.7, 0.74], "area": [0, 0, 0.71, 1] } },
     "reviews/bmw-x5-vs-genesis-gv80-vs-volvo-xc90/": { "thumb": { "src": "images/news-bmw-x5-gv80-xc90.jpg", "subject": [0.03, 0.32, 0.67, 0.63], "area": [0, 0, 0.68, 1] } },
     "reviews/range-rover-sport-vs-bmw-x5-vs-mercedes-gle/": { "thumb": { "src": "images/news-rr-sport-x5-gle.jpg", "subject": [0.06, 0.46, 0.68, 0.71], "area": [0, 0, 0.69, 1] } },
-    "reviews/2026-brezza-vs-fronx/": { "thumb": { "src": "images/brezza-vs-fronx-hero.jpg", "subject": [0.02, 0.475, 0.99, 0.96], "area": [0, 0.472, 1, 0.97] } },
-    "reviews/2026-slavia-vs-virtus/": { "thumb": { "src": "images/slavia-vs-virtus-hero.jpg", "subject": [0.01, 0.38, 0.98, 0.9], "area": [0, 0.34, 1, 0.95] } },
-    "reviews/2026-brezza-vs-nexon/": { "thumb": { "src": "images/brezza-vs-nexon-hero.jpg", "subject": [0.03, 0.42, 0.98, 0.85], "area": [0, 0.39, 1, 0.855] } },
+    "reviews/2026-brezza-vs-fronx/": { "thumb": {"src": "images/brezza-vs-fronx-hero.jpg", "subject": [0.02, 0.41, 0.99, 0.96], "keep": [[0.02, 0.41, 0.33, 0.91], [0.02, 0.48, 0.99, 0.91], [0.67, 0.46, 0.99, 0.91]], "erase": [[0.1, 0.05, 0.9, 0.4], [0.33, 0.4, 0.67, 0.48], [0.35, 0.9, 0.65, 1]], "clear": [[0.35, 0.915, 0.65, 0.99]], "eraseAll": true, "fill": true} },
+    "reviews/2026-slavia-vs-virtus/": { "thumb": {"src": "images/slavia-vs-virtus-hero.jpg", "subject": [0.01, 0.38, 0.98, 0.9], "erase": [[0.05, 0.03, 0.95, 0.3], [0.78, 0.89, 1, 0.99]], "eraseAll": true, "fill": true} },
+    "reviews/2026-brezza-vs-nexon/": { "thumb": {"src": "images/brezza-vs-nexon-hero.jpg", "subject": [0.03, 0.32, 0.98, 0.85], "keep": [[0.03, 0.32, 0.455, 0.85], [0.545, 0.32, 0.98, 0.85]], "erase": [[0.05, 0.03, 0.95, 0.28], [0, 0.84, 0.25, 1], [0.78, 0.89, 1, 0.99], [0.455, 0.33, 0.545, 0.52]], "clear": [[0, 0.84, 0.25, 1], [0.78, 0.89, 1, 0.99]], "eraseAll": true, "fill": true} },
     "reviews/2026-maruti-brezza-boot-space/": { "thumb": {"src": "images/brezza-boot-space-hero.jpg", "subject": [0.31, 0.17, 0.97, 0.86], "area": [0.3, 0, 1, 0.875], "erase": [[0.28, 0.8, 0.42, 1]]} },
     "reviews/2026-maruti-brezza-maintenance-cost/": { "thumb": {"src": "images/brezza-maintenance-hero-v2.jpg", "subject": [0.04, 0.25, 0.56, 0.8], "area": [0, 0, 0.58, 1]} },
     "reviews/2026-maruti-brezza-pros-cons/": { "thumb": {"src": "images/brezza-pros-cons-hero.jpg", "subject": [0.38, 0.25, 0.97, 0.76], "area": [0, 0, 1, 0.77]} },
     "reviews/2026-maruti-brezza-safety/": { "thumb": {"src": "images/brezza-safety-hero.jpg", "subject": [0.36, 0.3, 0.9, 0.78], "area": [0, 0, 1, 0.8]} },
-    "reviews/2026-maruti-brezza-cng/": { "thumb": {"src": "images/news-brezza-cng-hero.jpg", "subject": [0.07, 0.12, 0.93, 0.8], "area": [0, 0, 1, 0.9], "erase": [[0, 0.74, 0.4, 0.96]]} },
+    "reviews/2026-maruti-brezza-cng/": { "thumb": {"src": "images/news-brezza-cng-hero.jpg", "subject": [0.07, 0.12, 0.93, 0.8], "keep": [[0.07, 0.1, 0.93, 0.76]], "erase": [[0, 0.74, 0.5, 0.97], [0.78, 0.89, 1, 0.99]], "eraseAll": true, "fill": true} },
     "reviews/2026-maruti-brezza-automatic/": { "thumb": {"src": "images/brezza-automatic-hero.jpg", "subject": [0.47, 0.42, 0.86, 0.84], "area": [0.465, 0.33, 1, 0.87]} },
-    "reviews/2026-maruti-brezza-variants/": { "thumb": {"src": "images/brezza-variants-hero-v2.jpg", "subject": [0.05, 0.42, 0.95, 0.92], "area": [0, 0.405, 1, 0.93]} },
+    "reviews/2026-maruti-brezza-variants/": { "thumb": {"src": "images/brezza-variants-hero-v2.jpg", "subject": [0.05, 0.42, 0.95, 0.92], "erase": [[0, 0, 0.7, 0.415], [0.78, 0.89, 1, 0.99]], "eraseAll": true, "fill": true} },
     "reviews/2026-maruti-brezza-mileage/": { "thumb": {"src": "images/brezza-mileage-hero-v2.jpg", "subject": [0.04, 0.25, 0.55, 0.8], "area": [0, 0, 0.56, 1]} },
-    "news-ford-fathom-ev-truck.html": { "thumb": {"src": "images/news-ford-fathom-ev.jpg", "subject": [0.18, 0.1, 0.88, 0.66], "area": [0, 0, 1, 0.66]} },
+    "news-ford-fathom-ev-truck.html": { "thumb": {"src": "images/news-ford-fathom-ev.jpg", "subject": [0.18, 0.1, 0.88, 0.66], "erase": [[0, 0.75, 0.45, 0.97], [0.78, 0.89, 1, 0.99]], "eraseAll": true, "fill": true} },
     "news-slate-truck-ev.html": { "thumb": {"src": "images/news-slate-truck-ev.jpg", "subject": [0.15, 0.15, 0.9, 0.74], "area": [0, 0, 1, 0.75]} },
     "news-genesis-gv90.html": { "thumb": {"src": "images/news-genesis-gv90.jpg", "subject": [0.27, 0.3, 0.76, 0.74]} },
     "news-hyundai-tucson-2027.html": { "thumb": {"src": "images/news-hyundai-tucson-2027.jpg", "subject": [0.06, 0.25, 0.58, 0.85], "area": [0, 0, 0.6, 1]} },
-    "news-land-rover-defender-dakar.html": { "thumb": {"src": "images/news-land-rover-defender-dakar.jpg", "subject": [0.386, 0.22, 0.95, 0.92], "area": [0.384, 0.2, 1, 0.97]} },
+    "news-land-rover-defender-dakar.html": { "thumb": {"src": "images/news-land-rover-defender-dakar.jpg", "subject": [0.386, 0.22, 0.95, 0.92], "keep": [[0.35, 0.45, 0.96, 0.93], [0.386, 0.2, 0.96, 0.45]], "erase": [[0, 0, 0.385, 0.45], [0, 0.45, 0.35, 1], [0.8, 0, 1, 0.19], [0.78, 0.89, 1, 0.99]], "clear": [[0.8, 0, 1, 0.2]], "eraseAll": true, "fill": true} },
     "news-skoda-octavia-rs-second-batch.html": { "thumb": {"src": "images/news-skoda-octavia-rs.jpg", "subject": [0.16, 0.42, 0.85, 0.77]} },
-    "news-aston-martin-valen.html": { "thumb": {"src": "images/news-aston-martin-valen.jpg", "subject": [0.43, 0.48, 0.97, 0.88], "area": [0.4, 0.4, 1, 0.9]} },
-    "news-mg-couture-editions.html": { "thumb": {"src": "images/news-mg-couture.jpg", "subject": [0.04, 0.27, 0.95, 0.76], "area": [0.035, 0.25, 0.965, 0.765]} },
+    "news-aston-martin-valen.html": { "thumb": {"src": "images/news-aston-martin-valen.jpg", "subject": [0.3, 0.42, 0.97, 0.88], "keep": [[0.3, 0.5, 0.97, 0.88], [0.5, 0.445, 0.97, 0.5]], "erase": [[0, 0.03, 0.86, 0.33], [0, 0.33, 0.5, 0.45], [0, 0.8, 0.28, 1], [0.78, 0.89, 1, 0.99]], "eraseAll": true, "fill": true} },
+    "news-mg-couture-editions.html": { "thumb": {"src": "images/news-mg-couture.jpg", "subject": [0.04, 0.27, 0.95, 0.76], "keep": [[0.04, 0.27, 0.95, 0.76], [0.82, 0.2, 0.93, 0.27]], "erase": [[0, 0, 1, 0.27], [0.2, 0.76, 0.8, 0.88], [0, 0.84, 0.4, 1], [0.78, 0.89, 1, 0.99]], "clear": [[0, 0.84, 0.4, 1]], "eraseAll": true, "fill": true} },
     "reviews/2026-mercedes-glc-electric/": {
       "thumb": { "src": "images/mercedes-glc-electric-exterior.jpg", "subject": [0.1, 0.11, 0.94, 0.9] },
       "tall": { "src": "images/mercedes-glc-electric-square.webp", "subject": [0.289, 0.437, 0.732, 0.691], "alt": "Red Mercedes-Benz GLC Electric parked on a concrete driveway in front of a modern house", "credit": "Image: Mercedes-Benz video still, extended with AI (AI illustration): FlamingPiston" }
@@ -133,7 +133,7 @@
       "thumb": { "src": "images/baas-vs-buying-ev-guide-hero-photo.jpg", "subject": [0.31, 0.29, 0.91, 0.87] }
     },
     "comparisons/brezza-cng-vs-xuv-3xo-cng/": {
-      "thumb": { "src": "images/brezza-cng-vs-xuv-3xo-cng-hero-v2.jpg", "subject": [0.065, 0.37, 0.925, 0.77], "area": [0, 0.33, 1, 0.95] }
+      "thumb": {"src": "images/brezza-cng-vs-xuv-3xo-cng-hero-v2.jpg", "subject": [0.065, 0.37, 0.925, 0.77], "erase": [[0.04, 0.04, 0.96, 0.34], [0.78, 0.89, 1, 0.99]], "eraseAll": true, "fill": true}
     },
     "news-mahindra-xev-9s-bharat-ncap.html": {
       "thumb": { "src": "images/news-mahindra-xev-9s-bharat-ncap.jpg", "subject": [0.24, 0.215, 0.95, 0.84], "area": [0, 0, 1, 0.95], "erase": [[0, 0.05, 0.30, 0.40]] }
@@ -142,7 +142,7 @@
       "thumb": { "src": "images/news-tata-sierra-ev-bharat-ncap.jpg", "subject": [0.29, 0.19, 0.955, 0.82], "area": [0, 0, 1, 0.95], "erase": [[0, 0.10, 0.35, 0.47]] }
     },
     "news-yangwang-altior-reveal.html": {
-      "thumb": { "src": "images/news-yangwang-altior-reveal.jpg", "subject": [0.235, 0.32, 0.98, 0.86], "area": [0, 0, 1, 0.95], "erase": [[0, 0.10, 0.345, 0.465]] }
+      "thumb": { "src": "images/news-yangwang-altior-reveal.jpg", "subject": [0.235, 0.32, 0.98, 0.86], "area": [0, 0, 1, 1], "erase": [[0, 0.10, 0.345, 0.465], [0.74, 0.9, 1, 1]] }
     },
     "news-honda-november-2026-offers.html": {
       "thumb": { "src": "images/news-honda-november-2026-offers.jpg", "subject": [0.27, 0.08, 0.93, 0.645], "area": [0, 0, 1, 0.67] }
@@ -163,10 +163,10 @@
       "thumb": { "src": "images/mahindra-be6-sporteq-review-hero.jpg", "subject": [0.29, 0.28, 0.975, 0.82], "area": [0.27, 0, 1, 0.95] }
     },
     "comparisons/2026-glanza-vs-baleno/": {
-      "thumb": { "src": "images/glanza-vs-baleno-comparison-hero.jpg", "subject": [0.025, 0.36, 0.96, 0.78], "area": [0, 0.29, 1, 0.95] }
+      "thumb": {"src": "images/glanza-vs-baleno-comparison-hero.jpg", "subject": [0.025, 0.36, 0.96, 0.78], "erase": [[0.1, 0.12, 0.9, 0.31], [0.78, 0.89, 1, 0.99]], "eraseAll": true, "fill": true}
     },
     "reviews/2026-maruti-brezza-turbo-vs-petrol/": {
-      "thumb": { "src": "images/brezza-turbo-vs-petrol-hero.jpg", "subject": [0.04, 0.36, 0.965, 0.76], "area": [0, 0, 1, 0.95] }
+      "thumb": {"src": "images/brezza-turbo-vs-petrol-hero.jpg", "subject": [0.04, 0.36, 0.965, 0.76], "erase": [[0.85, 0.9, 1, 1]], "eraseAll": true, "fill": true}
     },
     "news-tesla-roadster-reveal-2026.html": {
       "thumb": { "src": "images/tesla-roadster-news-hero.jpg", "subject": [0.25, 0.33, 0.78, 0.72], "area": [0, 0, 1, 0.92] }
