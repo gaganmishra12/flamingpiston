@@ -11,6 +11,7 @@ FlamingPiston is a static site: pages change only when the site is **rebuilt and
    News listing: if a story's image has a headline printed on it, add `"cardImage": "tile"` to its entry in `data/articles.json` so the News page shows the plain FlamingPiston tile instead.
    Reviews listing: a Buyer's Brief shows its price, body and fuel only if `data/cars.json` has an entry whose `url` is the brief's URL (with `source` and `checked`), and its Spec Score only if the brief has a "Spec Score (average)" table row. Its card photo is the clean `thumb` crop above (add `"alt"` to the thumb spec to describe it; otherwise the car's name is used).
    Compare listing: the contenders shown on the card come from the headline before the colon ("Brezza vs Fronx: …"), so keep that form. Its photo is the clean `thumb` crop; a poster with the title printed above the cars is cut with `"area"` below the text and letterboxed if the cars don't fit.
+   Buying Guides and Car Culture listings use the same clean `thumb` crop (Car Culture shows its 16:9 `story` version large), so a story with a headline printed on its image needs a thumb spec with `"area"`/`"erase"` to appear clean there.
 3. **Run, from the site root:**
    ```
    sh scripts/update-site.sh

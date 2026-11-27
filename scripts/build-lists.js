@@ -242,7 +242,7 @@ ${buf.join('\n')}
 // the Spec Score is read from the brief's own "Spec Score (average)" table row. Missing data is simply left out.
 const RV_BODY = { suv: 'SUV', hatchback: 'Hatchback', sedan: 'Sedan', pickup: 'Pickup', mpv: 'MPV' };
 const RV_FUEL = { petrol: 'Petrol', diesel: 'Diesel', cng: 'CNG', electric: 'Electric', hybrid: 'Hybrid' };
-const RV_TABS = [['all', 'All'], ['hatchback', 'Hatchback'], ['sedan', 'Sedan'], ['suv', 'SUV'], ['compact-suv', 'Compact SUV'], ['pickup', 'Pickup'], ['electric', 'Electric'], ['hybrid', 'Hybrid'], ['off-road', 'Off-road'], ['performance', 'Performance'], ['luxury', 'Luxury']];
+const RV_TABS = [['all', 'All'], ['hatchback', 'Hatchback'], ['sedan', 'Sedan'], ['suv', 'SUV'], ['compact-suv', 'Compact SUV'], ['pickup', 'Pickup'], ['electric', 'Electric'], ['hybrid', 'Hybrid'], ['off-road', 'Off-road'], ['performance', 'Performance'], ['luxury', 'Luxury'], ['safety', 'Safety'], ['ownership', 'Ownership']];
 const rvLakh = (n) => n.toFixed(2).replace(/\.00$/, '');
 function rvFacts(a) {
   const car = CARS.find((c) => c.url === href(a));
@@ -270,26 +270,35 @@ function cmpFacts(a) {
   return { vs: vs.length > 1 ? vs : [], alt: spec.alt || (vs.length > 1 ? vs.join(' vs ') : a.alt),
     label: vs.length > 2 ? 'Three-way' : engine ? 'Engine choice' : 'Head-to-head' };
 }
+// Buying Guides page (Phase 2B, design A, approved 28 Nov 2026): same showroom layout; label = the article type,
+// cards keep a two-line summary. The crop is decorative (the linked title follows), so alt is empty unless the crop
+// spec in data/homepage.json gives one.
+function guideFacts(a) {
+  const spec = (HOME.images && HOME.images[a.url] && HOME.images[a.url].thumb) || {};
+  return { guide: true, alt: spec.alt || '', label: a.type === 'Article' ? 'Explainer' : a.type };
+}
 const rvVs = (f) => f.vs && f.vs.length ? `<p class="rv-vs">${f.vs.map((v) => `<span>${esc(v)}</span>`).join('<i>vs</i>')}</p>` : '';
 function rvCard(a, f, cat, dup) {
   const c = thumbFor(a);
   const img = c ? cropImg(c, f.alt, 1.6) : `<img src="${thumb(a)}" alt="${esc(a.alt)}" loading="lazy"${dims(a)}>`;
-  const foot = f.vs ? `<time class="rv-meta" datetime="${a.date}">${fmtShort(a.date)}</time>${f.vs.length ? `<span class="rv-meta">${f.vs.length} cars</span>` : ''}`
+  const foot = f.guide ? `<time class="rv-meta" datetime="${a.date}">${fmtShort(a.date)}</time>` : f.vs ? `<time class="rv-meta" datetime="${a.date}">${fmtShort(a.date)}</time>${f.vs.length ? `<span class="rv-meta">${f.vs.length} cars</span>` : ''}`
     : `${f.price ? `<span class="rv-price">${f.price}*</span>` : ''}<time class="rv-meta" datetime="${a.date}">${fmtShort(a.date)}</time>`;
   return `        <article class="card rv-card${dup ? ' rv-dup' : ''}" data-category="${cat}" data-date="${a.date}">
           <a href="${href(a)}" class="rv-media" tabindex="-1" aria-hidden="true">${img}</a>
-          <div class="rv-body"><div class="rv-top"><p class="rv-label">${esc(f.label || a.type)}</p>${rvScore(f.score)}</div>${rvVs(f)}<h3><a href="${href(a)}">${esc(a.title)}</a></h3><div class="rv-foot">${foot}</div>${f.source ? `<p class="rv-src">${esc(f.source)}</p>` : ''}</div>
+          <div class="rv-body"><div class="rv-top"><p class="rv-label">${esc(f.label || a.type)}</p>${rvScore(f.score)}</div>${rvVs(f)}<h3><a href="${href(a)}">${esc(a.title)}</a></h3>${f.guide && a.desc ? `<p class="rv-sum">${esc(a.desc)}</p>` : ''}<div class="rv-foot">${foot}</div>${f.source ? `<p class="rv-src">${esc(f.source)}</p>` : ''}</div>
         </article>`;
 }
-// kind: 'review' (Reviews page) or 'compare' (Compare page).
+// kind: 'review' (Reviews page), 'compare' (Compare page) or 'guide' (Buying Guides page).
 function showroom(list, catOf, kind) {
-  const rows = list.map((a) => { const f = kind === 'compare' ? cmpFacts(a) : rvFacts(a); const cat = [...new Set([...catOf(a).split(' '), f.body].filter(Boolean))].join(' '); return { a, f, cat }; });
+  const rows = list.map((a) => { const f = kind === 'compare' ? cmpFacts(a) : kind === 'guide' ? guideFacts(a) : rvFacts(a); const cat = [...new Set([...catOf(a).split(' '), f.body].filter(Boolean))].join(' '); return { a, f, cat }; });
   const out = [];
   if (rows.length) {
     const { a, f, cat } = rows[0];
     const story = crop(`${a.url}#story`);   // clean 16:9 crop from data/home-images.json, never the headline banner
     const img = story ? cropImg(story, f.alt, 1.6, 'fetchpriority="high" decoding="async"') : `<img src="${thumb(a)}" alt="${esc(a.alt)}"${dims(a)} fetchpriority="high">`;
-    const text = kind === 'compare'
+    const text = kind === 'guide'
+      ? `<p class="rv-label">Latest guide${f.label === 'Guide' ? '' : ` · ${esc(f.label)}`}</p><h2><a href="${href(a)}">${esc(a.title)}</a></h2><p class="rv-dek">${esc(a.desc)}</p><div class="rv-facts"><time class="rv-meta" datetime="${a.date}">${fmtShort(a.date)}</time></div>`
+      : kind === 'compare'
       ? `<p class="rv-label">Latest comparison · ${esc(f.label)}</p>${f.vs.length ? `<p class="rv-names">${f.vs.map(esc).join('<i>vs</i>')}</p>` : ''}<h2><a href="${href(a)}">${esc(a.title)}</a></h2><p class="rv-dek">${esc(a.desc)}</p><div class="rv-facts"><time class="rv-meta" datetime="${a.date}">${fmtShort(a.date)}</time></div>`
       : `<p class="rv-label">Latest Buyer’s Brief${f.label ? ` · ${esc(f.label)}` : ''}</p><h2><a href="${href(a)}">${esc(a.title)}</a></h2><p class="rv-dek">${esc(a.desc)}</p><div class="rv-facts">${f.price ? `<span class="rv-price">${f.price}*</span>` : ''}${rvScore(f.score)}<time class="rv-meta" datetime="${a.date}">${fmtShort(a.date)}</time></div>${f.source ? `<p class="rv-src">${esc(f.source)}</p>` : ''}`;
     out.push(`        <article class="card rv-lead" data-category="${cat}" data-date="${a.date}">
@@ -301,6 +310,28 @@ function showroom(list, catOf, kind) {
   const count = (k) => rows.filter((r) => k === 'all' || r.cat.split(' ').includes(k)).length;
   const tabs = RV_TABS.filter(([k]) => count(k)).map(([k, t]) => `<a class="rv-tab" href="#${k}" data-filter="${k}"${k === 'all' ? ' aria-current="true"' : ''}>${t}<span class="n">${count(k)}</span></a>`).join('');
   return { cards: out.join('\n'), tabs: `        ${tabs}` };
+}
+
+// Car Culture page: cinematic (Phase 2B, design A, approved 28 Nov 2026). Dark page; the newest story leads with a
+// full-width 16:9 photo and a caption row, then two big 16:9 photos per row. Photos are the clean 'story' crops.
+function cultureCinema(list) {
+  const pic = (a, lead) => {
+    const c = crop(`${a.url}#story`); const spec = (HOME.images && HOME.images[a.url] && HOME.images[a.url].thumb) || {};
+    return c ? cropImg(c, spec.alt || '', 16 / 9, lead ? 'fetchpriority="high" decoding="async"' : undefined) : `<img src="${thumb(a)}" alt=""${dims(a)}${lead ? ' fetchpriority="high"' : ' loading="lazy"'}>`;
+  };
+  const kick = (a) => a.type === 'News' ? `${newsKind(a)}${/\bUS\b/.test(a.tag) ? ' · US market' : ''}` : (a.type === 'Article' ? 'Explainer' : a.type);
+  if (!list.length) return '';
+  const [l, ...rest] = list;
+  return `        <article class="card cx-lead" data-date="${l.date}">
+          <a href="${href(l)}" class="cx-media" tabindex="-1" aria-hidden="true">${pic(l, true)}</a>
+          <div class="cx-cap"><div><p class="cx-label">${esc(kick(l))}</p><h2><a href="${href(l)}">${esc(l.title)}</a></h2></div><div><p class="cx-dek">${esc(l.desc)}</p><time class="cx-meta" datetime="${l.date}">${fmtShort(l.date)}</time></div></div>
+        </article>
+        <div class="cx-grid">
+${rest.map((a) => `        <article class="card cx-card" data-date="${a.date}">
+          <a href="${href(a)}" class="cx-media" tabindex="-1" aria-hidden="true">${pic(a)}</a>
+          <p class="cx-label">${esc(kick(a))}</p><h3><a href="${href(a)}">${esc(a.title)}</a></h3><time class="cx-meta" datetime="${a.date}">${fmtShort(a.date)}</time>
+        </article>`).join('\n')}
+        </div>`;
 }
 
 // ---- file helpers ----------------------------------------------------------------------------
@@ -345,7 +376,7 @@ for (const [sec, f] of Object.entries(SECTIONS)) {
     if (cat !== undefined) cats.set(u, cat);
   }
 }
-const lists = { news: [], reviews: [], guides: [], comparisons: [] }; const added = []; let reviewsCatOf = null, compareCatOf = null;
+const lists = { news: [], reviews: [], guides: [], comparisons: [] }; const added = []; let reviewsCatOf = null, compareCatOf = null, guidesCatOf = null;
 for (const a of articles) {
   let sec = placed.get(a.url) || sectionOf(a); if (!sec) continue;
   if (!placed.has(a.url)) added.push(`${a.url} -> ${SECTIONS[sec]}`);
@@ -356,6 +387,7 @@ for (const [sec, f] of Object.entries(SECTIONS)) {
   if (sec === 'news') { between(f, 'CARDS', newsWire(lists.news, catOf)); setCount(f, lists.news.length); continue; }
   if (sec === 'reviews') { reviewsCatOf = catOf; continue; }   // built below, once the crop and cars.json helpers exist
   if (sec === 'comparisons') { compareCatOf = catOf; continue; }
+  if (sec === 'guides') { guidesCatOf = catOf; continue; }
   const items = lists[sec].map((a) => card(a, ` data-category="${catOf(a)}"`, esc(a.type)));
   between(f, 'CARDS', items.join('\n'));
   setCount(f, items.length);
@@ -566,6 +598,7 @@ const priceText = (c) => c.min === c.max ? `₹${lakh(c.min)} Lakh` : `₹${lakh
 const checked = (d) => { const [y, m, dd] = d.split('-'); return `${dd ? +dd + ' ' : ''}${MONTHS[+m - 1]} ${y}`; };
 { const rv = showroom(lists.reviews, reviewsCatOf, 'review'); between('reviews.html', 'CARDS', rv.cards); between('reviews.html', 'REVIEW-TABS', rv.tabs); }
 { const cv = showroom(lists.comparisons, compareCatOf, 'compare'); between('comparisons.html', 'CARDS', cv.cards); between('comparisons.html', 'COMPARE-TABS', cv.tabs); }
+{ const gd = showroom(lists.guides, guidesCatOf, 'guide'); between('guides.html', 'CARDS', gd.cards); between('guides.html', 'GUIDE-TABS', gd.tabs); }
 const BODY = { suv: 'SUV', hatchback: 'Hatchback', sedan: 'Sedan', mpv: 'MPV', pickup: 'Pickup' };
 const featured = (HOME.featuredCars || []).map((id) => CARS.find((c) => c.id === id)).filter(Boolean);
 between('index.html', 'FEATURED', featured.map((car) => {
@@ -691,7 +724,7 @@ const missingCulture = cultureUrls.filter((u) => !byUrl.has(u.replace(/^\//, '')
 const hero = heroList;
 
 // ---- car culture page ----------------------------------------------------------------------------
-between('car-culture.html', 'CARDS', culture.map((a) => card(a)).join('\n'));
+between('car-culture.html', 'CARDS', cultureCinema(culture));
 setCount('car-culture.html', culture.length);
 
 // ---- about page "at a glance" numbers ----------------------------------------------------------

@@ -84,7 +84,7 @@ main .editorial-grid>.card:nth-child(n){grid-column:1}
 .culture-cover .card .eyebrow .seg::before{color:var(--teal);opacity:.7}
 .culture-cover .card .eyebrow time{margin-left:4px}
 
-/* ---- Reviews + Compare pages: showroom (Phase 2B design A: Reviews approved 27 Nov, Compare 28 Nov 2026) ------
+/* ---- Reviews, Compare and Buying Guides pages: showroom (Phase 2B design A: Reviews 27 Nov, Compare + Guides 28 Nov 2026)
    Markup from scripts/build-lists.js (reviewShowroom). Lead panel under "All", then a card grid with body · fuel,
    Spec Score, price (from data/cars.json, with its source and checked date) and date. */
 .showroom{background:var(--ivory)}
@@ -151,3 +151,38 @@ main .editorial-grid>.card:nth-child(n){grid-column:1}
 .compare-showroom .rv-lead h2{font:600 18px/1.35 var(--f-body);letter-spacing:0;color:var(--on-dark-dek)}
 .compare-showroom .rv-lead .rv-dek{font-size:15.5px;color:var(--on-dark-2)}
 @media (max-width:767px){.rv-names{font-size:28px}.compare-showroom .rv-card h3{font-size:18px}}
+/* Buying Guides page additions: two-line summary on showroom cards */
+.rv-sum{margin:0;font:400 14.5px/1.5 var(--f-body);color:var(--ink-2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.guides-showroom .rv-card h3{font-size:19px;line-height:1.25}
+@media (max-width:767px){.guides-showroom .rv-card h3{font-size:18px}}
+
+/* ---- Car Culture page: cinematic (Phase 2B, design A, approved 28 Nov 2026) ----------------------------------
+   Markup from scripts/build-lists.js cultureCinema(). Dark petrol page, newest story as a full-width 16:9 photo with a
+   caption row (italic headline | dek + date), then two 16:9 photos per row with italic headlines. */
+.culture-cinema{background:var(--petrol);color:var(--ivory)}
+.culture-cinema h1,.culture-cinema h2,.culture-cinema h3{margin:0}
+.culture-cinema a{color:inherit;text-decoration:none}
+.culture-cinema .cx-head{padding:36px 0 0}
+.culture-cinema .cx-head h1{font:italic 700 clamp(42px,4.4vw,64px)/1 var(--f-head);letter-spacing:-.03em;color:var(--ivory)}
+.cx-lede{margin:12px 0 0;max-width:680px;font:400 17px/1.55 var(--f-body);color:var(--on-dark-dek)}
+.culture-cinema .cx-list{padding:28px 0 clamp(56px,7vw,88px)}
+.cx-label{margin:0;font:700 12px/1.2 var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:var(--ember-label)}
+.cx-meta{font:400 12.5px/1.4 var(--f-mono);color:var(--on-dark-2)}
+.culture-cinema .cx-media{display:block;position:relative;overflow:hidden;aspect-ratio:16/9;border-radius:10px;background:var(--petrol-2)}
+.culture-cinema .cx-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease)}
+.culture-cinema .cx-media img.is-contain{object-fit:contain}
+.culture-cinema .card:hover .cx-media img{transform:scale(1.02)}
+.culture-cinema h2 a:hover,.culture-cinema h3 a:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.culture-cinema .cx-lead .cx-media{border-radius:12px}
+.cx-cap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:32px;padding-top:20px}
+.culture-cinema .cx-lead h2{margin-top:8px;font:italic 700 clamp(30px,3.2vw,46px)/1.04 var(--f-head);letter-spacing:-.03em}
+.cx-dek{margin:0 0 10px;font:400 16.5px/1.6 var(--f-body);color:var(--on-dark-dek)}
+.cx-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 28px;margin-top:48px;padding-top:32px;border-top:1px solid var(--rule-dark)}
+.culture-cinema .cx-card .cx-label{margin-top:14px}
+.culture-cinema .cx-card h3{margin:6px 0;font:italic 700 24px/1.12 var(--f-head);letter-spacing:-.02em}
+@media (max-width:767px){
+  .culture-cinema .cx-head{padding-top:24px}.cx-lede{font-size:15.5px}
+  .cx-cap{grid-template-columns:1fr;gap:8px}.culture-cinema .cx-lead h2{font-size:28px}
+  .cx-grid{grid-template-columns:1fr;gap:30px;margin-top:32px;padding-top:24px}.culture-cinema .cx-card h3{font-size:20px}
+}
+@media (prefers-reduced-motion:reduce){.culture-cinema .cx-media img{transition:none}.culture-cinema .card:hover .cx-media img{transform:none}}

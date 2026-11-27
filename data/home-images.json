@@ -350,6 +350,37 @@
   "bg": "#04222b",
   "sig": "aa52e68f4f"
  },
+ "news-aston-martin-valen.html#story": {
+  "file": "images/home/news-aston-martin-valen-story-16x9.webp",
+  "w": 618,
+  "h": 309,
+  "bg": "#5f3433",
+  "sig": "845b88e84f",
+  "contain": true
+ },
+ "news-aston-martin-valen.html#thumb@16x10": {
+  "file": "images/home/news-aston-martin-valen-thumb-16x10.webp",
+  "w": 560,
+  "h": 280,
+  "bg": "#5f3433",
+  "sig": "1ff8b30812",
+  "contain": true
+ },
+ "news-aston-martin-valen.html#thumb@16x9": {
+  "file": "images/home/news-aston-martin-valen-thumb-16x9.webp",
+  "w": 560,
+  "h": 280,
+  "bg": "#5f3433",
+  "sig": "37b3c2204c",
+  "contain": true
+ },
+ "news-aston-martin-valen.html#thumb@2x1": {
+  "file": "images/home/news-aston-martin-valen-thumb-2x1.webp",
+  "w": 560,
+  "h": 279,
+  "bg": "#603433",
+  "sig": "0fa76c328d"
+ },
  "news-bmw-7-series-i7-facelift-india.html#story": {
   "file": "images/home/news-bmw-7-series-i7-facelift-india-story-16x9.webp",
   "w": 604,
@@ -406,6 +437,65 @@
   "bg": "#5a3d27",
   "sig": "78f551bdba"
  },
+ "news-ford-fathom-ev-truck.html#story": {
+  "file": "images/home/news-ford-fathom-ev-truck-story-16x9.webp",
+  "w": 800,
+  "h": 409,
+  "bg": "#060709",
+  "sig": "2d5b95d248",
+  "contain": true
+ },
+ "news-ford-fathom-ev-truck.html#thumb@16x10": {
+  "file": "images/home/news-ford-fathom-ev-truck-thumb-16x10.webp",
+  "w": 560,
+  "h": 286,
+  "bg": "#060709",
+  "sig": "b1feb52a5f",
+  "contain": true
+ },
+ "news-ford-fathom-ev-truck.html#thumb@16x9": {
+  "file": "images/home/news-ford-fathom-ev-truck-thumb-16x9.webp",
+  "w": 560,
+  "h": 286,
+  "bg": "#060709",
+  "sig": "6135691a96",
+  "contain": true
+ },
+ "news-ford-fathom-ev-truck.html#thumb@2x1": {
+  "file": "images/home/news-ford-fathom-ev-truck-thumb-2x1.webp",
+  "w": 560,
+  "h": 280,
+  "bg": "#060709",
+  "sig": "bee7488500"
+ },
+ "news-genesis-gv90.html#story": {
+  "file": "images/home/news-genesis-gv90-story-16x9.webp",
+  "w": 627,
+  "h": 352,
+  "bg": "#b3a38f",
+  "sig": "6ed34a1f98"
+ },
+ "news-genesis-gv90.html#thumb@16x10": {
+  "file": "images/home/news-genesis-gv90-thumb-16x10.webp",
+  "w": 560,
+  "h": 350,
+  "bg": "#b4a491",
+  "sig": "18d3acf99c"
+ },
+ "news-genesis-gv90.html#thumb@16x9": {
+  "file": "images/home/news-genesis-gv90-thumb-16x9.webp",
+  "w": 560,
+  "h": 314,
+  "bg": "#b3a38f",
+  "sig": "65d9784c63"
+ },
+ "news-genesis-gv90.html#thumb@2x1": {
+  "file": "images/home/news-genesis-gv90-thumb-2x1.webp",
+  "w": 560,
+  "h": 280,
+  "bg": "#b1a08d",
+  "sig": "2fc1bc5dde"
+ },
  "news-honda-november-2026-offers.html#story": {
   "file": "images/home/news-honda-november-2026-offers-story-16x9.webp",
   "w": 1072,
@@ -434,6 +524,67 @@
   "h": 280,
   "bg": "#142b33",
   "sig": "ff0c74a8bf"
+ },
+ "news-hyundai-tucson-2027.html#story": {
+  "file": "images/home/news-hyundai-tucson-2027-story-16x9.webp",
+  "w": 660,
+  "h": 371,
+  "bg": "#8a7d6c",
+  "sig": "c3ce4016e8"
+ },
+ "news-hyundai-tucson-2027.html#thumb@16x10": {
+  "file": "images/home/news-hyundai-tucson-2027-thumb-16x10.webp",
+  "w": 560,
+  "h": 350,
+  "bg": "#8a7e6c",
+  "sig": "df574ddb45"
+ },
+ "news-hyundai-tucson-2027.html#thumb@16x9": {
+  "file": "images/home/news-hyundai-tucson-2027-thumb-16x9.webp",
+  "w": 560,
+  "h": 315,
+  "bg": "#8a7d6c",
+  "sig": "4e74f57c3c"
+ },
+ "news-hyundai-tucson-2027.html#thumb@2x1": {
+  "file": "images/home/news-hyundai-tucson-2027-thumb-2x1.webp",
+  "w": 560,
+  "h": 328,
+  "bg": "#8b7e6c",
+  "sig": "b61af217ee",
+  "contain": true
+ },
+ "news-land-rover-defender-dakar.html#story": {
+  "file": "images/home/news-land-rover-defender-dakar-story-16x9.webp",
+  "w": 616,
+  "h": 410,
+  "bg": "#211d18",
+  "sig": "fc743b0791",
+  "contain": true
+ },
+ "news-land-rover-defender-dakar.html#thumb@16x10": {
+  "file": "images/home/news-land-rover-defender-dakar-thumb-16x10.webp",
+  "w": 560,
+  "h": 373,
+  "bg": "#211d18",
+  "sig": "3044a6004f",
+  "contain": true
+ },
+ "news-land-rover-defender-dakar.html#thumb@16x9": {
+  "file": "images/home/news-land-rover-defender-dakar-thumb-16x9.webp",
+  "w": 560,
+  "h": 373,
+  "bg": "#211d18",
+  "sig": "371c6102c7",
+  "contain": true
+ },
+ "news-land-rover-defender-dakar.html#thumb@2x1": {
+  "file": "images/home/news-land-rover-defender-dakar-thumb-2x1.webp",
+  "w": 560,
+  "h": 373,
+  "bg": "#211d18",
+  "sig": "de5e182fef",
+  "contain": true
  },
  "news-mahindra-xev-9s-bharat-ncap.html#story": {
   "file": "images/home/news-mahindra-xev-9s-bharat-ncap-story-16x9.webp",
@@ -491,6 +642,38 @@
   "bg": "#2a2827",
   "sig": "538d5446d0"
  },
+ "news-mg-couture-editions.html#story": {
+  "file": "images/home/news-mg-couture-editions-story-16x9.webp",
+  "w": 744,
+  "h": 232,
+  "bg": "#1e1916",
+  "sig": "6c279208b9",
+  "contain": true
+ },
+ "news-mg-couture-editions.html#thumb@16x10": {
+  "file": "images/home/news-mg-couture-editions-thumb-16x10.webp",
+  "w": 560,
+  "h": 175,
+  "bg": "#1e1916",
+  "sig": "8326d4b67e",
+  "contain": true
+ },
+ "news-mg-couture-editions.html#thumb@16x9": {
+  "file": "images/home/news-mg-couture-editions-thumb-16x9.webp",
+  "w": 560,
+  "h": 175,
+  "bg": "#1e1916",
+  "sig": "134597ce6e",
+  "contain": true
+ },
+ "news-mg-couture-editions.html#thumb@2x1": {
+  "file": "images/home/news-mg-couture-editions-thumb-2x1.webp",
+  "w": 560,
+  "h": 175,
+  "bg": "#1e1916",
+  "sig": "a7d357a42a",
+  "contain": true
+ },
  "news-porsche-cayenne-electric-india.html#story": {
   "file": "images/home/news-porsche-cayenne-electric-india-story-16x9.webp",
   "w": 752,
@@ -518,6 +701,63 @@
   "h": 280,
   "bg": "#0a0a08",
   "sig": "00c23900e8"
+ },
+ "news-skoda-octavia-rs-second-batch.html#story": {
+  "file": "images/home/news-skoda-octavia-rs-second-batch-story-16x9.webp",
+  "w": 883,
+  "h": 496,
+  "bg": "#2c2025",
+  "sig": "04c23cf71b"
+ },
+ "news-skoda-octavia-rs-second-batch.html#thumb@16x10": {
+  "file": "images/home/news-skoda-octavia-rs-second-batch-thumb-16x10.webp",
+  "w": 560,
+  "h": 349,
+  "bg": "#2c2127",
+  "sig": "b8e9a77098"
+ },
+ "news-skoda-octavia-rs-second-batch.html#thumb@16x9": {
+  "file": "images/home/news-skoda-octavia-rs-second-batch-thumb-16x9.webp",
+  "w": 560,
+  "h": 315,
+  "bg": "#2c2025",
+  "sig": "2afb9a136a"
+ },
+ "news-skoda-octavia-rs-second-batch.html#thumb@2x1": {
+  "file": "images/home/news-skoda-octavia-rs-second-batch-thumb-2x1.webp",
+  "w": 560,
+  "h": 280,
+  "bg": "#2d2025",
+  "sig": "7beb31a075"
+ },
+ "news-slate-truck-ev.html#story": {
+  "file": "images/home/news-slate-truck-ev-story-16x9.webp",
+  "w": 825,
+  "h": 464,
+  "bg": "#070706",
+  "sig": "0848607e37"
+ },
+ "news-slate-truck-ev.html#thumb@16x10": {
+  "file": "images/home/news-slate-truck-ev-thumb-16x10.webp",
+  "w": 560,
+  "h": 303,
+  "bg": "#060606",
+  "sig": "6390d611b4",
+  "contain": true
+ },
+ "news-slate-truck-ev.html#thumb@16x9": {
+  "file": "images/home/news-slate-truck-ev-thumb-16x9.webp",
+  "w": 560,
+  "h": 315,
+  "bg": "#070706",
+  "sig": "70fecc1bd3"
+ },
+ "news-slate-truck-ev.html#thumb@2x1": {
+  "file": "images/home/news-slate-truck-ev-thumb-2x1.webp",
+  "w": 560,
+  "h": 280,
+  "bg": "#060606",
+  "sig": "dd09a3c8c5"
  },
  "news-tata-sierra-ev-bharat-ncap.html#story": {
   "file": "images/home/news-tata-sierra-ev-bharat-ncap-story-16x9.webp",
@@ -779,6 +1019,178 @@
   "bg": "#4b3c2d",
   "sig": "6d5b63c69b"
  },
+ "reviews/2026-maruti-brezza-automatic/#story": {
+  "file": "images/home/reviews-2026-maruti-brezza-automatic-story-16x9.webp",
+  "w": 563,
+  "h": 317,
+  "bg": "#23100e",
+  "sig": "933c9e8174"
+ },
+ "reviews/2026-maruti-brezza-automatic/#thumb@16x10": {
+  "file": "images/home/reviews-2026-maruti-brezza-automatic-thumb-16x10.webp",
+  "w": 507,
+  "h": 317,
+  "bg": "#411b15",
+  "sig": "56c8e963f8"
+ },
+ "reviews/2026-maruti-brezza-automatic/#thumb@16x9": {
+  "file": "images/home/reviews-2026-maruti-brezza-automatic-thumb-16x9.webp",
+  "w": 560,
+  "h": 315,
+  "bg": "#23100e",
+  "sig": "9188dab78d"
+ },
+ "reviews/2026-maruti-brezza-automatic/#thumb@2x1": {
+  "file": "images/home/reviews-2026-maruti-brezza-automatic-thumb-2x1.webp",
+  "w": 560,
+  "h": 280,
+  "bg": "#1c0f0d",
+  "sig": "8d8bf36853"
+ },
+ "reviews/2026-maruti-brezza-boot-space/#story": {
+  "file": "images/home/reviews-2026-maruti-brezza-boot-space-story-16x9.webp",
+  "w": 770,
+  "h": 433,
+  "bg": "#010101",
+  "sig": "f701af132b"
+ },
+ "reviews/2026-maruti-brezza-boot-space/#thumb@16x10": {
+  "file": "images/home/reviews-2026-maruti-brezza-boot-space-thumb-16x10.webp",
+  "w": 560,
+  "h": 350,
+  "bg": "#020201",
+  "sig": "31e9871945"
+ },
+ "reviews/2026-maruti-brezza-boot-space/#thumb@16x9": {
+  "file": "images/home/reviews-2026-maruti-brezza-boot-space-thumb-16x9.webp",
+  "w": 560,
+  "h": 315,
+  "bg": "#010101",
+  "sig": "8986be0c00"
+ },
+ "reviews/2026-maruti-brezza-boot-space/#thumb@2x1": {
+  "file": "images/home/reviews-2026-maruti-brezza-boot-space-thumb-2x1.webp",
+  "w": 560,
+  "h": 323,
+  "bg": "#010101",
+  "sig": "c4cbce8e3f",
+  "contain": true
+ },
+ "reviews/2026-maruti-brezza-cng/#story": {
+  "file": "images/home/reviews-2026-maruti-brezza-cng-story-16x9.webp",
+  "w": 990,
+  "h": 557,
+  "bg": "#060606",
+  "sig": "409cd2f66d"
+ },
+ "reviews/2026-maruti-brezza-cng/#thumb@16x10": {
+  "file": "images/home/reviews-2026-maruti-brezza-cng-thumb-16x10.webp",
+  "w": 560,
+  "h": 317,
+  "bg": "#060606",
+  "sig": "973558a4da",
+  "contain": true
+ },
+ "reviews/2026-maruti-brezza-cng/#thumb@16x9": {
+  "file": "images/home/reviews-2026-maruti-brezza-cng-thumb-16x9.webp",
+  "w": 560,
+  "h": 315,
+  "bg": "#060606",
+  "sig": "2a413d4bb4"
+ },
+ "reviews/2026-maruti-brezza-cng/#thumb@2x1": {
+  "file": "images/home/reviews-2026-maruti-brezza-cng-thumb-2x1.webp",
+  "w": 560,
+  "h": 280,
+  "bg": "#050505",
+  "sig": "cb09920f89"
+ },
+ "reviews/2026-maruti-brezza-maintenance-cost/#story": {
+  "file": "images/home/reviews-2026-maruti-brezza-maintenance-cost-story-16x9.webp",
+  "w": 928,
+  "h": 522,
+  "bg": "#0d2c34",
+  "sig": "b2f4ac80e1"
+ },
+ "reviews/2026-maruti-brezza-maintenance-cost/#thumb@16x10": {
+  "file": "images/home/reviews-2026-maruti-brezza-maintenance-cost-thumb-16x10.webp",
+  "w": 560,
+  "h": 350,
+  "bg": "#0d2c35",
+  "sig": "6042244e59"
+ },
+ "reviews/2026-maruti-brezza-maintenance-cost/#thumb@16x9": {
+  "file": "images/home/reviews-2026-maruti-brezza-maintenance-cost-thumb-16x9.webp",
+  "w": 560,
+  "h": 315,
+  "bg": "#0d2c34",
+  "sig": "4d4c18670a"
+ },
+ "reviews/2026-maruti-brezza-maintenance-cost/#thumb@2x1": {
+  "file": "images/home/reviews-2026-maruti-brezza-maintenance-cost-thumb-2x1.webp",
+  "w": 560,
+  "h": 310,
+  "bg": "#0d2c34",
+  "sig": "f6074d36b6",
+  "contain": true
+ },
+ "reviews/2026-maruti-brezza-mileage/#story": {
+  "file": "images/home/reviews-2026-maruti-brezza-mileage-story-16x9.webp",
+  "w": 896,
+  "h": 504,
+  "bg": "#1b2f34",
+  "sig": "773018336c"
+ },
+ "reviews/2026-maruti-brezza-mileage/#thumb@16x10": {
+  "file": "images/home/reviews-2026-maruti-brezza-mileage-thumb-16x10.webp",
+  "w": 560,
+  "h": 350,
+  "bg": "#1a2e34",
+  "sig": "4d9250e297"
+ },
+ "reviews/2026-maruti-brezza-mileage/#thumb@16x9": {
+  "file": "images/home/reviews-2026-maruti-brezza-mileage-thumb-16x9.webp",
+  "w": 560,
+  "h": 315,
+  "bg": "#1b2f34",
+  "sig": "854e61a639"
+ },
+ "reviews/2026-maruti-brezza-mileage/#thumb@2x1": {
+  "file": "images/home/reviews-2026-maruti-brezza-mileage-thumb-2x1.webp",
+  "w": 560,
+  "h": 321,
+  "bg": "#1a2f34",
+  "sig": "3d8fbb0841",
+  "contain": true
+ },
+ "reviews/2026-maruti-brezza-pros-cons/#story": {
+  "file": "images/home/reviews-2026-maruti-brezza-pros-cons-story-16x9.webp",
+  "w": 755,
+  "h": 425,
+  "bg": "#0c0a0a",
+  "sig": "ff90a67ddd"
+ },
+ "reviews/2026-maruti-brezza-pros-cons/#thumb@16x10": {
+  "file": "images/home/reviews-2026-maruti-brezza-pros-cons-thumb-16x10.webp",
+  "w": 560,
+  "h": 350,
+  "bg": "#0b0909",
+  "sig": "dd4f5ed564"
+ },
+ "reviews/2026-maruti-brezza-pros-cons/#thumb@16x9": {
+  "file": "images/home/reviews-2026-maruti-brezza-pros-cons-thumb-16x9.webp",
+  "w": 560,
+  "h": 315,
+  "bg": "#0c0a0a",
+  "sig": "74bedd841d"
+ },
+ "reviews/2026-maruti-brezza-pros-cons/#thumb@2x1": {
+  "file": "images/home/reviews-2026-maruti-brezza-pros-cons-thumb-2x1.webp",
+  "w": 560,
+  "h": 280,
+  "bg": "#0c0b0a",
+  "sig": "b8a04ba789"
+ },
  "reviews/2026-maruti-brezza-review/#story": {
   "file": "images/home/reviews-2026-maruti-brezza-review-story-16x9.webp",
   "w": 780,
@@ -806,6 +1218,34 @@
   "h": 280,
   "bg": "#b2a48f",
   "sig": "fd6a717cd5"
+ },
+ "reviews/2026-maruti-brezza-safety/#story": {
+  "file": "images/home/reviews-2026-maruti-brezza-safety-story-16x9.webp",
+  "w": 690,
+  "h": 388,
+  "bg": "#020202",
+  "sig": "e92e3f3aa4"
+ },
+ "reviews/2026-maruti-brezza-safety/#thumb@16x10": {
+  "file": "images/home/reviews-2026-maruti-brezza-safety-thumb-16x10.webp",
+  "w": 560,
+  "h": 350,
+  "bg": "#020202",
+  "sig": "a7b1c014b8"
+ },
+ "reviews/2026-maruti-brezza-safety/#thumb@16x9": {
+  "file": "images/home/reviews-2026-maruti-brezza-safety-thumb-16x9.webp",
+  "w": 560,
+  "h": 315,
+  "bg": "#020202",
+  "sig": "2bee70ba20"
+ },
+ "reviews/2026-maruti-brezza-safety/#thumb@2x1": {
+  "file": "images/home/reviews-2026-maruti-brezza-safety-thumb-2x1.webp",
+  "w": 560,
+  "h": 280,
+  "bg": "#020202",
+  "sig": "913f744656"
  },
  "reviews/2026-maruti-brezza-turbo-vs-petrol/#story": {
   "file": "images/home/reviews-2026-maruti-brezza-turbo-vs-petrol-story-16x9.webp",
@@ -835,6 +1275,38 @@
   "h": 280,
   "bg": "#857867",
   "sig": "b27a873921"
+ },
+ "reviews/2026-maruti-brezza-variants/#story": {
+  "file": "images/home/reviews-2026-maruti-brezza-variants-story-16x9.webp",
+  "w": 1200,
+  "h": 379,
+  "bg": "#133037",
+  "sig": "54ba0261f8",
+  "contain": true
+ },
+ "reviews/2026-maruti-brezza-variants/#thumb@16x10": {
+  "file": "images/home/reviews-2026-maruti-brezza-variants-thumb-16x10.webp",
+  "w": 560,
+  "h": 177,
+  "bg": "#133037",
+  "sig": "c5f2df47bf",
+  "contain": true
+ },
+ "reviews/2026-maruti-brezza-variants/#thumb@16x9": {
+  "file": "images/home/reviews-2026-maruti-brezza-variants-thumb-16x9.webp",
+  "w": 560,
+  "h": 177,
+  "bg": "#133037",
+  "sig": "2e82b2080e",
+  "contain": true
+ },
+ "reviews/2026-maruti-brezza-variants/#thumb@2x1": {
+  "file": "images/home/reviews-2026-maruti-brezza-variants-thumb-2x1.webp",
+  "w": 560,
+  "h": 177,
+  "bg": "#133037",
+  "sig": "0150abfc6d",
+  "contain": true
  },
  "reviews/2026-maruti-swift-review/#story": {
   "file": "images/home/reviews-2026-maruti-swift-review-story-16x9.webp",
