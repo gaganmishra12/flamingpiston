@@ -18,7 +18,7 @@
 | `assets/fp-home.js` | Homepage only: Latest Stories filter tabs and the car finder (the lead story is static) | 5 KB |
 | `assets/fp-tools.js` | `/tools.html` only: four calculators | 4 KB |
 
-Cache-busting query strings are set by `scripts/apply-shell.js`: `V = '20261126c'` (fp.css / fp.js) and `VH = '20261127c'` (fp-home.css / fp-home.js, bumped for the 27 Nov consolidated build).
+Cache-busting query strings are set by `scripts/apply-shell.js`: `V = '20261126c'` (fp.css / fp.js) and `VH = '20261127d'` (fp-home.css / fp-home.js, bumped for the research-area layout fix).
 
 **Rendering scale:** the site renders at normal 100% browser zoom on every screen. The 90% desktop zoom (`html{zoom:.9}`) proposed in the unpushed 27 Nov editorial-system package was **not adopted** (Gagan, 27 Nov 2026): density is handled with the 1440px container, the type scale and spacing below. Do not add page-wide `zoom` or `transform: scale`. Bump the relevant one whenever a file changes.
 
@@ -176,8 +176,7 @@ Site scale (`fp.css`): `--s-1` 4 · `--s-2` 8 · `--s-3` 12 · `--s-4` 16 · `--
 | Latest Stories | Lead story + 3 rows | `51fr / 49fr`, gap 40px; lead = 16:9 photo above text; rows = 200px 16:9 thumb + text, hairline dividers, no card borders |
 | Finder | Title · intro · 3 selects · button | `auto · minmax(170px,1.1fr) · 3×1fr · auto`, min-height 84px, flat petrol, radius 10px |
 | Featured Cars | 4 cards | `repeat(4, 1fr)`, gap 20px |
-| Compare + New & Upcoming | Module + 2 entries | `48fr / 52fr`, hairline between; Compare = 16:10 photo (47%) \| text; New & Upcoming = 2 entries side by side when the column is ≥640px wide (container query), else stacked rows |
-| Latest Reviews + Buying Tools | Review card + 4 tiles | `55fr / 45fr`, hairline between; tools 4 across when the column is ≥520px (container query), else 2×2 |
+| Research area (since 27 Nov 2026 fix) | **One block of two independent columns**, not paired rows | `59fr / 41fr`, 36px gutters, 1px `--rule` hairline between. **Left (editorial):** Compare (16:10 photo 47% \| text), then Latest Reviews (card). **Right (utility):** New & Upcoming (2 stacked compact entries, 160px 16:9 thumbs; side by side only when the column is ≥640px), then Buying Tools (2×2 tiles). Each column stacks from the top with 40px between modules, so neither column waits for the other: no dead space, no forced equal heights |
 | Guides | 3 compact cards | `repeat(3, 1fr)`; image 38% (16:10) + label + title |
 | Car Culture | Band | 1 column, 240px tall, 4:1 image anchored right |
 | Footer | Brand + 4 columns | `4fr repeat(4, 2fr)`, gap 32px (from `fp.css`) |
@@ -193,7 +192,7 @@ Site scale (`fp.css`): `--s-1` 4 · `--s-2` 8 · `--s-3` 12 · `--s-4` 16 · `--
 | ≥ 1440 | Full layout; content capped at 1440px; lead image ends at the container edge with a short fade into the band |
 | ≤ 1439 | Finder gap tightens |
 | ≤ 1279 | Nav moves into the drawer; finder intro hidden; Latest Stories rows 160px thumbs; split-row gutters 24px; guide cards image over text; New & Upcoming / tools reflow by container width |
-| ≤ 1023 | Lead story stacks: 16:9 image on top (right-anchored, whole car), text below; Latest Stories lead becomes photo \| text with the rows below; finder 3 columns with full-width title/button; Featured Cars 2×2; Compare/New & Upcoming and Reviews/Tools stack; Car Culture image on top (2.4:1) |
+| ≤ 1023 | Lead story stacks: 16:9 image on top (right-anchored, whole car), text below; Latest Stories lead becomes photo \| text with the rows below; finder 3 columns with full-width title/button; Featured Cars 2×2; the research area becomes one column (Compare, Latest Reviews, New & Upcoming, Buying Tools); Car Culture image on top (2.4:1) |
 | ≤ 767 | Mobile: 60px header; lead image 16:10; filter tabs scroll sideways in one line; Latest Stories rows 118px thumbs; finder 2 columns (budget full width); Compare photo \| text; New & Upcoming rows; review image on top; guides one column with 118px thumbs |
 | ≤ 389 | Filter tabs 13px with 12px gaps |
 | ≤ 359 | Featured Cars one column (was ≤389 until 27 Nov: two columns stay readable at 375–389) |
@@ -270,7 +269,7 @@ All homepage cards are whole-card links (or carry a clear link), use hover under
 | Compare module | `.cm-card` | No banner: 16:10 pair photo (47%, radius 6px, cut from the comparison banner's `subject`) \| short title (banner `headline`), one line (banner `short`, else the first sentence of its `dek`), "Compare now" text link; small mono credit below. |
 | New & Upcoming entry | `.nu-item` | On ivory: 16:9 thumbnail (cut from the launch/upcoming banner's `subject`, or the older `upcoming#` crop) + label, 18px upright name, dated status line, ember text link. Two side by side with a hairline when the column allows, else stacked rows. Confirmed vs expected wording comes from the banner's `status`. |
 | Review card | `.lr-card` | Light card, radius 8px; image left (48%, 16:10), text right: Buyer's Brief label, 19px title, mono date, one-sentence dek, "Read the Brief"; image on top on phones |
-| Tool tile | `.tl-card` | Light tile, radius 8px, min-height 104px; 28px line icon above a short name (description moved to the link's `title`); no shadow |
+| Tool tile | `.tl-card` | Light tile, radius 8px, min-height 124px (112px mobile), padding 16px, left-aligned: 28px line icon, 15.5px tool name, 12.5px one-line descriptor; 2×2 grid (4 across only in a single column ≥700px wide, e.g. tablet); no shadow |
 | Guide card | `.gd-card` | Light card, radius 8px, 10px padding; image 38% (16:10, radius 4px) + label + 16px title; no dek |
 | Culture banner | `.cc-banner` | The only immersive band after the lead story. Petrol, radius 12px, 240px; image right 62% with a 20% left fade (frame ≈3.5:1 so the whole car stays in view; 16:9 image on top on mobile); italic title, dek, primary button, credit |
 | Fallback tile | `.fp-tile` | Petrol-2 → petrol gradient with two ember slashes and a mono type label; used when an article has no clean image |
@@ -320,8 +319,7 @@ Light cards: 1px `--card-border`; hover 1px `--rule-strong` (no shadow since 27 
 | Latest Stories | Lead 51% \| 3 rows | Same, 160px row thumbs | Lead photo \| text, rows below | Lead stacked, 118px row thumbs, scrolling tabs |
 | Finder | One row | Title + 3 selects + button, intro hidden | 3 columns, title/button full width | 2 columns, budget full width |
 | Featured Cars | 4-up | 4-up | 2×2 | 2×2 (1-up ≤359) |
-| Compare + New & Upcoming | 48/52, entries side by side | 48/52, entries stacked | Stacked, entries side by side | Stacked; Compare photo \| text; entry rows |
-| Reviews + Tools | 55/45, tools 4-up (≥520px column) | 55/45, tools 2×2 | Stacked, tools 4-up | Review image on top; tools 2×2 |
+| Research area | 2 columns 59/41: Compare → Latest Reviews \| New & Upcoming → Buying Tools (2×2) | Same, narrower gutters; entries stacked; review card image beside text | One column in reading order: Compare, Latest Reviews, New & Upcoming (2 side by side), Buying Tools (4 across) | One column: Compare (photo \| text), Latest Reviews (image on top), New & Upcoming rows, Buying Tools 2×2 |
 | Guides | 3-up, image beside text | 3-up, image above text | 3-up, image above text | 1-up, 118px image beside text |
 | Car Culture | 240px band | 240px band | Image on top, text below | Image on top, text below |
 | Footer | Brand + 4 columns | Brand + 4 | Brand full width + 2 columns | 2 columns |
