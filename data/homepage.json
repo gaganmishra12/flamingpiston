@@ -2,23 +2,26 @@
   "_about": "Homepage curation. build-lists.js reads this file. The homepage only shows clean, text-free crops made by scripts/make-home-images.py from the boxes below (box = [left, top, right, bottom] as fractions of the source image). Social/branded graphics with baked-in headlines are never used uncropped. Articles without a clean image here get a plain brand tile instead.",
 
   "exclude": {
-    "_about": "Stories never shown on the homepage (e.g. pre-launch pieces waiting for the accuracy-gate rewrite).",
+    "_about": "Stories never shown anywhere on the homepage, Latest Stories included (e.g. pre-launch pieces overtaken by the launch whose rewrites wait in drafts/ for approval). They stay public on their listing pages.",
     "urls": ["guides/innova-hycross-facelift-buy-now-or-wait/", "news-toyota-innova-hycross-facelift-teaser.html"]
   },
 
   "hero": {
-    "_about": "Lead story: the newest Buyer's Brief that has a 'hero' banner in 'banners' below. Put a URL in 'pinned' to hold a chosen story instead (leave empty for automatic).",
-    "pinned": ""
+    "_about": "Main lead story (static, never rotates; any category: news, launch, comparison, guide or Buyer's Brief). To feature a story: put its URL in 'article' (as in the sitemap, no leading slash) and give it a 'hero' banner below; optional 'start' / 'end' dates (YYYY-MM-DD, India time, both inclusive) are checked at every rebuild. Leave 'article' empty, or let it expire, and the newest Priority 1 hero-eligible story with a hero banner leads (priorities are in data/articles.json). A routine (Priority 3) story never leads just because it is newest.",
+    "article": "",
+    "start": "",
+    "end": ""
   },
 
   "comparison": {
-    "_about": "Comparison banner: the newest Comparison that has a 'compare' banner in 'banners'. 'pinned' holds a chosen one.",
-    "pinned": ""
+    "_about": "Compare module: empty 'article' = the newest comparison with a 'compare' banner below (its photo is cut from the banner's 'subject'); a URL chooses one by hand. Optional banner field 'short' = the one line shown under the title.",
+    "article": ""
   },
 
   "newUpcoming": {
-    "_about": "Two cards: the newest story with a 'launch' banner and the newest with an 'upcoming' banner (see 'banners'). 'pinned' holds chosen stories. Until a kind has a banner, its card falls back to 'items' (the older split-card layout). Every line must come from the linked FlamingPiston story; say 'expected' unless the date is confirmed.",
-    "pinned": { "launch": "", "upcoming": "" },
+    "_about": "Curated by hand (verified launch information only, until the vehicle database exists). 'launch' and 'upcoming' are the two stories shown; each uses its 'launch' / 'upcoming' banner below (the compact entry shows a 16:9 crop of the car from the banner's 'subject' and the banner's dated 'status' line). Empty = the newest story with that banner. A story with no banner yet falls back to its entry in 'items'. Every line must come from the linked FlamingPiston story; say 'expected' unless the date is confirmed.",
+    "launch": "news-denza-d9-z9-gt-india-launch.html",
+    "upcoming": "news-hyundai-tucson-2027.html",
     "items": [
       { "url": "news-denza-d9-z9-gt-india-launch.html", "label": "New launch", "name": "Denza D9", "status": "Launched at ₹90 lakh · 18 Nov 2026", "link": "Read the launch story",
         "image": { "src": "images/news-denza-d9-z9-gt-india-launch-photo.jpg", "subject": [0.325, 0.24, 0.975, 0.79], "area": [0, 0, 1, 0.95], "erase": [[0, 0.05, 0.345, 0.48]] } },
@@ -31,8 +34,8 @@
     "title": "Car Culture",
     "dek": "Performance, design, innovation and the machines that define automotive history.",
     "url": "/car-culture.html",
-    "_about_image": "The banner shows the newest story in data/car-culture.json that has a 'culture' banner (or 'pinned'); until one exists it uses 'image' below.",
-    "pinned": "",
+    "_about_image": "The banner image comes from the newest Car Culture story (data/car-culture.json, or category Car Culture in data/articles.json) that has a 'culture' banner; 'article' chooses one by hand. Until one exists it uses 'image' below.",
+    "article": "",
     "image": { "src": "images/tesla-roadster-news-hero.jpg", "box": [0, 0.05, 1, 0.93], "pos": "60% 60%" },
     "credit": "AI illustration: FlamingPiston"
   },
@@ -40,7 +43,7 @@
   "featuredCars": ["maruti-brezza", "skoda-kylaq", "kia-seltos", "kia-syros-ev"],
 
   "banners": {
-    "_about": "Homepage banners, one per article, made for the layout (see docs/HOMEPAGE-BANNERS.md for sizes and prompt templates). kind: hero (2400x1000) | compare (2400x1000) | launch, upcoming (2400x800) | culture (3000x750). 'subject' = the car(s) bounding box [left, top, right, bottom] as fractions; the car must sit on the right with the left side dark and empty. compare also needs 'split' (x of the gap between the cars). launch/upcoming need 'status' (one dated line from the story). Optional: headline, dek, name, label, link, credit.",
+    "_about": "Homepage banners, one per article, made for the layout (see docs/HOMEPAGE-BANNERS.md for sizes and prompt templates). kind: hero (2400x1000) | compare (2400x1000) | launch, upcoming (2400x800) | culture (3000x750), or a list of kinds when one image serves two spots. 'subject' = the car(s) bounding box [left, top, right, bottom] as fractions; the car must sit on the right with the left side dark and empty. compare also needs 'split' (x of the gap between the cars). launch/upcoming need 'status' (one dated line from the story). Optional: headline, dek, name, label, link, credit.",
     "reviews/2026-mahindra-thar-roxx-4x4-review/": { "kind": "hero", "src": "images/banners/2026-mahindra-thar-roxx-4x4-review.jpg", "subject": [0.42, 0.11, 0.97, 0.93], "credit": "Image: Mahindra, edited by FlamingPiston" },
     "comparisons/tata-sierra-ev-vs-mahindra-be-6/": { "kind": "compare", "src": "images/banners/tata-sierra-ev-vs-mahindra-be-6.jpg", "subject": [0.39, 0.25, 0.97, 0.81], "split": 0.68,
       "headline": "Sierra EV vs BE 6", "dek": "Both are five-star Bharat NCAP cars that start ₹66,000 apart. Safety detail, price, range, charging and space, compared.",
@@ -54,7 +57,7 @@
   },
 
   "images": {
-    "_about": "Per article: 'hero' (exact 16:10 'box' for the lead story) and 'thumb' ('subject' = the car's bounding box; scripts/make-home-images.py frames it at every slot ratio). Optional 'area' keeps baked-in headlines out; 'erase' paints headline text off a plain studio wall.",
+    "_about": "Per article: 'hero' (exact 16:10 'box' for the lead story) and 'thumb' ('subject' = the car's bounding box; scripts/make-home-images.py frames it at every slot ratio: 16:10, 2:1 and 16:9, plus a large 16:9 'story' crop for the Latest Stories lead). Optional 'area' keeps baked-in headlines out; 'erase' paints headline text off a plain studio wall.",
     "reviews/2026-mahindra-thar-roxx-4x4-review/": {
       "thumb": { "src": "images/mahindra-thar-roxx-review-hero.jpg", "subject": [0.268, 0.24, 0.925, 0.86], "area": [0.25, 0, 1, 0.93] }
     },
@@ -111,6 +114,27 @@
     },
     "news-denza-d9-z9-gt-india-launch.html": {
       "thumb": { "src": "images/news-denza-d9-z9-gt-india-launch-photo.jpg", "subject": [0.325, 0.24, 0.975, 0.79], "area": [0, 0, 1, 0.95], "erase": [[0, 0.05, 0.345, 0.48]] }
+    },
+    "comparisons/tata-sierra-ev-vs-mahindra-be-6/": {
+      "thumb": { "src": "images/banners/tata-sierra-ev-vs-mahindra-be-6.jpg", "subject": [0.39, 0.25, 0.97, 0.81] }
+    },
+    "reviews/2026-mahindra-be6-sporteq-review/": {
+      "thumb": { "src": "images/mahindra-be6-sporteq-review-hero.jpg", "subject": [0.29, 0.28, 0.975, 0.82], "area": [0.27, 0, 1, 0.95] }
+    },
+    "comparisons/2026-glanza-vs-baleno/": {
+      "thumb": { "src": "images/glanza-vs-baleno-comparison-hero.jpg", "subject": [0.025, 0.36, 0.96, 0.78], "area": [0, 0.29, 1, 0.95] }
+    },
+    "reviews/2026-maruti-brezza-turbo-vs-petrol/": {
+      "thumb": { "src": "images/brezza-turbo-vs-petrol-hero.jpg", "subject": [0.04, 0.36, 0.965, 0.76], "area": [0, 0, 1, 0.95] }
+    },
+    "news-tesla-roadster-reveal-2026.html": {
+      "thumb": { "src": "images/tesla-roadster-news-hero.jpg", "subject": [0.25, 0.33, 0.78, 0.72], "area": [0, 0, 1, 0.92] }
+    },
+    "news-bmw-7-series-i7-facelift-india.html": {
+      "thumb": { "src": "images/news-bmw-7-series-i7-facelift.jpg", "subject": [0.29, 0.30, 0.725, 0.75], "area": [0, 0, 1, 0.76] }
+    },
+    "news-porsche-cayenne-electric-india.html": {
+      "thumb": { "src": "images/news-porsche-cayenne-electric.jpg", "subject": [0.32, 0.17, 0.88, 0.73], "area": [0, 0, 1, 0.79] }
     }
   }
 }

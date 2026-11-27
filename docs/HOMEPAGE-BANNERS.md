@@ -1,36 +1,37 @@
 # Homepage banners — how the homepage updates itself
 
-Five homepage spots use a **banner**: an image made for the layout, with the car on the right and a dark, empty left side for the text. Each spot automatically shows the **newest article of its type that has a banner**. You make one banner image when you publish the article, and the homepage changes on the next build.
+Five homepage spots use a **banner**: an image made for the layout, with the car on the right and a dark, empty left side for the text. The lead is chosen editorially; the other spots show the **newest article of their type that has a banner** unless you choose one. You make one banner image when you publish the article, and the homepage changes on the next build.
+
+**Since the 27 Nov 2026 refinement** only the **lead story** and **Car Culture** show their banner as a full-width image. The **Compare** module and the two **New & Upcoming** entries show a small, clean crop of the car(s) that the build cuts from the banner's `subject` box (16:10 for Compare, 16:9 for New & Upcoming). So the banner sizes and prompts below stay the same, and `subject` must be accurate.
 
 | Spot | Shows the newest… | `kind` | Size | Car sits | Left side (text) |
 |---|---|---|---|---|---|
-| Lead story (hero) | Buyer's Brief | `hero` | 2400 × 1000 (2.4:1) | right 55%, 80–85% of height | left 40% dark |
+| Lead story (hero) | chosen editorially (any category; see `docs/PUBLISHING.md`) | `hero` | 2400 × 1000 (2.4:1) | right 55%, 80–85% of height | left 40% dark |
 | Comparison banner | Comparison | `compare` | 2400 × 1000 (2.4:1) | both cars head-on, right ~62% | left 35% dark |
-| New & Upcoming: launch card | news story marked `launch` | `launch` | 2400 × 800 (3:1) | right 55%, ~80% of height | left 45% dark |
-| New & Upcoming: upcoming card | news story marked `upcoming` | `upcoming` | 2400 × 800 (3:1) | right 55%, ~80% of height | left 45% dark |
+| New & Upcoming: launch entry | story in `newUpcoming.launch` | `launch` | 2400 × 800 (3:1) | right 55%, ~80% of height | left 45% dark |
+| New & Upcoming: upcoming entry | story in `newUpcoming.upcoming` | `upcoming` | 2400 × 800 (3:1) | right 55%, ~80% of height | left 45% dark |
 | Car Culture banner | story listed in `data/car-culture.json` | `culture` | 2400 × 800 (3:1), then a vertical `box` crop to ≈4.4:1 | right 45%, between ~17% and ~76% of height | left 33% dark, warm scenery in the middle |
 
 No text, logos or watermark in any banner. The page adds the headline, labels, "VS" badge and credit.
 
 ## Every homepage section updates itself
 
-After `sh scripts/update-site.sh`, each section shows the newest articles of its kind (by `datePublished`), and a story appears only once on the page:
+After `sh scripts/update-site.sh`, each section updates from the articles (newest first by original `datePublished`). Featured sections avoid repeating each other; Latest Stories is a complete feed and may repeat them:
 
 | Section | Shows |
 |---|---|
-| Lead story | newest Buyer's Brief **with a `hero` banner** |
-| Supporting stories (3, beside the lead) | newest News · newest Buyer's Brief or Comparison · newest Guide or Explainer |
-| Comparison banner | newest Comparison **with a `compare` banner** |
-| Latest News | the next newest News stories |
-| New & Upcoming | newest stories with a `launch` / `upcoming` banner |
-| Latest Reviews | the next newest Buyer's Brief |
-| Buying & Ownership Guides | the next 3 newest Guides / Explainers |
+| Lead story | `hero.article` (inside its `start`/`end` dates), else the newest **Priority 1** story **with a `hero` banner** (`data/articles.json`); a routine story never leads |
+| Latest Stories | **every** live story, newest first by original `datePublished`, with filters All · News · Reviews · Compare · Guides · Car Culture (1 large + 3 rows each). Stories shown elsewhere still appear here; only `exclude`, drafts and scheduled stories are skipped |
+| Compare | `comparison.article`, else the newest Comparison **with a `compare` banner** (compact module: pair photo, `headline`, one line, link) |
+| New & Upcoming | the curated `newUpcoming.launch` / `.upcoming` stories (compact entries; their banner's `subject` and `status`) |
+| Latest Reviews | the newest featurable Buyer's Brief not already on the page |
+| Buying & Ownership Guides | the 3 newest featurable Guides / Explainers not already on the page |
 | Car Culture banner | newest Car Culture story **with a `culture` banner** |
 | Featured Cars | the cars listed in `featuredCars` (by hand) |
 
-So a brand-new Buyer's Brief without a banner still appears straight away (as a supporting story), and takes over the lead once its banner is added.
+So a brand-new story of any kind appears straight away at the top of Latest Stories. It takes the lead only when you choose it (`hero.article`) or make it Priority 1, and it has a hero banner. Full rules: `docs/PUBLISHING.md`.
 
-**Thumbnails:** list sections use a clean, text-free thumbnail from `"images"` in `data/homepage.json` (`"thumb": { "src", "subject", optional "area" / "erase" }`). A new story without one still appears, with a plain FlamingPiston tile, and the script's `Tip:` line names it. Add its `thumb` and run the script again.
+**Thumbnails:** Latest Stories, Latest Reviews and Guides use a clean, text-free thumbnail from `"images"` in `data/homepage.json` (`"thumb": { "src", "subject", optional "area" / "erase" }`). The build cuts it at every slot ratio (16:10, 16:9, and a large 16:9 for the Latest Stories lead). A new story without one still appears, with a plain FlamingPiston tile, and the script's `Tip:` line names it. **Add a `thumb` for every new story**: the newest story is the large Latest Stories photo. Optional for a comparison banner: `"short"` = the one line shown in the Compare module (default: the first sentence of `dek`).
 
 ## Publishing a story with a banner (3 steps)
 
@@ -46,6 +47,8 @@ So a brand-new Buyer's Brief without a banner still appears straight away (as a 
   "credit": "Image: Mahindra, edited by FlamingPiston"
 }
 ```
+
+- `kind` can also be a list, e.g. `["hero", "launch"]`: one image serves both spots (a story still appears only once; the lead takes it first). The first kind sets the expected size.
 
 - `subject`: the car's box as fractions of the image `[left, top, right, bottom]`. A rough box is fine; it is used to check that the car stays clear of the text.
 - `compare` also needs `"split"`: the x position (0–1) of the gap between the two cars, where the VS badge goes. Optional `"headline"` / `"dek"` (default: the article's title before the colon / its description).

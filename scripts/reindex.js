@@ -8,6 +8,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const ED = require('./editorial.js');
 
 const SITE_ROOT = path.resolve(__dirname, '..');
 const BASE_URL = 'https://flamingpiston.com';
@@ -64,6 +65,15 @@ function findSchema(blocks, type) {
 
 // ─── Discover all article files ───
 
+// Drafts (data/articles.json status "draft") and articles whose datePublished is still in the future are
+// left out of the sitemap, feed and search index until a rebuild after their publish time.
+const REG = ED.loadRegistry();
+function isLiveArticle(url, html) {
+  const iso = (html.match(/"datePublished":\s*"(\d{4}-\d{2}-\d{2}[^"]*)"/) || [])[1];
+  if (!iso) return true;   // pages without a publish date keep their existing behaviour
+  return ED.isLive(ED.entryFor(REG, url), iso);
+}
+
 function discoverArticles() {
   const articles = [];
 
@@ -84,6 +94,7 @@ function discoverArticles() {
     if (hasNoIndex(html)) continue;
     const canonical = extractCanonical(html);
     if (!canonical) continue;
+    if (!isLiveArticle(f, html)) continue;
     articles.push({ file: f, html, canonical, kind: 'news' });
   }
 
@@ -102,6 +113,7 @@ function discoverArticles() {
       if (hasNoIndex(html)) continue;
       const canonical = extractCanonical(html);
       if (!canonical) continue;
+      if (!isLiveArticle(`${section}/${slug}/`, html)) continue;
 
       let kind = 'review';
       if (section === 'comparisons' || slug.includes('-vs-')) kind = 'comparison';
@@ -172,6 +184,7 @@ function parseArticle(art) {
     datePublished: datePublished ? datePublished.split('T')[0] : null,
     dateModified: dateModified ? dateModified.split('T')[0] : null,
     datePublishedFull: datePublished,
+    dateModifiedFull: dateModified,
     kind,
     car,
     tags,
@@ -186,17 +199,23 @@ function loadExistingSearchIndex() {
   } catch { return []; }
 }
 
+// Newest publish/update date across live articles: used for the listing pages' <lastmod> and the feed's
+// lastBuildDate, so re-running the scripts without content changes produces identical files.
+function latestChange(articles) {
+  return articles.map(a => a.dateModified || a.datePublished).filter(Boolean).sort().pop() || '2026-01-01';
+}
+
 // ─── Generate sitemap.xml ───
 
 function generateSitemap(articles) {
   // Static pages with fixed priorities
   const staticPages = [
-    { loc: '/', lastmod: new Date().toISOString().split('T')[0], freq: 'daily', priority: '1.0' },
-    { loc: '/guides.html', lastmod: new Date().toISOString().split('T')[0], freq: 'weekly', priority: '0.8' },
-    { loc: '/comparisons.html', lastmod: new Date().toISOString().split('T')[0], freq: 'weekly', priority: '0.8' },
-    { loc: '/reviews.html', lastmod: new Date().toISOString().split('T')[0], freq: 'daily', priority: '0.9' },
-    { loc: '/news.html', lastmod: new Date().toISOString().split('T')[0], freq: 'daily', priority: '0.7' },
-    { loc: '/car-culture.html', lastmod: new Date().toISOString().split('T')[0], freq: 'weekly', priority: '0.6' },
+    { loc: '/', lastmod: latestChange(articles), freq: 'daily', priority: '1.0' },
+    { loc: '/guides.html', lastmod: latestChange(articles), freq: 'weekly', priority: '0.8' },
+    { loc: '/comparisons.html', lastmod: latestChange(articles), freq: 'weekly', priority: '0.8' },
+    { loc: '/reviews.html', lastmod: latestChange(articles), freq: 'daily', priority: '0.9' },
+    { loc: '/news.html', lastmod: latestChange(articles), freq: 'daily', priority: '0.7' },
+    { loc: '/car-culture.html', lastmod: latestChange(articles), freq: 'weekly', priority: '0.6' },
     { loc: '/tools.html', lastmod: '2026-11-26', freq: 'monthly', priority: '0.6' },
     { loc: '/about.html', lastmod: '2026-08-04', freq: 'yearly', priority: '0.5' },
     { loc: '/contact.html', lastmod: '2026-08-04', freq: 'yearly', priority: '0.4' },
@@ -210,7 +229,7 @@ function generateSitemap(articles) {
     { loc: '/affiliate-disclosure.html', lastmod: '2026-08-04', freq: 'yearly', priority: '0.3' },
     { loc: '/disclaimer.html', lastmod: '2026-08-04', freq: 'yearly', priority: '0.3' },
     { loc: '/author-gagan-mishra.html', lastmod: '2026-08-05', freq: 'monthly', priority: '0.5' },
-    { loc: '/sitemap.html', lastmod: new Date().toISOString().split('T')[0], freq: 'monthly', priority: '0.2' },
+    { loc: '/sitemap.html', lastmod: latestChange(articles), freq: 'monthly', priority: '0.2' },
   ];
 
   // Sort articles: reviews first (higher priority), then news
@@ -261,11 +280,10 @@ function generateFeed(articles) {
   // Sort by date descending, take the 20 most recent
   const sorted = [...articles]
     .filter(a => a.datePublished)
-    .sort((a, b) => b.datePublished.localeCompare(a.datePublished))
+    .sort((a, b) => (Date.parse(b.datePublishedFull || b.datePublished) - Date.parse(a.datePublishedFull || a.datePublished)) || a.canonical.localeCompare(b.canonical))
     .slice(0, 20);
 
-  const now = new Date();
-  const buildDate = now.toUTCString();
+  const buildDate = new Date(articles.map(a => a.dateModifiedFull || a.dateModified || a.datePublished).filter(Boolean).sort((x, y) => Date.parse(x) - Date.parse(y)).pop() || '2026-01-01').toUTCString();
 
   const items = sorted.map(a => {
     const pubDate = new Date(a.datePublishedFull || a.datePublished).toUTCString();

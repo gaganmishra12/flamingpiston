@@ -20,7 +20,7 @@ const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
 const V = '20261126c';                       // fp.css / fp.js — bump after editing them
-const VH = '20261126g';                      // homepage-only assets (fp-home.css / fp-home.js)
+const VH = '20261127c';                      // homepage-only assets (fp-home.css / fp-home.js)
 const SKIP_DIRS = new Set(['site', 'scripts', 'images', 'js', 'assets', '.git', 'node_modules', 'design-preview']);
 const args = process.argv.slice(2);
 const DRY = args.includes('--dry-run');
@@ -41,6 +41,7 @@ function walk(dir, out = []) {
 // <main>, same rule as typeOf() in build-lists.js), never by URL folder alone: Brezza guides and
 // several comparisons live under /reviews/, and "x-vs-y" guides are guides, not comparisons.
 function sectionOf(rel, html) {
+  rel = rel.replace(/^drafts\//, '');   // drafts/ mirrors the public paths (pending revisions, new drafts)
   if (rel === 'index.html') return 'home';
   const pages = { 'news.html': 'news', 'reviews.html': 'reviews', 'comparisons.html': 'comparisons', 'guides.html': 'guides',
     'car-culture.html': 'culture', 'tools.html': 'tools' };

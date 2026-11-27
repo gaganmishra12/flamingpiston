@@ -8,18 +8,18 @@ Permanent instructions for every Claude session that touches this repository. Re
 2. `docs/DESIGN-SYSTEM.md` — before any visual change. Follow it; do not invent new styles.
 3. `docs/SITE-ARCHITECTURE.md` — what exists, which URLs are permanent, how pages are generated.
 4. `docs/DEVELOPMENT-ROADMAP.md` — which phase is approved. Work only inside the approved phase.
-5. `docs/design-references/` — screenshots of the approved homepage. Every new page inherits this visual language.
+5. `docs/design-references/` — screenshots of the approved homepage (27 Nov 2026). Every new page inherits this visual language. Earlier homepages are archived in its `archive-2026-11-26-approved/` and `pre-refinement-2026-11-27/` folders.
 
 If the documentation and the code disagree, trust the code, then fix the documentation.
 
 ## The homepage is locked
 
-The approved homepage (26 Nov 2026) is final: masthead with descriptor under the logo, navigation, static lead story (text left, 16:10 image right; no carousel since the 26 Nov refinement), supporting stories, Find Your Next Car, Featured Cars, featured comparison, Latest News, New & Upcoming Cars, Latest Reviews, Buying Tools, Buying & Ownership Guides, Car Culture banner and footer.
+**The approved homepage (consolidated editorial homepage, approved by Gagan on 27 Nov 2026) is final:** global masthead → one static lead story (any category, chosen editorially; no carousel, no supporting stories) → Latest Stories (tabs All · News · Reviews · Compare · Guides · Car Culture; 1 large story + 3 rows) → Find Your Next Car (compact strip) → Featured Cars → Compare + New & Upcoming Cars (compact ivory modules) → Latest Reviews + Buying Tools → Buying & Ownership Guides → Car Culture (closing cinematic band) → global footer. Only the lead story and Car Culture are immersive; the middle stays on ivory. Normal 100% rendering: never add page-wide zoom or scaling. References: `docs/design-references/` (earlier homepages archived there). Publishing rules: `docs/PUBLISHING.md`.
 
-- Do not redesign, restructure, restyle or add sections to it unless Gagan explicitly asks.
-- Its content updates through `data/homepage.json`, `data/cars.json` and `scripts/build-lists.js`; editing that data is fine, changing its design is not.
-- **After adding or editing any article, run `sh scripts/update-site.sh`** (crops, sitemap/RSS/search index, listings + homepage, shared shell). Every homepage section then shows the newest stories of its kind; add a `thumb` (and a banner where the section needs one) for any story the script's WARN/NOTE/Tip lines name. Section rules: `docs/HOMEPAGE-BANNERS.md`.
-- **Homepage banners:** the lead story, comparison banner, New & Upcoming cards and Car Culture banner each show the newest story of their type that has a banner in `data/homepage.json` "banners" (pins override). When publishing a Buyer's Brief, comparison, launch/upcoming news or Car Culture story, offer the matching banner prompt from `docs/HOMEPAGE-BANNERS.md` and add its entry; the build warns about bad proportions, a car under the text, or newer stories with no banner.
+- Do not redesign, restructure, restyle or add sections to it unless Gagan explicitly asks. Do not reintroduce the carousel, supporting stories, full-bleed banners in the middle sections or the 90% zoom.
+- Its content updates through `data/articles.json` (editorial registry), `data/homepage.json`, `data/cars.json` and `scripts/build-lists.js`; editing that data is fine, changing its design is not.
+- **Publishing:** after adding or editing any article run `sh scripts/update-site.sh` (crops, sitemap/RSS/search index, listings + homepage, shared shell). New articles are registered in `data/articles.json` as Priority 3; raise to 2 (featured) or 1 (major, may lead) when it deserves it. Lists sort by the ORIGINAL `datePublished` (editing never makes a story new). The lead is editorial: `hero.article` (+ optional start/end) in `data/homepage.json`, else the newest Priority 1 story with a hero banner; never a routine story. Latest Stories is the complete feed. Full rules: `docs/PUBLISHING.md`.
+- **Homepage banners:** lead, comparison, New & Upcoming and Car Culture spots need a banner made for the layout (`data/homepage.json` "banners"; sizes and prompt templates in `docs/HOMEPAGE-BANNERS.md`). When publishing a story that should fill one, offer the matching banner prompt and add its entry; the build warns about bad proportions, a car under the text, or stories with no banner.
 - After any change to shared files (`fp.css`, `fp.js`, `apply-shell.js`, `build-lists.js`), re-screenshot the homepage and compare it with `docs/design-references/`. Use reduced motion, declined cookies, eager images and wait for image decoding so screenshots are deterministic; the Phase 2A standard was 0 changed pixels at all 8 viewports.
 
 *Homepage = Discovery. Internal pages = Depth.*
@@ -56,7 +56,8 @@ The approved homepage (26 Nov 2026) is final: masthead with descriptor under the
 - Every price shown outside an article needs a source and a last-checked date (see `data/cars.json`).
 - Never claim firsthand driving or ownership. Specification-led assessments are **Buyer's Briefs** and say so.
 - Separate confirmed facts from expectations: "expected", "reported", "not confirmed".
-- Pre-launch articles must be rewritten around confirmed facts once the launch happens (accuracy gate). Keep them off the homepage until then (`exclude` in `data/homepage.json`).
+- Pre-launch articles must be rewritten around confirmed facts once the launch happens (accuracy gate). Keep them off the homepage until then (`exclude` in `data/homepage.json`). **Write the rewrite in `drafts/<same path>`; the public page stays the approved version until Gagan approves** (then copy it over and rebuild). Never publish an unapproved rewrite.
+- Publication status (`data/articles.json`): `draft` and `review` are not public (no listing, 404 by URL via the generated `FP:UNPUBLISHED` block in `.htaccess`); `drafts/` is blocked whole. Always rebuild before deploying. Rules: `docs/PUBLISHING.md` §5.
 - Label AI-generated images "AI illustration". Never present them as real launches, prototypes, crash tests or road tests.
 - Use licensed or manufacturer-permitted photography and record provenance. On the homepage and in editorial cards, never use promotional graphics with baked-in headlines when a clean alternative exists; crop them clean or use the fallback tile.
 

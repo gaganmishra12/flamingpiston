@@ -57,7 +57,7 @@
   <link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/familjen-grotesk-latin-700-italic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/fp.css?v=20261126c">
-  <link rel="stylesheet" href="/assets/fp-home.css?v=20261126g">
+  <link rel="stylesheet" href="/assets/fp-home.css?v=20261127c">
   <!-- /FP:HEAD -->
 </head>
 <body class="home">
@@ -95,7 +95,7 @@
   <main id="main">
   <h1 class="sr-only">FlamingPiston: car news, buyer’s briefs, comparisons and buying guides</h1>
 
-  <section class="fp-band-dark fp-top" aria-label="Top stories">
+  <section class="fp-band-dark fp-top" aria-label="Lead story">
     <div class="fp-container fp-hero">
 <!-- HERO:START -->
       <article class="hl" aria-labelledby="hlTitle">
@@ -105,27 +105,177 @@
           <p class="hl-dek">Mahindra Thar Roxx 4x4 buyer’s brief, November 2026: diesel 4x4 from ₹19.42 lakh, five-star Bharat NCAP, which trim to buy. Specification-led.</p>
           <a class="fp-btn" href="/reviews/2026-mahindra-thar-roxx-4x4-review/">Read the brief<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
-        <figure class="hl-figure" style="aspect-ratio:1600 / 667">
+        <figure class="hl-figure" style="--r:2.399">
           <a class="hl-media" href="/reviews/2026-mahindra-thar-roxx-4x4-review/" tabindex="-1" aria-hidden="true"><img src="/images/home/banner-reviews-2026-mahindra-thar-roxx-4x4-review.webp" alt="Mahindra Thar Roxx 4x4 editorial review banner" width="1600" height="667" style="object-position:100% 50%" fetchpriority="high" decoding="async"></a>
           <figcaption class="hl-credit">Image: Mahindra, edited by FlamingPiston</figcaption>
         </figure>
       </article>
-      <div class="hs" aria-label="More top stories">
-        <article class="hs-item">
-          <a class="hs-media" href="/news-mahindra-xev-9s-bharat-ncap.html" tabindex="-1" aria-hidden="true"><img src="/images/home/news-mahindra-xev-9s-bharat-ncap-thumb-16x10.webp" alt="White Mahindra XEV 9S electric seven-seat SUV in a dark concrete studio, with the headline Mahindra XEV 9S, 5-star Bharat NCAP" width="560" height="350" loading="lazy" decoding="async"></a>
-          <div class="hs-text"><p class="fp-label">News · Report</p><h3><a href="/news-mahindra-xev-9s-bharat-ncap.html" title="Mahindra XEV 9S Gets a 5-Star Bharat NCAP Rating: How It Compares With the XUV 7XO and Safari">Mahindra XEV 9S Gets a 5-Star Bharat NCAP Rating</a></h3><p>How It Compares With the XUV 7XO and Safari</p></div>
-        </article>
-        <article class="hs-item">
-          <a class="hs-media" href="/reviews/2026-mercedes-glc-electric/" tabindex="-1" aria-hidden="true"><img src="/images/home/reviews-2026-mercedes-glc-electric-thumb-16x10.webp" alt="Blue Mercedes-Benz GLC Electric parked outside a modern stone house at sunset, with the headline GLC Electric, 2026 Buyer’s Brief" width="560" height="350" loading="lazy" decoding="async"></a>
-          <div class="hs-text"><p class="fp-label">Buyer’s Brief</p><h3><a href="/reviews/2026-mercedes-glc-electric/">Mercedes GLC Electric at ₹78.50 Lakh: 6 Catches to Know</a></h3></div>
-        </article>
-        <article class="hs-item">
-          <a class="hs-media" href="/guides/baas-vs-buying-ev-battery-break-even/" tabindex="-1" aria-hidden="true"><img src="/images/home/guides-baas-vs-buying-ev-battery-break-even-thumb-16x10.webp" alt="Electric SUV charging at a highway charging station at sunset" width="560" height="350" loading="lazy" decoding="async"></a>
-          <div class="hs-text"><p class="fp-label">Guide</p><h3><a href="/guides/baas-vs-buying-ev-battery-break-even/" title="EV Battery Rental (BaaS) vs Buying Outright: When Does Renting the Battery Cost More?">EV Battery Rental (BaaS) vs Buying Outright</a></h3><p>When Does Renting the Battery Cost More?</p></div>
-        </article>
-      </div>
 <!-- HERO:END -->
     </div>
+  </section>
+
+  <section class="fp-container fp-latest" aria-labelledby="latestTitle">
+    <div class="fp-head fp-head--lead"><h2 id="latestTitle">Latest Stories</h2><a class="fp-more" id="lsMore" href="/news.html" hidden>View All News<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+<!-- STORIES:START -->
+      <div class="ls-tabs" role="tablist" aria-label="Filter latest stories" hidden>
+        <button class="ls-tab" type="button" role="tab" id="ls-tab-all" aria-controls="ls-all" aria-selected="true">All</button>
+        <button class="ls-tab" type="button" role="tab" id="ls-tab-news" aria-controls="ls-news" aria-selected="false" tabindex="-1" data-more="/news.html" data-more-text="View All News">News</button>
+        <button class="ls-tab" type="button" role="tab" id="ls-tab-reviews" aria-controls="ls-reviews" aria-selected="false" tabindex="-1" data-more="/reviews.html" data-more-text="View All Reviews">Reviews</button>
+        <button class="ls-tab" type="button" role="tab" id="ls-tab-compare" aria-controls="ls-compare" aria-selected="false" tabindex="-1" data-more="/comparisons.html" data-more-text="View All Comparisons">Compare</button>
+        <button class="ls-tab" type="button" role="tab" id="ls-tab-guides" aria-controls="ls-guides" aria-selected="false" tabindex="-1" data-more="/guides.html" data-more-text="View All Guides">Guides</button>
+        <button class="ls-tab" type="button" role="tab" id="ls-tab-culture" aria-controls="ls-culture" aria-selected="false" tabindex="-1" data-more="/car-culture.html" data-more-text="View All Car Culture">Car Culture</button>
+      </div>
+      <div class="ls-panel" id="ls-all" role="tabpanel" aria-labelledby="ls-tab-all">
+          <article class="ls-lead">
+            <a class="ls-lead-media" href="/comparisons/tata-sierra-ev-vs-mahindra-be-6/" tabindex="-1" aria-hidden="true"><img srcset="/images/home/comparisons-tata-sierra-ev-vs-mahindra-be-6-thumb-16x9.webp 560w, /images/home/comparisons-tata-sierra-ev-vs-mahindra-be-6-story-16x9.webp 1200w" sizes="(min-width:1200px) 700px, (min-width:768px) 52vw, 100vw" src="/images/home/comparisons-tata-sierra-ev-vs-mahindra-be-6-story-16x9.webp" alt="Grey-green Tata Sierra EV and red Mahindra BE 6 on a wet dark studio floor, with the headline Sierra EV vs BE 6 and the line Both 5-Star. Which One to Buy?" width="1200" height="675" loading="lazy" decoding="async"></a>
+            <div class="ls-lead-text">
+              <p class="fp-label">Comparison</p>
+              <h3><a href="/comparisons/tata-sierra-ev-vs-mahindra-be-6/">Tata Sierra EV vs Mahindra BE 6: Both 5-Star, Which One to Buy?</a></h3>
+              <p class="ls-dek">Both have five-star Bharat NCAP ratings and start ₹66,000 apart. Tata Sierra EV vs Mahindra BE 6 on safety detail, prices, range, charging and space.</p>
+              <p class="ls-meta"><time datetime="2026-11-22">Nov 22, 2026</time> · 5 min read</p>
+            </div>
+          </article>
+          <ul class="ls-list">
+            <li><article class="ls-item">
+              <a class="ls-media" href="/news-tata-sierra-ev-bharat-ncap.html" tabindex="-1" aria-hidden="true"><img src="/images/home/news-tata-sierra-ev-bharat-ncap-thumb-16x9.webp" alt="Silver Tata Sierra EV electric SUV with a black roof in a dark concrete studio, with the headline Tata Sierra EV, 5-star Bharat NCAP" width="560" height="315" loading="lazy" decoding="async"></a>
+              <div class="ls-text"><p class="fp-label">News · Report</p><h3><a href="/news-tata-sierra-ev-bharat-ncap.html">Tata Sierra EV Gets a 5-Star Bharat NCAP Rating, but the Driver’s Feet Score Only ‘Marginal’</a></h3><p class="ls-meta"><time datetime="2026-11-21">Nov 21, 2026</time> · 4 min read</p></div>
+            </article></li>
+            <li><article class="ls-item">
+              <a class="ls-media" href="/news-yangwang-altior-reveal.html" tabindex="-1" aria-hidden="true"><img src="/images/home/news-yangwang-altior-reveal-thumb-16x9.webp" alt="Bronze and black two-tone Yangwang Altior limousine at a modern stone pavilion at dusk, with the headline Yangwang Altior, revealed in Abu Dhabi" width="560" height="315" loading="lazy" decoding="async"></a>
+              <div class="ls-text"><p class="fp-label">News · Reveal</p><h3><a href="/news-yangwang-altior-reveal.html">Yangwang Altior Revealed: BYD’s Coach-Door Limousine Is Sized Between a Maybach and a Phantom</a></h3><p class="ls-meta"><time datetime="2026-11-21">Nov 21, 2026</time> · 3 min read</p></div>
+            </article></li>
+            <li><article class="ls-item">
+              <a class="ls-media" href="/news-mahindra-xev-9s-bharat-ncap.html" tabindex="-1" aria-hidden="true"><img src="/images/home/news-mahindra-xev-9s-bharat-ncap-thumb-16x9.webp" alt="White Mahindra XEV 9S electric seven-seat SUV in a dark concrete studio, with the headline Mahindra XEV 9S, 5-star Bharat NCAP" width="560" height="315" loading="lazy" decoding="async"></a>
+              <div class="ls-text"><p class="fp-label">News · Report</p><h3><a href="/news-mahindra-xev-9s-bharat-ncap.html">Mahindra XEV 9S Gets a 5-Star Bharat NCAP Rating: How It Compares With the XUV 7XO and Safari</a></h3><p class="ls-meta"><time datetime="2026-11-21">Nov 21, 2026</time> · 4 min read</p></div>
+            </article></li>
+          </ul>
+      </div>
+      <div class="ls-panel" id="ls-news" role="tabpanel" aria-labelledby="ls-tab-news" hidden>
+          <article class="ls-lead">
+            <a class="ls-lead-media" href="/news-tata-sierra-ev-bharat-ncap.html" tabindex="-1" aria-hidden="true"><img srcset="/images/home/news-tata-sierra-ev-bharat-ncap-thumb-16x9.webp 560w, /images/home/news-tata-sierra-ev-bharat-ncap-story-16x9.webp 1200w" sizes="(min-width:1200px) 700px, (min-width:768px) 52vw, 100vw" src="/images/home/news-tata-sierra-ev-bharat-ncap-story-16x9.webp" alt="Silver Tata Sierra EV electric SUV with a black roof in a dark concrete studio, with the headline Tata Sierra EV, 5-star Bharat NCAP" width="1200" height="675" loading="lazy" decoding="async"></a>
+            <div class="ls-lead-text">
+              <p class="fp-label">News · Report</p>
+              <h3><a href="/news-tata-sierra-ev-bharat-ncap.html">Tata Sierra EV Gets a 5-Star Bharat NCAP Rating, but the Driver’s Feet Score Only ‘Marginal’</a></h3>
+              <p class="ls-dek">Tata Sierra EV scores 30.62/32 for adults and 45/49 for children in Bharat NCAP, across all variants. The driver’s feet were rated marginal. Rivals compared.</p>
+              <p class="ls-meta"><time datetime="2026-11-21">Nov 21, 2026</time> · 4 min read</p>
+            </div>
+          </article>
+          <ul class="ls-list">
+            <li><article class="ls-item">
+              <a class="ls-media" href="/news-yangwang-altior-reveal.html" tabindex="-1" aria-hidden="true"><img src="/images/home/news-yangwang-altior-reveal-thumb-16x9.webp" alt="Bronze and black two-tone Yangwang Altior limousine at a modern stone pavilion at dusk, with the headline Yangwang Altior, revealed in Abu Dhabi" width="560" height="315" loading="lazy" decoding="async"></a>
+              <div class="ls-text"><p class="fp-label">News · Reveal</p><h3><a href="/news-yangwang-altior-reveal.html">Yangwang Altior Revealed: BYD’s Coach-Door Limousine Is Sized Between a Maybach and a Phantom</a></h3><p class="ls-meta"><time datetime="2026-11-21">Nov 21, 2026</time> · 3 min read</p></div>
+            </article></li>
+            <li><article class="ls-item">
+              <a class="ls-media" href="/news-mahindra-xev-9s-bharat-ncap.html" tabindex="-1" aria-hidden="true"><img src="/images/home/news-mahindra-xev-9s-bharat-ncap-thumb-16x9.webp" alt="White Mahindra XEV 9S electric seven-seat SUV in a dark concrete studio, with the headline Mahindra XEV 9S, 5-star Bharat NCAP" width="560" height="315" loading="lazy" decoding="async"></a>
+              <div class="ls-text"><p class="fp-label">News · Report</p><h3><a href="/news-mahindra-xev-9s-bharat-ncap.html">Mahindra XEV 9S Gets a 5-Star Bharat NCAP Rating: How It Compares With the XUV 7XO and Safari</a></h3><p class="ls-meta"><time datetime="2026-11-21">Nov 21, 2026</time> · 4 min read</p></div>
+            </article></li>
+            <li><article class="ls-item">
+              <a class="ls-media" href="/news-honda-november-2026-offers.html" tabindex="-1" aria-hidden="true"><img src="/images/home/news-honda-november-2026-offers-thumb-16x9.webp" alt="Black 2026 Honda City e:HEV strong hybrid in a dark studio, with the headline Honda November Offers: City up to ₹1.86 lakh" width="560" height="315" loading="lazy" decoding="async"></a>
+              <div class="ls-text"><p class="fp-label">News · Report</p><h3><a href="/news-honda-november-2026-offers.html">Honda November 2026 Offers: Up to ₹1.86 Lakh on the City, Nothing on the Elevate</a></h3><p class="ls-meta"><time datetime="2026-11-20">Nov 20, 2026</time> · 3 min read</p></div>
+            </article></li>
+          </ul>
+      </div>
+      <div class="ls-panel" id="ls-reviews" role="tabpanel" aria-labelledby="ls-tab-reviews" hidden>
+          <article class="ls-lead">
+            <a class="ls-lead-media" href="/reviews/2026-mercedes-glc-electric/" tabindex="-1" aria-hidden="true"><img srcset="/images/home/reviews-2026-mercedes-glc-electric-thumb-16x9.webp 560w, /images/home/reviews-2026-mercedes-glc-electric-story-16x9.webp 1200w" sizes="(min-width:1200px) 700px, (min-width:768px) 52vw, 100vw" src="/images/home/reviews-2026-mercedes-glc-electric-story-16x9.webp" alt="Blue Mercedes-Benz GLC Electric parked outside a modern stone house at sunset, with the headline GLC Electric, 2026 Buyer’s Brief" width="1200" height="675" loading="lazy" decoding="async"></a>
+            <div class="ls-lead-text">
+              <p class="fp-label">Buyer’s Brief</p>
+              <h3><a href="/reviews/2026-mercedes-glc-electric/">Mercedes GLC Electric at ₹78.50 Lakh: 6 Catches to Know</a></h3>
+              <p class="ls-dek">Mercedes GLC Electric buyer’s brief: ₹78.50 lakh, 94 kWh, 711 km claimed, just ₹1.5 lakh over the petrol GLC, and what India’s car leaves out.</p>
+              <p class="ls-meta"><time datetime="2026-11-20">Nov 20, 2026</time></p>
+            </div>
+          </article>
+          <ul class="ls-list">
+            <li><article class="ls-item">
+              <a class="ls-media" href="/reviews/2026-isuzu-v-cross-review/" tabindex="-1" aria-hidden="true"><img src="/images/home/reviews-2026-isuzu-v-cross-review-thumb-16x9.webp" alt="Isuzu D-MAX V-Cross editorial review banner" width="560" height="315" loading="lazy" decoding="async"></a>
+              <div class="ls-text"><p class="fp-label">Buyer’s Brief</p><h3><a href="/reviews/2026-isuzu-v-cross-review/">Isuzu V-Cross 2026: Pickup Practicality, 4WD and Which Variant</a></h3><p class="ls-meta"><time datetime="2026-10-23">Oct 23, 2026</time></p></div>
+            </article></li>
+            <li><article class="ls-item">
+              <a class="ls-media" href="/reviews/2026-kia-seltos-review/" tabindex="-1" aria-hidden="true"><img src="/images/home/reviews-2026-kia-seltos-review-thumb-16x9.webp" alt="Green second-generation Kia Seltos parked outside a modern building at sunset, with the headline Kia Seltos, 2026 Buying Review" width="560" height="316" loading="lazy" decoding="async"></a>
+              <div class="ls-text"><p class="fp-label">Buyer’s Brief</p><h3><a href="/reviews/2026-kia-seltos-review/">Kia Seltos 2026: Which Engine and Variant to Buy</a></h3><p class="ls-meta"><time datetime="2026-10-23">Oct 23, 2026</time></p></div>
+            </article></li>
+            <li><article class="ls-item">
+              <a class="ls-media" href="/reviews/2026-mahindra-be6-sporteq-review/" tabindex="-1" aria-hidden="true"><img src="/images/home/reviews-2026-mahindra-be6-sporteq-review-thumb-16x9.webp" alt="Mahindra BE 6 SPORTEQ editorial review banner" width="560" height="315" loading="lazy" decoding="async"></a>
+              <div class="ls-text"><p class="fp-label">Buyer’s Brief</p><h3><a href="/reviews/2026-mahindra-be6-sporteq-review/">Mahindra BE 6 SPORTEQ: BaaS or Outright Purchase?</a></h3><p class="ls-meta"><time datetime="2026-10-23">Oct 23, 2026</time></p></div>
+            </article></li>
+          </ul>
+      </div>
+      <div class="ls-panel" id="ls-compare" role="tabpanel" aria-labelledby="ls-tab-compare" hidden>
+          <article class="ls-lead">
+            <a class="ls-lead-media" href="/comparisons/tata-sierra-ev-vs-mahindra-be-6/" tabindex="-1" aria-hidden="true"><img srcset="/images/home/comparisons-tata-sierra-ev-vs-mahindra-be-6-thumb-16x9.webp 560w, /images/home/comparisons-tata-sierra-ev-vs-mahindra-be-6-story-16x9.webp 1200w" sizes="(min-width:1200px) 700px, (min-width:768px) 52vw, 100vw" src="/images/home/comparisons-tata-sierra-ev-vs-mahindra-be-6-story-16x9.webp" alt="Grey-green Tata Sierra EV and red Mahindra BE 6 on a wet dark studio floor, with the headline Sierra EV vs BE 6 and the line Both 5-Star. Which One to Buy?" width="1200" height="675" loading="lazy" decoding="async"></a>
+            <div class="ls-lead-text">
+              <p class="fp-label">Comparison</p>
+              <h3><a href="/comparisons/tata-sierra-ev-vs-mahindra-be-6/">Tata Sierra EV vs Mahindra BE 6: Both 5-Star, Which One to Buy?</a></h3>
+              <p class="ls-dek">Both have five-star Bharat NCAP ratings and start ₹66,000 apart. Tata Sierra EV vs Mahindra BE 6 on safety detail, prices, range, charging and space.</p>
+              <p class="ls-meta"><time datetime="2026-11-22">Nov 22, 2026</time> · 5 min read</p>
+            </div>
+          </article>
+          <ul class="ls-list">
+            <li><article class="ls-item">
+              <a class="ls-media" href="/comparisons/brezza-cng-vs-xuv-3xo-cng/" tabindex="-1" aria-hidden="true"><img src="/images/home/comparisons-brezza-cng-vs-xuv-3xo-cng-thumb-16x9.webp" alt="Red Maruti Brezza and red Mahindra XUV 3XO facing each other on a wet studio floor, headline Brezza CNG vs XUV 3XO CNG" width="560" height="218" class="is-contain" style="background:#213f47" loading="lazy" decoding="async"></a>
+              <div class="ls-text"><p class="fp-label">Comparison</p><h3><a href="/comparisons/brezza-cng-vs-xuv-3xo-cng/">Brezza CNG vs XUV 3XO CNG: Boot Space, Spare Wheel or Power?</a></h3><p class="ls-meta"><time datetime="2026-11-16">Nov 16, 2026</time> · 7 min read</p></div>
+            </article></li>
+            <li><article class="ls-item">
+              <a class="ls-media" href="/comparisons/2026-glanza-vs-baleno/" tabindex="-1" aria-hidden="true"><img src="/images/home/comparisons-2026-glanza-vs-baleno-thumb-16x9.webp" alt="Toyota Glanza and Maruti Baleno comparison illustration" width="560" height="214" class="is-contain" style="background:#6c5b49" loading="lazy" decoding="async"></a>
+              <div class="ls-text"><p class="fp-label">Comparison</p><h3><a href="/comparisons/2026-glanza-vs-baleno/">2026 Toyota Glanza vs Maruti Baleno: Compare the Variant, Not Just the Badge</a></h3><p class="ls-meta"><time datetime="2026-10-16">Oct 16, 2026</time> · 3 min read</p></div>
+            </article></li>
+            <li><article class="ls-item">
+              <a class="ls-media" href="/reviews/2026-maruti-brezza-turbo-vs-petrol/" tabindex="-1" aria-hidden="true"><img src="/images/home/reviews-2026-maruti-brezza-turbo-vs-petrol-thumb-16x9.webp" alt="2026 Maruti Brezza Turbo vs 1.5 Petrol engine comparison" width="560" height="315" loading="lazy" decoding="async"></a>
+              <div class="ls-text"><p class="fp-label">Guide</p><h3><a href="/reviews/2026-maruti-brezza-turbo-vs-petrol/">Brezza Turbo vs 1.5 Petrol (2026): Which Engine Should You Buy?</a></h3><p class="ls-meta"><time datetime="2026-09-03">Sep 3, 2026</time> · 5 min read</p></div>
+            </article></li>
+          </ul>
+      </div>
+      <div class="ls-panel" id="ls-guides" role="tabpanel" aria-labelledby="ls-tab-guides" hidden>
+          <article class="ls-lead">
+            <a class="ls-lead-media" href="/guides/5-star-bharat-ncap-cars-under-10-lakh/" tabindex="-1" aria-hidden="true"><img srcset="/images/home/guides-5-star-bharat-ncap-cars-under-10-lakh-thumb-16x9.webp 560w, /images/home/guides-5-star-bharat-ncap-cars-under-10-lakh-story-16x9.webp 1060w" sizes="(min-width:1200px) 700px, (min-width:768px) 52vw, 100vw" src="/images/home/guides-5-star-bharat-ncap-cars-under-10-lakh-story-16x9.webp" alt="White hatchback with crash-test dummy in a crash-test laboratory" width="1060" height="597" loading="lazy" decoding="async"></a>
+            <div class="ls-lead-text">
+              <p class="fp-label">Guide</p>
+              <h3><a href="/guides/5-star-bharat-ncap-cars-under-10-lakh/">Safest Cars Under ₹10 Lakh: Every 5-Star Bharat NCAP Car, Sorted by Price</a></h3>
+              <p class="ls-dek">Every car starting under ₹10 lakh with a 5-star Bharat NCAP rating, sorted by price, with adult and child scores and which variants each rating covers.</p>
+              <p class="ls-meta"><time datetime="2026-11-18">Nov 18, 2026</time> · 4 min read</p>
+            </div>
+          </article>
+          <ul class="ls-list">
+            <li><article class="ls-item">
+              <a class="ls-media" href="/guides/baas-vs-buying-ev-battery-break-even/" tabindex="-1" aria-hidden="true"><img src="/images/home/guides-baas-vs-buying-ev-battery-break-even-thumb-16x9.webp" alt="Electric SUV charging at a highway charging station at sunset" width="560" height="315" loading="lazy" decoding="async"></a>
+              <div class="ls-text"><p class="fp-label">Guide</p><h3><a href="/guides/baas-vs-buying-ev-battery-break-even/">EV Battery Rental (BaaS) vs Buying Outright: When Does Renting the Battery Cost More?</a></h3><p class="ls-meta"><time datetime="2026-11-18">Nov 18, 2026</time> · 4 min read</p></div>
+            </article></li>
+            <li><article class="ls-item">
+              <a class="ls-media" href="/articles/ev-claimed-vs-real-world-range/" tabindex="-1" aria-hidden="true"><img src="/images/home/articles-ev-claimed-vs-real-world-range-thumb-16x9.webp" alt="Electric vehicle charging and real-world range illustration" width="560" height="315" loading="lazy" decoding="async"></a>
+              <div class="ls-text"><p class="fp-label">Explainer</p><h3><a href="/articles/ev-claimed-vs-real-world-range/">Why a 600 km EV Claim Does Not Promise a 600 km Road Trip</a></h3><p class="ls-meta"><time datetime="2026-10-16">Oct 16, 2026</time> · 3 min read</p></div>
+            </article></li>
+            <li><article class="ls-item">
+              <a class="ls-media" href="/guides/brezza-petrol-vs-cng-break-even/" tabindex="-1" aria-hidden="true"><img src="/images/home/guides-brezza-petrol-vs-cng-break-even-thumb-16x9.webp" alt="Maruti Brezza petrol versus CNG ownership illustration" width="560" height="315" loading="lazy" decoding="async"></a>
+              <div class="ls-text"><p class="fp-label">Guide</p><h3><a href="/guides/brezza-petrol-vs-cng-break-even/">Brezza Petrol vs CNG: How Many Kilometres Before the Extra Cost Pays Back?</a></h3><p class="ls-meta"><time datetime="2026-10-16">Oct 16, 2026</time> · 3 min read</p></div>
+            </article></li>
+          </ul>
+      </div>
+      <div class="ls-panel" id="ls-culture" role="tabpanel" aria-labelledby="ls-tab-culture" hidden>
+          <article class="ls-lead">
+            <a class="ls-lead-media" href="/news-yangwang-altior-reveal.html" tabindex="-1" aria-hidden="true"><img srcset="/images/home/news-yangwang-altior-reveal-thumb-16x9.webp 560w, /images/home/news-yangwang-altior-reveal-story-16x9.webp 1200w" sizes="(min-width:1200px) 700px, (min-width:768px) 52vw, 100vw" src="/images/home/news-yangwang-altior-reveal-story-16x9.webp" alt="Bronze and black two-tone Yangwang Altior limousine at a modern stone pavilion at dusk, with the headline Yangwang Altior, revealed in Abu Dhabi" width="1200" height="675" loading="lazy" decoding="async"></a>
+            <div class="ls-lead-text">
+              <p class="fp-label">News · Reveal</p>
+              <h3><a href="/news-yangwang-altior-reveal.html">Yangwang Altior Revealed: BYD’s Coach-Door Limousine Is Sized Between a Maybach and a Phantom</a></h3>
+              <p class="ls-dek">BYD’s Yangwang Altior: a 5.6-metre, four-seat limousine with coach doors and a claimed 1,000 km CLTC range. First edition: 399 cars. No India plan yet.</p>
+              <p class="ls-meta"><time datetime="2026-11-21">Nov 21, 2026</time> · 3 min read</p>
+            </div>
+          </article>
+          <ul class="ls-list">
+            <li><article class="ls-item">
+              <a class="ls-media" href="/news-tesla-roadster-reveal-2026.html" tabindex="-1" aria-hidden="true"><img src="/images/home/news-tesla-roadster-reveal-2026-thumb-16x9.webp" alt="Tesla Roadster editorial illustration" width="560" height="315" loading="lazy" decoding="async"></a>
+              <div class="ls-text"><p class="fp-label">News · Reveal</p><h3><a href="/news-tesla-roadster-reveal-2026.html">Tesla Roadster Finally Takes Flight in Musk’s Demo — Production Is Still Planned for 2028</a></h3><p class="ls-meta"><time datetime="2026-10-16">Oct 16, 2026</time> · 3 min read</p></div>
+            </article></li>
+            <li><article class="ls-item">
+              <a class="ls-media" href="/news-bmw-7-series-i7-facelift-india.html" tabindex="-1" aria-hidden="true"><img src="/images/home/news-bmw-7-series-i7-facelift-india-thumb-16x9.webp" alt="BMW 7 Series facelift head-on in a dark studio, illuminated kidney grille framed by two vertical strip lights" width="560" height="314" loading="lazy" decoding="async"></a>
+              <div class="ls-text"><p class="fp-label">News · Launch</p><h3><a href="/news-bmw-7-series-i7-facelift-india.html">BMW 7 Series and i7 Launched in India: Prices Start at ₹1.95 Crore</a></h3><p class="ls-meta"><time datetime="2026-09-10">Sep 10, 2026</time> · 4 min read</p></div>
+            </article></li>
+            <li><article class="ls-item">
+              <a class="ls-media" href="/news-porsche-cayenne-electric-india.html" tabindex="-1" aria-hidden="true"><img src="/images/home/news-porsche-cayenne-electric-india-thumb-16x9.webp" alt="Silver Porsche Cayenne Electric shot from above on a diagonal, roof and rear light bar lit from overhead" width="560" height="315" loading="lazy" decoding="async"></a>
+              <div class="ls-text"><p class="fp-label">News · Report</p><h3><a href="/news-porsche-cayenne-electric-india.html">Porsche Cayenne Electric in India: October Prices and Buying Details</a></h3><p class="ls-meta"><time datetime="2026-09-10">Sep 10, 2026</time> · 4 min read</p></div>
+            </article></li>
+          </ul>
+      </div>
+<!-- STORIES:END -->
   </section>
 
   <section class="fp-container fp-finder-wrap" aria-labelledby="finderTitle">
@@ -169,7 +319,7 @@
   </section>
 
   <section class="fp-container fp-featured" id="featured-cars" aria-labelledby="featuredTitle">
-    <div class="fp-head"><h2 class="fp-italic" id="featuredTitle">Featured Cars</h2><a class="fp-more" href="/reviews.html">View All Cars<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+    <div class="fp-head"><h2 id="featuredTitle">Featured Cars</h2><a class="fp-more" href="/reviews.html">View All Cars<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     <div class="fc-grid">
 <!-- FEATURED:START -->
         <a class="fc" href="/reviews/2026-maruti-brezza-review/" title="Ex-showroom, CarDekho, ex-showroom; checked 23 Nov 2026">
@@ -193,97 +343,80 @@
     <p class="fc-foot" data-fp-checked>*Ex-showroom price ranges as stated in each FlamingPiston buyer’s brief, last checked 23 Nov 2026. Prices change often, so confirm with a dealer.</p>
   </section>
 
-  <section class="fp-container fp-split" aria-label="Featured comparison and latest news">
-    <div class="fp-split-main">
+  <section class="fp-container fp-split fp-split--research" aria-label="Compare and new and upcoming cars">
+    <div class="fp-col fp-col--compare">
+      <div class="fp-head"><h2 id="compareTitle">Compare</h2><a class="fp-more" href="/comparisons.html">All Comparisons<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
 <!-- COMPARE:START -->
-      <article class="cmp">
-        <div class="cmp-media" aria-hidden="true" style="--s:0.68;--r:2.399">
-          <img src="/images/home/banner-comparisons-tata-sierra-ev-vs-mahindra-be-6.webp" alt="" width="1600" height="667" loading="lazy" decoding="async">
-          <span class="cmp-line"></span><span class="cmp-vs">VS</span>
-        </div>
-        <div class="cmp-text">
-          <p class="fp-label">Compare</p>
-          <h2><a href="/comparisons/tata-sierra-ev-vs-mahindra-be-6/">Sierra EV vs BE 6</a></h2>
-          <p>Both are five-star Bharat NCAP cars that start ₹66,000 apart. Safety detail, price, range, charging and space, compared.</p>
-          <a class="fp-btn" href="/comparisons/tata-sierra-ev-vs-mahindra-be-6/">Read the comparison<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-        <p class="cmp-credit">Images: Tata Motors and Mahindra, edited by FlamingPiston</p>
-      </article>
+        <article class="cm-card">
+          <a class="cm-media" href="/comparisons/tata-sierra-ev-vs-mahindra-be-6/" tabindex="-1" aria-hidden="true"><img src="/images/home/bthumb-comparisons-tata-sierra-ev-vs-mahindra-be-6-16x10.webp" alt="Grey-green Tata Sierra EV and red Mahindra BE 6 on a wet dark studio floor, with the headline Sierra EV vs BE 6 and the line Both 5-Star. Which One to Buy?" width="760" height="475" loading="lazy" decoding="async"></a>
+          <div class="cm-text">
+            <h3><a href="/comparisons/tata-sierra-ev-vs-mahindra-be-6/">Sierra EV vs BE 6</a></h3>
+            <p>Both are five-star Bharat NCAP cars that start ₹66,000 apart.</p>
+            <a class="fp-textlink" href="/comparisons/tata-sierra-ev-vs-mahindra-be-6/">Compare now<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+          <p class="cm-credit">Images: Tata Motors and Mahindra, edited by FlamingPiston</p>
+        </article>
 <!-- COMPARE:END -->
     </div>
-    <aside class="ln" aria-labelledby="newsTitle">
-      <div class="fp-head"><h2 class="fp-italic" id="newsTitle">Latest News</h2><a class="fp-more" href="/news.html">View All News<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
-      <ul class="ln-list">
-<!-- NEWS:START -->
-          <li><a class="ln-item" href="/news-tata-sierra-ev-bharat-ncap.html"><span class="ln-media"><img src="/images/home/news-tata-sierra-ev-bharat-ncap-thumb-2x1.webp" alt="Silver Tata Sierra EV electric SUV with a black roof in a dark concrete studio, with the headline Tata Sierra EV, 5-star Bharat NCAP" width="560" height="280" loading="lazy" decoding="async"></span><span class="ln-text"><span class="ln-title">Tata Sierra EV Gets a 5-Star Bharat NCAP Rating, but the Driver’s Feet Score Only ‘Marginal’</span><span class="ln-meta">Report · <time datetime="2026-11-21">Nov 21, 2026</time></span></span></a></li>
-          <li><a class="ln-item" href="/news-yangwang-altior-reveal.html"><span class="ln-media"><img src="/images/home/news-yangwang-altior-reveal-thumb-2x1.webp" alt="Bronze and black two-tone Yangwang Altior limousine at a modern stone pavilion at dusk, with the headline Yangwang Altior, revealed in Abu Dhabi" width="560" height="280" loading="lazy" decoding="async"></span><span class="ln-text"><span class="ln-title">Yangwang Altior Revealed: BYD’s Coach-Door Limousine Is Sized Between a Maybach and a Phantom</span><span class="ln-meta">Reveal · <time datetime="2026-11-21">Nov 21, 2026</time></span></span></a></li>
-          <li><a class="ln-item" href="/news-honda-november-2026-offers.html"><span class="ln-media"><img src="/images/home/news-honda-november-2026-offers-thumb-2x1.webp" alt="Black 2026 Honda City e:HEV strong hybrid in a dark studio, with the headline Honda November Offers: City up to ₹1.86 lakh" width="560" height="280" loading="lazy" decoding="async"></span><span class="ln-text"><span class="ln-title">Honda November 2026 Offers: Up to ₹1.86 Lakh on the City, Nothing on the Elevate</span><span class="ln-meta">Report · <time datetime="2026-11-20">Nov 20, 2026</time></span></span></a></li>
-          <li><a class="ln-item" href="/news-mahindra-xuv-3xo-cng-bncap.html"><span class="ln-media"><img src="/images/home/news-mahindra-xuv-3xo-cng-bncap-thumb-2x1.webp" alt="Red Mahindra XUV 3XO compact SUV in a dark studio" width="560" height="280" loading="lazy" decoding="async"></span><span class="ln-text"><span class="ln-title">Mahindra XUV 3XO CNG Gets a 5-Star Bharat NCAP Rating: How It Compares With the Brezza CNG</span><span class="ln-meta">Report · <time datetime="2026-11-18">Nov 18, 2026</time></span></span></a></li>
-<!-- NEWS:END -->
-      </ul>
-    </aside>
-  </section>
-
-  <section class="fp-container fp-row" aria-labelledby="nuTitle">
-    <div class="fp-head"><h2 class="fp-italic" id="nuTitle">New &amp; Upcoming Cars</h2><a class="fp-more" href="/news.html">View All<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
-    <div class="nu-grid">
+    <div class="fp-col fp-col--nu">
+      <div class="fp-head"><h2 id="nuTitle">New &amp; Upcoming Cars</h2><a class="fp-more" href="/news.html">View All<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      <div class="nu-list">
 <!-- UPCOMING:START -->
-        <a class="nu-card nu-card--bleed" href="/news-denza-d9-z9-gt-india-launch.html" style="--r:2.998">
-          <span class="nu-media"><img src="/images/home/banner-news-denza-d9-z9-gt-india-launch.webp" alt="Dark blue Denza D9 electric MPV outside a hotel at dusk" width="1400" height="467" style="object-position:100% 50%" loading="lazy" decoding="async"></span>
-          <span class="nu-text"><span class="fp-label nu-tag">New launch</span><span class="nu-name">Denza D9</span><span class="nu-status">Launched at ₹90 lakh · 18 Nov 2026</span><span class="nu-link">Read the launch story<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
-          <span class="nu-credit">Image: BYD, edited by FlamingPiston</span>
+        <a class="nu-item" href="/news-denza-d9-z9-gt-india-launch.html">
+          <span class="nu-thumb"><img src="/images/home/bthumb-news-denza-d9-z9-gt-india-launch-16x9.webp" alt="Dark blue Denza D9 electric MPV outside a hotel at dusk" width="760" height="427" loading="lazy" decoding="async"></span>
+          <span class="nu-body"><span class="fp-label">New launch</span><span class="nu-name">Denza D9</span><span class="nu-status">Launched at ₹90 lakh · 18 Nov 2026</span><span class="nu-link">Read the launch story<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
         </a>
-        <a class="nu-card nu-card--bleed" href="/news-hyundai-tucson-2027.html" style="--r:2.998">
-          <span class="nu-media"><img src="/images/home/banner-news-hyundai-tucson-2027.webp" alt="2027 Hyundai Tucson fifth generation Art of Steel design, dark blue, front three-quarter" width="1400" height="467" style="object-position:100% 50%" loading="lazy" decoding="async"></span>
-          <span class="nu-text"><span class="fp-label nu-tag">Upcoming</span><span class="nu-name">Hyundai Tucson</span><span class="nu-status">India launch expected in 2027 (not confirmed)</span><span class="nu-link">What we know<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
-          <span class="nu-credit">Image: Hyundai, edited by FlamingPiston</span>
+        <a class="nu-item" href="/news-hyundai-tucson-2027.html">
+          <span class="nu-thumb"><img src="/images/home/bthumb-news-hyundai-tucson-2027-16x9.webp" alt="2027 Hyundai Tucson fifth generation Art of Steel design, dark blue, front three-quarter" width="760" height="427" loading="lazy" decoding="async"></span>
+          <span class="nu-body"><span class="fp-label">Upcoming</span><span class="nu-name">Hyundai Tucson</span><span class="nu-status">India launch expected in 2027 (not confirmed)</span><span class="nu-link">What we know<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
         </a>
 <!-- UPCOMING:END -->
+      </div>
     </div>
   </section>
 
   <section class="fp-container fp-split fp-split--even" aria-label="Latest reviews and buying tools">
-    <div>
-      <div class="fp-head"><h2 class="fp-italic" id="reviewsTitle">Latest Reviews</h2><a class="fp-more" href="/reviews.html">View All Reviews<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+    <div class="fp-col--reviews">
+      <div class="fp-head"><h2 id="reviewsTitle">Latest Reviews</h2><a class="fp-more" href="/reviews.html">View All Reviews<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
 <!-- REVIEW:START -->
         <article class="lr-card">
-          <a class="lr-media" href="/reviews/2026-isuzu-v-cross-review/" tabindex="-1" aria-hidden="true"><img src="/images/home/reviews-2026-isuzu-v-cross-review-thumb-16x10.webp" alt="Isuzu D-MAX V-Cross editorial review banner" width="560" height="350" loading="lazy" decoding="async"></a>
+          <a class="lr-media" href="/reviews/2026-mercedes-glc-electric/" tabindex="-1" aria-hidden="true"><img src="/images/home/reviews-2026-mercedes-glc-electric-thumb-16x10.webp" alt="Blue Mercedes-Benz GLC Electric parked outside a modern stone house at sunset, with the headline GLC Electric, 2026 Buyer’s Brief" width="560" height="350" loading="lazy" decoding="async"></a>
           <div class="lr-text">
             <p class="fp-label">Buyer’s Brief</p>
-            <h3><a href="/reviews/2026-isuzu-v-cross-review/">Isuzu V-Cross 2026: Pickup Practicality, 4WD and Which Variant</a></h3>
-            <p class="lr-dek">Isuzu D-Max V-Cross buyer’s brief, November 2026: ₹25.50–30.28 lakh, now 4x4-only, bigger screen and 360 camera on Z Prestige. Specification-led.</p>
-            <p class="lr-meta"><time datetime="2026-10-23">Oct 23, 2026</time></p>
-            <a class="fp-textlink" href="/reviews/2026-isuzu-v-cross-review/">Read the brief<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <h3><a href="/reviews/2026-mercedes-glc-electric/">Mercedes GLC Electric at ₹78.50 Lakh: 6 Catches to Know</a></h3>
+            <p class="lr-meta"><time datetime="2026-11-20">Nov 20, 2026</time></p>
+            <p class="lr-dek">Mercedes GLC Electric buyer’s brief: ₹78.50 lakh, 94 kWh, 711 km claimed, just ₹1.5 lakh over the petrol GLC, and what India’s car leaves out.</p>
+            <a class="fp-textlink" href="/reviews/2026-mercedes-glc-electric/">Read the Brief<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
         </article>
 <!-- REVIEW:END -->
     </div>
-    <div>
-      <div class="fp-head"><h2 class="fp-italic" id="toolsTitle">Buying Tools</h2><a class="fp-more" href="/tools.html">All Tools<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+    <div class="fp-col--tools">
+      <div class="fp-head"><h2 id="toolsTitle">Buying Tools</h2><a class="fp-more" href="/tools.html">All Tools<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
       <div class="tl-grid">
-        <a class="tl-card" href="/tools.html#emi"><span class="tl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M12 11h2M16 11h0M8 15h2M12 15h2M8 18h2M12 18h4"/></svg></span><span class="tl-text"><span class="tl-title">EMI Calculator</span><span class="tl-dek">Estimate monthly loan payments</span></span></a>
-        <a class="tl-card" href="/tools.html#fuel"><span class="tl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16M3 21h14M15 9h2a2 2 0 0 1 2 2v5a1.5 1.5 0 0 0 3 0V8l-3-3"/><path d="M8 7h4v4H8z"/></svg></span><span class="tl-text"><span class="tl-title">Fuel Cost</span><span class="tl-dek">Calculate running expenses</span></span></a>
-        <a class="tl-card" href="/tools.html#cng"><span class="tl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><text x="12" y="15" text-anchor="middle" font-size="7" font-family="Inter,sans-serif" font-weight="700" fill="currentColor" stroke="none">CNG</text></svg></span><span class="tl-text"><span class="tl-title">Petrol vs CNG</span><span class="tl-dek">Compare fuel running costs</span></span></a>
-        <a class="tl-card" href="/tools.html#ownership"><span class="tl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg></span><span class="tl-text"><span class="tl-title">Ownership Cost</span><span class="tl-dek">Estimate five-year costs</span></span></a>
+        <a class="tl-card" href="/tools.html#emi" title="Estimate monthly loan payments"><span class="tl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M12 11h2M16 11h0M8 15h2M12 15h2M8 18h2M12 18h4"/></svg></span><span class="tl-title">EMI Calculator</span></a>
+        <a class="tl-card" href="/tools.html#fuel" title="Calculate running expenses"><span class="tl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16M3 21h14M15 9h2a2 2 0 0 1 2 2v5a1.5 1.5 0 0 0 3 0V8l-3-3"/><path d="M8 7h4v4H8z"/></svg></span><span class="tl-title">Fuel Cost</span></a>
+        <a class="tl-card" href="/tools.html#cng" title="Compare fuel running costs"><span class="tl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><text x="12" y="15" text-anchor="middle" font-size="7" font-family="Inter,sans-serif" font-weight="700" fill="currentColor" stroke="none">CNG</text></svg></span><span class="tl-title">Petrol vs CNG</span></a>
+        <a class="tl-card" href="/tools.html#ownership" title="Estimate five-year costs"><span class="tl-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg></span><span class="tl-title">Ownership Cost</span></a>
       </div>
     </div>
   </section>
 
   <section class="fp-container fp-row" aria-labelledby="guidesTitle">
-    <div class="fp-head"><h2 class="fp-italic" id="guidesTitle">Buying &amp; Ownership Guides</h2><a class="fp-more" href="/guides.html">View All Guides<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+    <div class="fp-head"><h2 id="guidesTitle">Buying &amp; Ownership Guides</h2><a class="fp-more" href="/guides.html">View All Guides<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     <div class="gd-grid">
 <!-- GUIDES:START -->
         <a class="gd-card" href="/guides/5-star-bharat-ncap-cars-under-10-lakh/">
           <span class="gd-media"><img src="/images/home/guides-5-star-bharat-ncap-cars-under-10-lakh-thumb-16x10.webp" alt="White hatchback with crash-test dummy in a crash-test laboratory" width="560" height="350" loading="lazy" decoding="async"></span>
-          <span class="gd-text"><span class="gd-title">Safest Cars Under ₹10 Lakh: Every 5-Star Bharat NCAP Car, Sorted by Price</span><span class="gd-dek">Every car starting under ₹10 lakh with a 5-star Bharat NCAP rating, sorted by price, with adult and child scores and which variants each rating covers.</span></span>
+          <span class="gd-text"><span class="fp-label">Guide</span><span class="gd-title">Safest Cars Under ₹10 Lakh: Every 5-Star Bharat NCAP Car, Sorted by Price</span></span>
         </a>
-        <a class="gd-card" href="/guides/brezza-petrol-vs-cng-break-even/">
-          <span class="gd-media"><img src="/images/home/guides-brezza-petrol-vs-cng-break-even-thumb-16x10.webp" alt="Maruti Brezza petrol versus CNG ownership illustration" width="560" height="350" loading="lazy" decoding="async"></span>
-          <span class="gd-text"><span class="gd-title">Brezza Petrol vs CNG: How Many Kilometres Before the Extra Cost Pays Back?</span><span class="gd-dek">Calculate Brezza CNG break-even using your quoted price premium, local fuel prices and realistic mileage.</span></span>
+        <a class="gd-card" href="/guides/baas-vs-buying-ev-battery-break-even/">
+          <span class="gd-media"><img src="/images/home/guides-baas-vs-buying-ev-battery-break-even-thumb-16x10.webp" alt="Electric SUV charging at a highway charging station at sunset" width="560" height="350" loading="lazy" decoding="async"></span>
+          <span class="gd-text"><span class="fp-label">Guide</span><span class="gd-title">EV Battery Rental (BaaS) vs Buying Outright: When Does Renting the Battery Cost More?</span></span>
         </a>
-        <a class="gd-card" href="/guides/festive-car-discounts-2026/">
-          <span class="gd-media"><img src="/images/home/guides-festive-car-discounts-2026-thumb-16x10.webp" alt="Festive car buying and discounts illustration" width="560" height="350" loading="lazy" decoding="async"></span>
-          <span class="gd-text"><span class="gd-title">Festive Car Discounts in October 2026: What You Actually Save</span><span class="gd-dek">A big festive discount is often several conditional benefits added together.</span></span>
+        <a class="gd-card" href="/articles/ev-claimed-vs-real-world-range/">
+          <span class="gd-media"><img src="/images/home/articles-ev-claimed-vs-real-world-range-thumb-16x10.webp" alt="Electric vehicle charging and real-world range illustration" width="560" height="350" loading="lazy" decoding="async"></span>
+          <span class="gd-text"><span class="fp-label">Explainer</span><span class="gd-title">Why a 600 km EV Claim Does Not Promise a 600 km Road Trip</span></span>
         </a>
 <!-- GUIDES:END -->
     </div>
@@ -322,6 +455,6 @@
   </footer>
   <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
   <script src="/assets/fp.js?v=20261126c" defer></script>
-  <script src="/assets/fp-home.js?v=20261126g" defer></script>
+  <script src="/assets/fp-home.js?v=20261127c" defer></script>
 </body>
 </html>
