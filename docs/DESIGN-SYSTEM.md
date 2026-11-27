@@ -369,3 +369,6 @@ The supplied magazine reference informs the homepage-only composition: italic ed
 
 ### Hero alignment refinement (V4)
 The petrol band spans the viewport, but desktop photography ends at the shared content right edge (same as header, body and footer). Only the left readability gradient remains; no right or bottom fade. Mobile image treatment is unchanged.
+
+### V5 proportions refinement (pending review)
+Retain V4 alignment, 1+3 stories and independent research columns. At desktop widths use a 440–460px lead, 46px major section gaps, 100px finder, more generous card padding, 126px minimum tool tiles and 250–280px Culture banner. These are responsive design targets, not fixed equal-height rows. No publication or shared shell logic changes; mobile styling is preserved.
