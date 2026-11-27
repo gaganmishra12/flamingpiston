@@ -34,7 +34,7 @@ main .editorial-grid>.card:nth-child(n){grid-column:1}
 .page-head--compact{padding:24px 0 14px}
 .card-body h3{font-size:23px}
 .culture-cover .editorial-grid>.card:first-child{grid-template-columns:1fr}
-main .editorial-grid .card:first-child .card-body{padding:16px}
+.culture-cover .editorial-grid .card:first-child .card-body{padding:16px}
 .card:first-child .card-media{height:auto}}
 .news-listing .editorial-grid{row-gap:0}
 .news-listing .card:nth-child(-n+2){margin-bottom:24px}
@@ -48,3 +48,11 @@ main .editorial-grid .card:first-child .card-body{padding:16px}
 .news-listing .card:nth-child(n+2) .eyebrow{flex-wrap:wrap;gap:3px 8px}
 .news-listing .card:nth-child(n+2) .card-body>p:not(.eyebrow){display:none}
 .news-listing .card:first-child .card-body{padding:14px 0}}
+/* Intro links on the dark petrol page heads (were --ink on petrol, i.e. invisible). */
+:is(.paired-features,.culture-cover) .page-head--compact .lede a{color:var(--ivory);text-decoration-color:var(--ember-strong)}
+:is(.paired-features,.culture-cover) .page-head--compact .lede a:hover{color:var(--teal)}
+/* Car Culture (dark page): show the "/" between section and kind, e.g. NEWS / REVEAL. */
+.culture-cover .card .eyebrow{gap:8px}
+.culture-cover .card .eyebrow .seg{color:var(--on-dark-2)}
+.culture-cover .card .eyebrow .seg::before{color:var(--teal);opacity:.7}
+.culture-cover .card .eyebrow time{margin-left:4px}

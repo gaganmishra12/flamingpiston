@@ -29,7 +29,7 @@ If the documentation and the code disagree, trust the code, then fix the documen
 - Keep the stack: static HTML, CSS, vanilla JavaScript, Node/Python helper scripts, GitHub → Hostinger. No framework, CMS, database or backend unless Gagan explicitly authorizes it (Supabase only when a phase justifies it).
 - Do not add dependencies a solo founder would have to maintain. Prefer simple, affordable, maintainable solutions.
 - Reuse existing components (see the component list in `docs/DESIGN-SYSTEM.md`) before writing new ones.
-- Keep one width system: `.fp-container` (1440px + `--page-gutter`). Never use `100vw` for content, page-wide `transform: scale`, or fixed widths that overflow. Fix overflow at its source; never hide it with `overflow-x: hidden`.
+- Keep one width system: `.fp-container` (1320px + `--page-gutter`, since V6). Never use `100vw` for content, page-wide `transform: scale`, or fixed widths that overflow. Fix overflow at its source; never hide it with `overflow-x: hidden`.
 - Never distort images. Use controlled aspect ratios, `object-fit: cover` with focal positions, or `contain` on a matching background when cropping would cut the car.
 
 ## Publishing automation must keep working

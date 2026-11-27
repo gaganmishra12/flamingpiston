@@ -19,8 +19,8 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
-const V = '20261127v6';                       // fp.css / fp.js — bump after editing them
-const VH = '20261127v6';                      // homepage-only assets (fp-home.css / fp-home.js)
+const V = '20261127v6b';                       // fp.css / fp.js — bump after editing them
+const VH = '20261127v6b';                      // homepage-only assets (fp-home.css / fp-home.js)
 const SKIP_DIRS = new Set(['site', 'scripts', 'images', 'js', 'assets', '.git', 'node_modules', 'design-preview']);
 const args = process.argv.slice(2);
 const DRY = args.includes('--dry-run');
@@ -200,7 +200,7 @@ function apply(rel) {
   if (rel === 'index.html') head = head.replace('<link rel="stylesheet" href="/assets/fp.css', `<link rel="preload" href="/assets/fonts/familjen-grotesk-latin-700-italic.woff2" as="font" type="font/woff2" crossorigin>\n  <link rel="stylesheet" href="/assets/fp.css`)
     .replace('  <!-- /FP:HEAD -->', `  <link rel="stylesheet" href="/assets/fp-home.css?v=${VH}">\n  <!-- /FP:HEAD -->`);
   if (['news.html', 'reviews.html', 'guides.html', 'comparisons.html', 'car-culture.html'].includes(rel)) {
-    head = head.replace('  <!-- /FP:HEAD -->', '  <link rel="stylesheet" href="/assets/fp-listings.css?v=20261127a">\n  <!-- /FP:HEAD -->');
+    head = head.replace('  <!-- /FP:HEAD -->', '  <link rel="stylesheet" href="/assets/fp-listings.css?v=20261127b">\n  <!-- /FP:HEAD -->');
   }
   h = h.replace(/\s*<\/head>/, `\n  ${head}\n</head>`);
 
