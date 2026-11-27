@@ -37,28 +37,30 @@
   {
    "id": "innova-hycross-facelift-buy-now-or-wait",
    "url": "/guides/innova-hycross-facelift-buy-now-or-wait/",
-   "title": "Innova Hycross Facelift: Buy Now or Wait for 25 November?",
+   "title": "Innova Hycross Facelift Launched: Which Variant to Buy Now, and Is Old Stock Worth It?",
    "category": "Buying Guides",
    "subtype": "",
    "published": "2026-11-22T19:00:00+05:30",
-   "updated": "2026-11-22T19:00:00+05:30",
-   "description": "The Innova Hycross facelift launches on 25 November 2026. What the teasers confirm, what is only expected, and who should buy the current model now or wait.",
-   "image": "/images/innova-hycross-facelift-buy-or-wait-hero.jpg",
-   "imageCredit": "AI illustration: FlamingPiston (based on a Toyota Kirloskar Motor image of the current model)",
+   "updated": "2026-11-26T20:30:00+05:30",
+   "description": "Innova Hycross facelift launched from ₹19.59 lakh; the flex-fuel hybrid starts at ₹19.99 lakh. Prices, what changed and which variant to buy.",
+   "image": "/images/innova-hycross-facelift-launched-hero.jpg",
+   "imageCredit": "Image: Toyota Kirloskar Motor, edited with AI by FlamingPiston",
    "thumbnail": "/images/home/guides-innova-hycross-facelift-buy-now-or-wait-thumb-16x10.webp",
    "focal": [
-    0.05,
-    0.23,
-    0.59,
-    0.8
+    0.04,
+    0.22,
+    0.585,
+    0.74
    ],
    "banner": null,
    "vehicles": [],
    "priority": 2,
    "heroEligible": false,
    "status": "published",
-   "homepage": [],
-   "revisionPending": true
+   "homepage": [
+    "latest-stories"
+   ],
+   "revisionPending": false
   },
   {
    "id": "news-tata-sierra-ev-bharat-ncap",
@@ -139,9 +141,7 @@
    "priority": 2,
    "heroEligible": false,
    "status": "published",
-   "homepage": [
-    "latest-stories"
-   ],
+   "homepage": [],
    "revisionPending": false
   },
   {
@@ -321,7 +321,7 @@
    "category": "News",
    "subtype": "reveal",
    "published": "2026-11-18T10:30:00+05:30",
-   "updated": "2026-11-18T10:30:00+05:30",
+   "updated": "2026-11-26T20:30:00+05:30",
    "description": "Toyota’s teaser confirms new headlamps for the Hycross facelift, launching 25 November. What is confirmed, what is only expected, and who should wait.",
    "image": "/images/news-toyota-innova-hycross-facelift-teaser-photo.jpg",
    "imageCredit": "AI illustration: FlamingPiston",
@@ -333,7 +333,7 @@
    "heroEligible": false,
    "status": "published",
    "homepage": [],
-   "revisionPending": true
+   "revisionPending": false
   },
   {
    "id": "brezza-cng-vs-xuv-3xo-cng",
@@ -1737,8 +1737,5 @@
   }
  ],
  "notLive": [],
- "drafts": [
-  "guides/innova-hycross-facelift-buy-now-or-wait/ (revision of a published article)",
-  "news-toyota-innova-hycross-facelift-teaser.html (revision of a published article)"
- ]
+ "drafts": []
 }

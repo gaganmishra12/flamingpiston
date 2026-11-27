@@ -324,32 +324,31 @@
  },
  "guides/innova-hycross-facelift-buy-now-or-wait/#story": {
   "file": "images/home/guides-innova-hycross-facelift-buy-now-or-wait-story-16x9.webp",
-  "w": 960,
-  "h": 540,
-  "bg": "#16393f",
-  "sig": "ee62ff534f"
+  "w": 952,
+  "h": 535,
+  "bg": "#06252d",
+  "sig": "53489eca6e"
  },
  "guides/innova-hycross-facelift-buy-now-or-wait/#thumb@16x10": {
   "file": "images/home/guides-innova-hycross-facelift-buy-now-or-wait-thumb-16x10.webp",
   "w": 560,
   "h": 350,
-  "bg": "#17393f",
-  "sig": "5c94b9eca2"
+  "bg": "#072730",
+  "sig": "3c3e731898"
  },
  "guides/innova-hycross-facelift-buy-now-or-wait/#thumb@16x9": {
   "file": "images/home/guides-innova-hycross-facelift-buy-now-or-wait-thumb-16x9.webp",
   "w": 560,
   "h": 315,
-  "bg": "#16393f",
-  "sig": "e9abf280d6"
+  "bg": "#06252d",
+  "sig": "3ac8aeb451"
  },
  "guides/innova-hycross-facelift-buy-now-or-wait/#thumb@2x1": {
   "file": "images/home/guides-innova-hycross-facelift-buy-now-or-wait-thumb-2x1.webp",
   "w": 560,
-  "h": 312,
-  "bg": "#16393f",
-  "sig": "d162faef4f",
-  "contain": true
+  "h": 280,
+  "bg": "#04222b",
+  "sig": "e3e148a2fe"
  },
  "news-bmw-7-series-i7-facelift-india.html#story": {
   "file": "images/home/news-bmw-7-series-i7-facelift-india-story-16x9.webp",
@@ -785,7 +784,7 @@
   "w": 646,
   "h": 754,
   "bg": "#999085",
-  "sig": "af9942db51"
+  "sig": "6e2744a71e"
  },
  "reviews/2026-mercedes-glc-electric/#thumb@16x10": {
   "file": "images/home/reviews-2026-mercedes-glc-electric-thumb-16x10.webp",

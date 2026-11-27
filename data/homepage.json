@@ -3,7 +3,7 @@
 
   "exclude": {
     "_about": "Stories never shown anywhere on the homepage, Latest Stories included (e.g. pre-launch pieces overtaken by the launch whose rewrites wait in drafts/ for approval). They stay public on their listing pages.",
-    "urls": ["guides/innova-hycross-facelift-buy-now-or-wait/", "news-toyota-innova-hycross-facelift-teaser.html"]
+    "urls": ["news-toyota-innova-hycross-facelift-teaser.html"]
   },
 
   "hero": {
@@ -84,7 +84,7 @@
       "thumb": { "src": "images/ev-real-world-range-guide-hero.jpg", "subject": [0.04, 0.27, 0.7, 0.85] }
     },
     "guides/innova-hycross-facelift-buy-now-or-wait/": {
-      "thumb": { "src": "images/innova-hycross-facelift-buy-or-wait-hero.jpg", "subject": [0.05, 0.23, 0.59, 0.8], "area": [0, 0.08, 0.6, 0.93] }
+      "thumb": { "src": "images/innova-hycross-facelift-launched-hero.jpg", "subject": [0.04, 0.22, 0.585, 0.74], "area": [0, 0, 0.595, 1] }
     },
     "guides/5-star-bharat-ncap-cars-under-10-lakh/": {
       "thumb": { "src": "images/bharat-ncap-cars-under-10-lakh-hero-photo.jpg", "subject": [0.18, 0.3, 0.75, 0.77] }
