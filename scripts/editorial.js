@@ -17,6 +17,7 @@
 //   category  optional editorial category override: "News" | "Reviews" | "Comparisons" | "Buying Guides" | "Car Culture"
 //   subtype   optional, e.g. "launch", "report", "explainer", "ownership"
 //   vehicles  optional list of vehicle IDs from data/cars.json
+//   cardImage optional "tile": the article image has a baked-in headline, so listing cards show the plain brand tile
 //
 // Everything else (title, dates, description, images, credit) is read from the article HTML itself, so the
 // article stays the single source of truth for what readers and search engines see.
@@ -64,6 +65,7 @@ function entryFor(reg, url) {
     category: e.category || '',
     subtype: e.subtype || '',
     vehicles: e.vehicles || [],
+    cardImage: e.cardImage === 'tile' ? 'tile' : '',
   };
 }
 

@@ -202,6 +202,40 @@ function card(a, extra = '', label = eyebrow(a)) {
         </article>`;
 }
 
+// News page: newsroom timeline (Phase 2B, design B, approved 27 Nov 2026). The newest story leads; the rest are
+// grouped by publication day, newest first. Every story stays an <article class="card ..."> (placement reads them back).
+// Images with a baked-in headline (registry "cardImage": "tile") show the plain brand tile instead.
+const WEEKDAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+function newsMedia(a, lead) {
+  if (a.ed.cardImage === 'tile') return `<a href="${href(a)}" class="card-media nw-tile" tabindex="-1" aria-hidden="true"><span>${newsKind(a)}</span></a>`;
+  const storyCrop = 'images/home/' + path.parse(a.url.replace(/\/$/, '')).name + '-story-16x9.webp';
+  const hasCrop = fs.existsSync(path.join(ROOT, storyCrop));
+  const img = `<img src="${hasCrop ? '/' + storyCrop : thumb(a)}" alt="${esc(a.alt)}"${lead ? ' fetchpriority="high"' : ' loading="lazy"'}${hasCrop ? ' width="1600" height="900"' : dims(a)}>`;
+  return `<a href="${href(a)}" class="card-media" tabindex="-1" aria-hidden="true">${img}</a>`;
+}
+function newsItem(a, catOf, lead) {
+  const h = lead ? 'h2' : 'h3';
+  return `        <article class="card${lead ? ' nw-lead' : ''}" data-category="${catOf(a)}" data-kind="${newsKind(a).toLowerCase()}" data-date="${a.date}">
+          ${newsMedia(a, lead)}
+          <div class="card-body"><p class="eyebrow">${newsKind(a)}<time datetime="${a.date}">${fmtShort(a.date)}</time></p><${h}><a href="${href(a)}">${esc(a.title)}</a></${h}><p class="nw-dek">${esc(a.desc)}</p></div>
+        </article>`;
+}
+function newsWire(list, catOf) {
+  const out = list.length ? [newsItem(list[0], catOf, true)] : []; let day = null, buf = [];
+  const flush = () => {
+    if (!buf.length) return; const [y, m, d] = day.split('-').map(Number);
+    out.push(`        <section class="nw-day">
+          <h2 class="nw-date"><time datetime="${day}"><b>${d} ${MONTHS[m - 1]}</b><span>${WEEKDAYS[new Date(Date.UTC(y, m - 1, d)).getUTCDay()]} · ${y}</span></time></h2>
+          <div class="nw-items">
+${buf.join('\n')}
+          </div>
+        </section>`); buf = [];
+  };
+  for (const a of list.slice(1)) { if (a.date !== day) { flush(); day = a.date; } buf.push(newsItem(a, catOf, false)); }
+  flush();
+  return out.join('\n');
+}
+
 // ---- file helpers ----------------------------------------------------------------------------
 const pages = {};
 const read = (f) => (pages[f] = pages[f] || fs.readFileSync(path.join(ROOT, f), 'utf-8'));
@@ -237,7 +271,7 @@ const placed = new Map(), cats = new Map();
 for (const [sec, f] of Object.entries(SECTIONS)) {
   const block = (read(f).match(/<!-- CARDS:START -->([\s\S]*?)<!-- CARDS:END -->/) || [])[1];
   if (block === undefined) throw new Error(`CARDS markers not found in ${f}`);
-  for (const c of block.match(/<article class="card"[\s\S]*?<\/article>/g) || []) {
+  for (const c of block.match(/<article class="card[" ][\s\S]*?<\/article>/g) || []) {
     const u = (c.match(/href="\/?((?:\.\.\/)*)([^"]+)"/) || [])[2]; if (!u) continue;
     const cat = (c.match(/data-category="([^"]*)"/) || [])[1];
     if (!placed.has(u)) placed.set(u, sec);
@@ -251,11 +285,9 @@ for (const a of articles) {
   lists[sec].push(a);
 }
 for (const [sec, f] of Object.entries(SECTIONS)) {
-  const items = lists[sec].map((a) => {
-    const cat = cats.has(a.url) ? cats.get(a.url) : chips(a);
-    const kind = sec === 'news' ? ` data-kind="${newsKind(a).toLowerCase()}"` : '';
-    return card(a, ` data-category="${esc(cat)}"${kind}`, sec === 'news' ? newsKind(a) : esc(a.type));
-  });
+  const catOf = (a) => esc(cats.has(a.url) ? cats.get(a.url) : chips(a));
+  if (sec === 'news') { between(f, 'CARDS', newsWire(lists.news, catOf)); setCount(f, lists.news.length); continue; }
+  const items = lists[sec].map((a) => card(a, ` data-category="${catOf(a)}"`, esc(a.type)));
   between(f, 'CARDS', items.join('\n'));
   setCount(f, items.length);
 }

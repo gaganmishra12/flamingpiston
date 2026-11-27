@@ -25,8 +25,8 @@
     "credit": "Images: Tata Motors and Mahindra, edited by FlamingPiston"
    },
    "vehicles": [],
-   "priority": 1,
-   "heroEligible": true,
+   "priority": 3,
+   "heroEligible": false,
    "status": "published",
    "homepage": [
     "compare",
@@ -54,7 +54,7 @@
    ],
    "banner": null,
    "vehicles": [],
-   "priority": 2,
+   "priority": 3,
    "heroEligible": false,
    "status": "published",
    "homepage": [],
@@ -80,7 +80,7 @@
    ],
    "banner": null,
    "vehicles": [],
-   "priority": 2,
+   "priority": 3,
    "heroEligible": false,
    "status": "published",
    "homepage": [
@@ -108,7 +108,7 @@
    ],
    "banner": null,
    "vehicles": [],
-   "priority": 2,
+   "priority": 3,
    "heroEligible": false,
    "status": "published",
    "homepage": [
@@ -136,7 +136,7 @@
    ],
    "banner": null,
    "vehicles": [],
-   "priority": 2,
+   "priority": 3,
    "heroEligible": false,
    "status": "published",
    "homepage": [
@@ -164,7 +164,7 @@
    ],
    "banner": null,
    "vehicles": [],
-   "priority": 2,
+   "priority": 3,
    "heroEligible": false,
    "status": "published",
    "homepage": [],
@@ -189,11 +189,9 @@
     0.9
    ],
    "banner": null,
-   "vehicles": [
-    "mercedes-glc-electric"
-   ],
-   "priority": 1,
-   "heroEligible": true,
+   "vehicles": [],
+   "priority": 3,
+   "heroEligible": false,
    "status": "published",
    "homepage": [
     "latest-review"
@@ -220,8 +218,8 @@
    ],
    "banner": null,
    "vehicles": [],
-   "priority": 1,
-   "heroEligible": true,
+   "priority": 3,
+   "heroEligible": false,
    "status": "published",
    "homepage": [
     "guides"
@@ -248,7 +246,7 @@
    ],
    "banner": null,
    "vehicles": [],
-   "priority": 2,
+   "priority": 3,
    "heroEligible": false,
    "status": "published",
    "homepage": [
@@ -280,7 +278,7 @@
     "credit": "Image: BYD, edited by FlamingPiston"
    },
    "vehicles": [],
-   "priority": 2,
+   "priority": 3,
    "heroEligible": false,
    "status": "published",
    "homepage": [
@@ -308,7 +306,7 @@
    ],
    "banner": null,
    "vehicles": [],
-   "priority": 2,
+   "priority": 3,
    "heroEligible": false,
    "status": "published",
    "homepage": [],
@@ -355,7 +353,7 @@
    ],
    "banner": null,
    "vehicles": [],
-   "priority": 2,
+   "priority": 3,
    "heroEligible": false,
    "status": "published",
    "homepage": [],
@@ -380,10 +378,8 @@
     0.86
    ],
    "banner": null,
-   "vehicles": [
-    "isuzu-v-cross"
-   ],
-   "priority": 2,
+   "vehicles": [],
+   "priority": 3,
    "heroEligible": false,
    "status": "published",
    "homepage": [],
@@ -408,10 +404,8 @@
     0.68
    ],
    "banner": null,
-   "vehicles": [
-    "kia-seltos"
-   ],
-   "priority": 2,
+   "vehicles": [],
+   "priority": 3,
    "heroEligible": false,
    "status": "published",
    "homepage": [],
@@ -436,10 +430,8 @@
     0.82
    ],
    "banner": null,
-   "vehicles": [
-    "mahindra-be-6"
-   ],
-   "priority": 2,
+   "vehicles": [],
+   "priority": 3,
    "heroEligible": false,
    "status": "published",
    "homepage": [],
@@ -468,11 +460,9 @@
     "file": "/images/home/banner-reviews-2026-mahindra-thar-roxx-4x4-review.webp",
     "credit": "Image: Mahindra, edited by FlamingPiston"
    },
-   "vehicles": [
-    "mahindra-thar-roxx-4x4"
-   ],
-   "priority": 1,
-   "heroEligible": true,
+   "vehicles": [],
+   "priority": 3,
+   "heroEligible": false,
    "status": "published",
    "homepage": [
     "lead"
@@ -493,10 +483,8 @@
    "thumbnail": null,
    "focal": null,
    "banner": null,
-   "vehicles": [
-    "maruti-swift"
-   ],
-   "priority": 2,
+   "vehicles": [],
+   "priority": 3,
    "heroEligible": false,
    "status": "published",
    "homepage": [],
@@ -521,10 +509,8 @@
     0.86
    ],
    "banner": null,
-   "vehicles": [
-    "skoda-kylaq"
-   ],
-   "priority": 2,
+   "vehicles": [],
+   "priority": 3,
    "heroEligible": false,
    "status": "published",
    "homepage": [],
@@ -544,10 +530,8 @@
    "thumbnail": null,
    "focal": null,
    "banner": null,
-   "vehicles": [
-    "volkswagen-virtus"
-   ],
-   "priority": 2,
+   "vehicles": [],
+   "priority": 3,
    "heroEligible": false,
    "status": "published",
    "homepage": [],
@@ -558,7 +542,7 @@
    "url": "/articles/ev-claimed-vs-real-world-range/",
    "title": "Why a 600 km EV Claim Does Not Promise a 600 km Road Trip",
    "category": "Buying Guides",
-   "subtype": "explainer",
+   "subtype": "",
    "published": "2026-10-16T11:35:00+05:30",
    "updated": "2026-10-16T11:35:00+05:30",
    "description": "Understand EV range claims, usable battery capacity and charging windows. A simple worked example explains why a 600 km claim is not your next charging stop.",
@@ -573,7 +557,7 @@
    ],
    "banner": null,
    "vehicles": [],
-   "priority": 2,
+   "priority": 3,
    "heroEligible": false,
    "status": "published",
    "homepage": [
@@ -601,7 +585,7 @@
    ],
    "banner": null,
    "vehicles": [],
-   "priority": 2,
+   "priority": 3,
    "heroEligible": false,
    "status": "published",
    "homepage": [],
@@ -627,7 +611,7 @@
    ],
    "banner": null,
    "vehicles": [],
-   "priority": 2,
+   "priority": 3,
    "heroEligible": false,
    "status": "published",
    "homepage": [],
@@ -653,7 +637,7 @@
    ],
    "banner": null,
    "vehicles": [],
-   "priority": 2,
+   "priority": 3,
    "heroEligible": false,
    "status": "published",
    "homepage": [],
@@ -683,7 +667,7 @@
     "credit": "AI illustration: FlamingPiston"
    },
    "vehicles": [],
-   "priority": 2,
+   "priority": 3,
    "heroEligible": false,
    "status": "published",
    "homepage": [
@@ -706,7 +690,7 @@
    "focal": null,
    "banner": null,
    "vehicles": [],
-   "priority": 2,
+   "priority": 3,
    "heroEligible": false,
    "status": "published",
    "homepage": [],
@@ -1208,7 +1192,7 @@
     "credit": "Image: Hyundai, edited by FlamingPiston"
    },
    "vehicles": [],
-   "priority": 2,
+   "priority": 3,
    "heroEligible": false,
    "status": "published",
    "homepage": [
@@ -1314,9 +1298,7 @@
    "thumbnail": null,
    "focal": null,
    "banner": null,
-   "vehicles": [
-    "skoda-slavia"
-   ],
+   "vehicles": [],
    "priority": 3,
    "heroEligible": false,
    "status": "published",
@@ -1358,9 +1340,7 @@
    "thumbnail": null,
    "focal": null,
    "banner": null,
-   "vehicles": [
-    "tata-altroz"
-   ],
+   "vehicles": [],
    "priority": 3,
    "heroEligible": false,
    "status": "published",
@@ -1617,9 +1597,7 @@
     0.76
    ],
    "banner": null,
-   "vehicles": [
-    "maruti-brezza"
-   ],
+   "vehicles": [],
    "priority": 3,
    "heroEligible": false,
    "status": "published",
@@ -1703,9 +1681,7 @@
    "thumbnail": null,
    "focal": null,
    "banner": null,
-   "vehicles": [
-    "kia-syros-ev"
-   ],
+   "vehicles": [],
    "priority": 3,
    "heroEligible": false,
    "status": "published",
@@ -1726,9 +1702,7 @@
    "thumbnail": null,
    "focal": null,
    "banner": null,
-   "vehicles": [
-    "toyota-hilux"
-   ],
+   "vehicles": [],
    "priority": 3,
    "heroEligible": false,
    "status": "published",
