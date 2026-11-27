@@ -2,7 +2,7 @@
 
 *Derived from the homepage (`index.html`, `assets/fp-home.css`, `assets/fp-home.js`) and the site stylesheet (`assets/fp.css`). First written 26 Nov 2026; updated after Phase 2A (shared design foundation, 26 Nov 2026); **homepage sections updated for the consolidated editorial homepage, approved and locked by Gagan on 27 Nov 2026** (references: `docs/design-references/`; earlier homepages archived in `archive-2026-11-26-approved/` and `pre-refinement-2026-11-27/`). This documents what exists; it does not invent new rules. Visual references: `docs/design-references/`.*
 
-**Phase 2A in one line:** the homepage's tokens, shared width system (1320px since V6), masthead and footer now live in `fp.css` / `fp.js` / `apply-shell.js` and are used by every page; page *content* layouts (listings, articles, info pages) keep their earlier styling until Phases 2B, 2C and 5.
+**Phase 2A in one line:** the homepage's tokens, shared width system (1140px since 28 Nov 2026), masthead and footer now live in `fp.css` / `fp.js` / `apply-shell.js` and are used by every page; page *content* layouts (listings, articles, info pages) keep their earlier styling until Phases 2B, 2C and 5.
 
 **The approved homepage is the visual source of truth.** Where the homepage and older site pages differ, the homepage wins and the older page is a Phase 2 redesign candidate.
 
@@ -20,7 +20,7 @@
 
 Cache-busting query strings are set by `scripts/apply-shell.js`: `V = '20261126c'` (fp.css / fp.js) and `VH = '20261127d'` (fp-home.css / fp-home.js, bumped for the research-area layout fix).
 
-**Rendering scale:** the site renders at normal 100% browser zoom on every screen. The 90% desktop zoom (`html{zoom:.9}`) proposed in the unpushed 27 Nov editorial-system package was **not adopted** (Gagan, 27 Nov 2026): density is handled with the shared container (1320px since V6), the type scale and spacing below. Do not add page-wide `zoom` or `transform: scale`. Bump the relevant one whenever a file changes.
+**Rendering scale:** the site renders at normal 100% browser zoom on every screen. The 90% desktop zoom (`html{zoom:.9}`) proposed in the unpushed 27 Nov editorial-system package was **not adopted** (Gagan, 27 Nov 2026): density is handled with the shared container (1140px since 28 Nov 2026), the type scale and spacing below. Do not add page-wide `zoom` or `transform: scale`. Bump the relevant one whenever a file changes.
 
 ## 2. Colour tokens
 
@@ -103,7 +103,7 @@ Three levels of weight: lead story → Latest Stories → everything else.
 
 | Element | Font | Size / line-height | Notes |
 |---|---|---|---|
-| Lead headline (`.hl-text h2`) | Head 700 italic | clamp(41.6px → 60px) / 1.02, -0.03em | 60px at ≥1440, 56px at 1280 (V6); text column max 620px; 32–42px stacked (≤1023), 30–36px mobile |
+| Lead headline (`.hl-text h2`) | Head 700 italic | clamp(44px → 56px) / 1.02, -0.03em | 56px at ≥1366, 53px at 1280, 44px at 1024; text column max min(480px, 41vw); 32–42px stacked (≤1023), 30–36px mobile |
 | Lead dek | Body 400 | 16px / 1.5 (15px mobile) | `--on-dark-dek`, max 440px |
 | Latest Stories heading (`.fp-head--lead h2`) | Head 700 | clamp(28px → 32px) / 1.1 | |
 | Section heading (`.fp-head h2`) | Head 700 | clamp(23px → 26px) / 1.1, -0.02em | all other sections |
@@ -137,22 +137,22 @@ Three levels of weight: lead story → Latest Stories → everything else.
 ### The shared width system (approved homepage system; site-wide since Phase 2A)
 
 ```css
---content-max-width: 1320px;   /* V6, 27 Nov 2026 (was 1440px) */
+--content-max-width: 1140px;   /* 28 Nov 2026, matched to Autocar India's 1130px (was 1320px in V6, 1440px before) */
 --page-gutter: clamp(16px, 2.6vw, 40px);
 .fp-container { width:100%; max-width:calc(var(--content-max-width) + 2 * var(--page-gutter));
                 margin-inline:auto; padding-inline:var(--page-gutter); }
 ```
 
-- Usable content stops at **1320px** (V6, 27 Nov 2026; 1440px before) and centres. Verified (V6): content runs 300→1620px at 1920, 620→1940px at 2560, 60→1380px at 1440.
+- Usable content stops at **1140px** (28 Nov 2026; 1320px in V6, 1440px before) and centres. Verified: content runs 390→1530px at 1920, 710→1850px at 2560, 150→1290px at 1440.
 - Full-width **backgrounds** are allowed (hero band, footer); full-width **content** is not. The lead hero image deliberately bleeds into the left gutter (`margin-left: calc(-1 * var(--page-gutter))`) but stays inside the container on the right.
 - Never use `100vw` for content, `transform: scale` on the page, or fixed widths that overflow. Grid children get `min-width:0`.
 - `body { overflow-x: clip }` exists in `fp.css` as a safety net; it must not be relied on to hide overflow — fix the source.
-- `.wrap` (used by listing pages, info heads and the footer) is the **same outer container** as `.fp-container` (1320px + `--page-gutter`). The old `--max: 1280px` token was removed in Phase 2A.
-- Verified content edges of the header row and footer row (V6): 60→1380px at 1440, 108→1428px at 1536, 300→1620px at 1920, 620→1940px at 2560, 33→1246px at 1280, 27→997px at 1024, 16→374px at 390.
+- `.wrap` (used by listing pages, info heads and the footer) is the **same outer container** as `.fp-container` (1140px + `--page-gutter`). The old `--max: 1280px` token was removed in Phase 2A.
+- Verified content edges of the header row and footer row (1140px): 150→1290px at 1440, 198→1338px at 1536, 390→1530px at 1920, 710→1850px at 2560, 70→1210px at 1280, 27→997px at 1024, 16→374px at 390.
 
 ### Narrower inner widths (preserved on purpose)
 
-The 1320px limit is an outer container, not a target width. Inside it:
+The 1140px limit is an outer container, not a target width. Inside it:
 
 | Content | Width | Where |
 |---|---|---|
@@ -172,7 +172,7 @@ Site scale (`fp.css`): `--s-1` 4 · `--s-2` 8 · `--s-3` 12 · `--s-4` 16 · `--
 
 | Row | Desktop | Ratio / columns |
 |---|---|---|
-| Lead story | One static story, full width of the container | `40fr / 60fr` text \| image; V6 desktop: `48fr / 52fr`, min-height 460px, headline up to 60px, dek 18px, text max 620px; the 2.4:1 banner is right-anchored at its own ratio inside the container (never stretched on 1920/2560) |
+| Lead story | One static story, full width of the container | `40fr / 60fr` text \| image; desktop: `48fr / 52fr`, height clamp(360px, 46vw − 112px, 440px), headline clamp(44px → 56px), dek 16–18px, text max min(480px, 41vw) so it always ends ~55–64px before the car (the car fills the banner's right ~58% ≈ 1.39 × hero height); the 2.4:1 banner is right-anchored at its own ratio inside the container (never stretched on 1920/2560) |
 | Latest Stories | Lead story + 3 rows | `51fr / 49fr`, gap 40px; lead = 16:9 photo above text; rows = 200px 16:9 thumb + text, hairline dividers, no card borders |
 | Finder | Title · intro · 3 selects · button | `auto · minmax(170px,1.1fr) · 3×1fr · auto`, min-height 84px, flat petrol, radius 10px |
 | Featured Cars | 4 cards | `repeat(4, 1fr)`, gap 20px |
@@ -189,7 +189,7 @@ Site scale (`fp.css`): `--s-1` 4 · `--s-2` 8 · `--s-3` 12 · `--s-4` 16 · `--
 
 | Range | Behaviour |
 |---|---|
-| ≥ 1440 | Full layout; content capped at 1320px (V6); lead image ends at the container edge with a short fade into the band |
+| ≥ 1440 | Full layout; content capped at 1140px; lead image ends at the container edge with a short fade into the band |
 | ≤ 1439 | Finder gap tightens |
 | ≤ 1279 | Nav moves into the drawer; finder intro hidden; Latest Stories rows 160px thumbs; split-row gutters 24px; guide cards image over text; New & Upcoming / tools reflow by container width |
 | ≤ 1023 | Lead story stacks: 16:9 image on top (right-anchored, whole car), text below; Latest Stories lead becomes photo \| text with the rows below; finder 3 columns with full-width title/button; Featured Cars 2×2; the research area becomes one column (Compare, Latest Reviews, New & Upcoming, Buying Tools); Car Culture image on top (2.4:1) |
@@ -225,7 +225,7 @@ Markup: `header(cur)` in `scripts/apply-shell.js`, written into every page. CSS:
 
 `FOOTER` in `apply-shell.js`, written into every page; styles in `fp.css` §14.
 
-- Deep petrol; top padding clamp(36px, 4.5vw, 56px); inner width = the shared 1320px container on every page (V6).
+- Deep petrol; top padding clamp(36px, 4.5vw, 56px); inner width = the shared 1140px container on every page.
 - Brand column: cropped light logo (20px tall), one-line description "Car news, buyer's briefs, comparisons and buying guides for India." (max-width 300px), Instagram @flamingpiston_in (mono 13px, underlined with `--rule-dark`).
 - Four columns with mono 11px uppercase teal headings: **Sections** (News, Reviews, Buying Guides, Comparisons, Tools, Car Culture) · **Company** (About, Contact, Gagan Mishra, Sitemap) · **Editorial** (Editorial Policy, Review Methodology, Fact-Checking, Corrections) · **Legal** (Privacy, Cookie, Terms, Affiliate Disclosure, Disclaimer).
 - Bottom bar: © 2026 FlamingPiston. All rights reserved. · New Delhi, India (mono 12px, `--rule-dark` top border).

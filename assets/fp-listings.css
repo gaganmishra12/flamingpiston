@@ -21,8 +21,8 @@
 .paired-features .card:nth-child(-n+2) h3{font:italic 700 clamp(25px,2.6vw,38px)/1.04 var(--f-head)}
 .paired-features .page-head--compact{background:var(--petrol);color:var(--ivory);margin-bottom:16px}
 .paired-features .page-head--compact .lede{color:var(--teal)}
-.culture-cover .editorial-grid>.card:first-child{grid-column:1/-1;display:grid;grid-template-columns:1.2fr 1fr;background:var(--petrol);border-radius:5px;overflow:hidden;align-items:center}
-.culture-cover .card:first-child .card-media{height:100%;border-radius:0}
+.culture-cover .editorial-grid>.card:first-child{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);background:var(--petrol);border-radius:5px;overflow:hidden;align-items:center}
+.culture-cover .card:first-child .card-media{height:100%;min-height:100%;aspect-ratio:auto;border-radius:0}
 .culture-cover .card:first-child .card-body{padding:32px}
 .culture-cover .card:first-child h3{font:italic 700 clamp(28px,3vw,46px)/1.04 var(--f-head);color:var(--ivory)}
 .culture-cover .card:first-child .card-body p, .culture-cover .card:first-child time{color:var(--teal)}

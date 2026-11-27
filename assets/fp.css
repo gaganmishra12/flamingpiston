@@ -59,7 +59,7 @@
   --wide:1120px; --read:720px;   /* article inner widths (unchanged) */
 
   /* shared width system (approved homepage, promoted site-wide in Phase 2A) */
-  --content-max-width:1320px;
+  --content-max-width:1140px;
   --page-gutter:clamp(16px,2.6vw,40px);
   --section-gap:24px;
   --card-gap:20px;
