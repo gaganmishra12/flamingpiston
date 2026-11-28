@@ -8,6 +8,7 @@
 set -e
 cd "$(dirname "$0")/.."
 python3 scripts/make-home-images.py || true
+node scripts/article-images.js
 node scripts/reindex.js
 node scripts/build-lists.js
 node scripts/apply-shell.js

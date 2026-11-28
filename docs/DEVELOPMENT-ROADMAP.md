@@ -6,8 +6,8 @@
 |---|---|---|
 | 1 | Homepage | **Approved and locked**: consolidated editorial homepage approved 27 Nov 2026 (deploy pending); previous version live at 0a8ec64 |
 | 2A | Shared design foundation | **Approved and live** (26 Nov 2026, `main` 0a8ec64) |
-| 2B | Editorial listing pages | Planned |
-| 2C | Article detail templates | Planned |
+| 2B | Editorial listing pages | **Done** (28 Nov 2026): all five listing pages redesigned and merged |
+| 2C | Article detail templates | **Built, awaiting approval** (28 Nov 2026, branch `phase-2c-article-previews`) |
 | 3 | Vehicle intelligence | Planned |
 | 4 | Interactive buying intelligence | Planned (calculators already exist) |
 | 5 | Supporting pages | Planned |
@@ -72,6 +72,7 @@
 **Depends on:** 2B.
 **Scope:** One article design covering news, buyer's briefs/reviews, editorial comparisons, guides, explainers and car-culture stories, applied through CSS and generator changes (not by rewriting article bodies). Byline, label, hero with credit, quick verdict, score breakdown, buyer-fit, FAQ, Sources, Read Next; responsive hero images (srcset) without touching article text.
 **Acceptance:** every article's `<main>` text content unchanged (byte-compare text nodes); structured data unchanged; Lighthouse mobile performance and accessibility not lower than today.
+**Status (28 Nov 2026):** Gagan chose design A ("Showroom") plus the "On this page" contents list from design B, from three previews (`docs/previews/article-2c/`, not public). Rolled out to all 73 article pages (`body.article`) through `fp.css` §21, `fp.js` 6c and the new `scripts/article-images.js`; no article text, title, meta, canonical or JSON-LD changed (byte-checked on all 73). Checked at 8 widths with no overflow, console errors or missing files. Lighthouse was not run (not installed); page weight on phones fell 20–30% but local LCP rose ~0.1–0.2 s, so a Lighthouse run is still owed before closing the phase. Open: 26 articles keep their text-baked hero (no clean crop ≥1000px wide yet) and 19 have no crop spec. Waiting for Gagan's approval before commit and merge.
 
 ---
 
