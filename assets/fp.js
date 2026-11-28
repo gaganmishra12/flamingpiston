@@ -126,6 +126,44 @@
     if (b && b.tagName === 'BR') { p.classList.add('qa'); b.classList.add('qa-br'); }
   });
 
+  /* ---------- 6c. Articles (Phase 2C): Spec Score bars and the "On this page" contents list ----------
+     Both read the article as it is and add only presentation; the article text in the HTML is never edited. */
+  var art = doc.body.classList.contains('article') ? $('main.content') : null;
+  if (art) {
+    /* score bars: "8.5 / 10" in the last cell → --s: .85 for the CSS bar */
+    $$('.score-breakdown tr', art).forEach(function (tr) {
+      var td = tr.cells.length > 1 ? tr.cells[tr.cells.length - 1] : null;
+      var m = td && /^\s*(\d+(?:\.\d+)?)\s*\/\s*10\s*$/.exec(td.textContent);
+      if (m) { td.style.setProperty('--s', Math.min(1, +m[1] / 10)); td.classList.add('has-bar'); }
+    });
+    /* contents list from the article's own h2s (shown from 1180px by CSS) */
+    var hs = $$('h2', art).filter(function (h) { return !h.closest('.section-heading'); });
+    if (hs.length >= 3) {
+      var used = {}, nav = doc.createElement('nav'), ol = doc.createElement('ol'), t = doc.createElement('p');
+      nav.className = 'toc'; nav.setAttribute('aria-label', 'On this page');
+      t.className = 'toc-h'; t.textContent = 'On this page'; nav.appendChild(t);
+      hs.forEach(function (h) {
+        if (!h.id) {
+          var id = h.textContent.toLowerCase().replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'section';
+          while (used[id] || doc.getElementById(id)) id += '-2';
+          h.id = id;
+        }
+        used[h.id] = 1;
+        var li = doc.createElement('li'), a = doc.createElement('a');
+        a.href = '#' + h.id; a.textContent = h.textContent; li.appendChild(a); ol.appendChild(li);
+      });
+      nav.appendChild(ol); art.appendChild(nav);
+      var links = $$('a', nav), busy = false;
+      function mark() {            /* current section = last heading scrolled past 30% of the screen */
+        busy = false; var cur = -1, lim = window.innerHeight * 0.3;
+        hs.forEach(function (h, i) { if (h.getBoundingClientRect().top < lim) cur = i; });
+        links.forEach(function (l, i) { if (i === cur) l.setAttribute('aria-current', 'location'); else l.removeAttribute('aria-current'); });
+      }
+      window.addEventListener('scroll', function () { if (!busy) { busy = true; requestAnimationFrame(mark); } }, { passive: true });
+      mark();
+    }
+  }
+
   /* ---------- 7. Search (same scoring as site-search.js; adds loading + type label + footer hints) ---------- */
   var overlay = $('#fpSearchOverlay'), input = $('#fpSearchInput'), results = $('#fpSearchResults'), trig = $('#fpSearchTrigger'), closeBtn = $('#fpSearchClose');
   if (!overlay || !input) return;
