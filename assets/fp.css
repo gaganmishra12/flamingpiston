@@ -608,3 +608,12 @@ body.article .toc{display:none}
   body.article .toc a:hover{color:var(--ink)}
   body.article .toc a[aria-current]{color:var(--ink);border-left-color:var(--ember-strong);font-weight:600}
 }
+
+/* Article byline in the 720px reading column (28 Nov 2026): author + dates (+ read time) on the left, share buttons on the
+   right across both lines, category (or the .facts line on older pages) on a second line under the name. Phones keep §12. */
+@media (min-width:600px){
+  body.article main.content>.author-block{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:20px;row-gap:6px;align-items:center}
+  body.article main.content>.author-block>.author-col-left{grid-column:1;grid-row:1;flex-wrap:wrap;row-gap:4px}
+  body.article main.content>.author-block>.category-line,body.article main.content>.author-block>.facts{grid-column:1;grid-row:2;padding-left:48px}
+  body.article main.content>.author-block>.share-row{grid-column:2;grid-row:1/3;margin-left:0}
+}
