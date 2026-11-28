@@ -80,8 +80,7 @@
   <link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/assets/fonts/familjen-grotesk-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/familjen-grotesk-latin-700-italic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/fp.css?v=20261128art">
+  <link rel="stylesheet" href="/assets/fp.css?v=20261128toc">
   <!-- /FP:HEAD -->
 </head>
 <body class="article">
@@ -145,6 +144,6 @@ items.forEach(function(e){e.hidden=!(k==='all'||(' '+e.dataset.category+' ').ind
 document.querySelectorAll('[data-all-only]').forEach(function(e){e.hidden=k!=='all'});var em=document.querySelector('.gc-empty');if(em)em.hidden=items.some(function(e){return !e.hidden})}
 tabs.forEach(function(t){t.addEventListener('click',function(e){e.preventDefault();apply(t.dataset.filter);history.replaceState(null,'',t.dataset.filter==='all'?location.pathname:'#'+t.dataset.filter)})});
 apply((location.hash||'').slice(1).toLowerCase()||'all')})();</script>
-  <script src="/assets/fp.js?v=20261128art" defer></script>
+  <script src="/assets/fp.js?v=20261128toc" defer></script>
 </body>
 </html>

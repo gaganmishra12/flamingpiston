@@ -153,7 +153,6 @@ Run from the repository root after adding or editing articles:
 ```
 python3 scripts/make-thumbs.py         # optional: 800px WebP card thumbnails → images/thumbs/
 python3 scripts/make-home-images.py    # only if data/homepage.json or data/cars.json crops changed
-node scripts/article-images.js         # clean hero + Read Next photos on article pages (Phase 2C)
 node scripts/reindex.js                # sitemap.xml, sitemap.html, feed.xml, search-index.json
 node scripts/build-lists.js            # homepage sections, listing cards, filters, author list
 node scripts/apply-shell.js            # head block, header, footer, search overlay on every page

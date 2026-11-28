@@ -126,16 +126,10 @@
     if (b && b.tagName === 'BR') { p.classList.add('qa'); b.classList.add('qa-br'); }
   });
 
-  /* ---------- 6c. Articles (Phase 2C): Spec Score bars and the "On this page" contents list ----------
-     Both read the article as it is and add only presentation; the article text in the HTML is never edited. */
+  /* ---------- 6c. Articles: the "On this page" contents list (kept from Phase 2C) ----------
+     Built from the article's own h2s; adds only navigation; the article text in the HTML is never edited. */
   var art = doc.body.classList.contains('article') ? $('main.content') : null;
   if (art) {
-    /* score bars: "8.5 / 10" in the last cell → --s: .85 for the CSS bar */
-    $$('.score-breakdown tr', art).forEach(function (tr) {
-      var td = tr.cells.length > 1 ? tr.cells[tr.cells.length - 1] : null;
-      var m = td && /^\s*(\d+(?:\.\d+)?)\s*\/\s*10\s*$/.exec(td.textContent);
-      if (m) { td.style.setProperty('--s', Math.min(1, +m[1] / 10)); td.classList.add('has-bar'); }
-    });
     /* contents list from the article's own h2s (shown from 1180px by CSS) */
     var hs = $$('h2', art).filter(function (h) { return !h.closest('.section-heading'); });
     if (hs.length >= 3) {

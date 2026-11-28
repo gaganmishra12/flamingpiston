@@ -109,8 +109,7 @@ a.nx-media:hover img{transform:scale(1.025)}
   <link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/assets/fonts/familjen-grotesk-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/familjen-grotesk-latin-700-italic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/fp.css?v=20261128art">
+  <link rel="stylesheet" href="/assets/fp.css?v=20261128toc">
   <!-- /FP:HEAD -->
 </head>
 <body class="article">
@@ -196,6 +195,6 @@ tabs.forEach(function(t){t.addEventListener('click',function(){set(t.dataset.kin
 var m=document.querySelector('[data-more]');if(m)m.addEventListener('click',function(){m.dataset.open=1;document.querySelectorAll('.is-folded').forEach(function(e){e.classList.remove('is-folded')});m.hidden=true});
 document.querySelectorAll('[data-jump]').forEach(function(a){a.addEventListener('click',function(ev){ev.preventDefault();set(a.dataset.jump);document.querySelector('.nx-tabs').scrollIntoView({block:'start'})})});
 var h=location.hash.slice(1);set(h&&document.querySelector('.nx-tab[data-kind="'+h+'"]')?h:'all')})();</script>
-  <script src="/assets/fp.js?v=20261128art" defer></script>
+  <script src="/assets/fp.js?v=20261128toc" defer></script>
 </body>
 </html>
