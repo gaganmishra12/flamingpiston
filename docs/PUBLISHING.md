@@ -131,15 +131,6 @@ A Priority 1 story may lead the homepage only with a **dedicated hero banner** (
 - **Checks:** `make-home-images.py` refuses wrong proportions and warns when the car starts too far left (under the text).
 - **No suitable image:** don't promote the story. The build keeps the current valid lead and lists the story under `NOTE: … Lead story (Priority 1): <url>`. If `hero.article` names a story without a banner, the build warns (`has no "hero" banner yet; choosing automatically`) and keeps a valid lead. A missing image never produces an empty or badly framed lead.
 
-## 6b. Article hero and Read Next photos (Phase 2C)
-
-Article pages keep their own `<img class="hero-image">` in the HTML; `scripts/article-images.js` only rewrites its attributes:
-
-- **Hero:** when the article has a crop spec in `data/homepage.json` "images", `make-home-images.py` also cuts a 16:9 `article` crop (up to 1800px). If that crop is at least 1000px wide (or 90% of the source width) the hero switches to it, with a `srcset`; otherwise the original hero stays. To give an article a clean hero, add or widen its crop spec (a text-free part of the image, whole car in frame) and rebuild.
-- **Read Next:** the cards you hand-pick at the end of an article keep their links and text; their photos switch to the linked article's clean 16:9 thumbnail when one exists.
-- The original image is kept in `data-original-src`, so removing a crop puts it back on the next run. Alt text comes from the crop spec's `alt` when it has one.
-- The "On this page" list (wide screens) and the Spec Score bars are built in the browser by `fp.js` from the article's own `h2`s and score rows; nothing to maintain. Articles with fewer than three `h2`s get no list.
-
 ## 7. Testing the rules
 
 ```
@@ -159,4 +150,4 @@ The script copies the site to a temporary folder, runs every check below, and de
 
 ## 8. One rebuild, everything updated
 
-`sh scripts/update-site.sh` runs, in order: `make-home-images.py` (clean crops) → `article-images.js` (article hero and Read Next photos, see §6b) → `reindex.js` (sitemap, RSS, search index; drafts and scheduled stories left out) → `build-lists.js` (registry, listing pages, every homepage section, article catalogue) → `apply-shell.js` (shared head, header and footer). It is idempotent: a second run with no content change writes nothing (the RSS build date is the newest article date, not the clock).
+`sh scripts/update-site.sh` runs, in order: `make-home-images.py` (clean crops) → `reindex.js` (sitemap, RSS, search index; drafts and scheduled stories left out) → `build-lists.js` (registry, listing pages, every homepage section, article catalogue) → `apply-shell.js` (shared head, header and footer). It is idempotent: a second run with no content change writes nothing (the RSS build date is the newest article date, not the clock).

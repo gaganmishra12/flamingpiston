@@ -1,12 +1,4 @@
 {
- "articles/ev-claimed-vs-real-world-range/#article": {
-  "file": "images/home/articles-ev-claimed-vs-real-world-range-article-16x9.webp",
-  "w": 1228,
-  "h": 691,
-  "bg": "#7b7062",
-  "sig": "f7e25f4091",
-  "hero": true
- },
  "articles/ev-claimed-vs-real-world-range/#story": {
   "file": "images/home/articles-ev-claimed-vs-real-world-range-story-16x9.webp",
   "w": 1200,
@@ -119,14 +111,6 @@
   "bg": "#505356",
   "sig": "cbb5b6545d"
  },
- "comparisons/2026-glanza-vs-baleno/#article": {
-  "file": "images/home/comparisons-2026-glanza-vs-baleno-article-16x9.webp",
-  "w": 1600,
-  "h": 900,
-  "bg": "#564839",
-  "sig": "37275e6e30",
-  "hero": true
- },
  "comparisons/2026-glanza-vs-baleno/#story": {
   "file": "images/home/comparisons-2026-glanza-vs-baleno-story-16x9.webp",
   "w": 1200,
@@ -155,14 +139,6 @@
   "bg": "#5a4b3a",
   "sig": "a45b959bdc"
  },
- "comparisons/brezza-cng-vs-xuv-3xo-cng/#article": {
-  "file": "images/home/comparisons-brezza-cng-vs-xuv-3xo-cng-article-16x9.webp",
-  "w": 1600,
-  "h": 900,
-  "bg": "#10262d",
-  "sig": "73e7a7deb9",
-  "hero": true
- },
  "comparisons/brezza-cng-vs-xuv-3xo-cng/#story": {
   "file": "images/home/comparisons-brezza-cng-vs-xuv-3xo-cng-story-16x9.webp",
   "w": 1200,
@@ -190,14 +166,6 @@
   "h": 280,
   "bg": "#112830",
   "sig": "b2b91a06bf"
- },
- "comparisons/tata-sierra-ev-vs-mahindra-be-6/#article": {
-  "file": "images/home/comparisons-tata-sierra-ev-vs-mahindra-be-6-article-16x9.webp",
-  "w": 1310,
-  "h": 737,
-  "bg": "#38312d",
-  "sig": "9548ee14f7",
-  "hero": true
  },
  "comparisons/tata-sierra-ev-vs-mahindra-be-6/#story": {
   "file": "images/home/comparisons-tata-sierra-ev-vs-mahindra-be-6-story-16x9.webp",
@@ -234,14 +202,6 @@
   "bg": "#5f3d30",
   "sig": "2bc49cd8e2"
  },
- "guides/5-star-bharat-ncap-cars-under-10-lakh/#article": {
-  "file": "images/home/guides-5-star-bharat-ncap-cars-under-10-lakh-article-16x9.webp",
-  "w": 1060,
-  "h": 597,
-  "bg": "#495052",
-  "sig": "d91d97b3e1",
-  "hero": true
- },
  "guides/5-star-bharat-ncap-cars-under-10-lakh/#story": {
   "file": "images/home/guides-5-star-bharat-ncap-cars-under-10-lakh-story-16x9.webp",
   "w": 1060,
@@ -269,14 +229,6 @@
   "h": 280,
   "bg": "#494f53",
   "sig": "3fefefab06"
- },
- "guides/baas-vs-buying-ev-battery-break-even/#article": {
-  "file": "images/home/guides-baas-vs-buying-ev-battery-break-even-article-16x9.webp",
-  "w": 1132,
-  "h": 637,
-  "bg": "#847a70",
-  "sig": "4c67f4d626",
-  "hero": true
  },
  "guides/baas-vs-buying-ev-battery-break-even/#story": {
   "file": "images/home/guides-baas-vs-buying-ev-battery-break-even-story-16x9.webp",
@@ -306,14 +258,6 @@
   "bg": "#726963",
   "sig": "5aff22b7f7"
  },
- "guides/brezza-petrol-vs-cng-break-even/#article": {
-  "file": "images/home/guides-brezza-petrol-vs-cng-break-even-article-16x9.webp",
-  "w": 1230,
-  "h": 692,
-  "bg": "#a59786",
-  "sig": "0c23ffcdd0",
-  "hero": true
- },
  "guides/brezza-petrol-vs-cng-break-even/#story": {
   "file": "images/home/guides-brezza-petrol-vs-cng-break-even-story-16x9.webp",
   "w": 1200,
@@ -341,14 +285,6 @@
   "h": 280,
   "bg": "#ab9a8a",
   "sig": "9500365420"
- },
- "guides/festive-car-discounts-2026/#article": {
-  "file": "images/home/guides-festive-car-discounts-2026-article-16x9.webp",
-  "w": 1600,
-  "h": 900,
-  "bg": "#604739",
-  "sig": "6c136681e1",
-  "hero": true
  },
  "guides/festive-car-discounts-2026/#story": {
   "file": "images/home/guides-festive-car-discounts-2026-story-16x9.webp",
@@ -378,14 +314,6 @@
   "bg": "#63483a",
   "sig": "33c0738474"
  },
- "guides/innova-hycross-facelift-buy-now-or-wait/#article": {
-  "file": "images/home/guides-innova-hycross-facelift-buy-now-or-wait-article-16x9.webp",
-  "w": 952,
-  "h": 535,
-  "bg": "#06252d",
-  "sig": "18329504d0",
-  "hero": false
- },
  "guides/innova-hycross-facelift-buy-now-or-wait/#story": {
   "file": "images/home/guides-innova-hycross-facelift-buy-now-or-wait-story-16x9.webp",
   "w": 952,
@@ -413,14 +341,6 @@
   "h": 280,
   "bg": "#04222b",
   "sig": "d1c1a1d1e1"
- },
- "news-aston-martin-valen.html#article": {
-  "file": "images/home/news-aston-martin-valen-article-16x9.webp",
-  "w": 857,
-  "h": 482,
-  "bg": "#764c48",
-  "sig": "e7d61f3149",
-  "hero": false
  },
  "news-aston-martin-valen.html#story": {
   "file": "images/home/news-aston-martin-valen-story-16x9.webp",
@@ -450,14 +370,6 @@
   "bg": "#7c524c",
   "sig": "5013920ab1"
  },
- "news-bmw-7-series-i7-facelift-india.html#article": {
-  "file": "images/home/news-bmw-7-series-i7-facelift-india-article-16x9.webp",
-  "w": 604,
-  "h": 339,
-  "bg": "#040404",
-  "sig": "a3d7ee1a70",
-  "hero": false
- },
  "news-bmw-7-series-i7-facelift-india.html#story": {
   "file": "images/home/news-bmw-7-series-i7-facelift-india-story-16x9.webp",
   "w": 604,
@@ -485,14 +397,6 @@
   "h": 280,
   "bg": "#050504",
   "sig": "8b573b112c"
- },
- "news-denza-d9-z9-gt-india-launch.html#article": {
-  "file": "images/home/news-denza-d9-z9-gt-india-launch-article-16x9.webp",
-  "w": 1209,
-  "h": 680,
-  "bg": "#563924",
-  "sig": "1c34b10d0a",
-  "hero": true
  },
  "news-denza-d9-z9-gt-india-launch.html#story": {
   "file": "images/home/news-denza-d9-z9-gt-india-launch-story-16x9.webp",
@@ -522,14 +426,6 @@
   "bg": "#573a25",
   "sig": "74e421f45e"
  },
- "news-ford-fathom-ev-truck.html#article": {
-  "file": "images/home/news-ford-fathom-ev-truck-article-16x9.webp",
-  "w": 896,
-  "h": 504,
-  "bg": "#0b0c0e",
-  "sig": "2fc7b7ba1f",
-  "hero": false
- },
  "news-ford-fathom-ev-truck.html#story": {
   "file": "images/home/news-ford-fathom-ev-truck-story-16x9.webp",
   "w": 896,
@@ -558,14 +454,6 @@
   "bg": "#08090b",
   "sig": "bc8b77eb7e"
  },
- "news-genesis-gv90.html#article": {
-  "file": "images/home/news-genesis-gv90-article-16x9.webp",
-  "w": 627,
-  "h": 352,
-  "bg": "#b3a38f",
-  "sig": "1cc1eba3c8",
-  "hero": false
- },
  "news-genesis-gv90.html#story": {
   "file": "images/home/news-genesis-gv90-story-16x9.webp",
   "w": 627,
@@ -593,14 +481,6 @@
   "h": 280,
   "bg": "#b1a08d",
   "sig": "768625ac30"
- },
- "news-honda-november-2026-offers.html#article": {
-  "file": "images/home/news-honda-november-2026-offers-article-16x9.webp",
-  "w": 1072,
-  "h": 603,
-  "bg": "#19333b",
-  "sig": "8fa74c935e",
-  "hero": true
  },
  "news-honda-november-2026-offers.html#story": {
   "file": "images/home/news-honda-november-2026-offers-story-16x9.webp",
@@ -631,14 +511,6 @@
   "bg": "#142b33",
   "sig": "d2ee6c70b6"
  },
- "news-hyundai-tucson-2027.html#article": {
-  "file": "images/home/news-hyundai-tucson-2027-article-16x9.webp",
-  "w": 660,
-  "h": 371,
-  "bg": "#8a7d6c",
-  "sig": "28d602887c",
-  "hero": false
- },
  "news-hyundai-tucson-2027.html#story": {
   "file": "images/home/news-hyundai-tucson-2027-story-16x9.webp",
   "w": 660,
@@ -668,14 +540,6 @@
   "sig": "10ccb59c60",
   "contain": true
  },
- "news-land-rover-defender-dakar.html#article": {
-  "file": "images/home/news-land-rover-defender-dakar-article-16x9.webp",
-  "w": 853,
-  "h": 480,
-  "bg": "#040404",
-  "sig": "b5f5ac3599",
-  "hero": false
- },
  "news-land-rover-defender-dakar.html#story": {
   "file": "images/home/news-land-rover-defender-dakar-story-16x9.webp",
   "w": 853,
@@ -703,14 +567,6 @@
   "h": 280,
   "bg": "#040403",
   "sig": "626106f0bd"
- },
- "news-mahindra-xev-9s-bharat-ncap.html#article": {
-  "file": "images/home/news-mahindra-xev-9s-bharat-ncap-article-16x9.webp",
-  "w": 1321,
-  "h": 743,
-  "bg": "#1f1f1f",
-  "sig": "14c9778765",
-  "hero": true
  },
  "news-mahindra-xev-9s-bharat-ncap.html#story": {
   "file": "images/home/news-mahindra-xev-9s-bharat-ncap-story-16x9.webp",
@@ -740,14 +596,6 @@
   "bg": "#1d1d1d",
   "sig": "37c888c38e"
  },
- "news-mahindra-xuv-3xo-cng-bncap.html#article": {
-  "file": "images/home/news-mahindra-xuv-3xo-cng-bncap-article-16x9.webp",
-  "w": 1249,
-  "h": 702,
-  "bg": "#1a1816",
-  "sig": "b634b94361",
-  "hero": true
- },
  "news-mahindra-xuv-3xo-cng-bncap.html#story": {
   "file": "images/home/news-mahindra-xuv-3xo-cng-bncap-story-16x9.webp",
   "w": 1200,
@@ -775,14 +623,6 @@
   "h": 280,
   "bg": "#161413",
   "sig": "6c75aab361"
- },
- "news-mg-couture-editions.html#article": {
-  "file": "images/home/news-mg-couture-editions-article-16x9.webp",
-  "w": 800,
-  "h": 450,
-  "bg": "#100e0c",
-  "sig": "357bc19f58",
-  "hero": true
  },
  "news-mg-couture-editions.html#story": {
   "file": "images/home/news-mg-couture-editions-story-16x9.webp",
@@ -812,14 +652,6 @@
   "bg": "#120f0d",
   "sig": "21fae9fa01"
  },
- "news-porsche-cayenne-electric-india.html#article": {
-  "file": "images/home/news-porsche-cayenne-electric-india-article-16x9.webp",
-  "w": 752,
-  "h": 423,
-  "bg": "#0e0d0b",
-  "sig": "b953d08cb2",
-  "hero": false
- },
  "news-porsche-cayenne-electric-india.html#story": {
   "file": "images/home/news-porsche-cayenne-electric-india-story-16x9.webp",
   "w": 752,
@@ -848,14 +680,6 @@
   "bg": "#0a0a08",
   "sig": "88b3e1887c"
  },
- "news-skoda-octavia-rs-second-batch.html#article": {
-  "file": "images/home/news-skoda-octavia-rs-second-batch-article-16x9.webp",
-  "w": 883,
-  "h": 496,
-  "bg": "#2c2025",
-  "sig": "eaff4b81fc",
-  "hero": false
- },
  "news-skoda-octavia-rs-second-batch.html#story": {
   "file": "images/home/news-skoda-octavia-rs-second-batch-story-16x9.webp",
   "w": 883,
@@ -883,14 +707,6 @@
   "h": 280,
   "bg": "#2d2025",
   "sig": "0612ff6cb8"
- },
- "news-slate-truck-ev.html#article": {
-  "file": "images/home/news-slate-truck-ev-article-16x9.webp",
-  "w": 825,
-  "h": 464,
-  "bg": "#070706",
-  "sig": "7e068af9e4",
-  "hero": false
  },
  "news-slate-truck-ev.html#story": {
   "file": "images/home/news-slate-truck-ev-story-16x9.webp",
@@ -921,14 +737,6 @@
   "bg": "#060606",
   "sig": "9627aa5b28"
  },
- "news-tata-sierra-ev-bharat-ncap.html#article": {
-  "file": "images/home/news-tata-sierra-ev-bharat-ncap-article-16x9.webp",
-  "w": 1237,
-  "h": 696,
-  "bg": "#18181a",
-  "sig": "3a81cfeedf",
-  "hero": true
- },
  "news-tata-sierra-ev-bharat-ncap.html#story": {
   "file": "images/home/news-tata-sierra-ev-bharat-ncap-story-16x9.webp",
   "w": 1200,
@@ -956,14 +764,6 @@
   "h": 280,
   "bg": "#141416",
   "sig": "179e9e6a7d"
- },
- "news-tesla-roadster-reveal-2026.html#article": {
-  "file": "images/home/news-tesla-roadster-reveal-2026-article-16x9.webp",
-  "w": 986,
-  "h": 555,
-  "bg": "#824d37",
-  "sig": "62f6cff2e9",
-  "hero": false
  },
  "news-tesla-roadster-reveal-2026.html#story": {
   "file": "images/home/news-tesla-roadster-reveal-2026-story-16x9.webp",
@@ -993,14 +793,6 @@
   "bg": "#824d37",
   "sig": "e1a2ed4c09"
  },
- "news-yangwang-altior-reveal.html#article": {
-  "file": "images/home/news-yangwang-altior-reveal-article-16x9.webp",
-  "w": 1386,
-  "h": 780,
-  "bg": "#382a22",
-  "sig": "8040f14e1b",
-  "hero": true
- },
  "news-yangwang-altior-reveal.html#story": {
   "file": "images/home/news-yangwang-altior-reveal-story-16x9.webp",
   "w": 1200,
@@ -1028,14 +820,6 @@
   "h": 280,
   "bg": "#392b23",
   "sig": "83edfc1e91"
- },
- "reviews/2026-brezza-vs-fronx/#article": {
-  "file": "images/home/reviews-2026-brezza-vs-fronx-article-16x9.webp",
-  "w": 999,
-  "h": 562,
-  "bg": "#050504",
-  "sig": "c1bcd7f7f1",
-  "hero": true
  },
  "reviews/2026-brezza-vs-fronx/#story": {
   "file": "images/home/reviews-2026-brezza-vs-fronx-story-16x9.webp",
@@ -1065,14 +849,6 @@
   "bg": "#050505",
   "sig": "300ebe0364"
  },
- "reviews/2026-brezza-vs-nexon/#article": {
-  "file": "images/home/reviews-2026-brezza-vs-nexon-article-16x9.webp",
-  "w": 800,
-  "h": 450,
-  "bg": "#140d0f",
-  "sig": "c46a16bf78",
-  "hero": true
- },
  "reviews/2026-brezza-vs-nexon/#story": {
   "file": "images/home/reviews-2026-brezza-vs-nexon-story-16x9.webp",
   "w": 800,
@@ -1100,14 +876,6 @@
   "h": 280,
   "bg": "#150f11",
   "sig": "7830fc90b9"
- },
- "reviews/2026-isuzu-v-cross-review/#article": {
-  "file": "images/home/reviews-2026-isuzu-v-cross-review-article-16x9.webp",
-  "w": 1248,
-  "h": 702,
-  "bg": "#62584c",
-  "sig": "e5ff1390a1",
-  "hero": true
  },
  "reviews/2026-isuzu-v-cross-review/#story": {
   "file": "images/home/reviews-2026-isuzu-v-cross-review-story-16x9.webp",
@@ -1137,14 +905,6 @@
   "bg": "#5f5549",
   "sig": "83de0230ea"
  },
- "reviews/2026-kia-seltos-review/#article": {
-  "file": "images/home/reviews-2026-kia-seltos-review-article-16x9.webp",
-  "w": 804,
-  "h": 453,
-  "bg": "#766e66",
-  "sig": "595933bf6f",
-  "hero": false
- },
  "reviews/2026-kia-seltos-review/#story": {
   "file": "images/home/reviews-2026-kia-seltos-review-story-16x9.webp",
   "w": 804,
@@ -1172,14 +932,6 @@
   "h": 279,
   "bg": "#736b62",
   "sig": "ee79ab69c6"
- },
- "reviews/2026-mahindra-be6-sporteq-review/#article": {
-  "file": "images/home/reviews-2026-mahindra-be6-sporteq-review-article-16x9.webp",
-  "w": 1168,
-  "h": 657,
-  "bg": "#5a4e41",
-  "sig": "4b229355bf",
-  "hero": true
  },
  "reviews/2026-mahindra-be6-sporteq-review/#story": {
   "file": "images/home/reviews-2026-mahindra-be6-sporteq-review-story-16x9.webp",
@@ -1209,14 +961,6 @@
   "bg": "#554a3d",
   "sig": "9254b394cf"
  },
- "reviews/2026-mahindra-thar-roxx-4x4-review/#article": {
-  "file": "images/home/reviews-2026-mahindra-thar-roxx-4x4-review-article-16x9.webp",
-  "w": 1200,
-  "h": 676,
-  "bg": "#504030",
-  "sig": "54aa8593b8",
-  "hero": true
- },
  "reviews/2026-mahindra-thar-roxx-4x4-review/#story": {
   "file": "images/home/reviews-2026-mahindra-thar-roxx-4x4-review-story-16x9.webp",
   "w": 1200,
@@ -1245,14 +989,6 @@
   "bg": "#4b3c2d",
   "sig": "8ca731e6d9"
  },
- "reviews/2026-maruti-brezza-automatic/#article": {
-  "file": "images/home/reviews-2026-maruti-brezza-automatic-article-16x9.webp",
-  "w": 563,
-  "h": 317,
-  "bg": "#23100e",
-  "sig": "eb13367050",
-  "hero": false
- },
  "reviews/2026-maruti-brezza-automatic/#story": {
   "file": "images/home/reviews-2026-maruti-brezza-automatic-story-16x9.webp",
   "w": 563,
@@ -1280,14 +1016,6 @@
   "h": 280,
   "bg": "#1c0f0d",
   "sig": "e0ab6f754a"
- },
- "reviews/2026-maruti-brezza-boot-space/#article": {
-  "file": "images/home/reviews-2026-maruti-brezza-boot-space-article-16x9.webp",
-  "w": 770,
-  "h": 433,
-  "bg": "#010101",
-  "sig": "7b5f81cdd7",
-  "hero": false
  },
  "reviews/2026-maruti-brezza-boot-space/#story": {
   "file": "images/home/reviews-2026-maruti-brezza-boot-space-story-16x9.webp",
@@ -1318,14 +1046,6 @@
   "sig": "17b495f57e",
   "contain": true
  },
- "reviews/2026-maruti-brezza-cng/#article": {
-  "file": "images/home/reviews-2026-maruti-brezza-cng-article-16x9.webp",
-  "w": 1100,
-  "h": 619,
-  "bg": "#060606",
-  "sig": "fc13104720",
-  "hero": true
- },
  "reviews/2026-maruti-brezza-cng/#story": {
   "file": "images/home/reviews-2026-maruti-brezza-cng-story-16x9.webp",
   "w": 1100,
@@ -1353,14 +1073,6 @@
   "h": 280,
   "bg": "#050505",
   "sig": "603827509f"
- },
- "reviews/2026-maruti-brezza-maintenance-cost/#article": {
-  "file": "images/home/reviews-2026-maruti-brezza-maintenance-cost-article-16x9.webp",
-  "w": 928,
-  "h": 522,
-  "bg": "#0d2c34",
-  "sig": "d1b5b52c8a",
-  "hero": false
  },
  "reviews/2026-maruti-brezza-maintenance-cost/#story": {
   "file": "images/home/reviews-2026-maruti-brezza-maintenance-cost-story-16x9.webp",
@@ -1391,14 +1103,6 @@
   "sig": "100b01d769",
   "contain": true
  },
- "reviews/2026-maruti-brezza-mileage/#article": {
-  "file": "images/home/reviews-2026-maruti-brezza-mileage-article-16x9.webp",
-  "w": 896,
-  "h": 504,
-  "bg": "#1b2f34",
-  "sig": "7300c491ff",
-  "hero": false
- },
  "reviews/2026-maruti-brezza-mileage/#story": {
   "file": "images/home/reviews-2026-maruti-brezza-mileage-story-16x9.webp",
   "w": 896,
@@ -1428,14 +1132,6 @@
   "sig": "0927714960",
   "contain": true
  },
- "reviews/2026-maruti-brezza-pros-cons/#article": {
-  "file": "images/home/reviews-2026-maruti-brezza-pros-cons-article-16x9.webp",
-  "w": 755,
-  "h": 425,
-  "bg": "#0c0a0a",
-  "sig": "f425380e24",
-  "hero": false
- },
  "reviews/2026-maruti-brezza-pros-cons/#story": {
   "file": "images/home/reviews-2026-maruti-brezza-pros-cons-story-16x9.webp",
   "w": 755,
@@ -1463,14 +1159,6 @@
   "h": 280,
   "bg": "#0c0b0a",
   "sig": "1443ae8ee7"
- },
- "reviews/2026-maruti-brezza-review/#article": {
-  "file": "images/home/reviews-2026-maruti-brezza-review-article-16x9.webp",
-  "w": 780,
-  "h": 439,
-  "bg": "#b3a793",
-  "sig": "b22e49f948",
-  "hero": false
  },
  "reviews/2026-maruti-brezza-review/#story": {
   "file": "images/home/reviews-2026-maruti-brezza-review-story-16x9.webp",
@@ -1500,14 +1188,6 @@
   "bg": "#b2a58f",
   "sig": "e63b3f3352"
  },
- "reviews/2026-maruti-brezza-safety/#article": {
-  "file": "images/home/reviews-2026-maruti-brezza-safety-article-16x9.webp",
-  "w": 690,
-  "h": 388,
-  "bg": "#020202",
-  "sig": "accd22958b",
-  "hero": false
- },
  "reviews/2026-maruti-brezza-safety/#story": {
   "file": "images/home/reviews-2026-maruti-brezza-safety-story-16x9.webp",
   "w": 690,
@@ -1535,14 +1215,6 @@
   "h": 280,
   "bg": "#020202",
   "sig": "f0b23b193e"
- },
- "reviews/2026-maruti-brezza-turbo-vs-petrol/#article": {
-  "file": "images/home/reviews-2026-maruti-brezza-turbo-vs-petrol-article-16x9.webp",
-  "w": 1100,
-  "h": 619,
-  "bg": "#847767",
-  "sig": "3d25035618",
-  "hero": true
  },
  "reviews/2026-maruti-brezza-turbo-vs-petrol/#story": {
   "file": "images/home/reviews-2026-maruti-brezza-turbo-vs-petrol-story-16x9.webp",
@@ -1572,14 +1244,6 @@
   "bg": "#857767",
   "sig": "ac1fdc24d4"
  },
- "reviews/2026-maruti-brezza-variants/#article": {
-  "file": "images/home/reviews-2026-maruti-brezza-variants-article-16x9.webp",
-  "w": 1600,
-  "h": 900,
-  "bg": "#061f27",
-  "sig": "4275f5aa3f",
-  "hero": true
- },
  "reviews/2026-maruti-brezza-variants/#story": {
   "file": "images/home/reviews-2026-maruti-brezza-variants-story-16x9.webp",
   "w": 1200,
@@ -1608,14 +1272,6 @@
   "bg": "#062026",
   "sig": "1e6e82e064"
  },
- "reviews/2026-maruti-swift-review/#article": {
-  "file": "images/home/reviews-2026-maruti-swift-review-article-16x9.webp",
-  "w": 1340,
-  "h": 753,
-  "bg": "#5d5241",
-  "sig": "d409c77b61",
-  "hero": true
- },
  "reviews/2026-maruti-swift-review/#story": {
   "file": "images/home/reviews-2026-maruti-swift-review-story-16x9.webp",
   "w": 1200,
@@ -1643,14 +1299,6 @@
   "h": 280,
   "bg": "#5a4f3e",
   "sig": "1dd85e6dee"
- },
- "reviews/2026-mercedes-glc-electric/#article": {
-  "file": "images/home/reviews-2026-mercedes-glc-electric-article-16x9.webp",
-  "w": 1250,
-  "h": 703,
-  "bg": "#605746",
-  "sig": "1e1d0f6f3b",
-  "hero": true
  },
  "reviews/2026-mercedes-glc-electric/#story": {
   "file": "images/home/reviews-2026-mercedes-glc-electric-story-16x9.webp",
@@ -1687,14 +1335,6 @@
   "bg": "#5f5645",
   "sig": "6c71075bc4"
  },
- "reviews/2026-skoda-kylaq-review/#article": {
-  "file": "images/home/reviews-2026-skoda-kylaq-review-article-16x9.webp",
-  "w": 984,
-  "h": 553,
-  "bg": "#705c50",
-  "sig": "5931d22cf3",
-  "hero": false
- },
  "reviews/2026-skoda-kylaq-review/#story": {
   "file": "images/home/reviews-2026-skoda-kylaq-review-story-16x9.webp",
   "w": 984,
@@ -1722,14 +1362,6 @@
   "h": 280,
   "bg": "#59463e",
   "sig": "1435432930"
- },
- "reviews/2026-skoda-slavia-facelift/#article": {
-  "file": "images/home/reviews-2026-skoda-slavia-facelift-article-16x9.webp",
-  "w": 960,
-  "h": 540,
-  "bg": "#5c4d40",
-  "sig": "edc6efa5a5",
-  "hero": false
  },
  "reviews/2026-skoda-slavia-facelift/#story": {
   "file": "images/home/reviews-2026-skoda-slavia-facelift-story-16x9.webp",
@@ -1759,14 +1391,6 @@
   "bg": "#5a4b3d",
   "sig": "ce7735aef0"
  },
- "reviews/2026-slavia-vs-virtus/#article": {
-  "file": "images/home/reviews-2026-slavia-vs-virtus-article-16x9.webp",
-  "w": 1100,
-  "h": 619,
-  "bg": "#1a1e22",
-  "sig": "17ee68ab19",
-  "hero": true
- },
  "reviews/2026-slavia-vs-virtus/#story": {
   "file": "images/home/reviews-2026-slavia-vs-virtus-story-16x9.webp",
   "w": 1100,
@@ -1794,14 +1418,6 @@
   "h": 280,
   "bg": "#1e2227",
   "sig": "86e5b4b1ca"
- },
- "reviews/2026-volkswagen-virtus-review/#article": {
-  "file": "images/home/reviews-2026-volkswagen-virtus-review-article-16x9.webp",
-  "w": 1128,
-  "h": 635,
-  "bg": "#ac9a83",
-  "sig": "3c513ca390",
-  "hero": true
  },
  "reviews/2026-volkswagen-virtus-review/#story": {
   "file": "images/home/reviews-2026-volkswagen-virtus-review-story-16x9.webp",
@@ -1831,14 +1447,6 @@
   "bg": "#ab9980",
   "sig": "0e5bd69fe1"
  },
- "reviews/bmw-7-series-vs-mercedes-s-class-vs-genesis-g90/#article": {
-  "file": "images/home/reviews-bmw-7-series-vs-mercedes-s-class-vs-genesis-g90-article-16x9.webp",
-  "w": 781,
-  "h": 439,
-  "bg": "#8b7053",
-  "sig": "8f06d17ec6",
-  "hero": false
- },
  "reviews/bmw-7-series-vs-mercedes-s-class-vs-genesis-g90/#story": {
   "file": "images/home/reviews-bmw-7-series-vs-mercedes-s-class-vs-genesis-g90-story-16x9.webp",
   "w": 781,
@@ -1866,14 +1474,6 @@
   "h": 280,
   "bg": "#8b6f50",
   "sig": "96bac2f7ad"
- },
- "reviews/bmw-x5-vs-genesis-gv80-vs-volvo-xc90/#article": {
-  "file": "images/home/reviews-bmw-x5-vs-genesis-gv80-vs-volvo-xc90-article-16x9.webp",
-  "w": 748,
-  "h": 421,
-  "bg": "#232c31",
-  "sig": "036da568fc",
-  "hero": false
  },
  "reviews/bmw-x5-vs-genesis-gv80-vs-volvo-xc90/#story": {
   "file": "images/home/reviews-bmw-x5-vs-genesis-gv80-vs-volvo-xc90-story-16x9.webp",
@@ -1903,14 +1503,6 @@
   "bg": "#242e33",
   "sig": "14c5b84b07"
  },
- "reviews/kia-syros-ev/#article": {
-  "file": "images/home/reviews-kia-syros-ev-article-16x9.webp",
-  "w": 996,
-  "h": 560,
-  "bg": "#53514a",
-  "sig": "2d3ed88976",
-  "hero": false
- },
  "reviews/kia-syros-ev/#story": {
   "file": "images/home/reviews-kia-syros-ev-story-16x9.webp",
   "w": 996,
@@ -1938,14 +1530,6 @@
   "h": 280,
   "bg": "#514f48",
   "sig": "5cc6bd4252"
- },
- "reviews/range-rover-sport-vs-bmw-x5-vs-mercedes-gle/#article": {
-  "file": "images/home/reviews-range-rover-sport-vs-bmw-x5-vs-mercedes-gle-article-16x9.webp",
-  "w": 759,
-  "h": 427,
-  "bg": "#262b30",
-  "sig": "9a94a3348f",
-  "hero": false
  },
  "reviews/range-rover-sport-vs-bmw-x5-vs-mercedes-gle/#story": {
   "file": "images/home/reviews-range-rover-sport-vs-bmw-x5-vs-mercedes-gle-story-16x9.webp",
@@ -1975,14 +1559,6 @@
   "bg": "#262c31",
   "sig": "458800178c"
  },
- "reviews/tata-altroz/#article": {
-  "file": "images/home/reviews-tata-altroz-article-16x9.webp",
-  "w": 967,
-  "h": 544,
-  "bg": "#5f5246",
-  "sig": "525ccd46f7",
-  "hero": false
- },
  "reviews/tata-altroz/#story": {
   "file": "images/home/reviews-tata-altroz-story-16x9.webp",
   "w": 967,
@@ -2010,14 +1586,6 @@
   "h": 280,
   "bg": "#615245",
   "sig": "13d4c3c5cd"
- },
- "reviews/toyota-hilux/#article": {
-  "file": "images/home/reviews-toyota-hilux-article-16x9.webp",
-  "w": 1024,
-  "h": 576,
-  "bg": "#9ca09d",
-  "sig": "06a59a7bfb",
-  "hero": true
  },
  "reviews/toyota-hilux/#story": {
   "file": "images/home/reviews-toyota-hilux-story-16x9.webp",

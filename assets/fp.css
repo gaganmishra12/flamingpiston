@@ -593,102 +593,17 @@ main.content ul+p,main.content ol+p{margin-top:1.1em}
 @media (max-width:599px){main.content p,main.content li{font-size:1rem;line-height:1.7}}
 .score-breakdown th:last-child{text-align:right}
 
-/* ---------- 21. Article design (Phase 2C, design A "Showroom", approved by Gagan 28 Nov 2026) ----------
-   Scoped to body.article (the 73 article pages). Restyles the existing markup only: the petrol header band holds
-   label, headline and byline; the clean hero photo straddles the band's lower edge; callouts, tables and buyer-fit
-   are rounded cards; the Spec Score sits on a petrol panel with bars (fp.js 6c); "On this page" contents list in
-   the left margin from 1180px (fp.js 6c); Read Next (hand-picked cards, inside or after <main>) on a petrol band. */
-body.article main.content{
-  --band-cut:min(300px,26vw);
-  grid-template-columns:[full-start] minmax(var(--page-gutter),1fr) [wide-start] minmax(0,210px) [text-start] min(var(--read),calc(100% - 2*var(--page-gutter))) [text-end] minmax(0,210px) [wide-end] minmax(var(--page-gutter),1fr) [full-end];
-  padding-top:0;
-}
-body.article main.content::before{content:"";grid-column:full;grid-row:1/6;order:0;background:linear-gradient(var(--petrol),var(--petrol)) top/100% calc(100% - var(--band-cut)) no-repeat}
-body.article main.content>.tag{grid-row:1;margin-top:clamp(28px,3.4vw,48px);font:700 12px/1.2 var(--f-body);letter-spacing:.06em;color:var(--ember-label)}
-body.article main.content>.tag::before{display:none}
-body.article main.content>h1{grid-row:2;color:var(--ivory);font:italic 700 clamp(34px,4.2vw,58px)/1.04 var(--f-head);letter-spacing:-.03em;max-width:17em;margin-top:14px}
-body.article main.content>.author-block{grid-row:3;border-color:var(--rule-dark);margin-top:24px!important}
-body.article .author-block .name,body.article .author-block .name a{color:var(--ivory)}
-body.article .author-block .dates,body.article .author-block .read-time,body.article .author-block .category-line,body.article .author-block .facts,body.article .share-label{color:var(--on-dark-2)}
-body.article .author-block .read-time strong,body.article .author-block .category-line strong{color:var(--on-dark-dek)}
-body.article .author-col-left>.read-time::before{color:var(--on-dark-2)}
-body.article .share-btn{color:var(--on-dark-dek)}
-body.article .share-btn:hover{border-color:var(--rule-dark);color:var(--ivory)}
-body.article .share-btn:focus-visible{outline-color:var(--ember-label)}
-body.article main.content>.hero-image{grid-row:4;margin-top:28px;border-radius:12px;aspect-ratio:16/9}
-body.article main.content>.photo-caption{grid-row:5;margin-top:10px}
-@media (max-width:767px){
-  body.article main.content>.hero-image{grid-column:wide;border-radius:10px}
-  body.article .share-row{border-top-color:var(--rule-dark)}
-}
-
-/* body */
-body.article main.content>p:first-of-type,body.article main.content>.photo-caption~p:first-of-type{margin-top:clamp(28px,3vw,40px)}
-body.article main.content>h2,body.article main.content .section-block h2{font:700 clamp(26px,2.4vw,34px)/1.1 var(--f-head);letter-spacing:-.022em;scroll-margin-top:calc(var(--nav-h) + 20px)}
-body.article .section-block{margin-top:clamp(40px,4.4vw,60px)}
-body.article .quick-verdict{background:var(--card-surface);border:1px solid var(--card-border);border-left:4px solid var(--ember-strong);border-radius:10px;box-shadow:none;padding:20px 24px 22px}
-body.article .quick-verdict h3{font:700 12px/1.2 var(--f-body)!important;letter-spacing:.06em;color:var(--ember-text)!important}
-body.article .price-range-badge{border:0;border-radius:10px;background:var(--petrol);color:var(--ivory);padding:16px 20px}
-body.article .price-range-badge .note{color:var(--on-dark-2)}
-body.article main.content table{border:1px solid var(--card-border);border-radius:10px;border-collapse:separate;border-spacing:0;overflow:hidden;background:var(--card-surface)}
-body.article main.content th{background:var(--ivory-2)}
-body.article main.content tr:last-child td{border-bottom:0}
-body.article .section-image img{border-radius:10px}
-
-/* Spec Score panel (bars: td.has-bar and --s set by fp.js 6c) */
-body.article .score-breakdown{background:var(--petrol);color:var(--ivory);border:0;border-radius:12px;padding:26px 28px 28px}
-body.article .score-breakdown h3{color:var(--ivory);font:italic 700 clamp(22px,2vw,28px)/1.15 var(--f-head)}
-body.article .score-breakdown p{color:var(--on-dark-dek)}
-body.article .score-breakdown a{color:var(--ivory)}
-body.article main.content .score-breakdown table{background:transparent;border:0;border-radius:0;overflow:visible}
-body.article main.content .score-breakdown th{background:transparent;color:var(--on-dark-2);border-bottom:1px solid var(--rule-dark)}
-body.article main.content .score-breakdown td{border-bottom:1px solid var(--rule-dark);color:var(--ivory)}
-body.article main.content .score-breakdown tr:hover td{background:transparent}
-body.article .score-breakdown td.has-bar{position:relative;padding-bottom:16px}
-body.article .score-breakdown td.has-bar::after{content:"";position:absolute;right:12px;bottom:8px;height:3px;width:calc((100% - 24px) * var(--s));background:var(--ember-label);border-radius:2px}
-body.article main.content .score-breakdown tr.total td{border-top:1px solid var(--ivory);color:var(--ivory);font-size:1.0625rem}
-body.article .score-breakdown tr.total td.has-bar::after{background:var(--ivory)}
-@media (max-width:599px){body.article .score-breakdown{padding:22px 18px 24px}body.article .score-breakdown td.has-bar::after{right:8px;width:calc((100% - 16px) * var(--s))}}
-
-/* buyer fit, sources, FAQ */
-body.article .fit-card{background:var(--card-surface);border:1px solid var(--card-border);border-radius:10px;box-shadow:none;border-top:4px solid var(--teal)}
-body.article .fit-no{border-top-color:var(--ember-strong)}
-body.article .fit-card h3::before{display:none}
-body.article .sources-block{background:transparent;border:1px solid var(--card-border);border-radius:10px}
-body.article main.content p.qa{padding-top:18px;border-top:1px solid var(--card-border)}
-
-/* "On this page" contents list (built by fp.js 6c from the article h2s; wide screens only) */
+/* ---------- 21. Article contents list ("On this page", kept from Phase 2C; the Phase 2C page design was rolled back 28 Nov 2026) ----------
+   fp.js 6c builds nav.toc from the article h2s (3 or more) and appends it to main.content. From 1180px it sits sticky in the
+   left margin column (wide-start/text-start) beside the body, starting after the header zone (order 7: after the caption). */
+body.article main.content h2{scroll-margin-top:calc(var(--nav-h) + 20px)}
 body.article .toc{display:none}
 @media (min-width:1180px){
-  body.article .toc{display:block;grid-column:wide-start/text-start;grid-row:6/span 400;order:0;align-self:start;position:sticky;top:calc(var(--nav-h) + 28px);margin-top:clamp(28px,3vw,44px);padding-right:28px}
-  body.article .toc-h{font:700 12px/1.2 var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+  body.article main.content>.toc{display:block;order:7;grid-column:wide-start/text-start;grid-row:span 400;align-self:start;position:sticky;top:calc(var(--nav-h) + 28px);margin-top:clamp(20px,2.4vw,32px);padding-right:28px}
+  body.article .toc-h{margin:0;font:700 12px/1.2 var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
   body.article .toc ol{list-style:none;padding:0;margin:12px 0 0;border-left:1px solid var(--card-border)}
-  body.article .toc li{margin:0;font-size:14px!important;line-height:1.35!important}
+  body.article .toc li{margin:0;font-size:14px;line-height:1.35}
   body.article .toc a{display:block;padding:7px 0 7px 14px;margin-left:-1px;border-left:2px solid transparent;color:var(--ink-3);text-decoration:none}
   body.article .toc a:hover{color:var(--ink)}
   body.article .toc a[aria-current]{color:var(--ink);border-left-color:var(--ember-strong);font-weight:600}
-  body.article main.content>*:not(.toc):not(.hero-image):not(.photo-caption):not(.tag):not(h1):not(.author-block):not(.section-heading):not(.card-grid){grid-column:text}
 }
-
-/* Read Next: the article's own hand-picked cards (after <main>, or inside it on older pages) on a petrol band */
-body.article>.section-heading,body.article>.card-grid,body.article main.content>.section-heading,body.article main.content>.card-grid{
-  max-width:none;margin:0;background:var(--petrol);padding-inline:max(var(--page-gutter),calc((100% - var(--content-max-width)) / 2))}
-body.article main.content>.section-heading,body.article main.content>.card-grid{grid-column:full}
-body.article main.content>.section-heading{margin-top:clamp(40px,5vw,64px)}
-body.article main.content:has(>.card-grid){padding-bottom:0}
-body.article>.section-heading,body.article main.content>.section-heading{padding-top:clamp(40px,5vw,64px);padding-bottom:0;text-align:left}
-body.article .section-heading h2{margin:0!important;padding:0;border:0;color:var(--ivory);font:italic 700 clamp(28px,3vw,40px)/1 var(--f-head);letter-spacing:-.025em;text-align:left}
-body.article>.card-grid,body.article main.content>.card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--card-gap);padding-top:24px;padding-bottom:clamp(40px,5vw,64px)}
-body.article .card-grid .card{display:flex;flex-direction:column;background:var(--petrol-3);border:0;border-radius:10px;overflow:hidden;box-shadow:none}
-body.article .card-grid .card-media{position:relative;display:block;aspect-ratio:16/9;overflow:hidden;background:var(--petrol-2)}
-body.article .card-grid .card-media img{display:block;width:100%;height:100%;object-fit:cover}
-body.article .card-grid .card-media .tag{position:absolute;left:12px;top:12px;z-index:1;margin:0;padding:5px 8px;border-radius:4px;background:var(--petrol);font:700 11px/1.2 var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:var(--ember-label)}
-body.article .card-grid .card-media .tag::before{display:none}
-body.article .card-grid .card-body{display:flex;flex-direction:column;gap:10px;flex:1;padding:16px 18px 18px}
-body.article .card-grid .card h3{margin:0;font:600 19px/1.25 var(--f-head)}
-body.article .card-grid .card h3 a{color:var(--ivory);text-decoration:none}
-body.article .card-grid .card h3 a:hover{text-decoration:underline;text-decoration-color:var(--ember-label)}
-body.article .card-grid .card-body>p,body.article .card-grid .card-foot,body.article .card-grid .card-foot a{margin-top:auto;font:400 12px/1.4 var(--f-mono)!important;color:var(--on-dark-2)!important;text-decoration:none}
-body.article .card-grid .card-foot a:hover{color:var(--ivory)!important}
-@media (max-width:899px){body.article>.card-grid,body.article main.content>.card-grid{grid-template-columns:1fr 1fr}body.article .card-grid .card:nth-child(3){display:none}}
-@media (max-width:599px){body.article>.card-grid,body.article main.content>.card-grid{grid-template-columns:1fr}body.article .card-grid .card:nth-child(3){display:flex}}

@@ -19,7 +19,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
-const V = '20261128art';                       // fp.css / fp.js — bump after editing them
+const V = '20261128toc';                       // fp.css / fp.js — bump after editing them
 const VH = '20261128lr2';                      // homepage-only assets (fp-home.css / fp-home.js)
 const SKIP_DIRS = new Set(['site', 'scripts', 'images', 'js', 'assets', '.git', 'node_modules', 'design-preview']);
 const args = process.argv.slice(2);
@@ -195,15 +195,10 @@ function apply(rel) {
   const leadSrc = lead && (lead[0].match(/\ssrc="([^"]+)"/) || [])[1];
   if (leadSrc && !/^(https?:|data:)/.test(leadSrc) && !/\[/.test(leadSrc)) {
     const abs = leadSrc.startsWith('/') ? leadSrc : path.posix.normalize(path.posix.join('/', path.posix.dirname(rel.split(path.sep).join('/')), leadSrc));
-    // with a srcset (clean article photos, scripts/article-images.js) preload the same candidates, so phones fetch the small file only once
-    const set = (lead[0].match(/\ssrcset="([^"]+)"/) || [])[1], sizes = (lead[0].match(/\ssizes="([^"]+)"/) || [])[1];
-    const resp = set && sizes ? ` imagesrcset="${set}" imagesizes="${sizes}"` : '';
-    head = head.replace('<link rel="preload" href="/assets/fonts/', `<link rel="preload" href="${abs}"${resp} as="image" fetchpriority="high">\n  <link rel="preload" href="/assets/fonts/`);
+    head = head.replace('<link rel="preload" href="/assets/fonts/', `<link rel="preload" href="${abs}" as="image" fetchpriority="high">\n  <link rel="preload" href="/assets/fonts/`);
   }
   if (rel === 'index.html') head = head.replace('<link rel="stylesheet" href="/assets/fp.css', `<link rel="preload" href="/assets/fonts/familjen-grotesk-latin-700-italic.woff2" as="font" type="font/woff2" crossorigin>\n  <link rel="stylesheet" href="/assets/fp.css`)
     .replace('  <!-- /FP:HEAD -->', `  <link rel="stylesheet" href="/assets/fp-home.css?v=${VH}">\n  <!-- /FP:HEAD -->`);
-  if (bodyClass(rel, sec) === 'article')   // article headlines are italic (Phase 2C): fetch that face early, like the homepage
-    head = head.replace('<link rel="stylesheet" href="/assets/fp.css', `<link rel="preload" href="/assets/fonts/familjen-grotesk-latin-700-italic.woff2" as="font" type="font/woff2" crossorigin>\n  <link rel="stylesheet" href="/assets/fp.css`);
   if (['news.html', 'reviews.html', 'guides.html', 'comparisons.html', 'car-culture.html'].includes(rel)) {
     head = head.replace('  <!-- /FP:HEAD -->', '  <link rel="stylesheet" href="/assets/fp-listings.css?v=20261128gc">\n  <!-- /FP:HEAD -->');
   }

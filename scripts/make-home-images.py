@@ -37,7 +37,6 @@ Homepage slot ratios (keep in step with assets/fp-home.css):
   thumb 2.0  (2:1)    (Latest News list until the 27 Nov 2026 refinement; kept so old crops are not deleted)
   thumb 1.78 (16:9)   Latest Stories rows (560px)
   story 1.78 (16:9)   Latest Stories lead story (1200px, same "thumb" spec)
-  article 1.78 (16:9) article hero photo (up to 1800px, same "thumb" spec; used by scripts/article-images.js)
   card  1.78 (16:9)   New & Upcoming (older split cards, newUpcoming.items)
   tall  0.86 (6:7)    Latest Reviews, optional: a squarish photo that fills the card's full height (desktop)
   bthumb             compact thumbnails cut from a homepage banner's "subject": comparison pair 16:10,
@@ -57,10 +56,10 @@ from PIL import Image
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 OUT = os.path.join(ROOT, 'images', 'home')
-WIDTH = {'article': 1800, 'hero': 1600, 'thumb': 560, 'tall': 720, 'story': 1200, 'bthumb': 760, 'car': 760, 'vs': 1600, 'card': 900, 'banner': 1400, 'feature': 1600}
+WIDTH = {'hero': 1600, 'thumb': 560, 'tall': 720, 'story': 1200, 'bthumb': 760, 'car': 760, 'vs': 1600, 'card': 900, 'banner': 1400, 'feature': 1600}
 # Homepage banners (data/homepage.json "banners"): expected ratio, the furthest left the car may start, output width
 BANNER = {'hero': (2.4, 0.38, 1600), 'compare': (2.4, 0.33, 1600), 'launch': (3.0, 0.40, 1400), 'upcoming': (3.0, 0.40, 1400), 'culture': (4.4, 0.45, 2000)}
-RATIOS = {'article': [16 / 9], 'hero': [1.6], 'tall': [6 / 7], 'thumb': [1.6, 2.0, 16 / 9], 'story': [16 / 9], 'card': [16 / 9], 'car': [16 / 9]}
+RATIOS = {'hero': [1.6], 'tall': [6 / 7], 'thumb': [1.6, 2.0, 16 / 9], 'story': [16 / 9], 'card': [16 / 9], 'car': [16 / 9]}
 BTHUMB = {'compare': 1.6, 'launch': 16 / 9, 'upcoming': 16 / 9}   # banner kind -> compact thumbnail ratio
 SUFFIX = {1.6: '16x10', 2.0: '2x1', 16 / 9: '16x9', 2.4: '12x5', 6 / 7: '6x7'}
 PAD_X, PAD_Y = 0.07, 0.09     # breathing room around the car, as a share of the frame
@@ -181,8 +180,6 @@ for url, roles in home.get('images', {}).items():
         add(f'{url}#{role}', role, spec, f'{slug(url)}-{role}')
         if role == 'thumb' and spec.get('subject'):      # large 16:9 crop for the Latest Stories lead
             add(f'{url}#story', 'story', spec, f'{slug(url)}-story')
-            if not url.endswith('.json') and not url.startswith('banner'):   # article hero (Phase 2C): same frame, up to 1800px
-                add(f'{url}#article', 'article', spec, f'{slug(url)}-article')
 cmp = home.get('comparison') or {}
 if cmp.get('image'):
     add('comparison#image', 'vs', cmp['image'], f'{slug(cmp["url"])}-pair')
@@ -261,8 +258,6 @@ for key, role, spec, name, ratio in jobs:
     crop.resize((w, h), Image.LANCZOS).save(dst, 'WEBP', quality=QUALITY, method=6)
     made += 1
     entry = {'file': rel, 'w': w, 'h': h, 'bg': bg, 'sig': sig}
-    if role == 'article':      # article hero only when sharp enough: ≥1000px, or ≥90% of the source width
-        entry['hero'] = w >= 1000 or w >= 0.9 * W
     if not fits:
         entry['contain'] = True
     manifest[key] = entry
