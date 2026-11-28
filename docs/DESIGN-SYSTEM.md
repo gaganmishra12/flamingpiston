@@ -362,7 +362,7 @@ Removed from `fp-home.css` after checking every HTML page, template, script, dat
 | Area | Difference from the homepage language | Phase |
 |---|---|---|
 | Listing pages | Old page head, text-tab filters and 16:9 `.card` grid (now aligned to the 1440px container) | 2B |
-| Articles | Old article typography/blocks (Phase 2C design A was rolled back 28 Nov 2026; only the "On this page" list, fp.css §21 / fp.js 6c, was kept: sticky in the left margin from 1180px, built from 3+ h2s); `--gutter` (4vw) instead of `--page-gutter` (2.6vw); text-baked hero graphics | 2C |
+| Articles | Old article typography/blocks (Phase 2C design A was rolled back 28 Nov 2026; only the "On this page" list, fp.css §21 / fp.js 6c, was kept: sticky in the left margin from 1180px, built from 3+ h2s); since 28 Nov 2026 the label, headline, byline, hero and caption sit in the 720px reading column (fp.css §12) instead of the 1120px wide column, so the first paragraph shows sooner (above the fold on 1920×1080; not on 800px-tall laptop screens); `--gutter` (4vw) instead of `--page-gutter` (2.6vw); text-baked hero graphics | 2C |
 | Info, legal, author, sitemap, 404 | Old info-page styling; 404 uses old `.btn` buttons | 5 |
 | Tools page | Own calculator styling (petrol result panels) inside the global shell | 4/5 |
 | Section headings | Homepage uses `.fp-head` (upright titles, "View all"); other pages use `.page-head` / article headings | 2B/2C |
